@@ -28,8 +28,8 @@ export default function AvailService() {
             </h2>
 
             <p className="mt-between-content text-content-font font-raleway text-off-white-text-color">
-              Share your idea with us and we'll turn it into a custom solution
-              that drives results.
+              Share your idea with us and we&apos;ll turn it into a custom
+              solution that drives results.
             </p>
 
             <Button href="#" className="mt-content-gap">
