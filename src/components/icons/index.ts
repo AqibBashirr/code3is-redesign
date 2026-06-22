@@ -1,0 +1,8 @@
+export { default as Arrow2 } from "./Arrow2";
+export { default as Facebook } from "./Facebook";
+export { default as Instagram } from "./Instagram";
+export { default as Linkedin } from "./Linkedin";
+export { default as Location } from "./Location";
+export { default as Mail } from "./Mail";
+export { default as Phone } from "./Phone";
+export { default as X } from "./X";
