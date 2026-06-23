@@ -38,7 +38,7 @@ export default function Button({
     <Link
       href={href}
       className={cn(
-        "group rounded-sm inline-flex items-center gap-3 px-6 py-3 text-sm font-medium uppercase tracking-[0.08em] transition-all duration-300 font-inter",
+        "group rounded-sm inline-flex items-center gap-3 px-5 py-3.5 text-sm font-medium uppercase tracking-[0.08em] transition-all duration-300 font-inter",
         variants[variant],
         className,
       )}

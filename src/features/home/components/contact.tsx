@@ -2,6 +2,7 @@ import BigBgText from "@/components/BigBgText";
 import BodyText from "@/components/BodyText";
 import ContactForm from "@/components/Forms/ContactForm";
 import HeadingPill from "@/components/headingPill";
+import HighlightText from "@/components/Highlight";
 
 function Contact() {
   return (
@@ -14,9 +15,9 @@ function Contact() {
             <HeadingPill>Contact</HeadingPill>
             <h2 className="font-raleway font-semibold text-[clamp(28px,3vw,40px)] leading-[120%] mt-between-content">
               LET’S BUILD SOMETHING THAT{" "}
-              <span className="underline underline-offset-7 decoration-highlight-text-color">
+              <HighlightText>
                 WORKS.
-              </span>
+              </HighlightText>
             </h2>
 
             <BodyText className="capitalize ">

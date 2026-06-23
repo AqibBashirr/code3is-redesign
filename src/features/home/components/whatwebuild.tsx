@@ -1,6 +1,7 @@
-import Link from "next/link";
 import AdCard from "../../../components/Cards/addCard";
 import Button from "@/components/Buttons/Button";
+import BodyText from "@/components/BodyText";
+import HighlightText from "@/components/Highlight";
 
 export default function WhatWeBuild() {
   const cards = [
@@ -40,18 +41,19 @@ export default function WhatWeBuild() {
           <div className="col-span-2 flex flex-col justify-center items-start mb-6 md:mb-0 pr-0 md:pr-8">
             <h2 className="font-raleway font-semibold text-center text-[clamp(28px,3vw,40px)]">
               What We{" "}
-              <span className="italic underline decoration-[#a3e635] decoration-4 underline-offset-8">
+              <HighlightText className="italic">
                 Build
-              </span>
+              </HighlightText>
             </h2>
-            <p className=" text-secondary-color mt-6 sm:mb-content-gap max-w-sm  text-content-font">
-              A glimpse into the digital products and brand systems we&apos;ve
-              built for our clients
-            </p>
+            
+              <BodyText className="sm:mb-content-gap max-w-sm">
+                A glimpse into the digital products and brand systems we&apos;ve
+                built for our clients
+              </BodyText>
+       
             <Button href="#" variant="dark" className="hidden md:flex">
               Start a Project
             </Button>
-            
           </div>
 
           {/* Render Cards */}

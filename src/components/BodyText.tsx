@@ -9,7 +9,8 @@ function BodyText({ children,className }: BodyTextProps) {
   return (
     <p
       className={cn(
-        "mt-between-content text-content-font leading-[calc(var(--content-font-size)+12px)] font-poppins text-secondary-color ",
+        "text-content-font leading-[calc(var(--content-font-size)+12px)] font-poppins text-secondary-color ",
+        'mt-between-content',
         className,
       )}
     >

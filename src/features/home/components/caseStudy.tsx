@@ -5,6 +5,7 @@ import Image from "next/image";
 import HeadingPill from "@/components/headingPill";
 import BigBgText from "@/components/BigBgText";
 import BodyText from "@/components/BodyText";
+import HighlightText from "@/components/Highlight";
 
 function CaseStudy() {
   return (
@@ -28,9 +29,9 @@ function CaseStudy() {
             <div>
               <h2 className=" font-semibold text-[clamp(28px,3vw,40px)] leading-[120%]">
                 From Complex Backend to Seamless{" "}
-                <span className="underline underline-offset-7 decoration-highlight-text-color">
+                <HighlightText>
                   Experience
-                </span>
+                </HighlightText>
               </h2>
               <BodyText>
                 We redesign fragmented digital experiences into scalable systems

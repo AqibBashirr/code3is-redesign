@@ -1,4 +1,6 @@
+import BodyText from "@/components/BodyText";
 import Button from "@/components/Buttons/Button";
+import HighlightText from "@/components/Highlight";
 import { Arrow2 } from "@/components/icons";
 import { SERVICES_OVERVIEW } from "@/constants/services";
 
@@ -7,14 +9,12 @@ function Service() {
     <section className="pb-y max-w-max mx-auto px-x">
       <h2 className="font-raleway font-semibold text-center text-[clamp(28px,3vw,40px)]">
         Our{" "}
-        <span className="underline underline-offset-7 decoration-highlight-text-color">
+        <HighlightText>
           Services
-        </span>
+        </HighlightText>
       </h2>
 
-      <p className="text-center mt-3.5 text-secondary-color">
-        Real projects. Real results.
-      </p>
+      <BodyText className="text-center">Real projects. Real results.</BodyText>
 
       <ul className="pt-content-gap grid grid-cols-1 sm:grid-cols-2 gap-[clamp(24px,3vw,40px)]">
         {SERVICES_OVERVIEW.map((services) => (
