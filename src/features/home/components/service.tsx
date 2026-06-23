@@ -20,25 +20,24 @@ function Service() {
         {SERVICES_OVERVIEW.map((services) => (
           <li
             key={services.title}
-            className={`group rounded-lg border transition-all duration-300 ${
-              services.title === "Design"
-                ? "border-card-color bg-[radial-gradient(circle,#3D3D3D,#1F1F1F)] shadow-[-3px_3px_0_0px_#bbfd58] sm:shadow-[-4px_4px_0_0px_#bbfd58] hover:bg-[linear-gradient(white,white)] hover:shadow-[-4px_4px_0_0px_#3a3a3a]"
-                : "border-card-color shadow-[-4px_4px_0_0px_#3a3a3a] hover:bg-[radial-gradient(circle,#3D3D3D,#1F1F1F)] bg-[linear-gradient(white,white)]  hover:shadow-highlight-text-color"
-            }`}
+            // 1. ADDED: relative overflow-hidden (to contain the gradient)
+            // 2. REMOVED: hover:bg-[#1f1f1f] (since we use the radial layer now)
+            className="group relative overflow-hidden rounded-lg border border-card-color bg-white shadow-[-4px_4px_0_0px_#3a3a3a] transition-all duration-300 ease-in-out hover:shadow-highlight-text-color"
           >
+            {/* THE HIDDEN RADIAL GRADIENT LAYER */}
+            <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle,#3D3D3D,#1F1F1F)] opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100" />
+
             <a
               href={`/services/${services.title.toLowerCase()}`}
-              className="block h-full py-card-y px-card-x"
+              // 3. ADDED: relative z-10 (keeps content above the background)
+              className="relative z-10 block h-full py-card-y px-card-x"
             >
-              <div className="flex justify-between  items-end h-full">
+              <div className="flex justify-between items-end h-full">
                 <div>
                   {/* INNER TEXT LOGIC: H3 */}
                   <h3
-                    className={`transition-colors duration-300 text-h3-font ${
-                      services.title === "Design"
-                        ? "text-highlight-text-color group-hover:text-offBlack-color"
-                        : "text-offBlack-color group-hover:text-highlight-text-color"
-                    }`}
+                    // FIXED TYPO: Added space between text-h3-font and text-offBlack-color
+                    className="transition-colors duration-300 text-h3-font text-offBlack-color group-hover:text-highlight-text-color"
                   >
                     {services.title}
                   </h3>
@@ -50,14 +49,10 @@ function Service() {
                       return (
                         <li
                           key={service.label}
-                          className={`flex gap-[clamp(10px,2vw,15px)] items-center font-medium transition-colors duration-300 ${
-                            services.title === "Design"
-                              ? "text-off-white-text-color group-hover:text-offBlack-color"
-                              : "text-offBlack-color group-hover:text-off-white-text-color"
-                          }`}
+                          className="flex gap-[clamp(10px,2vw,15px)] items-center font-medium transition-colors duration-300 text-offBlack-color group-hover:text-off-white-text-color"
                         >
                           <Icon className="w-[clamp(16px,2vw,20px)] h-[clamp(16px,2vw,20px)] transition-transform group-hover:scale-110" />
-                          <span className="font-medium  text-content-font leading-content-font">
+                          <span className="font-medium text-content-font leading-content-font">
                             {service.label}
                           </span>
                         </li>
@@ -68,13 +63,7 @@ function Service() {
 
                 {/* ARROW ICON */}
                 <div className="mb-2">
-                  <Arrow2
-                    className={`w-[clamp(26px,3.5vw,45px)] transition-colors duration-300 ${
-                      services.title === "Design"
-                        ? "text-highlight-text-color group-hover:text-secondary-color"
-                        : "text-secondary-color group-hover:text-highlight-text-color"
-                    }`}
-                  />
+                  <Arrow2 className="w-[clamp(26px,3.5vw,45px)] transition-colors duration-300 text-secondary-color group-hover:text-highlight-text-color" />
                 </div>
               </div>
             </a>

@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { Inter, Montserrat, Poppins, Raleway } from "next/font/google";
+import {
+  Bebas_Neue,
+  Inter,
+  Montserrat,
+  Poppins,
+  Raleway,
+} from "next/font/google";
 import Header from "@/components/Layout/Header/Header";
 import Aside from "@/components/Layout/Aside/Aside";
 import Footer from "@/components/Layout/Footer/Footer";
 import "./globals.css";
+
+const bebas_neue = Bebas_Neue({
+  variable: "--font-bebas_neue",
+  weight: ["400"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const raleway = Raleway({
   variable: "--font-raleway",
@@ -26,16 +38,12 @@ const poppins = Poppins({
 });
 
 const montserrat = Montserrat({
-  variable: "--font-montserrat", // FIX: Changed from --font-poppins
+  variable: "--font-montserrat",
   subsets: ["latin"],
   display: "swap",
 });
 
-const vanguard = localFont({
-  src: "./fonts/vanguard.otf", // FIX: Changed to a relative path
-  variable: "--font-vanguard", // OPTIONAL: Added variable for consistency
-  display: "swap",
-});
+
 
 export const metadata: Metadata = {
   title: "Code3 Innovative Solutions",
@@ -51,12 +59,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${poppins.variable} ${raleway.variable} ${montserrat.variable} ${vanguard.variable} h-full antialiased`}
+      className={`${inter.variable} ${poppins.variable} ${raleway.variable} ${montserrat.variable} ${bebas_neue.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Header />
         <Aside />
-        <main>{children}</main>
+        <main className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>

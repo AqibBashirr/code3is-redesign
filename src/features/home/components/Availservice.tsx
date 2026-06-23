@@ -1,3 +1,4 @@
+import BodyText from "@/components/BodyText";
 import Button from "@/components/Buttons/Button";
 
 const SERVICES = [
@@ -17,28 +18,26 @@ const SERVICES = [
 export default function AvailService() {
   return (
     <section className="bg-(image:--gradiant-background) overflow-hidden">
-      <div className="mx-auto max-w-max px-x py-y">
+      <div className="mx-auto max-w-max px-x ">
         <div className="grid items-center gap-12 md:grid-cols-[1fr_auto] text-center md:text-start">
           {/* Left Content */}
-          <div className="max-w-[476px]">
+          <div className="max-w-[476px] py-y md:py-0">
             <h2 className="font-bold text-[clamp(36px,4vw,50px)] leading-none text-highlight-text-color">
               Avail a
               <br />
               Service Now!
             </h2>
 
-            <p className="mt-between-content text-content-font font-raleway text-off-white-text-color">
-              Share your idea with us and we&apos;ll turn it into a custom
-              solution that drives results.
-            </p>
+            <BodyText className="text-white">Share your idea with us and we&apos;ll turn it into a custom
+              solution that drives results.</BodyText>
 
-            <Button href="#" className="mt-content-gap">
+            <Button href="#contact" className="mt-content-gap">
               Start A Project
             </Button>
           </div>
 
           {/* Right Animated Services */}
-          <div className="services-mask hidden h-[380px] overflow-hidden md:block">
+          <div className="services-mask hidden h-[464px] overflow-hidden md:block">
             <div className="flex flex-col animate-services-scroll">
               {[...SERVICES, ...SERVICES].map((service, index) => (
                 <span

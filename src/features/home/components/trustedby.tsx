@@ -7,7 +7,7 @@ function TrustedBy() {
   return (
     <div className=" bg-secondary-background  py-4 lg:py-12">
       <div
-        className="max-w-max mx-auto scroller"
+        className="max-w-[1920px] mx-auto scroller"
         data-animated="true"
         style={
           {
@@ -26,9 +26,9 @@ function TrustedBy() {
                 <Image
                   src={logo.src}
                   alt={logo.title}
-                  width={60}
-                  height={50}
-                  className="h-[clamp(30px,4vw,50px)] w-auto object-contain"
+                  width={80}
+                  height={60}
+                  className="h-[clamp(30px,4vw,60px)] w-auto object-contain"
                 />
               </li>
             );

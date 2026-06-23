@@ -74,13 +74,13 @@
   --color-off-white-text-color: var(--font-off-white-color);
   --color-offBlack-color: var(--font-black-color);
   --color-footer-text:var(--font-footer-color);
-  --color-big-text-font:var(--font-bg-text);
+  --color-big-text-font-color:var(--font-bg-text);
 
   /* font-sizes */
   --text-content-font:var(--content-font-size);
   --text-h3-font:var(--h3-font-size);
   --leading-content-font:calc(var(--content-font-size) * 2 );
-
+  --font-bebas_neue: var(--font-bebas_neue);
 
    /* title content gap */
   --space-content-gap:var(--content-gap);

@@ -3,13 +3,13 @@ import { ProcessCard } from "../../../components/Cards/caseStudyCard";
 import Button from "@/components/Buttons/Button";
 import Image from "next/image";
 import HeadingPill from "@/components/headingPill";
+import BigBgText from "@/components/BigBgText";
+import BodyText from "@/components/BodyText";
 
 function CaseStudy() {
   return (
     <section className="overflow-hidden pb-y ">
-      <h2 className="text-[16.4vw] font-extrabold uppercase whitespace-nowrap leading-none  text-big-text-font font-vaguard">
-        CASE STUDY
-      </h2>
+      <BigBgText>CASE STUDY</BigBgText>
       <div className="flex flex-col-reverse lg:flex-row gap-[clamp(30px,4vw,84px)] px-x mt-content-gap max-w-max mx-auto">
         <div className="casestudy-img hidden lg:block flex-1 mt-[calc(var(--space-content)+46px)]">
           <div className="h-48.5 md:h-full  w-full rounded-[10px] bg-black shadow-[-5px_-5px_0_0px_#BBFD58] overflow-hidden">
@@ -26,16 +26,16 @@ function CaseStudy() {
           <HeadingPill>Case Study</HeadingPill>
           <div className="main-casestudy-text mt-between-content">
             <div>
-              <h2 className="font-raleway font-semibold text-[clamp(28px,3vw,40px)] leading-[120%]">
+              <h2 className=" font-semibold text-[clamp(28px,3vw,40px)] leading-[120%]">
                 From Complex Backend to Seamless{" "}
                 <span className="underline underline-offset-7 decoration-highlight-text-color">
                   Experience
                 </span>
               </h2>
-              <p className="mt-3.5 text-secondary-color text-content-font leading-content-font">
+              <BodyText>
                 We redesign fragmented digital experiences into scalable systems
                 focused on usability, performance, and clarity.
-              </p>
+              </BodyText>
             </div>
             <div className="mt-content-gap">
               <h3 className="text-h3-font my-5 font-raleway">
