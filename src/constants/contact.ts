@@ -4,13 +4,13 @@ export const CONTACT_DETAILS = [
     type: "phone",
     icon:Phone,
     label: "+91 9419225147",
-    href: "https://tel:+919419225147",
+    href: "tel:+919419225147",
   },
   {
     type: "email",
     icon:Mail,
     label: "code3innovativesolutions@gmail.com",
-    href: "https://mailto:code3innovativesolutions@gmail.com",
+    href: "mailto:code3innovativesolutions@gmail.com",
   },
   {
     type: "address",

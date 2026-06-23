@@ -19,11 +19,11 @@ export function ProcessCard({
   return (
     <Link
       href={`${process.href}/#${sectionId}`}
-      className="block group"
+      className="block group flex-1 w-full h-full"
       aria-label={process.title}
     >
       {/* FIX 2: Swapped max-w-[449px] for max-w-112.25 to clear the Tailwind warning */}
-      <article className="card bg-[radial-gradient(circle,#3D3D3D,#1F1F1F)] rounded-lg px-x-card py-y-card max-w-112.25 text-off-white-text-color flex justify-between gap-6.5 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-black/20 group-hover:-translate-y-1">
+      <article className="card bg-[radial-gradient(circle,#3D3D3D,#1F1F1F)] rounded-lg px-x-card py-y-card max-w-112.25 text-off-white-text-color flex justify-between gap-6.5 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-black/20 group-hover:-translate-y-1 w-full h-full">
         <div className="flex flex-col gap-4 flex-1">
           <div className="flex ">
             <div className="flex-1">
@@ -36,7 +36,7 @@ export function ProcessCard({
                 {process.title}
               </h4>
             </div>
-            <Arrow2 className="w-7.5 h-fit md:hidden transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+            <Arrow2 className="w-7.5 h-fit lg:hidden transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
           </div>
 
           {"description" in process && (
@@ -59,7 +59,7 @@ export function ProcessCard({
             </ul>
           )}
         </div>
-        <div className="self-end hidden md:block">
+        <div className="self-end hidden lg:block">
           <Arrow2 className="w-11 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
         </div>
       </article>

@@ -7,29 +7,29 @@ export default function WhatWeBuild() {
     {
       title: "Websites",
       imageSrc: "/images/what-we-build/branding.png",
-      href: "#",
+      href: "1",
     },
     {
       title: "Creatives",
       imageSrc: "/images/what-we-build/branding.png",
-      href: "#",
+      href: "2",
     },
     {
       title: "Branding",
       imageSrc: "/images/what-we-build/branding.png",
-      href: "#",
+      href: "3",
     },
     {
       title: "Stationery",
       imageSrc: "/images/what-we-build/branding.png",
-      href: "#",
+      href: "4",
     },
     {
       title: "Print Design",
       imageSrc: "/images/what-we-build/branding.png",
-      href: "#",
+      href: "5",
     },
-    { title: "Ads", imageSrc: "/images/what-we-build/branding.png", href: "#" },
+    { title: "Ads", imageSrc: "/images/what-we-build/branding.png", href: "6" },
   ];
 
   return (
@@ -44,7 +44,7 @@ export default function WhatWeBuild() {
                 Build
               </span>
             </h2>
-            <p className=" text-secondary-color mt-6 sm:mb-content-gap max-w-sm  ">
+            <p className=" text-secondary-color mt-6 sm:mb-content-gap max-w-sm  text-content-font">
               A glimpse into the digital products and brand systems we&apos;ve
               built for our clients
             </p>

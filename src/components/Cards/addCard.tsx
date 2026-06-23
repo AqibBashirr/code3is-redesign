@@ -13,7 +13,7 @@ export default function PortfolioCard({ card }: cardProps ) {
   const textColor = "text-background";
   return (
     <Link
-      href={card.href ?? "#"}
+      href={card.href ? `/our-work/${card.href}` : "#"}
       className="relative w-full font-sans group aspect-square shrink-0"
     >
       {/* --- 1. MAIN CARD --- */}

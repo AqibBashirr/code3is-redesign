@@ -9,22 +9,32 @@ import "./globals.css";
 const raleway = Raleway({
   variable: "--font-raleway",
   subsets: ["latin"],
+  display: "swap",
 });
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
+
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
+  display: "swap",
   weight: ["400", "500", "600", "700"],
 });
+
 const montserrat = Montserrat({
-  variable: "--font-poppins",
+  variable: "--font-montserrat", // FIX: Changed from --font-poppins
   subsets: ["latin"],
+  display: "swap",
 });
+
 const vanguard = localFont({
-  src: "./fonts/vanguard.otf",
+  src: "./fonts/vanguard.otf", // FIX: Changed to a relative path
+  variable: "--font-vanguard", // OPTIONAL: Added variable for consistency
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -41,7 +51,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${poppins.variable} ${raleway.variable} ${montserrat.variable} ${vanguard.className} h-full antialiased`}
+      className={`${inter.variable} ${poppins.variable} ${raleway.variable} ${montserrat.variable} ${vanguard.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Header />
