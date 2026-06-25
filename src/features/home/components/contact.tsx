@@ -1,9 +1,9 @@
-import BigBgText from "@/components/BigBgText";
-import BodyText from "@/components/BodyText";
+import BigBgText from "@/components/typography/BigBgText";
+import BodyText from "@/components/typography/BodyText";
 import ContactForm from "@/components/Forms/ContactForm";
-import HeadingPill from "@/components/headingPill";
-import HeadingText from "@/components/headingText";
-import HighlightText from "@/components/Highlight";
+import HeadingPill from "@/components/typography/headingPill";
+import HeadingText from "@/components/typography/headingText";
+import HighlightText from "@/components/typography/Highlight";
 
 function Contact() {
   return (
@@ -15,10 +15,7 @@ function Contact() {
           <div className="flex-1 px-x md:px-0 lg:max-w-[450px]">
             <HeadingPill>Contact</HeadingPill>
             <HeadingText className="mt-between-content">
-              LET’S BUILD SOMETHING THAT{" "}
-              <HighlightText>
-                WORKS.
-              </HighlightText>
+              LET’S BUILD SOMETHING THAT <HighlightText>WORKS.</HighlightText>
             </HeadingText>
 
             <BodyText className="capitalize ">

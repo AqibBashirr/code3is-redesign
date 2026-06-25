@@ -1,9 +1,8 @@
-import BodyText from "@/components/BodyText";
+import BodyText from "@/components/typography/BodyText";
 import Button from "@/components/Buttons/Button";
-import HighlightText from "@/components/Highlight";
+import HighlightText from "@/components/typography/Highlight";
 import { Arrow2 } from "@/components/icons";
 import { SELECTED_SERVICES } from "@/constants/selectedWork";
-
 
 function SelectedWork() {
   return (

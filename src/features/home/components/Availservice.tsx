@@ -1,6 +1,6 @@
-import BodyText from "@/components/BodyText";
+import BodyText from "@/components/typography/BodyText";
 import Button from "@/components/Buttons/Button";
-import HeadingText from "@/components/headingText";
+import HeadingText from "@/components/typography/headingText";
 
 const SERVICES = [
   "INTEGRATION",
@@ -29,8 +29,10 @@ export default function AvailService() {
               Service Now!
             </HeadingText>
 
-            <BodyText className="text-white">Share your idea with us and we&apos;ll turn it into a custom
-              solution that drives results.</BodyText>
+            <BodyText className="text-white">
+              Share your idea with us and we&apos;ll turn it into a custom
+              solution that drives results.
+            </BodyText>
 
             <Button href="#contact" className="mt-content-gap">
               Start A Project

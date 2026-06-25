@@ -2,11 +2,11 @@ import { CASE_STUDY } from "@/constants/casestudy";
 import { ProcessCard } from "../../../components/Cards/caseStudyCard";
 import Button from "@/components/Buttons/Button";
 import Image from "next/image";
-import HeadingPill from "@/components/headingPill";
-import BigBgText from "@/components/BigBgText";
-import BodyText from "@/components/BodyText";
-import HighlightText from "@/components/Highlight";
-import HeadingText from "@/components/headingText";
+import HeadingPill from "@/components/typography/headingPill";
+import BigBgText from "@/components/typography/BigBgText";
+import BodyText from "@/components/typography/BodyText";
+import HighlightText from "@/components/typography/Highlight";
+import HeadingText from "@/components/typography/headingText";
 
 function CaseStudy() {
   return (
@@ -30,9 +30,7 @@ function CaseStudy() {
             <div>
               <HeadingText>
                 From Complex Backend to Seamless{" "}
-                <HighlightText>
-                  Experience
-                </HighlightText>
+                <HighlightText>Experience</HighlightText>
               </HeadingText>
               <BodyText>
                 We redesign fragmented digital experiences into scalable systems
