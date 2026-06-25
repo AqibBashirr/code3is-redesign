@@ -37,7 +37,7 @@ export default function WhatWeBuild() {
   return (
     <section className=" py-y px-x font-sans min-h-screen flex items-center justify-center">
       <div className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8 relative">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-[clamp(20px,3.4vw,44px)] relative">
           {/* Header Block */}
           <div className="col-span-2 flex flex-col justify-center items-center md:items-start mb-6 md:mb-0 pr-0 md:pr-8">
             <HeadingText className="text-center">
