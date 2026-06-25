@@ -17,12 +17,14 @@
   --font-off-white-color: #FBFBFB;
   --font-footer-color: #BDBDBD;
   --font-bg-text:#F2F2F2;
+  --form-label-color:#FCFEF9;
 
   /* border color */
   --border-card-color: #3a3b3a;
 
   /*font- size  */
   --content-font-size:clamp(14px,2vw,18px);
+  --form-label-size:clamp(12px,2vw,16px);
   --h3-font-size:clamp(20px,2vw,30px);
 
 
@@ -75,10 +77,12 @@
   --color-offBlack-color: var(--font-black-color);
   --color-footer-text:var(--font-footer-color);
   --color-big-text-font-color:var(--font-bg-text);
+  --color-form-text-color:var(--form-label-color);
 
   /* font-sizes */
   --text-content-font:var(--content-font-size);
   --text-h3-font:var(--h3-font-size);
+  --text-form-text-size:var(--form-label-size);
   --leading-content-font:calc(var(--content-font-size) * 2 );
   --font-bebas_neue: var(--font-bebas_neue);
 
