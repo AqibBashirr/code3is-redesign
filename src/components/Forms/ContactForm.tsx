@@ -3,7 +3,6 @@
 import { SERVICES_OFFERED } from "@/constants/services";
 import { cn } from "@/constants/utils";
 import React, { useState } from "react";
-// 1. UPDATED IMPORT
 import { Toaster, toast } from "sonner";
 import { Arrow2 } from "../icons";
 
@@ -13,12 +12,10 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // --- 1. FRONTEND COOLDOWN CHECK ---
     const lastSubmitTime = localStorage.getItem("lastSubmitTime");
     if (lastSubmitTime) {
       const timePassed = Date.now() - parseInt(lastSubmitTime);
       if (timePassed < 60000) {
-        // 2. UPDATED SONNER TOAST
         toast.error("Please wait a minute before sending another message.");
         return;
       }
@@ -37,8 +34,6 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
-        // --- 3. THE SONNER SUCCESS POP-UP ---
-        // Sonner allows beautiful descriptions under the main title!
         toast.success("Message sent successfully!", {
           description:
             "We will review your project details and be in touch soon.",
@@ -59,8 +54,6 @@ export default function ContactForm() {
 
   return (
     <>
-      {/* 4. THE SONNER TOASTER COMPONENT */}
-      {/* richColors makes the success green and error red automatically. theme="dark" matches your UI! */}
       <Toaster richColors theme="dark" position="bottom-center" />
 
       <div className="relative max-w-[558px] lg:w-[84%] w-full font-sans">
@@ -72,7 +65,7 @@ export default function ContactForm() {
             className="relative z-10 flex flex-col gap-[clamp(27px,2.3vw,30px)]"
             onSubmit={handleSubmit}
           >
-            {/* --- THE HONEYPOT FIELD --- */}
+            {/* THE HONEYPOT FIELD */}
             <input
               type="text"
               name="subject_honey"
@@ -89,7 +82,8 @@ export default function ContactForm() {
                 id="name"
                 name="name"
                 required
-                className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all"
+                disabled={isSubmitting}
+                className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
 
@@ -101,7 +95,8 @@ export default function ContactForm() {
                 id="email"
                 name="email"
                 required
-                className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all"
+                disabled={isSubmitting}
+                className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
 
@@ -112,7 +107,8 @@ export default function ContactForm() {
                 type="tel"
                 id="phone"
                 name="phone"
-                className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all"
+                disabled={isSubmitting}
+                className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
 
@@ -125,7 +121,8 @@ export default function ContactForm() {
                   name="projectType"
                   defaultValue=""
                   required
-                  className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 pr-10 text-white/80 text-sm focus:outline-none focus:border-cyan-500/50 transition-all appearance-none cursor-pointer capitalize"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 pr-10 text-white/80 text-sm focus:outline-none focus:border-cyan-500/50 transition-all appearance-none cursor-pointer capitalize disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <option value="" disabled>
                     Select an option...
@@ -162,7 +159,8 @@ export default function ContactForm() {
                 name="details"
                 rows={4}
                 required
-                className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all resize-none"
+                disabled={isSubmitting}
+                className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
               ></textarea>
             </div>
 
