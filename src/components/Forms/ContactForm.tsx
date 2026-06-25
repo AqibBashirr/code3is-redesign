@@ -5,6 +5,7 @@ import { cn } from "@/constants/utils";
 import React, { useState } from "react";
 import { Toaster, toast } from "sonner";
 import { Arrow2 } from "../icons";
+import CornerGlow from "../CornerGlow";
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -58,9 +59,9 @@ export default function ContactForm() {
 
       <div className="relative max-w-[558px] lg:w-[84%] w-full font-sans">
         <div className="relative bg-[#1e1e1e] p-7 md:p-9 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/5 overflow-hidden">
-          <div className="absolute -top-[15%] -left-[15%] w-[60%] h-[60%] bg-[#216b7a]/40 blur-[70px] pointer-events-none rounded-full z-0"></div>
-          <div className="absolute -bottom-[15%] -right-[15%] w-[60%] h-[60%] bg-[#216b7a]/40 blur-[70px] pointer-events-none rounded-full z-0"></div>
-
+          <CornerGlow position="custom" className="-left-[20%] top-0"/>
+          <CornerGlow position="custom" className="-right-[20%] bottom-0"/>
+          {/* <div className="absolute -bottom-[0%] -right-[92%] w-[60%] h-[60%] bg-foreground blur-[260px] pointer-events-none rounded-full z-0"></div> */}
           <form
             className="relative z-10 flex flex-col gap-[clamp(27px,2.3vw,30px)]"
             onSubmit={handleSubmit}
