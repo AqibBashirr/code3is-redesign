@@ -1,5 +1,6 @@
 import BodyText from "@/components/BodyText";
 import Button from "@/components/Buttons/Button";
+import HeadingText from "@/components/headingText";
 import HighlightText from "@/components/Highlight";
 import { Arrow2 } from "@/components/icons";
 import { SERVICES_OVERVIEW } from "@/constants/services";
@@ -7,12 +8,12 @@ import { SERVICES_OVERVIEW } from "@/constants/services";
 function Service() {
   return (
     <section className="pb-y max-w-max mx-auto px-x">
-      <h2 className="font-raleway font-semibold text-center text-[clamp(28px,3vw,40px)]">
+      <HeadingText className="text-center">
         Our{" "}
         <HighlightText>
           Services
         </HighlightText>
-      </h2>
+      </HeadingText>
 
       <BodyText className="text-center">Real projects. Real results.</BodyText>
 

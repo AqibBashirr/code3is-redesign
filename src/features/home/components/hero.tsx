@@ -14,15 +14,21 @@ export default function HeroSection() {
       title={
         <>
           Everything Your Brand Needs <br />
-          One <span className="text-highlight-text-color font-bold font-inter">System</span>
+          One{" "}
+          <span className="text-highlight-text-color font-bold font-inter">
+            System
+          </span>
         </>
       }
       // 3. Pass the subtitle
-      subtitle="Web Development • Branding • Performance Marketing"
+      subtitle="Web Development, Branding & Performance Marketing"
       // 4. Pass the buttons you want to use
       buttons={
         <>
-          <Button href="/#contact" className="w-full flex items-center justify-center">
+          <Button
+            href="/#contact"
+            className="w-full flex items-center justify-center"
+          >
             START A PROJECT
           </Button>
 

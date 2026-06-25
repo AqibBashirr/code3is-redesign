@@ -14,12 +14,12 @@ export default function MobileNav() {
         type="button"
         aria-label={isOpen ? "Close menu" : "Open menu"}
         onClick={() => setIsOpen((val) => !val)}
-        className="block bg-white/10 p-1.5 rounded " // 2. Removed md:hidden from here
+        className="block bg-white/10 p-1.5 rounded " 
       >
         {isOpen ? (
-          <X width={12} height={12} />
+          <X width={13} height={13} />
         ) : (
-          <MenuIcon width={12} height={12} />
+          <MenuIcon width={13} height={13} />
         )}
       </button>
 

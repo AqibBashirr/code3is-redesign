@@ -2,6 +2,7 @@ import BigBgText from "@/components/BigBgText";
 import BodyText from "@/components/BodyText";
 import ContactForm from "@/components/Forms/ContactForm";
 import HeadingPill from "@/components/headingPill";
+import HeadingText from "@/components/headingText";
 import HighlightText from "@/components/Highlight";
 
 function Contact() {
@@ -13,12 +14,12 @@ function Contact() {
         <div className="main-text mt-between-content flex flex-col  lg:flex-row lg:items-center gap-6 ">
           <div className="flex-1 px-x md:px-0 lg:max-w-[450px]">
             <HeadingPill>Contact</HeadingPill>
-            <h2 className="font-raleway font-semibold text-[clamp(28px,3vw,40px)] leading-[120%] mt-between-content">
+            <HeadingText className="mt-between-content">
               LET’S BUILD SOMETHING THAT{" "}
               <HighlightText>
                 WORKS.
               </HighlightText>
-            </h2>
+            </HeadingText>
 
             <BodyText className="capitalize ">
               Whether it’s branding, web development, or performance marketing,

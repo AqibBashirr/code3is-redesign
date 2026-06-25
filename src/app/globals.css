@@ -196,9 +196,9 @@ body {
 /* .animate-services-scroll {
     animation: none;
   } */
-.animate-services-scroll:hover {
+/* .animate-services-scroll:hover {
   animation-play-state: paused;
-}
+} */
 
 }
 @keyframes infiniteScroll{

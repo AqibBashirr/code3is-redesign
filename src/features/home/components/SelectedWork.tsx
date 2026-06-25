@@ -10,9 +10,7 @@ function SelectedWork() {
     <section className="py-y max-w-max mx-auto px-x">
       <h2 className="font-raleway font-semibold text-center text-[clamp(28px,3vw,40px)]">
         Selected Work That{" "}
-        <HighlightText className="italic">
-          Performs
-        </HighlightText>
+        <HighlightText className="italic">Performs</HighlightText>
       </h2>
 
       <BodyText className="text-center capitalize">
@@ -29,8 +27,8 @@ function SelectedWork() {
             {/* THE HIDDEN RADIAL GRADIENT LAYER */}
             <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle,#3D3D3D,#1F1F1F)] opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100" />
 
-            {/* THE BADGE */}
-            <span className="z-20 bg-secondary-background hover:bg-highlight-text-color min-w-[calc(50%+20px)] px-2.5 py-1 text-center absolute right-0 top-0 text-highlight-text-color uppercase font-raleway text-xs sm:text-sm tracking-widest">
+            {/* THE BADGE min-w-[calc(50%+20px)] */}
+            <span className="z-20 bg-secondary-background hover:bg-highlight-text-color  px-5.5 py-2 text-center absolute right-0 top-0 text-highlight-text-color uppercase font-raleway text-xs sm:text-sm tracking-widest">
               {services.service}
             </span>
 

@@ -2,6 +2,7 @@ import AdCard from "../../../components/Cards/addCard";
 import Button from "@/components/Buttons/Button";
 import BodyText from "@/components/BodyText";
 import HighlightText from "@/components/Highlight";
+import HeadingText from "@/components/headingText";
 
 export default function WhatWeBuild() {
   const cards = [
@@ -38,15 +39,15 @@ export default function WhatWeBuild() {
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8 relative">
           {/* Header Block */}
-          <div className="col-span-2 flex flex-col justify-center items-start mb-6 md:mb-0 pr-0 md:pr-8">
-            <h2 className="font-raleway font-semibold text-center text-[clamp(28px,3vw,40px)]">
+          <div className="col-span-2 flex flex-col justify-center items-center md:items-start mb-6 md:mb-0 pr-0 md:pr-8">
+            <HeadingText className="text-center">
               What We{" "}
               <HighlightText className="italic">
                 Build
               </HighlightText>
-            </h2>
+            </HeadingText>
             
-              <BodyText className="sm:mb-content-gap max-w-sm">
+              <BodyText className="sm:mb-content-gap max-w-sm text-center md:text-start">
                 A glimpse into the digital products and brand systems we&apos;ve
                 built for our clients
               </BodyText>

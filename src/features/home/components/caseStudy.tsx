@@ -6,6 +6,7 @@ import HeadingPill from "@/components/headingPill";
 import BigBgText from "@/components/BigBgText";
 import BodyText from "@/components/BodyText";
 import HighlightText from "@/components/Highlight";
+import HeadingText from "@/components/headingText";
 
 function CaseStudy() {
   return (
@@ -27,12 +28,12 @@ function CaseStudy() {
           <HeadingPill>Case Study</HeadingPill>
           <div className="main-casestudy-text mt-between-content">
             <div>
-              <h2 className=" font-semibold text-[clamp(28px,3vw,40px)] leading-[120%]">
+              <HeadingText>
                 From Complex Backend to Seamless{" "}
                 <HighlightText>
                   Experience
                 </HighlightText>
-              </h2>
+              </HeadingText>
               <BodyText>
                 We redesign fragmented digital experiences into scalable systems
                 focused on usability, performance, and clarity.

@@ -40,12 +40,12 @@ export default function GlowSection({
 
       {/* --- FOREGROUND CONTENT --- */}
       <div className="relative z-10 flex flex-col items-center w-full  mx-auto text-white">
-        <h1 className=" text-[clamp(2.25rem,4.3vw,3.75rem)] leading-[calc(clamp(2.25rem,5vw,3.75rem)+12px)] font-semibold mb-6  font-raleway capitalize">
+        <h1 className=" text-[clamp(2.25rem,4.3vw,3.75rem)] leading-[calc(clamp(2.25rem,5vw,3.75rem)+12px)] font-semibold mb-5 md:mb-6   font-raleway capitalize">
           {title}
         </h1>
 
         {subtitle && (
-          <p className="max-w-147.5 text-[clamp(18px,1.5vw,22px)] mb-10 font-light font-inter">
+          <p className="max-w-147.5 text-[clamp(18px,1.5vw,22px)] mb-[clamp(20px,4.4vw,57px)] font-light font-inter">
             {subtitle}
           </p>
         )}
