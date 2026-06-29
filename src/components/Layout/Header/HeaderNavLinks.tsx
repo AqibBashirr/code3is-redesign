@@ -7,9 +7,10 @@ import { cn } from "@/constants/utils";
 
 interface HeaderNavLinksProps {
   className?: string;
+  onClick?:()=>void;
 }
 
-function HeaderNavLinks({ className = "" }: HeaderNavLinksProps) {
+function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
   const pathname = usePathname();
   return (
     <>
@@ -19,6 +20,7 @@ function HeaderNavLinks({ className = "" }: HeaderNavLinksProps) {
           <Link
             key={item.href}
             href={item.href}
+            onClick={onClick}
             className={cn(
               "transition-opacity hover:opacity-70",
               isActive && "text-highlight-color",
