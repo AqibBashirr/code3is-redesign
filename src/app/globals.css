@@ -29,7 +29,7 @@
 
   /* padding */
   --padding-x: clamp(30px, 9.1vw, 130px);
-  --padding-y: clamp(3.75rem, 6vw, 6.25rem);
+  --padding-y: clamp(3.75rem, 7vw, 6.25rem);
 
   /* card styles */
   --padding-card-x: clamp(23px, 3vw, 2.5rem);
@@ -106,6 +106,7 @@
 
   /* gap */
   --gap-space-content: var(--space-content);
+  --gap-grid-content:var(--padding-y);
   --gradiant-background: radial-gradient(circle, #3d3d3d, #1f1f1f);
 
   /* max width */

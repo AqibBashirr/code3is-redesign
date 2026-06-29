@@ -10,7 +10,7 @@ function Contact() {
     <section id="contact" className=" py-y">
       {/* <h2 className="text-[min(16.4vw,250px)] font-extrabold whitespace-nowrap leading-[15vw]  text-big-text-font-color uppercase text-center mb-content-gap font-vanguard"> */}
       <BigBgText>Contact</BigBgText>
-      <div className="max-w-max mx-auto md:px-x text-center md:text-start -lg:mt-[9%]">
+      <div className="max-w-max mx-auto md:px-x text-center md:text-start lg:mt-[-9%]">
         <div className="main-text mt-between-content flex flex-col  lg:flex-row lg:items-center gap-6 ">
           <div className="flex-1 px-x md:px-0 lg:max-w-112.5">
             <HeadingPill>Contact</HeadingPill>

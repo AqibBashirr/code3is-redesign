@@ -10,7 +10,8 @@ function Sections() {
   return (
     <>
       {OUR_WORK.map((data, index) => {
-        const projects: CarouselDocument[] = data.projects;
+        const projects: CarouselDocument[] =
+          data.projects as unknown as CarouselDocument[];
         return (
           <section
             id={data.title.toLowerCase().replaceAll(" ", "-")}
