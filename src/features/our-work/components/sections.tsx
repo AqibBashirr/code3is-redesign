@@ -4,12 +4,12 @@ import DocumentCarousel, {
 import BodyText from "@/components/typography/BodyText";
 import HeadingPill from "@/components/typography/headingPill";
 import HeadingText from "@/components/typography/headingText";
-import { WhatWeDo } from "@/constants/our-work";
+import { OUR_WORK } from "@/constants/our-work";
 
 function Sections() {
   return (
     <>
-      {WhatWeDo.map((data, index) => {
+      {OUR_WORK.map((data, index) => {
         const projects: CarouselDocument[] = data.projects;
         return (
           <section
