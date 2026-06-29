@@ -1,5 +1,5 @@
 import BodyText from "@/components/typography/BodyText";
-import Button from "@/components/Buttons/Button";
+import ButtonLink from "@/components/Buttons/ButtonLink";
 import HeadingText from "@/components/typography/headingText";
 
 const SERVICES = [
@@ -22,7 +22,7 @@ export default function AvailService() {
       <div className="mx-auto max-w-max px-x ">
         <div className="grid items-center gap-12 md:grid-cols-[1fr_auto] text-center md:text-start">
           {/* Left Content */}
-          <div className="max-w-[476px] py-y md:py-0">
+          <div className="max-w-119 py-y md:py-0">
             <HeadingText className="font-bold text-[clamp(36px,4vw,50px)] leading-none text-highlight-text-color">
               Avail a
               <br />
@@ -34,9 +34,9 @@ export default function AvailService() {
               solution that drives results.
             </BodyText>
 
-            <Button href="#contact" className="mt-content-gap">
+            <ButtonLink href="#contact" className="mt-content-gap">
               Start A Project
-            </Button>
+            </ButtonLink>
           </div>
 
           {/* Right Animated Services */}

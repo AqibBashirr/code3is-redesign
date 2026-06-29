@@ -1,15 +1,14 @@
 import BodyText from "@/components/typography/BodyText";
-import Button from "@/components/Buttons/Button";
+import ButtonLink from "@/components/Buttons/ButtonLink";
 import HeadingText from "@/components/typography/headingText";
-import HighlightText from "@/components/typography/Highlight";
 import { Arrow2 } from "@/components/icons";
 import { SERVICES_OVERVIEW } from "@/constants/services";
 
 function Service() {
   return (
     <section className="pb-y max-w-max mx-auto px-x">
-      <HeadingText className="text-center">
-        Our <HighlightText>Services</HighlightText>
+      <HeadingText highlightText="Services" className="text-center">
+        Our
       </HeadingText>
 
       <BodyText className="text-center">Real projects. Real results.</BodyText>
@@ -69,13 +68,13 @@ function Service() {
         ))}
       </ul>
       <div className="text-center">
-        <Button
+        <ButtonLink
           href="#"
           variant="dark"
           className="mt-[calc(var(--content-gap)+5px)]"
         >
           Start a Project
-        </Button>
+        </ButtonLink>
       </div>
     </section>
   );

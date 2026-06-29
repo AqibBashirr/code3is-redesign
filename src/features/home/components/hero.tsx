@@ -1,6 +1,5 @@
-import Button from "@/components/Buttons/Button";
-import GlowSection from "@/components/GlowSection"; // Adjust path as needed
-import React from "react";
+import ButtonLink from "@/components/Buttons/ButtonLink";
+import GlowSection from "@/components/GlowSection"; 
 
 export default function HeroSection() {
   return (
@@ -25,21 +24,21 @@ export default function HeroSection() {
       // 4. Pass the buttons you want to use
       buttons={
         <>
-          <Button
+          <ButtonLink
             href="/#contact"
             className="w-full flex items-center justify-center"
           >
             START A PROJECT
-          </Button>
+          </ButtonLink>
 
-          <Button
+          <ButtonLink
             href="/our-work"
             variant="outline"
             arrow={false}
             className="w-full flex items-center justify-center"
           >
             VIEW OUR WORK
-          </Button>
+          </ButtonLink>
         </>
       }
     />

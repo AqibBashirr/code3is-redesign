@@ -61,10 +61,10 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${poppins.variable} ${raleway.variable} ${montserrat.variable} ${bebas_neue.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col scrollbar-thin">
         <Header />
         <Aside />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 ">{children}</main>
         <Footer />
       </body>
     </html>

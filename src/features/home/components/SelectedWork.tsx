@@ -1,16 +1,19 @@
 import BodyText from "@/components/typography/BodyText";
-import Button from "@/components/Buttons/Button";
-import HighlightText from "@/components/typography/Highlight";
+import ButtonLink from "@/components/Buttons/ButtonLink";
 import { Arrow2 } from "@/components/icons";
 import { SELECTED_SERVICES } from "@/constants/selectedWork";
+import HeadingText from "@/components/typography/headingText";
 
 function SelectedWork() {
   return (
     <section className="py-y max-w-max mx-auto px-x">
-      <h2 className="font-raleway font-semibold text-center text-[clamp(28px,3vw,40px)]">
-        Selected Work That{" "}
-        <HighlightText className="italic">Performs</HighlightText>
-      </h2>
+      <HeadingText
+        highlightText="Performs"
+        highlightClassName="italic"
+        className="text-center "
+      >
+        Selected Work That
+      </HeadingText>
 
       <BodyText className="text-center capitalize">
         Real projects. Real results.
@@ -45,7 +48,7 @@ function SelectedWork() {
                     {services.title}
                   </h3>
 
-                  <BodyText className="mt-[6px] group-hover:text-white transition-colors duration-300">
+                  <BodyText className="mt-1.5 group-hover:text-white transition-colors duration-300">
                     {services.description}
                   </BodyText>
                 </div>
@@ -60,9 +63,9 @@ function SelectedWork() {
         ))}
       </ul>
       <div className="text-center">
-        <Button href="#" variant="dark" className="mt-13.75">
+        <ButtonLink href="#" variant="dark" className="mt-13.75">
           Start a Project
-        </Button>
+        </ButtonLink>
       </div>
     </section>
   );

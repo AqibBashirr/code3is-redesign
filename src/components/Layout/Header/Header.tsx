@@ -1,9 +1,8 @@
 import Logo from "./Logo";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
-import Button from "@/components/Buttons/Button";
+import ButtonLink from "@/components/Buttons/ButtonLink";
 import Link from "next/link";
-
 
 export default function Header() {
   return (
@@ -15,11 +14,10 @@ export default function Header() {
 
         <DesktopNav />
 
-          <Button href="/contact" className="hidden lg:inline-flex">
-            Start a Project
-          </Button>
+        <ButtonLink href="/contact" className="hidden lg:inline-flex">
+          Start a Project
+        </ButtonLink>
         <div className="flex md:hidden items-center gap-4">
-
           <MobileNav />
         </div>
       </div>

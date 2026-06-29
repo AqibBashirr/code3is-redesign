@@ -1,11 +1,10 @@
 import { CASE_STUDY } from "@/constants/casestudy";
 import { ProcessCard } from "../../../components/Cards/caseStudyCard";
-import Button from "@/components/Buttons/Button";
+import ButtonLink from "@/components/Buttons/ButtonLink";
 import Image from "next/image";
 import HeadingPill from "@/components/typography/headingPill";
 import BigBgText from "@/components/typography/BigBgText";
 import BodyText from "@/components/typography/BodyText";
-import HighlightText from "@/components/typography/Highlight";
 import HeadingText from "@/components/typography/headingText";
 
 function CaseStudy() {
@@ -28,9 +27,8 @@ function CaseStudy() {
           <HeadingPill>Case Study</HeadingPill>
           <div className="main-casestudy-text mt-between-content">
             <div>
-              <HeadingText>
-                From Complex Backend to Seamless{" "}
-                <HighlightText>Experience</HighlightText>
+              <HeadingText highlightText="Experience">
+                From Complex Backend to Seamless
               </HeadingText>
               <BodyText>
                 We redesign fragmented digital experiences into scalable systems
@@ -64,13 +62,13 @@ function CaseStudy() {
                 })}
               </div>
               <div className="flex items-center justify-center lg:justify-start md:justify-items-start">
-                <Button
+                <ButtonLink
                   variant="dark"
                   href={`case-study/${CASE_STUDY.projectName.toLowerCase().replaceAll(" ", "-")}`}
                   className=""
                 >
                   VIEW FULL CASE STUDY
-                </Button>
+                </ButtonLink>
               </div>
             </div>
           </div>

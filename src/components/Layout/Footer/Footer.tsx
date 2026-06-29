@@ -54,6 +54,7 @@ function Footer() {
                   <a
                     href={detail.href}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="group-hover:text-highlight-text-color"
                   >
                     {detail.label}

@@ -5,7 +5,6 @@ import { cn } from "@/constants/utils";
 import React, { useState } from "react";
 import { Toaster, toast } from "sonner";
 import { Arrow2 } from "../icons";
-import CornerGlow from "../CornerGlow";
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -59,9 +58,9 @@ export default function ContactForm() {
 
       <div className="relative max-w-[558px] lg:w-[84%] w-full font-sans">
         <div className="relative bg-[#1e1e1e] p-7 md:p-9 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/5 overflow-hidden">
-          <CornerGlow position="custom" className="-left-[20%] top-0"/>
-          <CornerGlow position="custom" className="-right-[20%] bottom-0"/>
-          {/* <div className="absolute -bottom-[0%] -right-[92%] w-[60%] h-[60%] bg-foreground blur-[260px] pointer-events-none rounded-full z-0"></div> */}
+          <div className="absolute top-0 -left-[40%] w-[232px] h-[236px] bg-foreground blur-[160px] pointer-events-none rounded-full z-0"></div>
+          <div className="absolute bottom-0 -right-[40%] w-[232px] h-[236px] bg-foreground blur-[160px] pointer-events-none rounded-full z-0"></div>
+
           <form
             className="relative z-10 flex flex-col gap-[clamp(27px,2.3vw,30px)]"
             onSubmit={handleSubmit}
@@ -161,7 +160,7 @@ export default function ContactForm() {
                 rows={4}
                 required
                 disabled={isSubmitting}
-                className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed scrollbar-thumb-secondary-background"
               ></textarea>
             </div>
 
@@ -169,7 +168,7 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="mt-1.5 md:mt-5 w-full bg-[#f0f0f0] hover:bg-white text-[#111111] font-semibold py-3.5 rounded-md flex items-center justify-center gap-2 transition-all duration-200 tracking-wide group disabled:opacity-70 disabled:cursor-not-allowed"
+              className="mt-1.5 md:mt-5 w-full bg-[#f0f0f0] hover:bg-white text-[#111111]  group disabled:opacity-70 disabled:cursor-not-allowed group rounded-sm inline-flex items-center justify-center text-center font-inter font-medium uppercase text-content-font transition-all duration-300 gap-[clamp(8px,2vw,12px)] px-[clamp(20px,4vw,28px)] h-[clamp(28px,4vw,50px)]"
             >
               {isSubmitting ? "SENDING..." : "START A PROJECT"}
               {!isSubmitting && (

@@ -1,0 +1,235 @@
+{
+  "WhatWeDo": [
+    {
+      "title": "Website",
+      "heading": {
+        "text": "Websites crafted for businesses across",
+        "highlight": "industries"
+      },
+      "description": [
+        "Custom website design and web development solutions for modern businesses.",
+        "We create responsive websites, corporate websites, and business websites focused on user experience, performance, and functionality."
+      ],
+      "projects": [
+        {
+          "id": 1,
+          "title": "GreyMax",
+          "category": "Service",
+          "description": "Corporate Website",
+          "image": "/images/what-we-build/slides/greymax.png",
+          "badge": "FEATURED",
+          "stacks": ["nextjs"],
+          "cta": {
+            "label": "Visit Website",
+            "href": "https://greymax.ae"
+          }
+        },
+        {
+          "id": 3,
+          "title": "Harmain Service Provider",
+          "category": "Web Development",
+          "description": "Corporate Website",
+          "image": "/images/what-we-build/slides/harmain.png",
+          "badge": "FEATURED",
+          "stacks": ["nextjs", "figma", "react"],
+          "cta": {
+            "label": "Visit Website",
+            "href": "https://harmain.in"
+          }
+        },
+        {
+          "id": 2,
+          "title": "C3IS",
+          "image": "/images/what-we-build/slides/harmain.png",
+          "urlLink": "#",
+          "category": "Software",
+          "stacks": ["nextjs"]
+        }
+      ]
+    },
+    {
+      "title": "Creatives",
+      "heading": {
+        "text": "Creative Assets Designed To Capture ",
+        "highlight": "Attention"
+      },
+      "description": [
+        "Creative design solutions for social media, digital marketing, and brand communication.",
+        "From social media creatives and promotional graphics to campaign visuals and marketing content, every design is crafted to create meaningful audience connections."
+      ],
+      "projects": [
+        {
+          "id": 1,
+          "title": "Turay Agri",
+          "category": "Agriculture",
+          "description": "Posters",
+          "image": "/images/what-we-build/slides/creatives/turayAgri.png",
+          "badge": "FEATURED",
+          "stacks": ["figma", "adobe"],
+          "cta": {
+            "label": "Visit Website",
+            "href": "https://greymax.ae"
+          }
+        },
+        {
+          "id": 3,
+          "title": "Harmain Service Provider",
+          "category": "Web Development",
+          "description": "Corporate Website",
+          "image": "/images/what-we-build/slides/harmain.png",
+          "badge": "FEATURED",
+          "stacks": ["nextjs", "figma", "react"],
+          "cta": {
+            "label": "Visit Website",
+            "href": "https://harmain.in"
+          }
+        },
+        {
+          "id": 2,
+          "title": "C3IS",
+          "image": "/images/what-we-build/slides/harmain.png",
+          "urlLink": "#",
+          "category": "Software",
+          "stacks": ["nextjs"]
+        }
+      ]
+    },
+    {
+      "title": "BRANDING",
+      "heading": {
+        "text": "Brand Identities Built To Stand ",
+        "highlight": "Out"
+      },
+      "description": [
+        "Strategic branding and brand identity design for businesses seeking a distinctive market presence.",
+        "From logo design and visual identity systems to brand guidelines and brand communication, we create brands that build recognition, trust, and consistency."
+      ],
+      "projects": [
+        {
+          "id": 1,
+          "title": "NexGen",
+          "category": "CORPORATE",
+          "description": "Branding",
+          "image": "/images/what-we-build/slides/branding/nexgen.png",
+          "badge": "FEATURED",
+          "stacks": ["figma", "adobe"],
+          "cta": {
+            "label": "Visit Website",
+            "href": "https://nexgen.ae"
+          }
+        },
+        {
+          "id": 3,
+          "title": "Harmain Service Provider",
+          "category": "Web Development",
+          "description": "Corporate Website",
+          "image": "/images/what-we-build/slides/harmain.png",
+          "badge": "FEATURED",
+          "stacks": ["nextjs", "figma", "react"],
+          "cta": {
+            "label": "Visit Website",
+            "href": "https://harmain.in"
+          }
+        },
+        {
+          "id": 2,
+          "title": "C3IS",
+          "image": "/images/what-we-build/slides/harmain.png",
+          "urlLink": "#",
+          "category": "Software",
+          "stacks": ["nextjs"]
+        }
+      ]
+    },
+    {
+      "title": "STATIONERY",
+      "heading": {
+        "text": "Professional Stationery With ",
+        "highlight": "Purpose"
+      },
+      "description": [
+        "Professional print design solutions for brochures, catalogs, flyers, posters, packaging, and marketing materials.",
+        "Designed to communicate information clearly, enhance brand visibility, and create high quality print experiences that leave a lasting impression on customers and stakeholders."
+      ],
+      "projects": [
+        {
+          "id": 1,
+          "title": "School",
+          "category": "EDUCATION",
+          "description": "EDUCATION",
+          "image": "/images/what-we-build/slides/stationary/school.png",
+          "badge": "FEATURED",
+          "stacks": ["figma", "adobe"],
+          "cta": {
+            "label": "Visit Website",
+            "href": "https://nexgen.ae"
+          }
+        },
+        {
+          "id": 3,
+          "title": "Harmain Service Provider",
+          "category": "Web Development",
+          "description": "Corporate Website",
+          "image": "/images/what-we-build/slides/harmain.png",
+          "badge": "FEATURED",
+          "stacks": ["nextjs", "figma", "react"],
+          "cta": {
+            "label": "Visit Website",
+            "href": "https://harmain.in"
+          }
+        },
+        {
+          "id": 2,
+          "title": "C3IS",
+          "image": "/images/what-we-build/slides/harmain.png",
+          "urlLink": "#",
+          "category": "Software",
+          "stacks": ["nextjs"]
+        }
+      ]
+    },
+    {
+      "title": "PRINT DESIGN",
+      "heading": {
+        "text": "Print Designs That Make An ",
+        "highlight": "Impact"
+      },
+      "description": [
+        "Professional print design solutions for brochures, catalogs, flyers, posters, packaging, and marketing materials.",
+        "Designed to communicate information clearly, enhance brand visibility, and create high quality print experiences that leave a lasting impression on customers and stakeholders."
+      ],
+      "projects": [
+        {
+          "id": 1,
+          "title": "Islamic center of Dawah and Learning (ICDL)",
+          "category": "EDUCATION",
+          "description": "EDUCATION",
+          "image": "/images/what-we-build/slides/print-design/islamic.png",
+          "badge": "FEATURED",
+          "stacks": ["figma", "adobe"]
+        },
+        {
+          "id": 3,
+          "title": "Harmain Service Provider",
+          "category": "Web Development",
+          "description": "Corporate Website",
+          "image": "/images/what-we-build/slides/harmain.png",
+          "badge": "FEATURED",
+          "stacks": ["nextjs", "figma", "react"],
+          "cta": {
+            "label": "Visit Website",
+            "href": "https://harmain.in"
+          }
+        },
+        {
+          "id": 2,
+          "title": "C3IS",
+          "image": "/images/what-we-build/slides/harmain.png",
+          "urlLink": "#",
+          "category": "Software",
+          "stacks": ["nextjs"]
+        }
+      ]
+    }
+  ]
+}

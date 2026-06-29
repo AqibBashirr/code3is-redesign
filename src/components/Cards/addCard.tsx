@@ -13,8 +13,8 @@ export default function PortfolioCard({ card }: cardProps ) {
   const textColor = "text-background";
   return (
     <Link
-      href={card.href ? `/our-work/${card.href}` : "#"}
-      className="relative w-full font-sans group aspect-square shrink-0"
+      href={card.href ? `/our-work/#${card.href}` : "#"}
+      className="relative w-full font-sans group aspect-square shrink-0 scroll-p-50"
     >
       {/* --- 1. MAIN CARD --- */}
       <div className="absolute inset-0 bg-[#1e2525] rounded-3xl overflow-hidden flex flex-col justify-end">

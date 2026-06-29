@@ -1,7 +1,6 @@
 import AdCard from "../../../components/Cards/addCard";
-import Button from "@/components/Buttons/Button";
+import ButtonLink from "@/components/Buttons/ButtonLink";
 import BodyText from "@/components/typography/BodyText";
-import HighlightText from "@/components/typography/Highlight";
 import HeadingText from "@/components/typography/headingText";
 
 export default function WhatWeBuild() {
@@ -9,29 +8,29 @@ export default function WhatWeBuild() {
     {
       title: "Websites",
       imageSrc: "/images/what-we-build/websites.png",
-      href: "1",
+      href: "website",
     },
     {
       title: "Creatives",
       imageSrc: "/images/what-we-build/creatives.png",
-      href: "2",
+      href: "creatives",
     },
     {
       title: "Branding",
       imageSrc: "/images/what-we-build/branding.png",
-      href: "3",
+      href: "branding",
     },
     {
       title: "Stationery",
       imageSrc: "/images/what-we-build/stationery.png",
-      href: "4",
+      href: "stationery",
     },
     {
       title: "Print Design",
       imageSrc: "/images/what-we-build/print-design.png",
-      href: "5",
+      href: "print-design",
     },
-    { title: "Ads", imageSrc: "/images/what-we-build/ads.png", href: "6" },
+    { title: "ads", imageSrc: "/images/what-we-build/ads.png", href: "ads" },
   ];
 
   return (
@@ -40,8 +39,12 @@ export default function WhatWeBuild() {
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-[clamp(20px,3.4vw,44px)] relative">
           {/* Header Block */}
           <div className="col-span-2 flex flex-col justify-center items-center md:items-start mb-6 md:mb-0 pr-0 md:pr-8">
-            <HeadingText className="text-center">
-              What We <HighlightText className="italic">Build</HighlightText>
+            <HeadingText
+              highlightText="Build"
+              highlightClassName="italic"
+              className="text-center"
+            >
+              What We
             </HeadingText>
 
             <BodyText className="sm:mb-content-gap max-w-sm text-center md:text-start">
@@ -49,9 +52,9 @@ export default function WhatWeBuild() {
               built for our clients
             </BodyText>
 
-            <Button href="#" variant="dark" className="hidden md:flex">
+            <ButtonLink href="#" variant="dark" className="hidden md:flex">
               Start a Project
-            </Button>
+            </ButtonLink>
           </div>
 
           {/* Render Cards */}
@@ -60,11 +63,11 @@ export default function WhatWeBuild() {
           ))}
         </div>
 
-        {/* Mobile Button */}
+        {/* Mobile ButtonLink */}
         <div className="mt-10 flex justify-center md:hidden">
-          <Button href="#" variant="dark">
+          <ButtonLink href="#" variant="dark">
             Start a Project
-          </Button>
+          </ButtonLink>
         </div>
       </div>
     </section>
