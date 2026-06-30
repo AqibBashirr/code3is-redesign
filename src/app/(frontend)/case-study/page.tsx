@@ -1,11 +1,10 @@
+import { baseUrl } from "@/constants/BaseUrl";
 import CaseStudy from "@/features/case-study/components/CaseStudy";
 
-export default async function Page() {
-  // 1. Define your base URL.
-  // In development, this is localhost. Later, it will be your real backend URL.
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-  
+export const dynamic = "force-dynamic";
 
+export default async function Page() {
+  
     // 2. Await the fetch call properly
     const res = await fetch(`${baseUrl}/data/case-study.json`);
 

@@ -1,6 +1,6 @@
 import { baseUrl } from "@/constants/BaseUrl";
 import CaseStudy from "@/features/case-study/components/CaseStudy";
-
+export const dynamic = "force-dynamic";
 // 1. Define the params prop type
 interface PageProps {
   params: Promise<{ name: string }>;
@@ -13,9 +13,11 @@ export default async function Page({ params }: PageProps) {
 
   // 3. ISR Implementation: Fetch with a revalidation timer
   // 3600 = revalidate every 1 hour. Change this number as needed.
-  const res = await fetch(`${baseUrl}/data/case-study.json`, {
+  const res = await fetch(`${baseUrl}/data/case-study.json`
+    , {
     next: { revalidate: 3600 },
-  });
+  }
+);
 
   if (!res.ok) {
     throw new Error("Failed to fetch case study data");
