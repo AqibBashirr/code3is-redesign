@@ -34,7 +34,7 @@ function Service() {
                   {/* INNER TEXT LOGIC: H3 */}
                   <h3
                     // FIXED TYPO: Added space between text-h3-font and text-offBlack-color
-                    className="transition-colors duration-300 text-h3-font text-offBlack-color group-hover:text-highlight-text-color"
+                    className="transition-colors duration-300 text-h3-font text-offBlack-color group-hover:text-highlight-text-color font-raleway"
                   >
                     {services.title}
                   </h3>
