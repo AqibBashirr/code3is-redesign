@@ -19,7 +19,7 @@ export interface HeroProps {
   glows?: GlowConfig[];
   title: ReactNode;
   subtitle: string;
-  buttons: buttons;
+  buttons?: buttons;
 }
 
 function Hero({
