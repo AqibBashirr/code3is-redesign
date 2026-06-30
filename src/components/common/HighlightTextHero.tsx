@@ -9,7 +9,7 @@ function HighlightTextHero({HighlightText,className}:HighlightTextHeroProps) {
   return (
     <span
       className={cn(
-        "text-highlight-text-color font-bold font-inter",
+        "text-highlight-text-color font-bold font-raleway",
         className,
       )}
     >

@@ -10,7 +10,7 @@ function page() {
         title={
           <>
             Ideas Made{" "}
-            <span className="text-highlight-text-color font-bold font-inter">
+            <span className="text-highlight-text-color font-bold">
               Visible
             </span>
           </>

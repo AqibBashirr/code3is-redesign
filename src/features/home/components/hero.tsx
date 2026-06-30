@@ -14,7 +14,7 @@ export default function HeroSection() {
         <>
           Everything Your Brand Needs <br />
           One{" "}
-          <span className="text-highlight-text-color font-bold font-inter">
+          <span className="text-highlight-text-color font-bold">
             System
           </span>
         </>
