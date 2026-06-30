@@ -26,7 +26,7 @@ const Icons = {
 
 function Footer() {
   return (
-    <footer className="bg-black text-[clamp(14px,4vw,16px)] text-footer-text font-medium leading-7 ">
+    <footer className="bg-black text-[clamp(14px,4vw,16px)] text-footer-text font-normal leading-7 ">
       <div className="mx-auto max-w-max">
         <div className=" flex justify-between flex-wrap gap-9 sm:gap-20 py-y px-x">
           <div className="order-1">
@@ -73,7 +73,7 @@ function Footer() {
                       href={detail.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group-hover:text-highlight-text-color"
+                      className="group-hover:text-highlight-text-color "
                     >
                       {detail.label}
                     </a>
