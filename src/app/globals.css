@@ -26,6 +26,7 @@
   --content-font-size: clamp(14px, 2vw, 18px);
   --form-label-size: clamp(12px, 2vw, 16px);
   --h3-font-size: clamp(20px, 2vw, 30px);
+  --h3-font-leading: calc(clamp(20px, 2vw, 30px)+12px);
 
   /* padding */
   --padding-x: clamp(30px, 9.1vw, 130px);
@@ -80,6 +81,8 @@
   --text-form-text-size: var(--form-label-size);
   --leading-content-font: calc(var(--content-font-size) * 2);
   --font-bebas_neue: var(--font-bebas_neue);
+   --leading-font-h3:var(--h3-font-leading);
+
 
   /* title content gap */
   --space-content-gap: var(--content-gap);
@@ -90,6 +93,7 @@
   --padding-y: var(--padding-y);
   --padding-content-gap: var(--content-gap);
   --padding-between-content: var(--space-content);
+  
 
   /* card styles */
   --padding-card-x: var(--padding-card-x);
@@ -103,6 +107,7 @@
   --margin-y: var(--margin-y);
   --margin-content-gap: var(--content-gap);
   --margin-between-content: var(--space-content);
+  --scroll-margin-between-content:var(--space-content);
 
   /* gap */
   --gap-space-content: var(--space-content);
@@ -302,4 +307,12 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+[popover] {
+  /* 1. Tell the popover to hook onto its triggering button automatically */
+  position-anchor: auto;
+
+  /* 2. Place it relative to the button (e.g., directly below it, aligned to the left edge) */
+  position-area: bottom span-right;
 }

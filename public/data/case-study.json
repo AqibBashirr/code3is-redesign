@@ -1,6 +1,81 @@
 {
-  "harmain service platform": {
-    "Heading": { "title": "Harmain Services", "highlight": "Platform" },
-    "description":""
-  }
+  "number": 1,
+  "Heading": { "title": "Harmain Services", "highlight": "Platform" },
+  "description": "From challenges and constraints to solutions and outcomes, explore the journey behind the work.",
+  "main": {
+    "Heading-h2": {
+      "title": "Project at a ",
+      "highlight": "Glance"
+    },
+    "description": [
+      "How we rebuilt Harmain Service Provider, a multi-service marketplace platform, from the ground up - branding, design, and a fully functional booking platform."
+    ],
+    "challenge": {
+      "pill": "The Challenge",
+      "heading": {
+        "title": "A Growing Business Trapped Inside An Outdated ",
+        "highlight": "Experience"
+      },
+      "description": [
+        "Harmain had a website, but it wasn't built to support a modern service marketplace.",
+        "• Outdated technology made the platform slow and difficult to maintain.",
+        "• No functional backend existed to manage services, bookings, or customer interactions.",
+        "• The brand lacked a clear identity, with no logo system, visual consistency, or trust building elements.",
+        "• Navigation was confusing, making it difficult for users to understand services and take action.",
+        "The result was a platform that had no online presence and lacked the foundation needed to support growth, build trust, and convert visitors into customers."
+      ],
+      "image": {
+        "alt": "Harmain service Challanges Image",
+        "src": "/images/case-study/harmain-service-platform/challenge.avif"
+      }
+    },
+    "approach": {
+      "pill": "The Approach",
+      "heading": {
+        "title": "A Unified Approach To Brand, UX & ",
+        "highlight": "Development"
+      },
+      "description": [
+        "Rather than fixing isolated issues, we rebuilt the platform from the ground up, aligning branding, design, and technology into one connected system.",
+        "----What We Built",
+        "• A complete brand identity, including logo, visual language, and brand guidelines",
+        "• A user-centered experience focused on service discovery and booking",
+        "• A custom frontend and backend architecture built for marketplace operations",
+        "• Service listings, user accounts, booking management, and order tracking",
+        "• A cart-based booking flow with integrated payment processing",
+        "---Tech Used",
+        "Front End- Nextjs, Tailwind, Lucide-icons, Tanstack Query, Cloudinary, Axios, Zustand, Sonner",
+        "Backend End- Node js, Express, Gupshup client, Mongodb, Mongoose, Tanstack Query"
+      ],
+      "image": {
+        "alt": "Harmain service Approach Image",
+        "src": "/images/case-study/harmain-service-platform/approach.avif"
+      }
+    },
+    "outcome": {
+      "pill": "THE outcome",
+      "heading": {
+        "title": "From Non-Functional to Fully  ",
+        "highlight": "Operational"
+      },
+      "description": [
+        "The platform evolved from a basic online presence into a fully operational service marketplace.",
+        "----What Changed",
+        "• Establishment of a strong and consistent brand identity",
+        "• Improved trust and credibility across the customer journey",
+        "• Simplified how users discover, compare, and book services",
+        "• Streamlined business operations through a dedicated platform",
+        "• Created a scalable digital foundation for future growth",
+        "---The Result",
+        "Harmain now has a platform that not only represents the business professionally but also supports real customers, real transactions, and day-to-day operations."
+      ],
+      "image": {
+        "alt": "Harmain service Outcome Image",
+        "src": "/images/case-study/harmain-service-platform/outcome.avif"
+      }
+    }
+  },
+  "image": {
+    "alt":"Harmain Services Image Of all the screens",
+    "src":"/images/case-study/harmain-service-platform/main.avif"}
 }

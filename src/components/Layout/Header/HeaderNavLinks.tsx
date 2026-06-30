@@ -15,12 +15,14 @@ function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
   return (
     <>
       {MAIN_NAV.map((item) => {
-        const isActive = pathname === item.href;
+        const isActive = pathname.includes(item.href);
         return (
+          
           <Link
             key={item.href}
             href={item.href}
             onClick={onClick}
+            
             className={cn(
               "transition-opacity hover:opacity-70",
               isActive && "text-highlight-color",

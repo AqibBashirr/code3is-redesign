@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import ButtonLink from "../Buttons/ButtonLink";
 import GlowSection, { GlowConfig } from "../GlowSection";
 import { CTAButtonLinkProps } from "@/types/ButtonProps.types";
+import HighlightTextHero from "./HighlightTextHero";
 
 interface button extends CTAButtonLinkProps {
   text?: string;
@@ -13,6 +14,7 @@ interface buttons {
   firstButton:button;
   secondButton:button;
 }
+
 
 
 export interface HeroProps {
@@ -41,9 +43,7 @@ function Hero({
         title || (
           <>
             Ideas Made{" "}
-            <span className="text-highlight-text-color font-bold font-inter">
-              Visible
-            </span>
+            <HighlightTextHero HighlightText="Visible"></HighlightTextHero>
           </>
         )
       }

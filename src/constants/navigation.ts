@@ -8,6 +8,10 @@ export const MAIN_NAV = [
     href: "/what-we-do",
   },
   {
+    label: "Case Study",
+    href: "/case-study",
+  },
+  {
     label: "Contact Us",
     href: "/contact",
   },

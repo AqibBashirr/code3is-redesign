@@ -12,7 +12,7 @@ function HeadingTextH3({ children,highlightText,highlightClassName ,className }:
   return (
     <h2
       className={cn(
-        "font-raleway font-semibold text-h3-font leading-[100%]",
+        "font-raleway font-semibold text-h3-font leading-font-h3",
         className,
       )}
     >

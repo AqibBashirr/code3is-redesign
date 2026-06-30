@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -23,6 +22,7 @@ export default function PortfolioCard({ card }: cardProps ) {
             src={card.imageSrc ?? "/images/what-we-build/branding1.png"}
             alt={`${card.title} Project Mockup`}
             fill
+            sizes="clamp(155px,20vw,263px)"
             className="object-cover"
           />
           <div className="absolute inset-0 bg-black/70 transition-colors duration-300 group-hover:bg-black/40"></div>
