@@ -152,7 +152,7 @@ export default function DocumentCarousel({
             onScroll={handleScroll}
             onKeyDown={handleKeyDown}
             tabIndex={0}
-            className=" scrollbar-none flex snap-x snap-mandatory overflow-x-auto scroll-smooth touch-pan-x outline-none"
+            className=" scrollbar-none flex snap-x snap-mandatory overflow-x-auto scroll-smooth touch-auto outline-none"
           >
             {items.map((item, index) => (
               <CarouselSlide

@@ -1,7 +1,6 @@
 "use client";
 
 import { memo } from "react";
-import clsx from "clsx";
 
 import Button from "../Buttons/Button";
 import { Arrow2 } from "../icons";

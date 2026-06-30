@@ -12,7 +12,7 @@ import type {
   CarouselOverlayOptions,
   CarouselSlots,
 } from "../types";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 
 interface CarouselSlideProps {
   item: CarouselDocument;

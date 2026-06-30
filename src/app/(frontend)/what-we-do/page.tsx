@@ -51,6 +51,7 @@ function page() {
           </>
         }
         subtitle="From design and development to marketing and automation, explore the services that support every stage of digital growth"
+        
       />
       <section className="pt-y max-w-max mx-auto px-x flex flex-col items-center lg:flex-row gap-space-content">
         <div className="flex-1 max-w-full lg:max-w-143.75">
