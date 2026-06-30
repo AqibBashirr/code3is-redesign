@@ -44,7 +44,7 @@ function SelectedWork() {
               <div className="flex flex-1 justify-between items-end gap-[clamp(10px,2vw,40px)] px-2 sm:px-3.5">
                 <div>
                   {/* INNER TEXT LOGIC: H3 */}
-                  <h3 className="transition-colors text-h3-font font-semibold duration-300 text-offBlack-color group-hover:text-highlight-text-color">
+                  <h3 className="transition-colors text-h3-font font-semibold duration-300 text-offBlack-color group-hover:text-highlight-text-color font-raleway">
                     {services.title}
                   </h3>
 
