@@ -4,7 +4,10 @@ import HighlightTextHero from "@/components/common/HighlightTextHero";
 import HeadingPill from "@/components/typography/headingPill";
 import HeadingText from "@/components/typography/headingText";
 import BodyText from "@/components/typography/BodyText";
+
 import Steps from "./Steps";
+import Contact from "@/features/home/components/contact";
+import AvailService from "@/features/home/components/Availservice";
 
 function CaseStudy({ data }: CaseStudyData) {
 
@@ -38,8 +41,9 @@ function CaseStudy({ data }: CaseStudyData) {
           </div>
         </div>
       </section>
-      <Steps Data={Data}/>
-      
+      <Steps Data={Data} />
+      <AvailService />
+      <Contact />
     </>
   );
 }
