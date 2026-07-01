@@ -14,8 +14,9 @@ function Steps({ Data }: StepsProps) {
       {Data.map((data, index) => {
         return (
           <section
+            id={data.pill.toLowerCase().split(" ")[1]}
             key={data.pill}
-            className={`flex flex-col md:flex-row gap-grid-content max-w-max mx-auto px-x pb-y ${index % 2 == 1 ? "flex-col md:flex-row-reverse" : "flex-col md:flex-row"}`}
+            className={`flex flex-col md:flex-row gap-grid-content max-w-max mx-auto px-x pb-y scroll-mt-24 ${index % 2 == 1 ? "flex-col md:flex-row-reverse" : "flex-col md:flex-row"}`}
           >
             <div className="left-side flex-1">
               <HeadingPill>{data.pill}</HeadingPill>

@@ -13,10 +13,14 @@ export function ProcessCard({
 }) {
   const Icon = process.icon as React.ElementType;
   const sectionId = process.title.toLowerCase().replace(/\s+/g, "-");
-
+  const href: Record<string, string> ={
+    challenge: `challenge`,
+    solution:  'approach',
+    outcome: 'outcome'
+  };
   return (
     <Link
-      href={`${process.href}/#${sectionId}`}
+      href={`${process.href}#${href[sectionId]}`}
       className="block group flex-1 w-full h-full"
       aria-label={process.title}
     >
