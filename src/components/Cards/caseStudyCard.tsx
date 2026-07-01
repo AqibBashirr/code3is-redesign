@@ -31,7 +31,7 @@ export function ProcessCard({
             <div className="flex ">
               <div className="flex-1">
                 {Icon && (
-                  <Icon className="text-highlight-text-color w-[clamp(30px,6vw,38px)] h-[clamp(30px,6vw,38px)] stroke-1 mb-6 transition-transform duration-300 group-hover:scale-110" />
+                  <Icon className="text-highlight-text-color group-hover:text-off-white-color w-[clamp(30px,6vw,38px)] h-[clamp(30px,6vw,38px)] stroke-1 mb-6 transition-transform duration-300 group-hover:scale-110" />
                 )}
 
                 <h4 className="text-highlight-text-color font-light text-[22px] leading-7 transition-colors duration-300 group-hover:text-white">

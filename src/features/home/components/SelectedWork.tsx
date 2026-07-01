@@ -30,7 +30,7 @@ function SelectedWork() {
             <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle,#3D3D3D,#1F1F1F)] opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100" />
 
             {/* THE BADGE min-w-[calc(50%+20px)] */}
-            <span className="z-20 bg-secondary-background hover:bg-highlight-text-color  px-5.5 py-2 text-center absolute right-0 top-0 text-highlight-text-color uppercase font-raleway text-xs sm:text-sm tracking-widest">
+            <span className="z-20 bg-secondary-background  px-5.5 py-2 text-center absolute right-0 top-0 text-highlight-text-color uppercase font-raleway text-xs sm:text-sm tracking-widest">
               {services.service}
             </span>
 
@@ -44,7 +44,7 @@ function SelectedWork() {
               <div className="flex flex-1 justify-between items-end gap-[clamp(10px,2vw,40px)] px-2 sm:px-3.5">
                 <div>
                   {/* INNER TEXT LOGIC: H3 */}
-                  <h3 className="transition-colors text-h3-font font-semibold duration-300 text-offBlack-color group-hover:text-highlight-text-color font-raleway">
+                  <h3 className="transition-colors text-h3-font font-semibold duration-300 text-offBlack-color group-hover:text-white font-raleway">
                     {services.title}
                   </h3>
 

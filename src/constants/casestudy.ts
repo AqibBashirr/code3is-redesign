@@ -1,4 +1,4 @@
-import { LightbulbIcon, PuzzleIcon } from "lucide-react";
+import { LightbulbIcon, PuzzleIcon, StickyNoteCheck } from "lucide-react";
 
 export const CASE_STUDY = {
   projectName: "Harmain Service Platform",
@@ -20,7 +20,7 @@ export const CASE_STUDY = {
     {
       title: "Outcome",
       items: ["Faster navigation", "Better usability", "Cleaner experience"],
-      icon:'',
+      icon:StickyNoteCheck,
     },
   ],
 } as const;
