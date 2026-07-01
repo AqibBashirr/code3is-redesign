@@ -38,7 +38,10 @@ export function ProcessCard({
                   {process.title}
                 </h4>
               </div>
-              <Arrow2 className="w-7.5 h-fit lg:hidden transition-transform duration-300 group-hover:text-shadow-highlight-text-color group-hover:translate-x-1 group-hover:-translate-y-1" />
+              <Arrow2
+                className="w-7.5 h-fit lg:hidden transition-transform duration-300 
+              group-hover:text-highlight-text-color group-hover:translate-x-1 group-hover:-translate-y-1"
+              />
             </div>
 
             {"description" in process && (
@@ -60,7 +63,7 @@ export function ProcessCard({
             )}
           </div>
           <div className="self-end hidden lg:block">
-            <Arrow2 className="w-11 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+            <Arrow2 className="w-11 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-highlight-text-color" />
           </div>
         </div>
       </article>
