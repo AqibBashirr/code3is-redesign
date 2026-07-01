@@ -28,7 +28,7 @@ export function ProcessCard({
 
         <div className="relative z-10 flex justify-between gap-6.5 h-full w-full">
           <div className="flex flex-col gap-4 flex-1">
-            <div className="flex ">
+            <div className="flex border-b-[0.01px] pb-2 border-b-white/10">
               <div className="flex-1">
                 {Icon && (
                   <Icon className="text-highlight-text-color group-hover:text-off-white-color w-[clamp(30px,6vw,38px)] h-[clamp(30px,6vw,38px)] stroke-1 mb-6 transition-transform duration-300 group-hover:scale-110" />
@@ -38,13 +38,11 @@ export function ProcessCard({
                   {process.title}
                 </h4>
               </div>
-              <Arrow2 className="w-7.5 h-fit lg:hidden transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              <Arrow2 className="w-7.5 h-fit lg:hidden transition-transform duration-300 group-hover:text-shadow-highlight-text-color group-hover:translate-x-1 group-hover:-translate-y-1" />
             </div>
 
             {"description" in process && (
-              <p className="border-t-[0.01px] pt-2 border-b-white/10">
-                {process.description}
-              </p>
+              <p className="">{process.description}</p>
             )}
 
             {"items" in process && (
