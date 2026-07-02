@@ -4,6 +4,7 @@ import { ComponentProps } from "react";
 
 export type Link = {
   href: string;
+  prefetch?: boolean;
 };
 
 export type CTAProps = {

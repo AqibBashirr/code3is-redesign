@@ -21,6 +21,7 @@ function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
           <Link
             key={item.href}
             href={item.href}
+            prefetch={false}
             onClick={onClick}
             
             className={cn(
