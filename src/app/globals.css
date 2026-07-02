@@ -278,34 +278,39 @@ body {
   navigation: auto;
 }
 
-.page-exit {
+::view-transition-old(root) {
   animation: fadeOut 0.4s ease-in-out forwards;
 }
 
 /* Entrance Animation */
-.page-enter {
+::view-transition-new(root) {
   animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+.animate-page-in {
+  animation: fadeIn .6s ease-out both;
 }
 
 @keyframes fadeOut {
   from {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
   to {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateX(20px);
   }
 }
 
+
 @keyframes fadeIn {
   from {
-    opacity: 0;
-    transform: translateY(-20px);
+    opacity: 0.3;
+    transform: translateX(-20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
