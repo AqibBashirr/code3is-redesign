@@ -5,6 +5,7 @@ import { MAIN_NAV } from "@/constants/navigation";
 import { usePathname } from "next/navigation";
 import { cn } from "@/constants/utils";
 
+
 interface HeaderNavLinksProps {
   className?: string;
   onClick?:()=>void;
@@ -12,10 +13,13 @@ interface HeaderNavLinksProps {
 
 function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
   const pathname = usePathname();
+ 
+
   return (
     <>
       {MAIN_NAV.map((item) => {
         const isActive = pathname.includes(item.href);
+        
         return (
           
           <Link

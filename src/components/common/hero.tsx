@@ -33,7 +33,7 @@ function Hero({
   subtitle = "A collection of websites, brands, campaigns & creative assets crafted for businesses across industries",
   buttons = {
     firstButton: { text: "Start A Project", href: "/#contact"},
-    secondButton: { text: "View Our Work", href: "/our-work",arrow:false,variant:"outline" },
+    secondButton: { text: "View Our Work", href: "/our-work#website",arrow:false,variant:"outline" },
   },
 }: HeroProps) {
   return (

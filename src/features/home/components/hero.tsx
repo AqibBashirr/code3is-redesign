@@ -32,7 +32,7 @@ export default function HeroSection() {
           </ButtonLink>
 
           <ButtonLink
-            href="/our-work"
+            href="/our-work#website"
             variant="outline"
             arrow={false}
             className="w-full flex items-center justify-center"
