@@ -30,14 +30,19 @@ export default function DefaultVisitButton({
     <ButtonLink
       href={href}
       target={item.cta?.target ?? "_blank"}
+      rel={item.cta?.rel ?? "noopener noreferrer"}
       variant="outline"
       className={cn(
         `
-        border-secondary-background
-        text-secondary-background
+        border-offBlack-color
+        text-offBlack-color
         hover:border-black
         hover:text-black
         uppercase
+        py-2.5
+        px-5
+        font-raleway
+        h-fit
         text-[clamp(12px,2vw,16px)]
         `,
         className,

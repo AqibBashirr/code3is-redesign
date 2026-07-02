@@ -3,6 +3,7 @@ import ButtonLink from "@/components/Buttons/ButtonLink";
 import { Arrow2 } from "@/components/icons";
 import { SELECTED_SERVICES } from "@/constants/selectedWork";
 import HeadingText from "@/components/typography/headingText";
+import Link from "next/link";
 
 function SelectedWork() {
   return (
@@ -35,8 +36,8 @@ function SelectedWork() {
             </span>
 
             {/* THE MAIN CONTENT LINK */}
-            <a
-              href={`/services/${services.title.toLowerCase().replaceAll(" ", "-")}`}
+            <Link
+              href={`/case-study/${services.title.toLowerCase().replaceAll(" ", "-")}`}
               className="relative z-10 flex flex-col h-full p-[clamp(7px,2vw,11px)] pb-[clamp(18px,2vw,31px)]"
             >
               <div className="w-full rounded-md mb-4 h-[clamp(242px,27vw,389px)] bg-[#E3E3E3]"></div>
@@ -58,7 +59,7 @@ function SelectedWork() {
                   <Arrow2 className="w-[clamp(24px,3.5vw,38px)] transition-colors duration-300 text-secondary-color group-hover:text-highlight-text-color" />
                 </div>
               </div>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

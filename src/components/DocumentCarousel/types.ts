@@ -23,6 +23,7 @@ export interface CarouselCTA {
   href: string;
   label?: string;
   target?: React.HTMLAttributeAnchorTarget;
+  rel?: 'nofollow' | 'noopener' | 'noreferrer' | 'nofollow noopener' | 'nofollow noreferrer' | 'noopener noreferrer' | 'nofollow noopener noreferrer';
 }
 
 /* -------------------------------------------------------------------------- */

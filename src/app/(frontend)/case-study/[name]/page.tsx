@@ -9,7 +9,7 @@ interface PageProps {
 export default async function Page({ params }: PageProps) {
   // 2. Await the params (Required in Next.js 15+)
   const resolvedParams = await params;
-  console.log("Current case study name:", resolvedParams.name);
+  // console.log("Current case study name:", resolvedParams.name);
 
   // 3. ISR Implementation: Fetch with a revalidation timer
   // 3600 = revalidate every 1 hour. Change this number as needed.

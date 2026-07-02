@@ -22,8 +22,9 @@ export const WEBSITE = {
       stacks: ["nextjs"],
 
       cta: {
-        label: "Visit Website",
+        // label: "Visit Website",
         href: "https://greymax.ae",
+        rel: "noopener noreferrer",
       },
     },
     {
@@ -39,8 +40,9 @@ export const WEBSITE = {
       stacks: ["nextjs", "figma", "react"],
 
       cta: {
-        label: "Visit Website",
+        // label: "Visit Website",
         href: "https://harmain.in",
+        rel: "noopener noreferrer",
       },
     },
 
@@ -319,8 +321,9 @@ export const ADS = {
       stacks: ["nextjs", "figma", "react"],
 
       cta: {
-        label: "Visit Website",
+        // label: "Visit Website",
         href: "https://harmain.in",
+        rel: "noopener noreferrer"
       },
     },
 

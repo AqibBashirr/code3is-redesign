@@ -27,22 +27,25 @@ export default function DefaultCategory({
       className={cn(
         `
         absolute
-        ${position==='left'?'left-4':'right-4'}
-        top-4
+        ${position === "left" ? "left-[clamp(24px,6.2vw,88px)]" : "right-[clamp(24px,6.2vw,88px)]"}
+        top-[clamp(28px,2.6vw,36px)]
         w-fit
         z-20
-        border
-        border-[#cfcfc8]
-        bg-white
-        px-3
+        border-[1.5px]
+        border-offBlack-color
+        rounded-[5px]
+        px-5
+        leading-[calc(var(--font-size-form-text-size)*12px)]
         py-1
-        text-[10px]
-        font-medium
+        font-raleway
+        text-form-text-size
+        font-semibold
         uppercase
-        tracking-[0.2em]
-        text-[#2a2c26]
-        md:right-6
-        md:top-6
+        hidden md:block
+        tracking-[20%]
+        text-offBlack-color
+         md:right-[clamp(24px,6.2vw,88px)] 
+         md:top-[clamp(28px,2.6vw,36px)]
         `,
         className,
       )}
