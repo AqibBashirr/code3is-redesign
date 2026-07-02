@@ -13,7 +13,9 @@ function Contact() {
       <div className="max-w-max mx-auto md:px-x text-center md:text-start lg:mt-[-9%]">
         <div className="main-text mt-between-content flex flex-col  lg:flex-row lg:items-center gap-6 ">
           <div className="flex-1 px-x md:px-0 lg:max-w-112.5">
-            <HeadingPill>Contact</HeadingPill>
+            <HeadingPill className="border border-secondary-background rounded-[10px] px-4 py-1">
+              Contact
+            </HeadingPill>
             <HeadingText highlightText="WORKS." className="mt-between-content">
               LET’S BUILD SOMETHING THAT
             </HeadingText>

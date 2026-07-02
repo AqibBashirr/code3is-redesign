@@ -24,7 +24,9 @@ function CaseStudy() {
           </div>
         </div>
         <div className="casestudy-text flex-1 ">
-          <HeadingPill>Case Study</HeadingPill>
+          <HeadingPill className="border border-secondary-background rounded-[10px] px-4 py-1">
+            Case Study
+          </HeadingPill>
           <div className="main-casestudy-text mt-between-content">
             <div>
               <HeadingText highlightText="Experience">
