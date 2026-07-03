@@ -31,7 +31,12 @@ function Steps({ Data }: StepsProps) {
                 <ChallengeSection challange={data} />
               </Reveal>
             </Reveal>
-            <Reveal y={0} x={'40px'} threshold={0.4} className="right-side flex-1">
+            <Reveal
+              y={0}
+              x={index % 2 == 1 ? "-40px" : "40px"}
+              threshold={0.4}
+              className="right-side flex-1"
+            >
               <Image
                 src={data.image.src}
                 width={600}
