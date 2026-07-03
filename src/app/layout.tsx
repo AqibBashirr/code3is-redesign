@@ -6,11 +6,13 @@ import {
   Poppins,
   Raleway,
 } from "next/font/google";
+import "./root.css";
+import "./styles.css";
+import "./globals.css";
 import Header from "@/components/Layout/Header/Header";
 import Aside from "@/components/Layout/Aside/Aside";
 import Footer from "@/components/Layout/Footer/Footer";
-import "./globals.css";
-import { ViewTransition } from "@/components/ViewTransition";
+
 
 const bebas_neue = Bebas_Neue({
   variable: "--font-bebas_neue",

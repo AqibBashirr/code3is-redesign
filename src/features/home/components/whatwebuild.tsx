@@ -1,5 +1,6 @@
 import AdCard from "../../../components/Cards/addCard";
 import ButtonLink from "@/components/Buttons/ButtonLink";
+import { Reveal } from "@/components/Reveal";
 import BodyText from "@/components/typography/BodyText";
 import HeadingText from "@/components/typography/headingText";
 
@@ -38,28 +39,39 @@ export default function WhatWeBuild() {
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-[clamp(20px,3.4vw,44px)] relative">
           {/* Header Block */}
-          <div className="col-span-2 flex flex-col justify-center items-center md:items-start mb-6 md:mb-0 pr-0 md:pr-8">
-            <HeadingText
-              highlightText="Build"
-              highlightClassName="italic"
-              className="text-center"
+          <Reveal className="col-span-2">
+            <div className="flex flex-col justify-center items-center md:items-start mb-6 md:mb-0 pr-0 md:pr-8">
+              <HeadingText
+                highlightText="Build"
+                highlightClassName="italic"
+                className="text-center"
+              >
+                What We
+              </HeadingText>
+
+              <BodyText className="sm:mb-content-gap max-w-sm text-center md:text-start">
+                A glimpse into the digital products and brand systems we&apos;ve
+                built for our clients
+              </BodyText>
+
+              <ButtonLink href="#" variant="dark" className="hidden md:flex">
+                Start a Project
+              </ButtonLink>
+            </div>
+          </Reveal>
+
+          {/* Render Cards with Staggered Reveal */}
+          {cards.map((card, index) => (
+            <Reveal
+              key={card.title}
+              delay={index * 0.25} // Multiplies the index (0, 0.15s, 0.30s, etc.)
+              y="40px" // Slides up slightly
+              scale={0.9} // Pops in from 90% size
+              duration="0.6s" // Fast, snappy duration
+              className="w-full h-full" // Ensures the grid dimensions don't collapse
             >
-              What We
-            </HeadingText>
-
-            <BodyText className="sm:mb-content-gap max-w-sm text-center md:text-start">
-              A glimpse into the digital products and brand systems we&apos;ve
-              built for our clients
-            </BodyText>
-
-            <ButtonLink href="#" variant="dark" className="hidden md:flex">
-              Start a Project
-            </ButtonLink>
-          </div>
-
-          {/* Render Cards */}
-          {cards.map((card) => (
-            <AdCard key={card.title} card={card} />
+              <AdCard card={card} />
+            </Reveal>
           ))}
         </div>
 

@@ -45,7 +45,9 @@ export default function ContactForm() {
         const errorData = await response.json();
         toast.error(errorData.error || "Something went wrong.");
       }
-    } catch (error) {
+    } catch (_error) {
+      // Changed to _error to satisfy the ESLint unused variable rule
+      console.log("Error sending contact form:", _error);
       toast.error("Failed to send. Please check your connection.");
     } finally {
       setIsSubmitting(false);
@@ -56,14 +58,22 @@ export default function ContactForm() {
     <>
       <Toaster richColors theme="dark" position="bottom-center" />
 
-      <div className="relative max-w-[558px] lg:w-[84%] w-full font-sans">
-        <div className="relative bg-[#1e1e1e] p-7 md:p-9 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/5 overflow-hidden">
-          <div className="absolute top-0 -left-[40%] w-[232px] h-[236px] bg-foreground blur-[160px] pointer-events-none rounded-full z-0"></div>
-          <div className="absolute bottom-0 -right-[40%] w-[232px] h-[236px] bg-foreground blur-[160px] pointer-events-none rounded-full z-0"></div>
+      {/* Applied Tailwind canonical class suggestions (e.g. max-w-139.5) */}
+      <div className="relative max-w-139.5 lg:w-[84%] w-full font-sans">
+        <div className="relative bg-[radial-gradient(circle,#3D3D3D,#1F1F1F)] p-7 md:p-9 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/5 overflow-hidden">
+          <div
+            className="absolute top-0 left-[-40%] w-58 h-59 bg-foreground blur-[160px] pointer-events-none rounded-full z-0"
+            aria-hidden="true"
+          ></div>
+          <div
+            className="absolute bottom-0 right-[-40%] w-58 h-59 bg-foreground blur-[160px] pointer-events-none rounded-full z-0"
+            aria-hidden="true"
+          ></div>
 
           <form
             className="relative z-10 flex flex-col gap-[clamp(27px,2.3vw,30px)]"
             onSubmit={handleSubmit}
+            noValidate // Optional: Allows custom error handling instead of default browser tooltips
           >
             {/* THE HONEYPOT FIELD */}
             <input
@@ -72,6 +82,7 @@ export default function ContactForm() {
               className="absolute opacity-0 -z-10 w-0 h-0"
               tabIndex={-1}
               autoComplete="off"
+              aria-hidden="true"
             />
 
             {/* Name Field */}
@@ -82,8 +93,9 @@ export default function ContactForm() {
                 id="name"
                 name="name"
                 required
+                aria-required="true"
                 disabled={isSubmitting}
-                className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-[#1e1e1e] border border-[#5C5C5C] rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
 
@@ -95,8 +107,9 @@ export default function ContactForm() {
                 id="email"
                 name="email"
                 required
+                aria-required="true"
                 disabled={isSubmitting}
-                className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-[#1e1e1e] border border-[#5C5C5C] rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
 
@@ -108,7 +121,7 @@ export default function ContactForm() {
                 id="phone"
                 name="phone"
                 disabled={isSubmitting}
-                className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-[#1e1e1e] border border-[#5C5C5C] rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
 
@@ -121,8 +134,9 @@ export default function ContactForm() {
                   name="projectType"
                   defaultValue=""
                   required
+                  aria-required="true"
                   disabled={isSubmitting}
-                  className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 pr-10 text-white/80 text-sm focus:outline-none focus:border-cyan-500/50 transition-all appearance-none cursor-pointer capitalize disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-[#1e1e1e] border border-[#5C5C5C] rounded-md px-3.5 py-3 pr-10 text-white/80 text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/30 transition-all appearance-none cursor-pointer capitalize disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <option value="" disabled>
                     Select an option...
@@ -133,7 +147,11 @@ export default function ContactForm() {
                     </option>
                   ))}
                 </select>
-                <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                {/* Decorative Arrow for Select */}
+                <div
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400"
+                  aria-hidden="true"
+                >
                   <svg
                     className="w-4 h-4"
                     fill="none"
@@ -159,8 +177,9 @@ export default function ContactForm() {
                 name="details"
                 rows={4}
                 required
+                aria-required="true"
                 disabled={isSubmitting}
-                className="w-full bg-[#141414] border border-white/5 rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed scrollbar-thumb-secondary-background"
+                className="w-full bg-[#1e1e1e] border border-[#5C5C5C] rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/30 transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed scrollbar-thumb-secondary-background"
               ></textarea>
             </div>
 
@@ -168,11 +187,15 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="mt-1.5 md:mt-5 w-full bg-[#f0f0f0] hover:bg-white text-[#111111]  group disabled:opacity-70 disabled:cursor-not-allowed group rounded-sm inline-flex items-center justify-center text-center font-inter font-medium uppercase text-content-font transition-all duration-300 gap-[clamp(8px,2vw,12px)] px-[clamp(20px,4vw,28px)] h-[clamp(48px,6vw,60px)]"
+              aria-disabled={isSubmitting}
+              className="mt-1.5 md:mt-5 w-full bg-[#f0f0f0] hover:bg-white text-[#111111] group disabled:opacity-70 disabled:cursor-not-allowed rounded-sm inline-flex items-center justify-center text-center font-inter font-medium uppercase text-content-font transition-all duration-300 gap-[clamp(8px,2vw,12px)] px-[clamp(20px,4vw,28px)] h-[clamp(48px,6vw,60px)]"
             >
               {isSubmitting ? "SENDING..." : "START A PROJECT"}
               {!isSubmitting && (
-                <Arrow2 className="w-4 group-hover:translate-x-1 transition-transform" />
+                <Arrow2
+                  className="w-4 group-hover:translate-x-1 transition-transform"
+                  aria-hidden="true"
+                />
               )}
             </button>
           </form>

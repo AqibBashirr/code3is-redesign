@@ -5,7 +5,7 @@ function TrustedBy() {
   const logos_length = CLIENT_LOGOS.length;
   const time = logos_length*4;
   return (
-    <div className=" bg-secondary-background  py-4 lg:py-12">
+    <div className=" bg-secondary-background  py-4 lg:py-12 box">
       <div
         className="max-w-[1920px] mx-auto scroller"
         data-animated="true"

@@ -119,8 +119,8 @@ export const CREATIVES = {
 export const BRANDING = {
   title: "BRANDING",
   heading: {
-    text: "Brand Identities Built To Stand ",
-    highlight: "Out",
+    text: "Brand Identities Built To  ",
+    highlight: "Stand Out",
   },
   description: [
     "Strategic branding and brand identity design for businesses seeking a distinctive market presence.",

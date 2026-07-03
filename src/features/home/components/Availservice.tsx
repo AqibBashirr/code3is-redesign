@@ -1,6 +1,7 @@
 import BodyText from "@/components/typography/BodyText";
 import ButtonLink from "@/components/Buttons/ButtonLink";
 import HeadingText from "@/components/typography/headingText";
+import { Reveal } from "@/components/Reveal";
 
 const SERVICES = [
   "INTEGRATION",
@@ -18,26 +19,28 @@ const SERVICES = [
 
 export default function AvailService() {
   return (
-    <section className="bg-(image:--gradiant-background) overflow-hidden">
+    <section className="bg-(image:--gradiant-background) overflow-hidden ">
       <div className="mx-auto max-w-max px-x ">
         <div className="grid items-center gap-12 md:grid-cols-[1fr_auto] text-center md:text-start">
           {/* Left Content */}
-          <div className="max-w-119 py-y md:py-0">
-            <HeadingText className="font-bold text-[clamp(36px,4vw,50px)] leading-none text-highlight-text-color">
-              Avail a
-              <br />
-              Service Now!
-            </HeadingText>
+          <Reveal duration="2s" threshold={0.1}>
+            <div className="max-w-119 py-y md:py-0 ">
+              <HeadingText className="font-bold text-[clamp(36px,4vw,50px)] leading-none text-highlight-text-color">
+                Avail a
+                <br />
+                Service Now!
+              </HeadingText>
 
-            <BodyText className="text-white">
-              Share your idea with us and we&apos;ll turn it into a custom
-              solution that drives results.
-            </BodyText>
+              <BodyText className="text-white">
+                Share your idea with us and we&apos;ll turn it into a custom
+                solution that drives results.
+              </BodyText>
 
-            <ButtonLink href="#contact" className="mt-content-gap">
-              Start A Project
-            </ButtonLink>
-          </div>
+              <ButtonLink href="#contact" className="mt-content-gap">
+                Start A Project
+              </ButtonLink>
+            </div>
+          </Reveal>
 
           {/* Right Animated Services */}
           <div className="services-mask hidden h-[464px] overflow-hidden md:block">

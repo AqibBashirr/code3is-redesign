@@ -1,0 +1,48 @@
+:root {
+  --background: #fcfef9;
+  --secondary-background: #212121;
+  --foreground: #1096c7;
+  --highlight-color: #bbfd58;
+  --off-white-color: #efefef;
+  --footer-bg-color: #303030;
+  --bg-overlay-color: #3a3b3a;
+
+  /* fonts color*/
+  --font-primary-color: #3a3b3a;
+  --font-black-color: #212121;
+  --font-secondary-color: #5e5e5e;
+  --font-highlight-color: #bbfd58;
+  --font-off-white-color: #fbfbfb;
+  --font-footer-color: #bdbdbd;
+  --font-bg-text: #f2f2f2;
+  --form-label-color: #fcfef9;
+
+  /* border color */
+  --border-card-color: #3a3b3a;
+
+  /*font- size  */
+  --content-font-size: clamp(14px, 2vw, 18px);
+  --form-label-size: clamp(12px, 2vw, 16px);
+  --h3-font-size: clamp(20px, 2vw, 30px);
+  --h3-font-leading: calc(clamp(20px, 2vw, 30px)+12px);
+
+  /* padding */
+  --padding-x: clamp(30px, 9.1vw, 130px);
+  --padding-y: clamp(3.75rem, 7vw, 6.25rem);
+
+  /* card styles */
+  --padding-card-x: clamp(23px, 3vw, 2.5rem);
+  --padding-card-y: clamp(1.5rem, 3vw, 2.625rem);
+  --card-padding-y: clamp(22px, 2vw, 25px);
+  --card-padding-x: clamp(22px, 2vw, 32px);
+
+  /* margin */
+  --margin-x: clamp(30px, 9.1vw, 130px);
+  --margin-y: 6.25rem;
+
+  /* title content gap */
+  --content-gap: clamp(1.25rem, 3.5vw, 3.125rem);
+  --space-content: clamp(16px, 1.6vw, 20px);
+
+  
+}
