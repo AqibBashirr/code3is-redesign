@@ -1,6 +1,7 @@
 import DocumentCarousel, {
   CarouselDocument,
 } from "@/components/DocumentCarousel";
+import { Reveal } from "@/components/Reveal";
 import BodyText from "@/components/typography/BodyText";
 import HeadingPill from "@/components/typography/headingPill";
 import HeadingText from "@/components/typography/headingText";
@@ -18,6 +19,7 @@ function Sections() {
             key={data.title}
             className={`max-w-max px-x pb-y ${index === 0 ? "pt-y" : ""}  mx-auto scroll-m-20`}
           >
+            <Reveal threshold={0.7} y={0} x={'-40px'} className="mb-content-gap">
             <HeadingPill className="">{data.title}</HeadingPill>
             <div className="flex flex-col md:flex-row gap-[clamp(20px,5.8vw,82px)] mb-content-gap mt-between-content">
               <div className="flex-1">
@@ -39,6 +41,7 @@ function Sections() {
                 ))}
               </div>
             </div>
+            </Reveal>
             <DocumentCarousel
               overlay={{
                 subtitle: false,

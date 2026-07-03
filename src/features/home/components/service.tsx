@@ -40,7 +40,7 @@ function Service() {
               />
 
               <Link
-                href={`/services/${services.title.toLowerCase()}`}
+                href={`/what-we-do#${services.title.toLowerCase()}`}
                 className="relative z-10 block h-full py-card-y px-card-x"
               >
                 <div className="flex justify-between items-end h-full">
@@ -86,7 +86,7 @@ function Service() {
       </div>
       <div className="text-center">
         <ButtonLink
-          href="#"
+          href="#contact"
           variant="dark"
           className="mt-[calc(var(--content-gap)+5px)]"
         >

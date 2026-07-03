@@ -16,6 +16,7 @@ import {
 } from "./defaults";
 
 import type { DocumentCarouselProps } from "./types";
+import { Reveal } from "../Reveal";
 
 export default function DocumentCarousel({
   items,
@@ -115,7 +116,7 @@ export default function DocumentCarousel({
   }
 
   return (
-    <section className={cn("w-full", className)}>
+    <Reveal className={cn("w-full", className)} threshold={0.3}>
       <div className={cn("relative mx-auto w-full", wrapperClassName)}>
         {/* ---------------- Mobile Controls ---------------- */}
         {mergedNavigation.mobile && (
@@ -214,6 +215,6 @@ export default function DocumentCarousel({
           </div>
         )}
       </div>
-    </section>
+    </Reveal>
   );
 }

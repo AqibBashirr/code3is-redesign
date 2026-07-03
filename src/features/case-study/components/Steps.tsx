@@ -3,6 +3,7 @@ import ChallengeSection from "./CommonSection";
 import HeadingTextH3 from "@/components/typography/HeadingTextH3";
 import HeadingPill from "@/components/typography/headingPill";
 import { CaseStudySection } from "../types/caseStudy.types";
+import { Reveal } from "@/components/Reveal";
 
 interface StepsProps{
   Data:CaseStudySection[]
@@ -18,7 +19,7 @@ function Steps({ Data }: StepsProps) {
             key={data.pill}
             className={`flex flex-col md:flex-row gap-grid-content max-w-max mx-auto px-x pb-y scroll-mt-24 ${index % 2 == 1 ? "flex-col md:flex-row-reverse" : "flex-col md:flex-row"}`}
           >
-            <div className="left-side flex-1">
+            <Reveal className="left-side flex-1">
               <HeadingPill>{data.pill}</HeadingPill>
               <HeadingTextH3
                 highlightText={data.heading.highlight}
@@ -26,11 +27,11 @@ function Steps({ Data }: StepsProps) {
               >
                 {data.heading.title}
               </HeadingTextH3>
-              <div>
+              <Reveal>
                 <ChallengeSection challange={data} />
-              </div>
-            </div>
-            <div className="right-side flex-1">
+              </Reveal>
+            </Reveal>
+            <Reveal y={0} x={'40px'} threshold={0.4} className="right-side flex-1">
               <Image
                 src={data.image.src}
                 width={600}
@@ -38,7 +39,7 @@ function Steps({ Data }: StepsProps) {
                 className="h-full w-auto"
                 alt={data.image.alt}
               />
-            </div>
+            </Reveal>
           </section>
         );
       })}

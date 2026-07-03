@@ -92,7 +92,7 @@ function SelectedWork() {
         ))}
       </div>
       <div className="text-center">
-        <ButtonLink href="#" variant="dark" className="mt-13.75">
+        <ButtonLink href="#contact" variant="dark" className="mt-13.75">
           Start a Project
         </ButtonLink>
       </div>

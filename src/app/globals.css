@@ -60,7 +60,7 @@
   --margin-y: var(--margin-y);
   --margin-content-gap: var(--content-gap);
   --margin-between-content: var(--space-content);
-  --scroll-margin-between-content:var(--space-content);
+  --scroll-mt-between-content:var(--padding-y);
 
   /* gap */
   --gap-space-content: var(--space-content);

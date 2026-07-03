@@ -20,7 +20,7 @@ export default function Header() {
 
         <DesktopNav />
 
-        <ButtonLink href="/contact" className="hidden lg:inline-flex">
+        <ButtonLink href="/#contact" className="hidden lg:inline-flex">
           Start a Project
         </ButtonLink>
 
