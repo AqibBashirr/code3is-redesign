@@ -17,6 +17,11 @@ body {
   /* padding-inline: clamp(30px,4vw,40px); */
 }
 @media (prefers-reduced-motion: no-preference) {
+
+
+  
+
+
 .reveal-wrapper {
   will-change: opacity, transform;
   
@@ -177,3 +182,4 @@ body {
   /* 2. Place it relative to the button (e.g., directly below it, aligned to the left edge) */
   position-area: bottom span-right;
 }
+
