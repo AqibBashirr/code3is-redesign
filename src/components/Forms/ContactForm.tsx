@@ -136,7 +136,7 @@ export default function ContactForm() {
                   required
                   aria-required="true"
                   disabled={isSubmitting}
-                  className="w-full bg-[#1e1e1e] border border-[#5C5C5C] rounded-md px-3.5 py-3 pr-10 text-white/80 text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/30 transition-all appearance-none cursor-pointer capitalize disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-[#1e1e1e] border border-[#5C5C5C] rounded-md px-3.5 py-3 pr-10 text-white/40 text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/30 transition-all appearance-none cursor-pointer capitalize disabled:opacity-30 disabled:cursor-not-allowed"
                 >
                   <option value="" disabled>
                     Select an option...

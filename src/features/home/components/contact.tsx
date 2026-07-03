@@ -13,7 +13,7 @@ function Contact() {
       <BigBgText>Contact</BigBgText>
       <div className="max-w-max mx-auto md:px-x text-center md:text-start lg:mt-[-9%]">
         <div className="main-text mt-between-content flex flex-col  lg:flex-row lg:items-center gap-6 ">
-          <Reveal threshold={0.6}  className="flex-1 px-x md:px-0 lg:max-w-112.5">
+          <Reveal threshold={0.6} y={0} x={'-40px'}  className="flex-1 px-x md:px-0 lg:max-w-112.5">
             <HeadingPill className="border border-secondary-background rounded-[10px] px-4 py-1">
               Contact
             </HeadingPill>
@@ -27,9 +27,9 @@ function Contact() {
               results.
             </BodyText>
           </Reveal>
-          <div className="form-container flex-1 flex items-end lg:justify-end justify-center text-start">
+          <Reveal threshold={0.6}  y={0} x={'40px'} className="form-container flex-1 flex items-end lg:justify-end justify-center text-start">
             <ContactForm />
-          </div>
+          </Reveal >
         </div>
       </div>
     </section>

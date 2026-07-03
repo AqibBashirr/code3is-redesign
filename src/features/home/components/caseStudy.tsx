@@ -6,13 +6,18 @@ import HeadingPill from "@/components/typography/headingPill";
 import BigBgText from "@/components/typography/BigBgText";
 import BodyText from "@/components/typography/BodyText";
 import HeadingText from "@/components/typography/headingText";
+import { Reveal } from "@/components/Reveal";
 
 function CaseStudy() {
   return (
     <section className="overflow-hidden pb-y ">
       <BigBgText>CASE STUDY</BigBgText>
       <div className="flex flex-col-reverse lg:flex-row gap-[clamp(30px,4vw,84px)] px-x mt-content-gap max-w-max mx-auto">
-        <div className="casestudy-img hidden lg:block flex-1 mt-[calc(var(--space-content)+46px)]">
+        <Reveal
+          y={0}
+          x={"-40px"}
+          className="casestudy-img hidden lg:block flex-1 mt-[calc(var(--space-content)+46px)]"
+        >
           <div className="h-48.5 md:h-full  w-full rounded-[10px] bg-black shadow-[-5px_-5px_0_0px_#BBFD58] overflow-hidden">
             <Image
               src={CASE_STUDY.img}
@@ -22,8 +27,8 @@ function CaseStudy() {
               className="w-full h-full object-cover"
             />
           </div>
-        </div>
-        <div className="casestudy-text flex-1 ">
+        </Reveal>
+        <Reveal y={0} x={"40px"} className="casestudy-text flex-1 ">
           <HeadingPill className="border border-secondary-background rounded-[10px] px-4 py-1">
             Case Study
           </HeadingPill>
@@ -53,13 +58,17 @@ function CaseStudy() {
                 </div>
                 {CASE_STUDY.processes.map((process) => {
                   return (
-                    <ProcessCard
-                      key={process.title}
-                      process={{
-                        ...process,
-                        href: `case-study/${CASE_STUDY.projectName.toLowerCase().replaceAll(" ", "-")}`,
-                      }}
-                    />
+                    <Reveal
+                      
+                      key={process.title}>
+                         
+                      <ProcessCard
+                        process={{
+                          ...process,
+                          href: `case-study/${CASE_STUDY.projectName.toLowerCase().replaceAll(" ", "-")}`,
+                        }}
+                      />
+                    </Reveal>
                   );
                 })}
               </div>
@@ -74,7 +83,7 @@ function CaseStudy() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -9,12 +9,15 @@ import Link from "next/link";
 function Service() {
   return (
     <section className="pb-y max-w-max mx-auto px-x">
-      <HeadingText highlightText="Services" className="text-center">
-        Our
-      </HeadingText>
+      <Reveal scale={0.9} duration=".8s" threshold={0.9}>
+        <HeadingText highlightText="Services" className="text-center">
+          Our
+        </HeadingText>
 
-      <BodyText className="text-center">Real projects. Real results.</BodyText>
-
+        <BodyText className="text-center">
+          Real projects. Real results.
+        </BodyText>
+      </Reveal>
       <div
         className="pt-content-gap grid grid-cols-1 sm:grid-cols-2 gap-[clamp(24px,3vw,40px)]"
         role="list"

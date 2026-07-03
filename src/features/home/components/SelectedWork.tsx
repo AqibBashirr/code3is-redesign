@@ -59,7 +59,7 @@ function SelectedWork() {
                 href={`/case-study/${services.title.toLowerCase().replaceAll(" ", "-")}`}
                 className="relative z-10 flex flex-col h-full p-[clamp(7px,2vw,11px)] pb-[clamp(18px,2vw,31px)]"
               >
-                {/* VISUAL PLACEHOLDER - Hidden from screen readers */}
+             
                 <Image
                   src={services.image.src}
                   alt={services.image.alt}
@@ -67,7 +67,7 @@ function SelectedWork() {
                   height={389}
                   quality={100}
                   aria-hidden="true"
-                  className="w-full rounded-md mb-4 h-[clamp(242px,27vw,389px)] bg-[#E3E3E3]"
+                  className="w-auto rounded-md mb-4 h-[clamp(242px,27vw,389px)] object-cover bg-[#E3E3E3]"
                 ></Image>
 
                 <div className="flex flex-1 justify-between items-end gap-[clamp(10px,2vw,40px)] px-2 sm:px-3.5">
