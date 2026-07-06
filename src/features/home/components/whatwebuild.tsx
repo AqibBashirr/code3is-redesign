@@ -64,7 +64,7 @@ export default function WhatWeBuild() {
           {cards.map((card, index) => (
             <Reveal
               key={card.title}
-              delay={index * 0.25} // Multiplies the index (0, 0.15s, 0.30s, etc.)
+              delay={index>=2 ? (index - 2) * 0.25 : index * 0.25} // Multiplies the index (0, 0.15s, 0.30s, etc.)
               y="40px" // Slides up slightly
               scale={0.9} // Pops in from 90% size
               duration="0.6s" // Fast, snappy duration

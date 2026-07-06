@@ -12,10 +12,8 @@ export default function Header() {
         <Link
           href="/"
           className="flex items-center gap-2"
-          popoverTarget="mobile-menu"
-          popoverTargetAction="toggle"
         >
-          <Logo loading="eager" />
+          <Logo preload={true} loading="eager" />
         </Link>
 
         <DesktopNav />

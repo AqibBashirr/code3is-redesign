@@ -62,9 +62,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${poppins.variable} ${raleway.variable} ${montserrat.variable} ${bebas_neue.variable} h-full antialiased`}
+      className={`${inter.variable} ${poppins.variable} ${raleway.variable} ${montserrat.variable} ${bebas_neue.variable} h-full antialiased  scrollbar-none`}
     >
-      <body className="min-h-full flex flex-col scrollbar-thin">
+      <body className="min-h-full flex flex-col scrollbar-none">
         <Header />
         <Aside />
         <main className="flex-1 ">

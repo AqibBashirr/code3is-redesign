@@ -4,10 +4,38 @@ body {
   font-family: var(--font-poppins), sans-serif;
   font-size: clamp(14px, 2vw, 16px);
   line-height: calc(clamp(14px, 2vw, 16px) * 2);
+
 }
+
+
 ::selection {
   background: var(--highlight-color);
   color: white;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: var(--highlight-color); 
+  z-index: 9999;             
+  
+  /* 2. Link the scaling element to the scroll timeline */
+  transform-origin: left;
+  animation: grow-progress linear;
+  animation-timeline: scroll();
+}
+
+@keyframes grow-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 .scroller__inner {
