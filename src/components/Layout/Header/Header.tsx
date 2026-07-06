@@ -13,7 +13,7 @@ export default function Header() {
           href="/"
           className="flex items-center gap-2"
         >
-          <Logo preload={true} loading="eager" />
+          <Logo fetchPriority="high"  />
         </Link>
 
         <DesktopNav />
