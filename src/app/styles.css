@@ -6,11 +6,7 @@ body {
   line-height: calc(clamp(14px, 2vw, 16px) * 2);
 
 }
-a:active, a:focus {
-  color: var(--highlight-color);
-  outline: none;
 
-}
 
 ::selection {
   background: var(--highlight-color);

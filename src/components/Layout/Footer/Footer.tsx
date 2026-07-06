@@ -27,7 +27,7 @@ const Icons = {
 
 function Footer() {
   return (
-    <Reveal  threshold={0.4}>
+    <Reveal threshold={0.4}>
       <footer className="bg-black text-[clamp(14px,4vw,16px)] text-footer-text font-normal leading-7 ">
         <div className="mx-auto max-w-max">
           <div className=" flex justify-between flex-wrap gap-9 sm:gap-20 py-y px-x">
@@ -47,7 +47,7 @@ function Footer() {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="hover:text-highlight-text-color"
+                        className="hover:text-highlight-text-color focus:text-highlight-color focus:bg-highlight-text-color"
                       >
                         {link.label}
                       </Link>
@@ -69,13 +69,13 @@ function Footer() {
                       key={detail.type}
                       className="col-span-2 grid grid-cols-subgrid gap-2 items-center group"
                     >
-                      <Icon className="w-[clamp(16px,2vw,22px)] transition-colors duration-300 group-hover:text-highlight-text-color" />
+                      <Icon className="w-[clamp(16px,2vw,22px)] transition-colors duration-300 group-hover:text-highlight-text-color group-active:text-highlight-text-color group-focus:text-highlight-color" />
 
                       <a
                         href={detail.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group-hover:text-highlight-text-color "
+                        className="group-hover:text-highlight-text-color group-active:text-highlight-text-color group-focus:text-highlight-text-color focus:text-highlight-color focus:bg-highlight-text-color"
                       >
                         {detail.label}
                       </a>
@@ -104,9 +104,9 @@ function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Code3is ${social.label} page`}
-                    className="inline-block group"
+                    className="inline-block group active:text-highlight-text-color focus:text-highlight-color"
                   >
-                    <Icon className="w-5 sm:w-7.5 transition-colors duration-300 group-hover:text-highlight-text-color" />
+                    <Icon className="w-5 sm:w-7.5 transition-colors duration-300 group-hover:text-highlight-text-color group-active:text-highlight-text-color group-focus:text-highlight-text-color focus:text-highlight-color" />
                   </a>
                 );
               })}
@@ -130,13 +130,13 @@ function Footer() {
             >
               <Link
                 href="/terms-conditions"
-                className="underline hover:text-highlight-text-color"
+                className="underline hover:text-highlight-text-color focus:text-highlight-color focus:bg-highlight-text-color"
               >
                 Terms & Conditions
               </Link>
               <Link
                 href="/privacy-policy"
-                className="underline hover:text-highlight-text-color"
+                className="underline hover:text-highlight-text-color focus:text-highlight-color focus:bg-highlight-text-color"
               >
                 Privacy Policy
               </Link>
