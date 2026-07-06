@@ -27,7 +27,7 @@ const Icons = {
 
 function Footer() {
   return (
-    <Reveal duration={1} threshold={0.5}>
+    <Reveal  threshold={0.4}>
       <footer className="bg-black text-[clamp(14px,4vw,16px)] text-footer-text font-normal leading-7 ">
         <div className="mx-auto max-w-max">
           <div className=" flex justify-between flex-wrap gap-9 sm:gap-20 py-y px-x">
