@@ -5,7 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import BodyText from "@/components/typography/BodyText";
 import HeadingPill from "@/components/typography/headingPill";
 import HeadingText from "@/components/typography/headingText";
-import WhatWeDoSections from "@/features/our-services/components/WhatWeDoSections";
+import WhatWeDoSections from "@/features/what-we-do/components/WhatWeDoSections";
 import Image from "next/image";
 
 

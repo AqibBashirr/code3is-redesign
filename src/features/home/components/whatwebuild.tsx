@@ -77,7 +77,7 @@ export default function WhatWeBuild() {
 
         {/* Mobile ButtonLink */}
         <div className="mt-10 flex justify-center md:hidden">
-          <ButtonLink href="#contact" variant="dark">
+          <ButtonLink href="/#contact" variant="dark">
             Start a Project
           </ButtonLink>
         </div>

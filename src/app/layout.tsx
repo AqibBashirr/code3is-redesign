@@ -12,6 +12,7 @@ import "./globals.css";
 import Header from "@/components/Layout/Header/Header";
 import Aside from "@/components/Layout/Aside/Aside";
 import Footer from "@/components/Layout/Footer/Footer";
+import VersionChecker from "@/components/VersionChecker";
 
 
 const bebas_neue = Bebas_Neue({
@@ -65,6 +66,8 @@ export default function RootLayout({
       className={`${inter.variable} ${poppins.variable} ${raleway.variable} ${montserrat.variable} ${bebas_neue.variable} h-full antialiased  scrollbar-none`}
     >
       <body className="min-h-full flex flex-col scrollbar-none">
+        <VersionChecker />
+
         <Header />
         <Aside />
         <main className="flex-1 ">
