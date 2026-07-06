@@ -8,7 +8,7 @@ import { Reveal } from "@/components/Reveal";
 
 function Contact() {
   return (
-    <section id="contact" className=" py-y">
+    <section id="contact" className=" py-y w-dvw overflow-hidden">
       {/* <h2 className="text-[min(16.4vw,250px)] font-extrabold whitespace-nowrap leading-[15vw]  text-big-text-font-color uppercase text-center mb-content-gap font-vanguard"> */}
       <BigBgText>Contact</BigBgText>
       <div className="max-w-max mx-auto md:px-x text-center md:text-start lg:mt-[-9%]">
