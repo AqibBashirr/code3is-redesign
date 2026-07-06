@@ -3,36 +3,10 @@ import ButtonLink from "@/components/Buttons/ButtonLink";
 import { Reveal } from "@/components/Reveal";
 import BodyText from "@/components/typography/BodyText";
 import HeadingText from "@/components/typography/headingText";
+import { cards } from "@/constants/what-we-build";
 
 export default function WhatWeBuild() {
-  const cards = [
-    {
-      title: "Websites",
-      imageSrc: "/images/what-we-build/websites.png",
-      href: "website",
-    },
-    {
-      title: "Creatives",
-      imageSrc: "/images/what-we-build/creatives.png",
-      href: "creatives",
-    },
-    {
-      title: "Branding",
-      imageSrc: "/images/what-we-build/branding.png",
-      href: "branding",
-    },
-    {
-      title: "Stationery",
-      imageSrc: "/images/what-we-build/stationery.png",
-      href: "stationery",
-    },
-    {
-      title: "Print Design",
-      imageSrc: "/images/what-we-build/print-design.png",
-      href: "print-design",
-    },
-    { title: "ads", imageSrc: "/images/what-we-build/ads.png", href: "ads" },
-  ];
+  
 
   return (
     <section className=" py-y px-x font-sans min-h-screen flex items-center justify-center">
