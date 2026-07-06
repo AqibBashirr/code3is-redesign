@@ -5,7 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import BodyText from "@/components/typography/BodyText";
 import HeadingPill from "@/components/typography/headingPill";
 import HeadingText from "@/components/typography/headingText";
-import WhatWeDoSections from "@/features/what-we-do/components/WhatWeDoSections";
+import WhatWeDoSections from "@/features/our-services/components/WhatWeDoSections";
 import Image from "next/image";
 
 
@@ -70,7 +70,7 @@ function page() {
           </Reveal>
           <Reveal y={0} x={"40px"} threshold={0.6} className="lg:hidden bg-linear-to-b from-[#EAE9E5] to-[#FBFBFB] rounded-[10px] border border-overlay-card mt-between-content">
             <Image
-              src="/images/what-we-do/services.avif"
+              src="/images/our-services/services.avif"
               alt="service Image feel Good Travels"
               width={678}
               height={475}
@@ -84,7 +84,7 @@ function page() {
         </div>
         <Reveal y={0} x={"40px"} threshold={0.4} className="flex-1 hidden lg:block">
           <ImageBgContainer
-            src="/images/what-we-do/services.avif"
+            src="/images/our-services/services.avif"
             alt="service Image feel Good Travels"
             width={678}
             height={475}

@@ -44,6 +44,14 @@ header::after {
   gap: 36px;
   /* padding-inline: clamp(30px,4vw,40px); */
 }
+
+
+a::active, a:focus {
+  color: var(--highlight-color);
+  outline: none;
+
+}
+
 @media (prefers-reduced-motion: no-preference) {
 
 
@@ -63,11 +71,7 @@ header::after {
   transition-delay: var(--delay, 0s);
 }
 
-a::active, a:focus {
-  color: var(--highlight-color);
-  outline: none;
 
-}
 
 .reveal-wrapper.is-visible {
   /* Final State */

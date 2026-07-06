@@ -1,5 +1,5 @@
 import HeadingPill from "@/components/typography/headingPill";
-import { WHAT_WE_DO_DATA } from "@/constants/what-we-do";
+import { WHAT_WE_DO_DATA } from "@/constants/our-services";
 import WhatWeDoSection from "./WhatWeDoSection";
 import { Reveal } from "@/components/Reveal";
 

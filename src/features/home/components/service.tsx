@@ -40,7 +40,7 @@ function Service() {
               />
 
               <Link
-                href={`/what-we-do#${services.title.toLowerCase()}`}
+                href={`/our-services#${services.title.toLowerCase()}`}
                 className="relative z-10 block h-full py-card-y px-card-x"
               >
                 <div className="flex justify-between items-end h-full">

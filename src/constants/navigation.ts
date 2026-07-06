@@ -4,8 +4,8 @@ export const MAIN_NAV = [
     href: "/our-work",
   },
   {
-    label: "What We Do",
-    href: "/what-we-do",
+    label: "Our Services",
+    href: "/our-services",
   },
   {
     label: "Case Study",

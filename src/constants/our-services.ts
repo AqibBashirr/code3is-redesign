@@ -27,7 +27,7 @@ export const WHAT_WE_DO_DATA = [
       },
       {
         heading: { text: "greymax image" },
-        image: { alt: "greymax image", src: "/images/what-we-do/build.avif" },
+        image: { alt: "greymax image", src: "/images/our-services/build.avif" },
       },
     ],
   },
@@ -55,7 +55,7 @@ export const WHAT_WE_DO_DATA = [
       },
       {
         heading: { text: "greymax image" },
-        image: { alt: "greymax image", src: "/images/what-we-do/design.avif" },
+        image: { alt: "greymax image", src: "/images/our-services/design.avif" },
       },
     ],
   },
@@ -82,7 +82,7 @@ export const WHAT_WE_DO_DATA = [
       },
       {
         heading: { text: "greymax image" },
-        image: { alt: "greymax image", src: "/images/what-we-do/grow.avif" },
+        image: { alt: "greymax image", src: "/images/our-services/grow.avif" },
       },
     ],
   },
@@ -110,7 +110,7 @@ export const WHAT_WE_DO_DATA = [
       },
       {
         heading: { text: "Scale image" },
-        image: { alt: "Scale image", src: "/images/what-we-do/scale.avif" },
+        image: { alt: "Scale image", src: "/images/our-services/scale.avif" },
       },
     ],
   },
