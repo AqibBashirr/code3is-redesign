@@ -54,7 +54,7 @@ export default function WhatWeBuild() {
                 built for our clients
               </BodyText>
 
-              <ButtonLink href="#" variant="dark" className="hidden md:flex">
+              <ButtonLink href="#contact" variant="dark" className="hidden md:flex">
                 Start a Project
               </ButtonLink>
             </div>

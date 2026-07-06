@@ -82,7 +82,7 @@ function page() {
             ></Image>
           </Reveal>
           <Reveal y={0} x={"-40px"} threshold={0.4} className="">
-            <ButtonLink href="#" className="mt-content-gap" variant="dark">
+            <ButtonLink href="/#contact" className="mt-content-gap" variant="dark">
               Start A Project
             </ButtonLink>
           </Reveal>

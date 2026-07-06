@@ -22,8 +22,11 @@ function Contact() {
             <HeadingPill className="border border-secondary-background rounded-[10px] px-4 py-1">
               Contact
             </HeadingPill>
-            <HeadingText highlightText="WORKS." className="mt-between-content">
-              LET’S BUILD SOMETHING THAT
+            <HeadingText
+              highlightText="WORKS."
+              className="mt-between-content capitalize"
+            >
+              Let’s Build Something That
             </HeadingText>
 
             <BodyText className="capitalize ">

@@ -12,7 +12,7 @@ function HeadingText({ children,highlightText,highlightClassName ,className }: H
   return (
     <h2
       className={cn(
-        "font-raleway font-semibold text-[clamp(28px,3vw,40px)] leading-[calc(clamp(28px,3vw,40px)+12px)]",
+        "font-raleway font-semibold text-[clamp(28px,3vw,40px)] leading-[calc(clamp(28px,3vw,40px)+12px)] capitalize",
         className,
       )}
     >
