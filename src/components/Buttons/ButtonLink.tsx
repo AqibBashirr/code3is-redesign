@@ -1,5 +1,5 @@
 // src/components/ui/ButtonLink.tsx
-"use client"; // Required for usePathname and onClick
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -16,32 +16,31 @@ export default function ButtonLink({
   arrow = true,
   className,
   prefetch = false,
-  onClick, // Extract onClick so we can chain it
+  onClick,
   ...props
 }: CTAButtonLinkProps) {
   const pathname = usePathname();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // 1. Check if it's a string href containing a hash anchor
     if (typeof href === "string" && href.includes("#")) {
       const [path, hash] = href.split("#");
 
-      // 2. If the link targets the page we are currently on
       if (path === "" || path === pathname) {
-        e.preventDefault(); // Stop Next.js from ignoring the click
+        e.preventDefault();
         const element = document.getElementById(hash);
 
         if (element) {
-          // Smoothly scroll to the element
           element.scrollIntoView({ behavior: "smooth" });
-
-          // Update the URL in the browser without causing a page reload
           window.history.pushState(null, "", `#${hash}`);
+
+          // Make the target element programmatically focusable
+          element.setAttribute("tabindex", "-1");
+          // Move the focus to the new section without breaking the smooth scroll
+          element.focus({ preventScroll: true });
         }
       }
     }
 
-    // 3. Fire any external onClick handlers passed to the component
     if (onClick) {
       onClick(e);
     }
@@ -63,6 +62,8 @@ export default function ButtonLink({
 
       {arrow && (
         <ArrowRight
+          aria-hidden="true" 
+          role="presentation"
           className={cn(
             "size-4 transition-transform duration-300 group-hover:translate-x-1",
             arrowVariants[variant as keyof typeof arrowVariants],

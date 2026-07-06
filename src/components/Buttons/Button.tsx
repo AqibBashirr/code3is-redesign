@@ -30,6 +30,8 @@ export default function Button({
 
       {arrow && (
         <ArrowRight
+          aria-hidden="true"
+          role="presentation"
           className={cn(
             "size-4 transition-transform duration-300 group-hover:translate-x-1",
             arrowVariants[variant as keyof typeof arrowVariants],

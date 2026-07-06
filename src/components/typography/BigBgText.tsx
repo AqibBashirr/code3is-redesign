@@ -1,18 +1,19 @@
-import React from "react"
+import React from "react";
 
-interface BigBgTextProps{
+interface BigBgTextProps {
   children: React.ReactNode;
 }
 
-function BigBgText({children}:BigBgTextProps) {
+function BigBgText({ children }: BigBgTextProps) {
   return (
     <div
       aria-hidden="true"
-      className="text-[27.4vw] font-extrabold uppercase whitespace-nowrap leading-[calc(23.5vw)] h-[20.6vw] font-bebas text-center  text-big-text-font-color select-none pointer-events-none font-bebas_neue"
+      role="presentation"
+      className="text-[27.4vw] font-extrabold uppercase whitespace-nowrap leading-[calc(23.5vw)] h-[20.6vw] font-bebas text-center text-big-text-font-color select-none pointer-events-none font-bebas_neue"
     >
       {children}
     </div>
   );
 }
 
-export default BigBgText
+export default BigBgText;
