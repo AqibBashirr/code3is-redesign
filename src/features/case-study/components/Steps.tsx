@@ -17,7 +17,7 @@ function Steps({ Data }: StepsProps) {
           <section
             id={data.pill.toLowerCase().split(" ")[1]}
             key={data.pill}
-            className={`flex flex-col md:flex-row gap-grid-content max-w-max mx-auto px-x pb-y scroll-mt-24 ${index % 2 == 1 ? "flex-col md:flex-row-reverse" : "flex-col md:flex-row"}`}
+            className={`flex flex-col md:flex-row gap-grid-content md:items-start max-w-max mx-auto px-x pb-y scroll-mt-24 ${index % 2 == 1 ? "flex-col md:flex-row-reverse" : "flex-col md:flex-row"}`}
           >
             <Reveal className="left-side flex-1">
               <HeadingPill>{data.pill}</HeadingPill>
@@ -35,13 +35,13 @@ function Steps({ Data }: StepsProps) {
               y={0}
               x={index % 2 == 1 ? "-40px" : "40px"}
               threshold={0.4}
-              className="right-side flex-1"
+              className="right-side flex-1 align-top"
             >
               <Image
                 src={data.image.src}
                 width={600}
                 height={600}
-                className="h-full w-auto"
+                className="h-full align-top w-auto object-contain  rounded-[10px] overflow-hidden"
                 alt={data.image.alt}
               />
             </Reveal>

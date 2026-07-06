@@ -1,5 +1,9 @@
+import Hero from "@/components/common/hero";
+import HighlightTextHero from "@/components/common/HighlightTextHero";
 import { baseUrl } from "@/constants/BaseUrl";
-import CaseStudy from "@/features/case-study/components/CaseStudy";
+
+
+import SelectedWork from "@/features/home/components/SelectedWork";
 
 export const dynamic = "force-dynamic";
 
@@ -20,6 +24,27 @@ export default async function Page() {
   
 
    return (
-      <CaseStudy data={data} />
-    );
+     <>
+       <Hero
+         title={
+           <>
+             Digital Experiences Built
+             <br /> for <HighlightTextHero HighlightText="Impact" />
+           </>
+         }
+         subtitle="High-performance web applications featuring minimalist design and scalable architectures. Explore our latest work."
+         buttons={{
+           firstButton: { text: "Start A Project", href: "#contact" },
+           secondButton: {
+             text: "View Our Work",
+             href: `/#our-work`,
+             arrow: false,
+             variant: "outline",
+           },
+         }}
+       />
+       <SelectedWork />;
+     </>
+   );
+   // <CaseStudy data={data} />
 }

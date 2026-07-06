@@ -6,8 +6,7 @@ import HeadingText from "@/components/typography/headingText";
 import BodyText from "@/components/typography/BodyText";
 
 import Steps from "./Steps";
-import Contact from "@/features/home/components/contact";
-import AvailService from "@/features/home/components/Availservice";
+
 
 function CaseStudy({ data }: CaseStudyData) {
 
@@ -24,6 +23,15 @@ function CaseStudy({ data }: CaseStudyData) {
           </>
         }
         subtitle={data.description}
+        buttons={{
+          firstButton: { text: "Start A Project", href: "#contact" },
+          secondButton: {
+            text: "View Our Work",
+            href: `/#our-work`,
+            arrow: false,
+            variant: "outline",
+          },
+        }}
       ></Hero>
       <section className="max-w-max mx-auto px-x py-y">
         <HeadingPill>Case Study {padded}</HeadingPill>
@@ -42,8 +50,7 @@ function CaseStudy({ data }: CaseStudyData) {
         </div>
       </section>
       <Steps Data={Data} />
-      <AvailService />
-      <Contact />
+      
     </>
   );
 }
