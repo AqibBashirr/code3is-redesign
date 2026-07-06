@@ -10,14 +10,13 @@ interface ImageBgContainerProps extends ImageProps {
 
 function ImageBgContainer({className,bgClass,src,alt,...props}:ImageBgContainerProps) {
   return (
-    <div className={cn(" overflow-clip rounded-[10px]", bgClass)}>
-      {/* bg-linear-to-b from-[#EAE9E5] to-[#FBFBFB]  border
-      border-overlay-card */}
+    <div className={cn(" overflow-clip rounded-[10px] bg-linear-to-b from-[#EAE9E5] to-[#FBFBFB]  border border-overlay-card", bgClass)}>
+    
       <Image
         src={src}
         alt={alt}
         {...props}
-        className={cn("w-full md:w-auto h-auto md:h-full  object-contain", className)}
+        className={cn("w-full h-auto  object-contain", className)}
       ></Image>
     </div>
   );
