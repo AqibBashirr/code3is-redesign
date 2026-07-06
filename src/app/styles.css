@@ -63,6 +63,12 @@ header::after {
   transition-delay: var(--delay, 0s);
 }
 
+a::active, a:focus {
+  color: var(--highlight-color);
+  outline: none;
+
+}
+
 .reveal-wrapper.is-visible {
   /* Final State */
   opacity: 1;
