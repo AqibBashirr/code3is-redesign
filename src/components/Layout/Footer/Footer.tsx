@@ -47,7 +47,7 @@ function Footer() {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="hover:text-highlight-text-color focus:text-highlight-color focus:bg-highlight-text-color"
+                        className="hover:text-highlight-text-color focus:text-highlight-color active:text-highlight-text-color"
                       >
                         {link.label}
                       </Link>
@@ -75,7 +75,7 @@ function Footer() {
                         href={detail.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group-hover:text-highlight-text-color group-active:text-highlight-text-color group-focus:text-highlight-text-color focus:text-highlight-color focus:bg-highlight-text-color"
+                        className="group-hover:text-highlight-text-color group-active:text-highlight-text-color active:text-highlight-text-color"
                       >
                         {detail.label}
                       </a>
@@ -106,7 +106,7 @@ function Footer() {
                     aria-label={`Code3is ${social.label} page`}
                     className="inline-block group active:text-highlight-text-color focus:text-highlight-color"
                   >
-                    <Icon className="w-5 sm:w-7.5 transition-colors duration-300 group-hover:text-highlight-text-color group-active:text-highlight-text-color group-focus:text-highlight-text-color focus:text-highlight-color" />
+                    <Icon className="w-5 sm:w-7.5 transition-colors duration-300 group-hover:text-highlight-text-color group-active:text-highlight-text-color active:text-highlight-text-color" />
                   </a>
                 );
               })}
@@ -130,13 +130,13 @@ function Footer() {
             >
               <Link
                 href="/terms-conditions"
-                className="underline hover:text-highlight-text-color focus:text-highlight-color focus:bg-highlight-text-color"
+                className="underline hover:text-highlight-text-color active:text-highlight-color "
               >
                 Terms & Conditions
               </Link>
               <Link
                 href="/privacy-policy"
-                className="underline hover:text-highlight-text-color focus:text-highlight-color focus:bg-highlight-text-color"
+                className="underline hover:text-highlight-text-color active:text-highlight-color "
               >
                 Privacy Policy
               </Link>
