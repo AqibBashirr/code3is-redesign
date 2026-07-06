@@ -36,12 +36,12 @@ export default function HeaderScrollWrapper({
   return (
     <header
       className={`
-        bg-secondary-background text-off-white-color font-inter [anchor-name:--header] 
-        sticky top-0 z-100 w-full
-        transition-all duration-300 ease-in-out
-        ${isVisible ? "translate-y-0" : "-translate-y-full"} 
-        ${!isAtTop && isVisible ? "shadow-[0_4px_20px_rgba(0,0,0,0.12)]" : "shadow-none"}
-      `}
+    bg-secondary-background text-off-white-color font-inter [anchor-name:--header] 
+    sticky top-0 z-100 w-full
+    transition-[transform,box-shadow] duration-300 ease-in-out
+    ${isVisible ? "translate-y-0" : "-translate-y-full"} 
+    ${!isAtTop && isVisible ? "shadow-[0_4px_20px_rgba(0,0,0,0.12)]" : "shadow-none"}
+  `}
     >
       {children}
     </header>
