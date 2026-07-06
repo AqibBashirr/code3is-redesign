@@ -68,7 +68,12 @@ function page() {
               problems through thoughtful execution and attention to detail.
             </BodyText>
           </Reveal>
-          <Reveal y={0} x={"40px"} threshold={0.6} className="lg:hidden bg-linear-to-b from-[#EAE9E5] to-[#FBFBFB] rounded-[10px] border border-overlay-card mt-between-content">
+          <Reveal
+            y={0}
+            x={"40px"}
+            threshold={0.6}
+            className="lg:hidden bg-linear-to-b from-[#EAE9E5] to-[#FBFBFB] rounded-[10px] border border-overlay-card mt-between-content"
+          >
             <Image
               src="/images/our-services/services.avif"
               alt="service Image feel Good Travels"
@@ -82,12 +87,19 @@ function page() {
             </ButtonLink>
           </Reveal>
         </div>
-        <Reveal y={0} x={"40px"} threshold={0.4} className="flex-1 hidden lg:block">
+        <Reveal
+          y={0}
+          x={"40px"}
+          threshold={0.4}
+          className="flex-1 hidden lg:block"
+        >
           <ImageBgContainer
             src="/images/our-services/services.avif"
             alt="service Image feel Good Travels"
             width={678}
             height={475}
+            bgClass="bg-linear-to-b from-[#EAE9E5] to-[#FBFBFB]  border
+      border-overlay-card"
           ></ImageBgContainer>
         </Reveal>
       </section>
