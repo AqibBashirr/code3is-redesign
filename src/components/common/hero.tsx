@@ -22,6 +22,7 @@ export interface HeroProps {
   title: ReactNode;
   subtitle: string;
   buttons?: buttons;
+  className?:string;
 }
 
 function Hero({
@@ -32,13 +33,20 @@ function Hero({
   title,
   subtitle = "A collection of websites, brands, campaigns & creative assets crafted for businesses across industries",
   buttons = {
-    firstButton: { text: "Start A Project", href: "/#contact"},
-    secondButton: { text: "View Our Work", href: "/our-work#website",arrow:false,variant:"outline" },
+    firstButton: { text: "Start A Project", href: "/#contact" },
+    secondButton: {
+      text: "View Our Work",
+      href: "/our-work#website",
+      arrow: false,
+      variant: "outline",
+    },
   },
+  className,
 }: HeroProps) {
   return (
     <GlowSection
       glows={glows}
+      className={className}
       title={
         title || (
           <>
