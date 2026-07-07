@@ -1,11 +1,10 @@
 import Hero from "@/components/common/hero";
 import { CaseStudyData } from "../types/caseStudy.types";
 import HighlightTextHero from "@/components/common/HighlightTextHero";
-import HeadingPill from "@/components/typography/headingPill";
-import HeadingText from "@/components/typography/headingText";
-import BodyText from "@/components/typography/BodyText";
+
 
 import Steps from "./Steps";
+import ContentBlockIntro from "@/components/typography/ContentBlockIntro";
 
 
 function CaseStudy({ data }: CaseStudyData) {
@@ -33,22 +32,7 @@ function CaseStudy({ data }: CaseStudyData) {
           },
         }}
       ></Hero>
-      <section className="max-w-max mx-auto px-x py-y">
-        <HeadingPill>Case Study {padded}</HeadingPill>
-        <div className="flex flex-col md:flex-row mt-between-content">
-          <HeadingText
-            highlightText={main["Heading-h2"].highlight}
-            className="flex-1 "
-          >
-            {main["Heading-h2"].title}
-          </HeadingText>
-          <div className="flex-1">
-            {main.description.map((des) => (
-              <BodyText key={des}>{des}</BodyText>
-            ))}
-          </div>
-        </div>
-      </section>
+       <ContentBlockIntro pill={`Case Study ${padded}`} heading={{text:main["Heading-h2"].title, highlight: main["Heading-h2"].highlight}} description={main.description} />
       <Steps Data={Data} />
       
     </>

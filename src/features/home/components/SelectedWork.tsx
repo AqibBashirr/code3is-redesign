@@ -24,7 +24,7 @@ function SelectedWork() {
           Selected Work That
         </HeadingText>
 
-        <BodyText className="text-center capitalize">
+        <BodyText className="text-center capitalize mt-between-content">
           Real projects. Real results.
         </BodyText>
       </Reveal>
@@ -76,7 +76,7 @@ function SelectedWork() {
                       {services.title}
                     </h3>
 
-                    <BodyText className="mt-1.5 group-hover:text-white transition-colors duration-300">
+                    <BodyText className="mt-between-content group-hover:text-white transition-colors duration-300">
                       {services.description}
                     </BodyText>
                   </div>

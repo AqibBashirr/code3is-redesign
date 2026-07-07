@@ -14,7 +14,7 @@ function Service() {
           Our
         </HeadingText>
 
-        <BodyText className="text-center">
+        <BodyText className="text-center mt-between-content">
           Real projects. Real results.
         </BodyText>
       </Reveal>

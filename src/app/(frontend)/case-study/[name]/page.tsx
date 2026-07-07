@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { baseUrl } from "@/constants/BaseUrl";
-import CaseStudy from "@/features/case-study/components/CaseStudy";
+import CaseStudy from "@/features/case-study/components/CaseStudyDetails";
 
 //  'force-dynamic' so your { revalidate: 3600 } actually works
 export const dynamic = "force-dynamic";
@@ -14,7 +14,6 @@ export default async function Page({ params }: PageProps) {
 
   const resolvedParams = await params;
 
-  console.log("Current case study name:", resolvedParams.name);
 
   const res = await fetch(`${baseUrl}/data/case-study.json`, {
     next: { revalidate: 3600 },

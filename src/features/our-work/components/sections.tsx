@@ -34,7 +34,7 @@ function Sections() {
                 {data.description.map((des, index) => (
                   <BodyText
                     key={des}
-                    className={`${index === 0 ? "mt-0" : ""}`}
+                    className={`${index === 0 ? "mt-0" : "mt-between-content"}`}
                   >
                     {des}
                   </BodyText>

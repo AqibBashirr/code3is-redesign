@@ -1,9 +1,9 @@
 export interface HeadingType {
-  title: string;
+  title?: string;
   highlight: string;
 }
 
-// Renamed to ImageType for better TS convention
+
 export interface ImageType {
   src: string;
   alt: string;
@@ -21,17 +21,18 @@ export interface CaseStudySection {
 export interface CaseStudyMain {
   "Heading-h2": HeadingType;
   description: string[];
-  challenge: CaseStudySection;
-  approach: CaseStudySection;
-  outcome: CaseStudySection;
+  challenge?: CaseStudySection;
+  approach?: CaseStudySection;
+  outcome?: CaseStudySection;
 }
 
 export interface CaseStudy {
   number: number;
+  logo:ImageType;
   Heading: HeadingType;
   description: string;
   main: CaseStudyMain;
-  image: ImageType; // Updated here
+  image: ImageType; 
 }
 
 export type CaseStudyData = Record<string, CaseStudy>;

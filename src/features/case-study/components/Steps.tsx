@@ -41,7 +41,7 @@ function Steps({ Data }: StepsProps) {
                 src={data.image.src}
                 width={600}
                 height={600}
-                className="h-full align-top w-auto object-contain  rounded-[10px] overflow-hidden"
+                className="h-full align-top w-full object-contain  rounded-[10px] overflow-hidden"
                 alt={data.image.alt}
               />
             </Reveal>

@@ -31,7 +31,7 @@ export default function AvailService() {
                 Service Now!
               </HeadingText>
 
-              <BodyText className="text-white">
+              <BodyText className="text-white mt-between-content">
                 Share your idea with us and we&apos;ll turn it into a custom
                 solution that drives results.
               </BodyText>

@@ -23,7 +23,7 @@ export default function WhatWeBuild() {
                 What We
               </HeadingText>
 
-              <BodyText className="sm:mb-content-gap max-w-sm text-center md:text-start">
+              <BodyText className="sm:mb-content-gap max-w-sm text-center md:text-start mt-between-content">
                 A glimpse into the digital products and brand systems we&apos;ve
                 built for our clients
               </BodyText>

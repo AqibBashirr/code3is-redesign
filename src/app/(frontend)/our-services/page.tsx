@@ -8,12 +8,11 @@ import HeadingText from "@/components/typography/headingText";
 import WhatWeDoSections from "@/features/our-services/components/WhatWeDoSections";
 import Image from "next/image";
 
-
 // 1. The type for the individual items (what we used in the component)
 export type SectionDataProps =
   | {
       heading: {
-        text?: string;       // Optional: covers both {text, highlight} and {highlight only}
+        text?: string; // Optional: covers both {text, highlight} and {highlight only}
         highlight: string;
       };
       description: string[];
@@ -21,7 +20,7 @@ export type SectionDataProps =
     }
   | {
       heading: {
-        text: string;        // Required: images always need a fallback text
+        text: string; // Required: images always need a fallback text
         highlight?: never;
       };
       image: {
@@ -58,15 +57,17 @@ function page() {
             <HeadingText highlightText="Growth" className="mt-between-content">
               Built Around Clarity, Performance, And
             </HeadingText>
-            <BodyText>
-              We work across design, development, marketing, and digital
-              infrastructure to help businesses create better experiences
-              online.
-            </BodyText>
-            <BodyText>
-              Every service is approached with the same focus: solving real
-              problems through thoughtful execution and attention to detail.
-            </BodyText>
+            <div className="mt-between-content">
+              <BodyText>
+                We work across design, development, marketing, and digital
+                infrastructure to help businesses create better experiences
+                online.
+              </BodyText>
+              <BodyText>
+                Every service is approached with the same focus: solving real
+                problems through thoughtful execution and attention to detail.
+              </BodyText>
+            </div>
           </Reveal>
           <Reveal
             y={0}
@@ -82,7 +83,11 @@ function page() {
             ></Image>
           </Reveal>
           <Reveal y={0} x={"-40px"} threshold={0.4} className="">
-            <ButtonLink href="/#contact" className="mt-content-gap" variant="dark">
+            <ButtonLink
+              href="/#contact"
+              className="mt-content-gap"
+              variant="dark"
+            >
               Start A Project
             </ButtonLink>
           </Reveal>

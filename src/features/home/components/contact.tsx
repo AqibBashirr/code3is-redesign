@@ -29,7 +29,7 @@ function Contact() {
               Let’s Build Something That
             </HeadingText>
 
-            <BodyText className="capitalize ">
+            <BodyText className="capitalize mt-between-content">
               Whether it’s branding, web development, or performance marketing,
               we help businesses build digital systems that actually move
               results.

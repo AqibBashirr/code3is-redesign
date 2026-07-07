@@ -1,7 +1,8 @@
 {
   "harmain-service-platform": {
     "number": 1,
-    "Heading": { "title": "Harmain Services", "highlight": "Platform" },
+    "logo":{"src":"/images/case-study/harmain-service-platform/harmainLogo.avif"},
+    "Heading": { "title": "Harmain Service", "highlight": "Platform" },
     "description": "From challenges and constraints to solutions and outcomes, explore the journey behind the work.",
     "main": {
       "Heading-h2": {
@@ -83,6 +84,7 @@
   },
   "turey-agri-identity-system": {
     "number": 2,
+    "logo":{"src":"/images/case-study/turey-agri-identity-system/tureyLogo.avif","alt":"Turey Agri Logo Image"},
     "Heading": { "title": "Turey Agri", "highlight": "Identity System" },
     "description": "From challenges and constraints to solutions and outcomes, explore the journey behind the work.",
     "main": {

@@ -37,7 +37,7 @@ function CaseStudy() {
               <HeadingText highlightText="Experience">
                 From Complex Backend to Seamless
               </HeadingText>
-              <BodyText>
+              <BodyText className="mt-between-content">
                 We redesign fragmented digital experiences into scalable systems
                 focused on usability, performance, and clarity.
               </BodyText>

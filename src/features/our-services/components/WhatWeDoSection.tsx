@@ -41,11 +41,11 @@ function WhatWeDoSection({ data, index }: WhatWeDoSectionsProps) {
             </HeadingTextH3>
           )}
 
-          {/* You don't need to check data.description && again here, 
-              because you are already inside the {data.description && ...} block */}
-          {data.description.map((des) => {
-            return <BodyText key={des}>{des}</BodyText>;
-          })}
+          <div className="mt-between-content flex flex-col gap-space-content">
+            {data.description.map((des) => {
+              return <BodyText key={des} >{des}</BodyText>;
+            })}
+          </div>
 
           <ButtonLink
             href="/#contact"
