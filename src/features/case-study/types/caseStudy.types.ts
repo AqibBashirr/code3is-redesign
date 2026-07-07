@@ -21,9 +21,9 @@ export interface CaseStudySection {
 export interface CaseStudyMain {
   "Heading-h2": HeadingType;
   description: string[];
-  challenge?: CaseStudySection;
-  approach?: CaseStudySection;
-  outcome?: CaseStudySection;
+  challenge: CaseStudySection;
+  approach: CaseStudySection;
+  outcome: CaseStudySection;
 }
 
 export interface CaseStudy {
