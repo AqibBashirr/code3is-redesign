@@ -13,6 +13,7 @@ import Header from "@/components/Layout/Header/Header";
 import Aside from "@/components/Layout/Aside/Aside";
 import Footer from "@/components/Layout/Footer/Footer";
 import VersionChecker from "@/components/VersionChecker";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 
 const bebas_neue = Bebas_Neue({
@@ -67,13 +68,13 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col scrollbar-none">
         <VersionChecker />
-
         <Header />
         <Aside />
         <main className="flex-1 ">
           {/* <ViewTransition/> */}
           {children}
         </main>
+        <WhatsAppButton />
         <Footer />
       </body>
     </html>

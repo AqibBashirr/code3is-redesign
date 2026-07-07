@@ -1,12 +1,8 @@
-import Hero from "@/components/common/hero";
-import HighlightTextHero from "@/components/common/HighlightTextHero";
-import ContentBlockIntro from "@/components/typography/ContentBlockIntro";
 import { baseUrl } from "@/constants/BaseUrl";
-import CaseStudies from "@/features/case-study/components/CaseStudies";
 import CaseStudyPage from "@/features/case-study/components/CaseStudyPage";
 
 
-import SelectedWork from "@/features/home/components/SelectedWork";
+
 
 export const dynamic = "force-dynamic";
 

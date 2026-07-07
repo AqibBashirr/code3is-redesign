@@ -11,8 +11,12 @@ export const MAIN_NAV = [
     label: "Case Study",
     href: "/case-study",
   },
+  // {
+  //   label: "Contact Us",
+  //   href: "/contact",
+  // },
   {
-    label: "Contact Us",
-    href: "/contact",
+    label: "Blogs",
+    href: "/blogs",
   },
 ] as const;
