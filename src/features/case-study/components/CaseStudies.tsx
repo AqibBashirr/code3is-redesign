@@ -22,6 +22,7 @@ function CaseStudies({ data }: CaseStudiesProps) {
             key={project.Heading.title + project.Heading.highlight}
             delay={index * 0.25}
           >
+            <Link href={`/case-study/${(project.Heading.title?.replace(/\s/g, "-") + "-" + project.Heading.highlight.replace(/\s/g, "-")).toLowerCase()}`}>
             {/* 2. Article takes over the card styling, hover effects, and flex layout */}
             <article className="group flex h-full cursor-pointer flex-col gap-3 rounded-[10px] bg-white p-[clamp(18px,1.6vw,30px)] shadow-[0px_4px_20px_4px_#00000021] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform hover:-translate-y-2 hover:shadow-[0px_14px_36px_6px_#00000030] active:scale-[0.985] active:translate-y-0 active:shadow-[0px_4px_14px_2px_#00000025] active:duration-150">
               {/* The Image Section */}
@@ -50,8 +51,8 @@ function CaseStudies({ data }: CaseStudiesProps) {
               </div>
 
               {/* The Link (mt-auto aligns all buttons to the exact bottom) */}
-              <Link
-                href={`/case-study/${(project.Heading.title?.replace(/\s/g, "-") + "-" + project.Heading.highlight.replace(/\s/g, "-")).toLowerCase()}`}
+              <span
+                
                 className="mt-auto relative inline-flex w-fit items-center gap-1.5 font-normal text-black text-content-font "
               >
                 {/* after:absolute after:-bottom-0.5 after:left-0 after:h-[1.5px] after:w-full after:origin-left after:scale-x-0 after:bg-black after:transition-transform after:duration-500 after:[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:after:scale-x-100 */}
@@ -59,8 +60,9 @@ function CaseStudies({ data }: CaseStudiesProps) {
                 {/* <span className="transition-transform duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">
                   →
                 </span> */}
-              </Link>
+                </span>
             </article>
+            </Link>
           </Reveal>
         );
       })}

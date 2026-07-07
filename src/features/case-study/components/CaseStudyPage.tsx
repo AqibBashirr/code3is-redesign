@@ -26,7 +26,7 @@ function CaseStudyPage({ data }: CaseStudyPageProps) {
           firstButton: { text: "Start A Project", href: "#contact" },
           secondButton: {
             text: "View Our Work",
-            href: `/#our-work`,
+            href: `/our-work#website`,
             arrow: false,
             variant: "outline",
           },
