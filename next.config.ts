@@ -7,7 +7,7 @@ const isProd = process.env.NODE_ENV === "production";
 // We also only enforce Trusted Types in production to avoid local development friction.
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' ${isProd ? '' : "'unsafe-eval' 'unsafe-inline'"};
+  script-src 'self' https://vercel.live ${isProd ? "" : "'unsafe-eval' 'unsafe-inline'"};
   style-src 'self' 'unsafe-inline';
   img-src 'self' blob: data:;
   font-src 'self' data:;
@@ -16,7 +16,9 @@ const ContentSecurityPolicy = `
   form-action 'self';
   frame-ancestors 'none';
   upgrade-insecure-requests;
-`.replace(/\s{2,}/g, ' ').trim();
+`
+  .replace(/\s{2,}/g, " ")
+  .trim();
 
 
 const securityHeaders = [
