@@ -1,6 +1,5 @@
 import React from "react";
 
-// 1. Extend standard div attributes so we can pass className and style
 interface CornerGlowProps extends React.HTMLAttributes<HTMLDivElement> {
   position?:
     | "top-left"
@@ -15,12 +14,11 @@ interface CornerGlowProps extends React.HTMLAttributes<HTMLDivElement> {
 export default function CornerGlow({
   position = "top-left",
   color = "bg-foreground",
-  duration = "12s",
-  className, // Extract className
-  style, // Extract style
-  ...props // Extract any other standard props
+  duration = "16s",
+  className,
+  style,
+  ...props
 }: CornerGlowProps) {
-  // 2. Only apply hardcoded Tailwind classes if we are NOT in custom mode
   const positionClasses =
     position !== "custom"
       ? {
@@ -31,7 +29,6 @@ export default function CornerGlow({
         }[position]
       : "";
 
-  // 3. Pick the right animation based on the mode
   const animationName =
     position === "custom" ? "float-custom" : `float-${position}`;
 
@@ -39,35 +36,101 @@ export default function CornerGlow({
     <>
       <style>{`
         @keyframes float-top-left {
-          0%, 100% { transform: translate(-50%, -50%); }
-          50% { transform: translate(-35%, -35%); }
+          0% {
+            transform: translate(-50%, -50%) scale(1) rotate(0deg);
+          }
+          25% {
+            transform: translate(-35%, -60%) scale(1.08) rotate(8deg);
+          }
+          50% {
+            transform: translate(-20%, -35%) scale(0.96) rotate(16deg);
+          }
+          75% {
+            transform: translate(-45%, -15%) scale(1.05) rotate(8deg);
+          }
+          100% {
+            transform: translate(-50%, -50%) scale(1) rotate(0deg);
+          }
         }
+
         @keyframes float-top-right {
-          0%, 100% { transform: translate(50%, -50%); }
-          50% { transform: translate(35%, -35%); }
+          0% {
+            transform: translate(50%, -50%) scale(1) rotate(0deg);
+          }
+          25% {
+            transform: translate(35%, -60%) scale(1.08) rotate(-8deg);
+          }
+          50% {
+            transform: translate(20%, -35%) scale(0.96) rotate(-16deg);
+          }
+          75% {
+            transform: translate(45%, -15%) scale(1.05) rotate(-8deg);
+          }
+          100% {
+            transform: translate(50%, -50%) scale(1) rotate(0deg);
+          }
         }
+
         @keyframes float-bottom-left {
-          0%, 100% { transform: translate(-50%, 50%); }
-          50% { transform: translate(-35%, 35%); }
+          0% {
+            transform: translate(-50%, 50%) scale(1) rotate(0deg);
+          }
+          25% {
+            transform: translate(-35%, 65%) scale(1.08) rotate(-8deg);
+          }
+          50% {
+            transform: translate(-20%, 35%) scale(0.95) rotate(-16deg);
+          }
+          75% {
+            transform: translate(-45%, 15%) scale(1.05) rotate(-8deg);
+          }
+          100% {
+            transform: translate(-50%, 50%) scale(1) rotate(0deg);
+          }
         }
+
         @keyframes float-bottom-right {
-          0%, 100% { transform: translate(50%, 50%); }
-          50% { transform: translate(35%, 35%); }
+          0% {
+            transform: translate(50%, 50%) scale(1) rotate(0deg);
+          }
+          25% {
+            transform: translate(35%, 65%) scale(1.08) rotate(8deg);
+          }
+          50% {
+            transform: translate(20%, 35%) scale(0.95) rotate(16deg);
+          }
+          75% {
+            transform: translate(45%, 15%) scale(1.05) rotate(8deg);
+          }
+          100% {
+            transform: translate(50%, 50%) scale(1) rotate(0deg);
+          }
         }
-        /* ADDED: A generic subtle floating animation for custom placements */
+
         @keyframes float-custom {
-          0%, 100% { transform: translate(0, 0); }
-          50% { transform: translate(15%, 15%); }
+          0% {
+            transform: translate(0, 0) scale(1);
+          }
+          25% {
+            transform: translate(30px, -20px) scale(1.08);
+          }
+          50% {
+            transform: translate(60px, 10px) scale(0.95);
+          }
+          75% {
+            transform: translate(20px, 40px) scale(1.05);
+          }
+          100% {
+            transform: translate(0, 0) scale(1);
+          }
         }
       `}</style>
 
       <div
-        // Safely append any custom classes passed from the parent
-        className={`absolute w-[232px] h-[236px] blur-[160px] rounded-full pointer-events-none z-0 ${positionClasses} ${className || ""}`}
+        className={`absolute w-58 h-59 rounded-full blur-[160px] pointer-events-none z-0 will-change-transform ${positionClasses} ${className ?? ""}`}
         style={{
           backgroundColor: color,
-          animation: `${animationName} ${duration} ease-in-out infinite`,
-          // Safely append any custom inline styles passed from the parent
+          animation: `${animationName} ${duration} cubic-bezier(0.42,0,0.58,1) infinite`,
           ...style,
         }}
         {...props}

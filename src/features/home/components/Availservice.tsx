@@ -43,7 +43,7 @@ export default function AvailService() {
           </Reveal>
 
           {/* Right Animated Services */}
-          <div className="services-mask hidden h-[464px] overflow-hidden md:block">
+          <div className="services-mask hidden h-116 overflow-hidden md:block">
             <div className="flex flex-col animate-services-scroll">
               {[...SERVICES, ...SERVICES].map((service, index) => (
                 <span

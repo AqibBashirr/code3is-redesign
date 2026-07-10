@@ -25,6 +25,10 @@
   --form-label-size: clamp(12px, 1.1vw, 16px);
   --h3-font-size: clamp(20px, 2vw, 30px);
   --h3-font-leading: calc(clamp(20px, 2vw, 30px) + 12px);
+  --h4-font-size:clamp(16px,2vw,22px);
+  --h4-line-height:calc(clamp(16px,2vw,22px) + 12px);
+  --h5-font-size:clamp(14px,2vw,18px);
+  --h5-line-height:calc(clamp(14px,2vw,18px) + 12px);
 
   /* padding */
   --padding-x: clamp(30px, 9.1vw, 130px);

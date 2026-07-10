@@ -1,3 +1,5 @@
+import { RichTextField } from "payload";
+
 export interface HeadingType {
   title?: string;
   highlight: string;
@@ -14,7 +16,7 @@ export interface ImageType {
 export interface CaseStudySection {
   pill: string;
   heading: HeadingType;
-  description: string[];
+  description: RichTextField;
   image: ImageType; // Updated here
 }
 

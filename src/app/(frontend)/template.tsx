@@ -1,6 +1,6 @@
 // app/template.tsx
 "use client";
-import { usePathname } from "next/dist/client/components/navigation";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 export default function Template({ children }: { children: React.ReactNode }) {

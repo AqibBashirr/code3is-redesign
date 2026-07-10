@@ -39,7 +39,7 @@ export default function HeaderScrollWrapper({
     <header
       className={`
         bg-secondary-background text-off-white-color font-inter [anchor-name:--header] 
-         top-0 z-[100] w-full sticky
+         top-0 z-100 w-full sticky
         /* The safe, premium transition */
         transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform
         

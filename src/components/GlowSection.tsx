@@ -28,7 +28,7 @@ export default function GlowSection({
   return (
     <section
       className={cn(
-        "relative flex flex-col items-center justify-center text-center overflow-hidden bg-[#1e1e1e] mx-5 md:mx-6.25 mt-5.5 rounded-[10px] px-4 py-[112px] md:py-29.75",
+        "relative flex flex-col items-center justify-center text-center overflow-hidden bg-[#1e1e1e] mx-5 md:mx-6.25 mt-5.5 rounded-[10px] px-4 py-28 md:py-29.75",
         className
       )}
     >
@@ -55,7 +55,7 @@ export default function GlowSection({
         )}
 
         {buttons && (
-          <div className="grid gap-4 w-full max-w-[220px] mx-auto md:max-w-none md:w-fit md:grid-flow-col md:auto-cols-fr items-center text-center">
+          <div className="grid gap-4 w-full max-w-55 mx-auto md:max-w-none md:w-fit md:grid-flow-col md:auto-cols-fr items-center text-center">
             {buttons}
           </div>
         )}

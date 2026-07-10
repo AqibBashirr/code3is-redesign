@@ -1,0 +1,446 @@
+@layer components {
+ 
+  .case-study {
+    @apply max-w-none font-poppins text-content-font text-secondary-color;
+    line-height: calc(var(--content-font-size) + 12px);
+  }
+
+  
+  .case-study > * {
+    max-width: 75ch;
+  }
+
+  .case-study img,
+  .case-study video,
+  .case-study iframe,
+  .case-study table,
+  .case-study pre {
+    @apply max-w-full;
+  }
+
+  /* ==========================================================================
+     Headings
+     ========================================================================== */
+
+  .case-study h2 {
+    @apply mt-16 mb-6 font-raleway text-4xl font-extrabold tracking-tight text-primary-color;
+  }
+
+  .case-study h3 {
+    @apply mt-10 mb-4 text-h3-font font-bold leading-font-h3 text-primary-color;
+  }
+
+  .case-study h4 {
+    @apply mt-8 mb-3 font-semibold text-primary-color;
+  }
+  .case-study h5 {
+    @apply mt-6 mb-2 font-semibold text-primary-color;
+  }
+
+  .case-study h2 + p,
+  .case-study h3 + p,
+  .case-study h4 + p,
+  .case-study h5 + p{
+    @apply mt-0;
+  }
+
+  /* ==========================================================================
+     Paragraphs
+     ========================================================================== */
+
+  .case-study p {
+    @apply mb-between-content leading-relaxed;
+  }
+
+  .case-study p:last-child {
+    @apply mb-0;
+  }
+
+  .case-study strong {
+    @apply font-bold text-offBlack-color;
+  }
+
+  .case-study em {
+    @apply italic;
+  }
+
+  /* ==========================================================================
+     Lists
+     ========================================================================== */
+
+  .case-study ul,
+  .case-study ol {
+    @apply mb-between-content space-y-2 list-inside ;
+  }
+
+  .case-study ul {
+    @apply list-disc;
+  }
+
+  .case-study ol {
+    @apply list-decimal;
+  }
+
+  /* .case-study li {
+    @apply ;
+  } */
+
+  /* ==========================================================================
+     Links
+     ========================================================================== */
+
+  .case-study a {
+    @apply font-medium  underline  underline-offset-4 transition-opacity duration-200 hover:opacity-75;
+  }
+
+  /* ==========================================================================
+     Images
+     ========================================================================== */
+
+  .case-study img {
+    @apply mb-10 w-full rounded-[10px] border border-card-color shadow-lg;
+  }
+
+  /* ==========================================================================
+     Blockquotes
+     ========================================================================== */
+
+  .case-study blockquote {
+    @apply mb-8 border-l-4 border-highlight-color pl-6 italic text-secondary-color;
+  }
+
+  /* ==========================================================================
+     Inline Code
+     ========================================================================== */
+
+  .case-study code:not(pre code) {
+    @apply rounded bg-card-color px-1.5 py-0.5 text-sm;
+  }
+
+  /* ==========================================================================
+     Code Blocks
+     ========================================================================== */
+
+  .case-study pre {
+    @apply mb-8 overflow-x-auto rounded-2xl bg-offBlack-color p-6 text-white;
+  }
+
+  .case-study pre code {
+    @apply bg-transparent p-0;
+  }
+
+  /* ==========================================================================
+     Tables
+     ========================================================================== */
+
+  .case-study table {
+    @apply mb-8 w-full border-collapse;
+  }
+
+  .case-study th,
+  .case-study td {
+    @apply border border-card-color p-3 text-left;
+  }
+
+  .case-study th {
+    @apply bg-card-color font-semibold;
+  }
+
+  /* ==========================================================================
+     Horizontal Rule
+     ========================================================================== */
+
+  .case-study hr {
+    @apply mb-12 border-card-color;
+  }
+
+  /* ==========================================================================
+     First / Last Child
+     ========================================================================== */
+
+  .case-study > *:first-child {
+    @apply mt-content-gap;
+  }
+
+  .case-study > *:last-child {
+    @apply mb-0;
+  }
+
+
+
+
+
+  .blog-content {
+    @apply  max-w-none;
+  }
+
+  /* ==========================================================================
+     Headings
+     ========================================================================== */
+
+  .blog-content :where(h1, h2, h3, h4, h5, h6) {
+    @apply scroll-mt-32;
+    margin-top: 3.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+ 
+
+  .blog-content :where(h1:first-child, h2:first-child, h3:first-child) {
+    margin-top: 0;
+  }
+
+  .blog-content :where(h1, h2, h3, h4, h5, h6) + p {
+    margin-top: 0;
+  }
+
+  /* ==========================================================================
+     Paragraphs
+     ========================================================================== */
+
+  .blog-content p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .blog-content a{
+    @apply underline
+  }
+  .blog-content p + p {
+    margin-top: 1.25rem;
+  }
+
+  /* ==========================================================================
+     Lists
+     ========================================================================== */
+
+  .blog-content :where(ul, ol) {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  .blog-content ul{
+     @apply ml-4;
+     list-style-type: disc;
+
+   }
+  .blog-content ol{
+     list-style-type: decimal;
+
+   }
+
+  .blog-content li + li {
+    margin-top: 0.75rem;
+  }
+
+  .blog-content li > :where(ul, ol) {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+  }
+
+  /* ==========================================================================
+     Images
+     ========================================================================== */
+
+  .blog-content img,
+  .blog-content picture,
+  .blog-content figure {
+    @apply block w-full;
+    margin-block: 3rem;
+    border-width: 1px;
+    border-color: #838484;
+    border-radius: 10px;
+  }
+
+ 
+   
+
+  .blog-content figure img {
+    margin: 0;
+  }
+
+  .blog-content figcaption {
+    margin-top: 1rem;
+  }
+
+  /* ==========================================================================
+     Blockquote
+     ========================================================================== */
+
+  .blog-content blockquote {
+    margin-block: 3rem;
+    padding: 1.5rem 2rem;
+  }
+
+  .blog-content blockquote p {
+    margin: 0;
+  }
+
+  /* ==========================================================================
+     Code
+     ========================================================================== */
+
+  .blog-content pre {
+    @apply overflow-x-auto;
+    margin-block: 2.5rem;
+    padding: 1.5rem;
+  }
+
+  /* ==========================================================================
+     Table
+     ========================================================================== */
+
+  .blog-content table {
+    @apply block w-full overflow-x-auto;
+    margin-block: 3rem;
+  }
+
+  .blog-content th,
+  .blog-content td {
+    padding: 0.9rem 1rem;
+  }
+
+  /* ==========================================================================
+     Horizontal Rule
+     ========================================================================== */
+
+  .blog-content hr {
+    margin-block: 4rem;
+  }
+
+  /* ==========================================================================
+     Embedded Content
+     ========================================================================== */
+
+  .blog-content iframe,
+  .blog-content video {
+    @apply block w-full;
+    aspect-ratio: 16 / 9;
+    margin-block: 3rem;
+  }
+
+  /* ==========================================================================
+     Edge Cases
+     ========================================================================== */
+
+  .blog-content p:empty {
+    display: none;
+  }
+
+  .blog-content br + br {
+    display: none;
+  }
+
+  .blog-content img + :where(h2, h3),
+  .blog-content figure + :where(h2, h3) {
+    margin-top: 3rem;
+  }
+
+  .blog-content p + :where(img, figure) {
+    margin-top: 2.5rem;
+  }
+
+  .blog-content :where(img, figure) + p {
+    margin-top: 1.5rem;
+  }
+
+  .blog-content h2 + :where(ul, ol),
+  .blog-content h3 + :where(ul, ol) {
+    margin-top: 0.75rem;
+  }
+
+  /* ==========================================================================
+     Tablet
+     ========================================================================== */
+
+  @media (max-width: 1024px) {
+    .blog-content :where(h1, h2, h3, h4, h5, h6) {
+      margin-top: 3rem;
+    }
+
+    .blog-content img,
+    .blog-content figure,
+    .blog-content iframe,
+    .blog-content video {
+      margin-block: 2.5rem;
+    }
+
+    .blog-content blockquote {
+      margin-block: 2.5rem;
+    }
+
+    .blog-content hr {
+      margin-block: 3rem;
+    }
+  }
+
+  /* ==========================================================================
+     Mobile
+     ========================================================================== */
+
+  @media (max-width: 768px) {
+    .blog-content :where(h1, h2, h3, h4, h5, h6) {
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .blog-content p + p {
+      margin-top: 1rem;
+    }
+
+    .blog-content :where(ul, ol) {
+      padding-left: 1.25rem;
+      margin-block: 1.25rem;
+    }
+
+    .blog-content img,
+    .blog-content figure,
+    .blog-content iframe,
+    .blog-content video {
+      margin-block: 2rem;
+    }
+
+    .blog-content blockquote {
+      padding: 1.25rem;
+      margin-block: 2rem;
+    }
+
+    .blog-content pre {
+      padding: 1rem;
+      margin-block: 2rem;
+    }
+
+    .blog-content hr {
+      margin-block: 2.5rem;
+    }
+  }
+
+  /* ==========================================================================
+     Small Mobile
+     ========================================================================== */
+
+  @media (max-width: 480px) {
+    .blog-content :where(h1, h2, h3, h4, h5, h6) {
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .blog-content img,
+    .blog-content figure,
+    .blog-content iframe,
+    .blog-content video {
+      margin-block: 1.75rem;
+    }
+
+    .blog-content blockquote {
+      padding: 1rem;
+    }
+
+    .blog-content pre {
+      padding: 0.875rem;
+    }
+
+    .blog-content hr {
+      margin-block: 2rem;
+    }
+  }
+}

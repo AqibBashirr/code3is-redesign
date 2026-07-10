@@ -10,7 +10,7 @@ interface HighlightTextProps {
 }
 function HeadingTextH3({ children,highlightText,highlightClassName ,className }: HighlightTextProps) {
   return (
-    <h2
+    <h3
       className={cn(
         "font-raleway font-semibold text-h3-font leading-font-h3",
         className,
@@ -20,7 +20,7 @@ function HeadingTextH3({ children,highlightText,highlightClassName ,className }:
       <HighlightText className={highlightClassName}>
         {highlightText}
       </HighlightText>
-    </h2>
+    </h3>
   );
 }
 

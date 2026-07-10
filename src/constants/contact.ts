@@ -9,8 +9,8 @@ export const CONTACT_DETAILS = [
   {
     type: "email",
     icon:Mail,
-    label: "code3innovativesolutions@gmail.com",
-    href: "mailto:code3innovativesolutions@gmail.com",
+    label: "contactc3@c3is.in",
+    href: "mailto:contactc3@c3is.in",
   },
   {
     type: "address",

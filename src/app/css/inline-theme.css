@@ -1,0 +1,80 @@
+@theme inline {
+  /* colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-secondary-background: var(--secondary-background);
+  --color-highlight-color: var(--highlight-color);
+  --color-off-white-color: var(--off-white-color);
+  --color-footer-bg-color: var(--footer-bg-color);
+  --color-card-color: var(--border-card-color);
+  --color-overlay-card: var(--bg-overlay-color);
+
+  /* fonts */
+  --font-raleway: var(--font-raleway);
+  --font-poppins: var(--font-poppins);
+  --font-inter: var(--font-inter);
+
+  /* fonts Color */
+  --color-primary-color: var(--font-primary-color);
+  --color-secondary-color: var(--font-secondary-color);
+  --color-highlight-text-color: var(--font-highlight-color);
+  --color-off-white-text-color: var(--font-off-white-color);
+  --color-offBlack-color: var(--font-black-color);
+  --color-footer-text: var(--font-footer-color);
+  --color-big-text-font-color: var(--font-bg-text);
+  --color-form-text-color: var(--form-label-color);
+
+  /* font-sizes */
+  --text-content-font: var(--content-font-size);
+  --text-h3-font: var(--h3-font-size);
+  --text-form-text-size: var(--form-label-size);
+  --leading-content-font: calc(var(--content-font-size) * 2);
+  --font-bebas_neue: var(--font-bebas_neue);
+   --leading-font-h3:var(--h3-font-leading);
+
+
+  /* title content gap */
+  --space-content-gap: var(--content-gap);
+  --space-between-content: var(--space-content);
+
+  /* padding */
+  --padding-x: var(--padding-x);
+  --padding-y: var(--padding-y);
+  --padding-content-gap: var(--content-gap);
+  --padding-between-content: var(--space-content);
+  
+
+  /* card styles */
+  --padding-card-x: var(--padding-card-x);
+  --padding-card-y: var(--padding-card-y);
+
+  --padding-x-card: var(--card-padding-x);
+  --padding-y-card: var(--card-padding-y);
+
+  /* margin */
+  --margin-x: var(--margin-x);
+  --margin-y: var(--margin-y);
+  --margin-content-gap: var(--content-gap);
+  --margin-between-content: var(--space-content);
+  --scroll-mt-between-content:var(--padding-y);
+
+  /* gap */
+  --gap-space-content: var(--space-content);
+  --gap-grid-content:var(--padding-y);
+  --gradiant-background: radial-gradient(circle, #3d3d3d, #1f1f1f);
+
+  /* max width */
+  --max-width-max: 1440px;
+
+  --animate-services-scroll: services-scroll 18s linear infinite;
+
+  @keyframes services-scroll {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(-50%);
+    }
+  }
+}

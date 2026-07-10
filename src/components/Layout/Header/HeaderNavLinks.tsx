@@ -123,7 +123,7 @@ function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
           {/* 5. THE GRID HEIGHT ANIMATION */}
           <div
             className={cn(
-              "absolute left-0 top-full pt-3 min-w-[180px] z-50",
+              "absolute left-0 top-full pt-3 min-w-45 z-50",
               isMoreOpen ? "pointer-events-auto" : "pointer-events-none",
             )}
           >

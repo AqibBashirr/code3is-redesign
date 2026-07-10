@@ -1,27 +1,33 @@
 import Hero from "@/components/common/hero";
-import { CaseStudyData } from "../types/caseStudy.types";
+import { CaseStudy } from "@/types/payload-types"; 
 import HighlightTextHero from "@/components/common/HighlightTextHero";
 
 
 import Steps from "./Steps";
 import ContentBlockIntro from "@/components/typography/ContentBlockIntro";
+interface caseStudyDetailsProps{
+  data:CaseStudy;
+}
 
-
-function CaseStudy({ data }: CaseStudyData) {
-
-  const main = data.main
-  const padded = data.number < 10 ? "0" + data.number : String(data.number);
-  const Data = [main.challenge,main.approach,main.outcome]
+function CaseStudyDetails({ data }: caseStudyDetailsProps) {
+  const mainField = data.main;
+  const padded =
+    data.number !== undefined && data.number !== null && data.number < 10
+      ? "0" + data.number
+      : String(data.number);
   return (
     <>
       <Hero
         title={
           <>
-            {data.Heading?.title}{" "}
-            <HighlightTextHero HighlightText={data.Heading.highlight} />
+            {data.title}{" "}
+            {data.titleHighlight !== undefined &&
+              data.titleHighlight !== null && (
+                <HighlightTextHero HighlightText={data.titleHighlight} />
+              )}
           </>
         }
-        subtitle={data.description}
+        subtitle={data.description || ""}
         buttons={{
           firstButton: { text: "Start A Project", href: "#contact" },
           secondButton: {
@@ -32,11 +38,17 @@ function CaseStudy({ data }: CaseStudyData) {
           },
         }}
       ></Hero>
-       <ContentBlockIntro pill={`Case Study ${padded}`} heading={{text:main["Heading-h2"].title, highlight: main["Heading-h2"].highlight}} description={main.description} />
-      <Steps Data={Data} />
-      
+      <ContentBlockIntro
+        pill={`Case Study ${padded}`}
+        heading={{
+          text: "Project at a ",
+          highlight: "Glance",
+        }}
+        description={mainField?.projectAtAGlance || ''}
+      />
+      <Steps dataProject={data} />
     </>
   );
 }
 
-export default CaseStudy;
+export default CaseStudyDetails;

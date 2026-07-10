@@ -1,3 +1,4 @@
+import { CaseStudy } from "@/types/payload-types";
 import BodyText from "./BodyText";
 import HeadingPill from "./headingPill";
 import HeadingText from "./headingText";
@@ -8,7 +9,7 @@ interface ContentBlockIntroProps {
     text?: string;
     highlight: string;
   };
-  description: string[];
+  description: string ;
 }
 
 function ContentBlockIntro({
@@ -27,11 +28,7 @@ function ContentBlockIntro({
         )}
         {description && (
           <div className="flex-1 flex flex-col gap-space-content">
-            {description.map((des) => (
-              <BodyText key={des} className="first:mt-0">
-                {des}
-              </BodyText>
-            ))}
+            <BodyText className="first:mt-0 whitespace-pre-line">{description}</BodyText>
           </div>
         )}
       </div>

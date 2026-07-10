@@ -6,9 +6,7 @@ import {
   Poppins,
   Raleway,
 } from "next/font/google";
-import "./root.css";
-import "./styles.css";
-import "./globals.css";
+import "@/app/globals.css"
 import Header from "@/components/Layout/Header/Header";
 import Aside from "@/components/Layout/Aside/Aside";
 import Footer from "@/components/Layout/Footer/Footer";
@@ -66,7 +64,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${poppins.variable} ${raleway.variable} ${montserrat.variable} ${bebas_neue.variable} h-full antialiased  scrollbar-none`}
     >
-      <body className="min-h-full flex flex-col scrollbar-none">
+      <body className="min-h-full flex flex-col scrollbar-none pt-3 md:pt-5 ">
         <VersionChecker />
         <Header />
         <Aside />

@@ -1,28 +1,73 @@
-import { baseUrl } from "@/constants/BaseUrl";
 import CaseStudyPage from "@/features/case-study/components/CaseStudyPage";
+import { notFound } from "next/navigation";
+import { getPayload } from "payload";
+import configPromise from "@payload-config";
+import { unstable_cache } from "next/cache";
+import { Metadata } from "next";
 
+// 1. Define Props (used by both Metadata and Page)
+type Props = {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
 
+// 2. Generate SEO Metadata
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const searchParams = await props.searchParams;
+  const currentPage = Number(searchParams?.page) || 1;
 
+  // You can also fetch data here if you need dynamic SEO based on the DB,
+  // but for a list page, static string interpolation is usually enough.
+  return {
+    title: `Our Case Studies ${currentPage > 1 ? `- Page ${currentPage}` : ""} | Harmain Services`,
+    description: "Explore our latest projects and success stories.",
+    openGraph: {
+      title: "Case Studies | Harmain Services",
+      description: "Explore our latest projects and success stories.",
+      url: `https://yourdomain.com/case-studies${currentPage > 1 ? `?page=${currentPage}` : ""}`,
+    },
+  };
+}
 
-export const dynamic = "force-dynamic";
+// 3. Create a cached fetch function for the Payload Local API
+// This is how you achieve ISR with the Local API in Next.js 15
+const getCachedCaseStudies = unstable_cache(
+  async (page: number) => {
+    const payload = await getPayload({ config: configPromise });
 
-export default async function Page() {
-  
-    // 2. Await the fetch call properly
-    const res = await fetch(`${baseUrl}/data/case-study.json`);
+    return payload.find({
+      collection: "case-studies",
+      limit: 9, 
+      page,
+      sort:'number',
+      depth: 1,
+      select: {
+        id: true,
+        slug: true,
+        title: true,
+        titleHighlight: true,
+        description: true,
+        logo: true,
+        number: true,
+      },
+    });
+  },
+  ["case-studies-list"], // Base cache key
+  {
+    revalidate: 3600, // ISR: Revalidate every hour (in seconds)
+    tags: ["case-studies"], // Allows for on-demand revalidation later
+  },
+);
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch case study data");
-    }
+export default async function Page(props: Props) {
+  const searchParams = await props.searchParams;
+  const currentPage = Number(searchParams?.page) || 1;
 
-    // 3. Await the JSON parsing
-    const data = await res.json();
+  // 4. Call the cached function instead of hitting Payload directly
+  const data2 = await getCachedCaseStudies(currentPage);
 
-    
-  
+  if (!data2.docs || data2.docs.length === 0) {
+    notFound();
+  }
 
-   return (
-     <CaseStudyPage data={data} />
-   );
-   // <CaseStudy data={data} />
+  return <CaseStudyPage data={data2} />;
 }
