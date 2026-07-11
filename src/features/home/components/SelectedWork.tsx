@@ -56,7 +56,7 @@ function SelectedWork() {
 
               {/* THE MAIN CONTENT LINK */}
               <Link
-                href={`/case-study/${services.title.toLowerCase().replaceAll(" ", "-")}`}
+                href={`/case-studies/${services.title.toLowerCase().replaceAll(" ", "-")}`}
                 className="relative z-10 flex flex-col h-full p-[clamp(7px,2vw,11px)] pb-[clamp(18px,2vw,31px)]"
               >
              

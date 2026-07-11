@@ -65,7 +65,7 @@ function CaseStudy() {
                       <ProcessCard
                         process={{
                           ...process,
-                          href: `case-study/${CASE_STUDY.projectName.toLowerCase().replaceAll(" ", "-")}`,
+                          href: `case-studies/${CASE_STUDY.projectName.toLowerCase().replaceAll(" ", "-")}`,
                         }}
                       />
                     </Reveal>
@@ -75,7 +75,7 @@ function CaseStudy() {
               <div className="flex items-center justify-center lg:justify-start md:justify-items-start">
                 <ButtonLink
                   variant="dark"
-                  href={`case-study/${CASE_STUDY.projectName.toLowerCase().replaceAll(" ", "-")}`}
+                  href={`case-studies/${CASE_STUDY.projectName.toLowerCase().replaceAll(" ", "-")}`}
                   className=""
                 >
                   VIEW FULL CASE STUDY

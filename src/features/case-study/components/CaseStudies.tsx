@@ -65,7 +65,7 @@ function CaseStudies({ data }: CaseStudiesProps) {
 
               {/* The Link (mt-auto aligns all buttons to the exact bottom) */}
               <Link
-                href={`/case-study/${project.slug}`}
+                href={`/case-studies/${project.slug}`}
                 className="mt-auto  inline-flex w-fit items-center gap-1.5 font-normal text-black text-content-font before:absolute before:inset-0"
               >
                 {/* after:absolute after:-bottom-0.5 after:left-0 after:h-[1.5px] after:w-full after:origin-left after:scale-x-0 after:bg-black after:transition-transform after:duration-500 after:[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:after:scale-x-100 */}
