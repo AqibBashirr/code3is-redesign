@@ -1,11 +1,9 @@
 import { Metadata } from "next";
-import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
-import { getPayload } from "payload";
-import configPromise from "@payload-config";
 
 import CaseStudyDetails from "@/features/case-study/components/CaseStudyDetails";
-import { CaseStudy } from "@/types/payload-types";
+import { getCaseStudy } from "@/lib/cache/caseStudies";
+import { SITE_URL } from "@/lib/site";
 
 interface PageProps {
   params: Promise<{
@@ -13,37 +11,12 @@ interface PageProps {
   }>;
 }
 
-const getCachedCaseStudy = unstable_cache(
-  async (slug: string): Promise<CaseStudy | undefined> => {
-    const payload = await getPayload({
-      config: configPromise,
-    });
-
-    const { docs } = await payload.find({
-      collection: "case-studies",
-      limit: 1,
-      depth: 1,
-      where: {
-        slug: {
-          equals: slug,
-        },
-      },
-    });
-
-    return docs[0] as CaseStudy | undefined;
-  },
-  ["case-study-details"],
-  {
-    tags: ["case-studies"],
-  },
-);
-
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { name } = await params;
 
-  const project = await getCachedCaseStudy(name);
+  const project = await getCaseStudy(name);
 
   if (!project) {
     return {
@@ -61,16 +34,24 @@ export async function generateMetadata({
       ? project.metaImage.url
       : typeof project.mainImage === "object" && project.mainImage?.url
         ? project.mainImage.url
-        : "/default-og.jpg";
+        : `${SITE_URL}/default-og.jpg`;
+
+  const canonical = `${SITE_URL}/case-studies/${project.slug}`;
 
   return {
     title,
     description,
 
+    alternates: {
+      canonical,
+    },
+
     openGraph: {
       title,
       description,
+      url: canonical,
       type: "article",
+
       images: [
         {
           url: image,
@@ -87,13 +68,18 @@ export async function generateMetadata({
       description,
       images: [image],
     },
+
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }
 
 export default async function Page({ params }: PageProps) {
   const { name } = await params;
 
-  const project = await getCachedCaseStudy(name);
+  const project = await getCaseStudy(name);
 
   if (!project) {
     notFound();

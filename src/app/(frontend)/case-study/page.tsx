@@ -1,81 +1,86 @@
-import CaseStudyPage from "@/features/case-study/components/CaseStudyPage";
-import { notFound } from "next/navigation";
-import { getPayload } from "payload";
-import configPromise from "@payload-config";
-import { unstable_cache } from "next/cache";
 import { Metadata } from "next";
 
-// 1. Define Props (used by both Metadata and Page)
+import CaseStudyPage from "@/features/case-study/components/CaseStudyPage";
+import { getCaseStudies } from "@/lib/cache/caseStudies";
+import { SITE_URL } from "@/lib/site";
+import { notFound } from "next/navigation";
+
 type Props = {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: Promise<{
+    [key: string]: string | string[] | undefined;
+  }>;
 };
 
-// 2. Generate SEO Metadata
-export async function generateMetadata(props: Props): Promise<Metadata> {
-  const searchParams = await props.searchParams;
-  const currentPage = Number(searchParams?.page) || 1;
+export async function generateMetadata({
+  searchParams,
+}: Props): Promise<Metadata> {
+  const params = await searchParams;
 
-  // You can also fetch data here if you need dynamic SEO based on the DB,
-  // but for a list page, static string interpolation is usually enough.
+  const currentPage = Number(params?.page) || 1;
+
+  const title =
+    currentPage > 1
+      ? `Case Studies - Page ${currentPage} | CODE3IS`
+      : "Case Studies | CODE3IS";
+
+  const description =
+    "Explore our latest projects, success stories and digital transformation case studies.";
+
+  const canonical =
+    currentPage > 1
+      ? `${SITE_URL}/case-studies?page=${currentPage}`
+      : `${SITE_URL}/case-studies`;
+
   return {
-    title: `Our Case Studies ${currentPage > 1 ? `- Page ${currentPage}` : ""} | CODE3IS`,
-    description: "Explore our latest projects and success stories.",
+    title,
+    description,
+
+    alternates: {
+      canonical,
+    },
+
     openGraph: {
-      title: "Case Studies | CODE3IS",
-      description: "Explore our latest projects and success stories.",
-      url: `https://code3is.com/case-studies${
-        currentPage > 1 ? `?page=${currentPage}` : ""
-      }`,
+      title,
+      description,
+      url: canonical,
+      type: "website",
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }
 
-// 3. Create a cached fetch function for the Payload Local API
-// This is how you achieve ISR with the Local API in Next.js 15
-const getCachedCaseStudies = unstable_cache(
-  async (page: number) => {
-    const payload = await getPayload({ config: configPromise });
+export default async function Page({ searchParams }: Props) {
+  const params = await searchParams;
 
-    return payload.find({
-      collection: "case-studies",
-      limit: 9,
-      page,
-      sort: "number",
-      depth: 1,
-      select: {
-        id: true,
-        slug: true,
-        title: true,
-        titleHighlight: true,
-        description: true,
-        logo: true,
-        number: true,
-      },
-    });
-  },
-  ["case-studies-list"],
-  {
-    tags: ["case-studies"],
-  },
-);
+  const currentPage = Number(params?.page) || 1;
 
-export default async function Page(props: Props) {
-  const searchParams = await props.searchParams;
-  const currentPage = Number(searchParams?.page) || 1;
+  const data = await getCaseStudies(currentPage);
 
-  // 4. Call the cached function instead of hitting Payload directly
-  const data = await getCachedCaseStudies(currentPage);
-
-  if (!data.docs || data.docs.length === 0) {
+  if (!data.docs.length) {
     notFound();
   }
 
-  return <CaseStudyPage data={data} paginationData={{
+  return (
+    <CaseStudyPage
+      data={data}
+      paginationData={{
         page: data.page,
         totalPages: data.totalPages,
         hasNextPage: data.hasNextPage,
         hasPrevPage: data.hasPrevPage,
         nextPage: data.nextPage,
         prevPage: data.prevPage,
-      }} />;
+      }}
+    />
+  );
 }

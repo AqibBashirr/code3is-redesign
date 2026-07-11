@@ -1,10 +1,10 @@
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+
 import BlogsPage from "@/features/blogs/components/BlogsPage";
 import { Blog } from "@/types/payload-types";
-import { notFound } from "next/navigation";
-import { getPayload } from "payload";
-import configPromise from "@payload-config";
-import { unstable_cache } from "next/cache";
-import { Metadata } from "next";
+import { getBlogs } from "@/lib/cache/blogs";
+import { SITE_URL } from "@/lib/site";
 
 type Props = {
   searchParams: Promise<{
@@ -12,60 +12,63 @@ type Props = {
   }>;
 };
 
-export const metadata: Metadata = {
-  title: "Our Blog | CODE3IS",
-  description:
-    "Read our latest insights on web design, development, and digital strategy.",
-  openGraph: {
-    title: "Our Blog | CODE3IS",
-    description:
-      "Read our latest insights on web design, development, and digital strategy.",
-  },
-};
+export async function generateMetadata({
+  searchParams,
+}: Props): Promise<Metadata> {
+  const params = await searchParams;
 
-const getCachedBlogs = unstable_cache(
-  async (page: number) => {
-    const payload = await getPayload({
-      config: configPromise,
-    });
+  const currentPage = Number(params?.page) || 1;
 
-    return payload.find({
-      collection: "blogs",
-      page,
-      limit: 9,
-      depth: 1,
-      sort: "-createdAt",
-      select: {
-        id: true,
-        slug: true,
-        title: true,
-        heroImage: true,
-        createdAt: true,
-        excerpt: true,
-      },
-    });
-  },
-  ["blogs-list"],
-  {
-    tags: ["blogs"],
-  },
-);
+  const title =
+    currentPage > 1
+      ? `Our Blog - Page ${currentPage} | CODE3IS`
+      : "Our Blog | CODE3IS";
+
+  const description =
+    "Read our latest insights on web design, development, SEO, AI and digital strategy.";
+
+  const canonical =
+    currentPage > 1
+      ? `${SITE_URL}/blogs?page=${currentPage}`
+      : `${SITE_URL}/blogs`;
+
+  return {
+    title,
+    description,
+
+    alternates: {
+      canonical,
+    },
+
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      type: "website",
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}
 
 export default async function Page({ searchParams }: Props) {
-  const resolvedParams = await searchParams;
-  const currentPage = Number(resolvedParams?.page) || 1;
+  const params = await searchParams;
 
-  const data = await getCachedBlogs(currentPage);
+  const currentPage = Number(params?.page) || 1;
 
-  if (!data.docs || data.docs.length === 0) {
+  const data = await getBlogs(currentPage);
+
+  if (!data.docs.length) {
     notFound();
   }
 
-  const blogs = data.docs as Blog[];
-
   return (
     <BlogsPage
-      projects={blogs}
+      projects={data.docs as Blog[]}
       paginationData={{
         page: data.page,
         totalPages: data.totalPages,

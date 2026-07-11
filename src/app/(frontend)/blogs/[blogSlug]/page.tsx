@@ -1,42 +1,15 @@
 import { Metadata } from "next";
-import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
-import { getPayload } from "payload";
-import configPromise from "@payload-config";
 
 import BlogPage from "@/features/blogs/components/BlogPage";
-import { Blog } from "@/types/payload-types";
+import { getBlog } from "@/lib/cache/blogs";
+import { SITE_URL } from "@/lib/site";
 
 interface PageProps {
   params: Promise<{
     blogSlug: string;
   }>;
 }
-
-const getBlog = unstable_cache(
-  async (slug: string): Promise<Blog | undefined> => {
-    const payload = await getPayload({
-      config: configPromise,
-    });
-
-    const { docs } = await payload.find({
-      collection: "blogs",
-      limit: 1,
-      depth: 1,
-      where: {
-        slug: {
-          equals: slug,
-        },
-      },
-    });
-
-    return docs[0] as Blog | undefined;
-  },
-  ["blog-details"],
-  {
-    tags: ["blogs"],
-  },
-);
 
 export async function generateMetadata({
   params,
@@ -52,19 +25,24 @@ export async function generateMetadata({
     };
   }
 
-  const seoImage =
+  const title = post.meta?.title || post.title;
+
+  const description = post.meta?.description || post.excerpt || "";
+
+  const image =
     typeof post.meta?.image === "object" && post.meta.image?.url
       ? post.meta.image.url
       : typeof post.heroImage === "object" && post.heroImage?.url
         ? post.heroImage.url
         : "/default-blog-og.jpg";
 
-  const title = post.meta?.title || post.title;
-  const description = post.meta?.description || post.excerpt || "";
-
   return {
     title,
     description,
+
+    alternates: {
+      canonical: `${SITE_URL}/blogs/${blogSlug}`,
+    },
 
     openGraph: {
       title,
@@ -72,7 +50,7 @@ export async function generateMetadata({
       type: "article",
       images: [
         {
-          url: seoImage,
+          url: image,
           width: 1200,
           height: 630,
           alt: title,
@@ -84,7 +62,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [seoImage],
+      images: [image],
     },
   };
 }

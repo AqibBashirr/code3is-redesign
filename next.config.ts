@@ -1,13 +1,15 @@
 import type { NextConfig } from "next";
 import { withPayload } from "@payloadcms/next/withPayload";
 
-
 const nextConfig: NextConfig = {
-  /* config options here */
+  cacheComponents: true,
+
   reactCompiler: true,
+
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [75, 100],
+
     remotePatterns: [
       {
         protocol: "https",
@@ -16,10 +18,10 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+
   env: {
     NEXT_PUBLIC_BUILD_ID: Date.now().toString(),
   },
-  
 };
 
 export default withPayload(nextConfig);
