@@ -1,9 +1,67 @@
 import { slugify } from "@/lib/slugify";
 import { type JSXConvertersFunction } from "@payloadcms/richtext-lexical/react";
+import { SerializedUploadNode } from "@payloadcms/richtext-lexical";
+import Image from "next/image";
 import React from "react";
+
+// 1. Define the expected shape of your Cloudinary Media object for TypeScript
+type CloudinaryMedia = {
+  alt?: string;
+  cloudinary?: {
+    secure_url: string;
+    public_id: string;
+    width: number;
+    height: number;
+  };
+};
 
 export const converters: JSXConvertersFunction = ({ defaultConverters }) => ({
   ...defaultConverters,
+
+  // 2. Integrated the Cloudinary Image rendering logic
+  upload: ({ node }) => {
+    const uploadNode = node as SerializedUploadNode;
+
+    if (typeof uploadNode.value !== "object" || uploadNode.value === null) {
+      return null;
+    }
+
+    const media = uploadNode.value as CloudinaryMedia & {
+      caption?: unknown;
+    };
+
+    const image = media.cloudinary;
+
+    if (!image?.secure_url) return null;
+
+    const imageElement = (
+      <Image
+        src={image.secure_url}
+        alt={media.alt ?? ""}
+        width={image.width}
+        height={image.height}
+        className="h-auto w-full rounded-[10px] border border-[#838484]"
+        sizes="(max-width:768px) 100vw, (max-width:1200px) 70vw, 800px"
+        unoptimized
+      />
+    );
+
+    // If no caption exists, render only the image
+    if (!media.caption) {
+      return imageElement;
+    }
+
+    return (
+      <figure className="my-12">
+        {imageElement}
+
+        <figcaption className="blog-image-caption mt-4 text-center text-sm text-[#7C7C7C]">
+          {/* Replace this with RichText if caption is RichText */}
+          {typeof media.caption === "string" ? media.caption : null}
+        </figcaption>
+      </figure>
+    );
+  },
 
   heading: ({ node, nodesToJSX }) => {
     // Preserve all children (bold, italic, links, etc.)
@@ -27,7 +85,6 @@ export const converters: JSXConvertersFunction = ({ defaultConverters }) => ({
     };
 
     const text = extractText(children);
-
     const id = slugify(text);
 
     switch (node.tag) {

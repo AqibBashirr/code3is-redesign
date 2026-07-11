@@ -18,10 +18,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   // You can also fetch data here if you need dynamic SEO based on the DB,
   // but for a list page, static string interpolation is usually enough.
   return {
-    title: `Our Case Studies ${currentPage > 1 ? `- Page ${currentPage}` : ""} | Harmain Services`,
+    title: `Our Case Studies ${currentPage > 1 ? `- Page ${currentPage}` : ""} | CODE3IS`,
     description: "Explore our latest projects and success stories.",
     openGraph: {
-      title: "Case Studies | Harmain Services",
+      title: "Case Studies | CODE3IS",
       description: "Explore our latest projects and success stories.",
       url: `https://yourdomain.com/case-studies${currentPage > 1 ? `?page=${currentPage}` : ""}`,
     },
@@ -63,11 +63,18 @@ export default async function Page(props: Props) {
   const currentPage = Number(searchParams?.page) || 1;
 
   // 4. Call the cached function instead of hitting Payload directly
-  const data2 = await getCachedCaseStudies(currentPage);
+  const data = await getCachedCaseStudies(currentPage);
 
-  if (!data2.docs || data2.docs.length === 0) {
+  if (!data.docs || data.docs.length === 0) {
     notFound();
   }
 
-  return <CaseStudyPage data={data2} />;
+  return <CaseStudyPage data={data} paginationData={{
+        page: data.page,
+        totalPages: data.totalPages,
+        hasNextPage: data.hasNextPage,
+        hasPrevPage: data.hasPrevPage,
+        nextPage: data.nextPage,
+        prevPage: data.prevPage,
+      }} />;
 }

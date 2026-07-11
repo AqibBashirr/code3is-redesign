@@ -28,8 +28,7 @@ export default function Logo({
       alt="Code3 Innovative Solutions"
       width={width}
       height={height}
-      priority
-      preload={preload} 
+      priority={preload}
       className={cn(
         "h-full w-full max-w-[clamp(80px,12vw,164px)] shrink-0 object-contain",
         className,

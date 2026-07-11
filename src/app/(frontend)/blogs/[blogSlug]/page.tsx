@@ -84,7 +84,7 @@ export default async function Page({ params }: PageProps) {
   if (!post) {
     notFound();
   }
-  console.log(post)
+  
 
   return (
     <BlogPage Blog={post}/>

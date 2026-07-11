@@ -57,6 +57,24 @@ export const Blogs: CollectionConfig = {
       },
     },
     {
+      name: "category",
+      type: "relationship",
+      relationTo: "blog-categories",
+      required: true,
+      admin: {
+        position: "sidebar",
+      },
+    },
+    {
+      name: "tags",
+      type: "relationship",
+      relationTo: "blog-tags",
+      hasMany: true,
+      admin: {
+        position: "sidebar",
+      },
+    },
+    {
       name: "heroImage",
       type: "upload",
       relationTo: "media",

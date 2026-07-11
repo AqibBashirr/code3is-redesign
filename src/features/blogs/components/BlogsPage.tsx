@@ -9,7 +9,7 @@ import Link from "next/link"; // 1. Imported Link
 export interface BlogsPageProps {
   projects: Pick<
     Blog,
-    "id" | "createdAt" | "heroImage" | "slug" | "title" | "excerpt"
+    "id" | "createdAt" | "heroImage" | "slug" | "title" | "excerpt" | "category"
   >[];
 
   paginationData: Pick<

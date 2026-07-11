@@ -72,6 +72,8 @@ export interface Config {
     'trusted-logos': TrustedLogo;
     'case-studies': CaseStudy;
     blogs: Blog;
+    'blog-tags': BlogTag;
+    'blog-categories': BlogCategory;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -84,6 +86,8 @@ export interface Config {
     'trusted-logos': TrustedLogosSelect<false> | TrustedLogosSelect<true>;
     'case-studies': CaseStudiesSelect<false> | CaseStudiesSelect<true>;
     blogs: BlogsSelect<false> | BlogsSelect<true>;
+    'blog-tags': BlogTagsSelect<false> | BlogTagsSelect<true>;
+    'blog-categories': BlogCategoriesSelect<false> | BlogCategoriesSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -156,6 +160,7 @@ export interface User {
 export interface Media {
   id: string;
   alt: string;
+  caption?: string | null;
   /**
    * Cloudinary Media Information
    */
@@ -390,6 +395,8 @@ export interface Blog {
   id: string;
   title: string;
   slug: string;
+  category: string | BlogCategory;
+  tags?: (string | BlogTag)[] | null;
   heroImage?: (string | null) | Media;
   excerpt?: string | null;
   content: {
@@ -412,6 +419,28 @@ export interface Blog {
     description?: string | null;
     image?: (string | null) | Media;
   };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-categories".
+ */
+export interface BlogCategory {
+  id: string;
+  title: string;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-tags".
+ */
+export interface BlogTag {
+  id: string;
+  title: string;
+  slug?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -458,6 +487,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'blogs';
         value: string | Blog;
+      } | null)
+    | ({
+        relationTo: 'blog-tags';
+        value: string | BlogTag;
+      } | null)
+    | ({
+        relationTo: 'blog-categories';
+        value: string | BlogCategory;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -530,6 +567,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  caption?: T;
   cloudinary?:
     | T
     | {
@@ -636,6 +674,8 @@ export interface CaseStudiesSelect<T extends boolean = true> {
 export interface BlogsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  category?: T;
+  tags?: T;
   heroImage?: T;
   excerpt?: T;
   content?: T;
@@ -646,6 +686,26 @@ export interface BlogsSelect<T extends boolean = true> {
         description?: T;
         image?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-tags_select".
+ */
+export interface BlogTagsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-categories_select".
+ */
+export interface BlogCategoriesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
   updatedAt?: T;
   createdAt?: T;
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/constants/utils";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -11,9 +12,10 @@ interface Heading {
 
 interface BlogTocProps {
   headings: Heading[];
+  className?:string;
 }
 
-export default function BlogToc({ headings }: BlogTocProps) {
+export default function BlogToc({ headings,className }: BlogTocProps) {
   const [activeHeading, setActiveHeading] = useState(headings[0]?.id ?? "");
   const listRef = useRef<HTMLUListElement>(null);
 
@@ -63,7 +65,7 @@ export default function BlogToc({ headings }: BlogTocProps) {
   return (
     <ul
       ref={listRef}
-      className=" sticky top-(--padding-y) max-h-[calc(100svh-var(--padding-y)-2rem)] overflow-y-auto scrollbar-thin max-w-51 pr-2 flex flex-col gap-4"
+      className={cn(`sticky  top-(--padding-y) max-h-[calc(100svh-var(--padding-y)-2rem)] overflow-y-auto scrollbar-thin max-w-51 pr-2 `,className)}
     >
       {headings.map((heading) => {
         const active = activeHeading === heading.id;

@@ -6,9 +6,22 @@ import { PaginatedDocs } from "payload";
 import { CaseStudy } from "@/types/payload-types";
 import Link from "next/link";
 
-export type CaseStudyPageProps = { data: PaginatedDocs<CaseStudy> };
+export type CaseStudyPageProps = {
+  data: PaginatedDocs<CaseStudy>;
+  paginationData: Pick<
+    PaginatedDocs,
+    | "totalPages"
+    | "hasNextPage"
+    | "hasPrevPage"
+    | "nextPage"
+    | "prevPage"
+    | "page"
+  >;
+};
 
-function CaseStudyPage({ data }: CaseStudyPageProps) {
+function CaseStudyPage({ data, paginationData }: CaseStudyPageProps) {
+   const { hasPrevPage, prevPage, hasNextPage, nextPage, page, totalPages } =
+     paginationData;
   return (
     <>
       <Hero
@@ -41,35 +54,38 @@ function CaseStudyPage({ data }: CaseStudyPageProps) {
       <CaseStudies data={data.docs} />
 
       <div className="flex items-center justify-center gap-4 mt-content-gap pb-y">
-        {data.hasPrevPage ? (
-          <Link
-            href={`?page=${data.prevPage}#caseStudies`} // Jumps past the Hero
-            className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-50 transition-colors"
-          >
-            &larr; Previous
-          </Link>
-        ) : (
-          // Keep the layout stable by rendering a disabled state
-          <span className="px-4 py-2 border border-gray-200 text-gray-400 rounded cursor-not-allowed">
-            &larr; Previous
-          </span>
-        )}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-4 mt-12 pb-16">
+            {hasPrevPage ? (
+              <Link
+                href={`?page=${prevPage}#caseStudies`}
+                className="px-5 py-2.5 text-sm font-medium border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-blue-600 transition-colors focus:ring-2 focus:ring-blue-600 focus:outline-none"
+              >
+                &larr; Previous
+              </Link>
+            ) : (
+              <span className="px-5 py-2.5 text-sm font-medium border border-gray-200 text-gray-400 rounded-lg cursor-not-allowed bg-gray-50/50">
+                &larr; Previous
+              </span>
+            )}
 
-        <span className="font-medium text-gray-600">
-          Page {data.page} of {data.totalPages}
-        </span>
+            <span className="text-sm font-medium text-gray-600">
+              Page {page} of {totalPages}
+            </span>
 
-        {data.hasNextPage ? (
-          <Link
-            href={`?page=${data.nextPage}#caseStudies`}
-            className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-50 transition-colors"
-          >
-            Next &rarr;
-          </Link>
-        ) : (
-          <span className="px-4 py-2 border border-gray-200 text-gray-400 rounded cursor-not-allowed">
-            Next &rarr;
-          </span>
+            {hasNextPage ? (
+              <Link
+                href={`?page=${nextPage}#caseStudies`}
+                className="px-5 py-2.5 text-sm font-medium border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-blue-600 transition-colors focus:ring-2 focus:ring-blue-600 focus:outline-none"
+              >
+                Next &rarr;
+              </Link>
+            ) : (
+              <span className="px-5 py-2.5 text-sm font-medium border border-gray-200 text-gray-400 rounded-lg cursor-not-allowed bg-gray-50/50">
+                Next &rarr;
+              </span>
+            )}
+          </div>
         )}
       </div>
     </>

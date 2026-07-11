@@ -12,6 +12,8 @@ import { Media } from "@/collections/Media";
 import { TrustedLogos } from "@/collections/TrustedLogos";
 import { CaseStudies } from "@/collections/CaseStudies";
 import { Blogs } from "@/collections/Blogs";
+import { BlogTags } from "@/collections/BlogTags";
+import { BlogCategories } from "@/collections/BlogCategories";
 
 // Create safe ES Module paths
 const filename = fileURLToPath(import.meta.url);
@@ -24,12 +26,19 @@ export default buildConfig({
   },
   editor: lexicalEditor({}),
 
-  // 1. ADD THIS TYPESCRIPT OBJECT
   typescript: {
     outputFile: path.resolve(dirname, "src/types/payload-types.ts"),
   },
 
-  collections: [Users, Media, TrustedLogos, CaseStudies, Blogs],
+  collections: [
+    Users,
+    Media,
+    TrustedLogos,
+    CaseStudies,
+    Blogs,
+    BlogTags,
+    BlogCategories
+  ],
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || "",
   }),
@@ -40,9 +49,9 @@ export default buildConfig({
         "trusted-logos": true,
       },
       config: {
-        cloud_name: process.env.CLOUDINARY_CLOUD_NAME || '',
-        api_key: process.env.CLOUDINARY_API_KEY || '',
-        api_secret: process.env.CLOUDINARY_API_SECRET || '',
+        cloud_name: process.env.CLOUDINARY_CLOUD_NAME || "",
+        api_key: process.env.CLOUDINARY_API_KEY || "",
+        api_secret: process.env.CLOUDINARY_API_SECRET || "",
       },
     }),
   ],

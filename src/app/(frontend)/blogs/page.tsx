@@ -12,11 +12,11 @@ type Props = {
 
 // 1. Generate Static SEO Metadata
 export const metadata: Metadata = {
-  title: "Our Blog | Harmain Services",
+  title: "Our Blog | CODE3IS",
   description:
     "Read our latest insights on web design, development, and digital strategy.",
   openGraph: {
-    title: "Our Blog | Harmain Services",
+    title: "Our Blog | CODE3IS",
     description:
       "Read our latest insights on web design, development, and digital strategy.",
   },
