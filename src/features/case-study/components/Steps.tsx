@@ -61,6 +61,7 @@ function Steps({ dataProject }: StepsProps) {
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 768px) 100vw, 800px"
+                                unoptimized
                               />
                             </div>
                           );
