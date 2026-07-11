@@ -1,9 +1,9 @@
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import CaseStudyPage from "@/features/case-study/components/CaseStudyPage";
 import { getCaseStudies } from "@/lib/cache/caseStudies";
 import { SITE_URL } from "@/lib/site";
-import { notFound } from "next/navigation";
 
 type Props = {
   searchParams: Promise<{
@@ -24,7 +24,7 @@ export async function generateMetadata({
       : "Case Studies | CODE3IS";
 
   const description =
-    "Explore our latest projects, success stories and digital transformation case studies.";
+    "Explore our latest case studies, client success stories, and digital transformation projects.";
 
   const canonical =
     currentPage > 1

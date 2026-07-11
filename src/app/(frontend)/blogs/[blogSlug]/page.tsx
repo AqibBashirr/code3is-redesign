@@ -34,7 +34,7 @@ export async function generateMetadata({
       ? post.meta.image.url
       : typeof post.heroImage === "object" && post.heroImage?.url
         ? post.heroImage.url
-        : "/default-blog-og.jpg";
+        : `${SITE_URL}/default-blog-og.jpg`;
 
   return {
     title,
@@ -47,7 +47,9 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
+      url: `${SITE_URL}/blogs/${blogSlug}`,
       type: "article",
+
       images: [
         {
           url: image,
@@ -63,6 +65,11 @@ export async function generateMetadata({
       title,
       description,
       images: [image],
+    },
+
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }

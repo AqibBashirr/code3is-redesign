@@ -25,7 +25,7 @@ export async function generateMetadata({
       : "Our Blog | CODE3IS";
 
   const description =
-    "Read our latest insights on web design, development, SEO, AI and digital strategy.";
+    "Read our latest insights on web development, UI/UX, SEO, AI, cloud technologies, and digital transformation.";
 
   const canonical =
     currentPage > 1
@@ -51,6 +51,11 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
+    },
+
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }

@@ -9,7 +9,7 @@ export const MAIN_NAV = [
   },
   {
     label: "Case Study",
-    href: "/case-study",
+    href: "/case-studies",
   },
   // {
   //   label: "Contact Us",

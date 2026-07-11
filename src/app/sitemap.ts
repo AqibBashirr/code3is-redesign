@@ -1,17 +1,10 @@
 import { MetadataRoute } from "next";
 import { getPayload } from "payload";
 import configPromise from "@payload-config";
+
 import { SITE_URL } from "@/lib/site";
-import { cacheLife, cacheTag } from "next/cache";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  "use cache";
-
-
-  cacheLife("max");
-  cacheTag("blogs");
-  cacheTag("case-studies");
-
   const payload = await getPayload({
     config: configPromise,
   });
@@ -19,7 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [blogs, caseStudies] = await Promise.all([
     payload.find({
       collection: "blogs",
-      limit: 1000,
+      pagination: false,
       depth: 0,
       select: {
         slug: true,
@@ -29,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     payload.find({
       collection: "case-studies",
-      limit: 1000,
+      pagination: false,
       depth: 0,
       select: {
         slug: true,
@@ -38,66 +31,91 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }),
   ]);
 
-  return [
-    // Static Pages
+  const now = new Date();
+
+  const routes: MetadataRoute.Sitemap = [
     {
       url: SITE_URL,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 1,
     },
 
     {
-      url: `${SITE_URL}/our-work`,
-      lastModified: new Date(),
+      url: `${SITE_URL}/our-services`,
+      lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.9,
     },
 
     {
-      url: `${SITE_URL}/our-services`,
-      lastModified: new Date(),
+      url: `${SITE_URL}/our-work`,
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,
     },
 
     {
       url: `${SITE_URL}/blogs`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "daily",
       priority: 0.9,
     },
 
     {
-      url: `${SITE_URL}/case-study`,
-      lastModified: new Date(),
+      url: `${SITE_URL}/case-studies`,
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
 
+    // Uncomment if these pages exist
+    // {
+    //   url: `${SITE_URL}/about`,
+    //   lastModified: now,
+    //   changeFrequency: "yearly",
+    //   priority: 0.7,
+    // },
+    //
     // {
     //   url: `${SITE_URL}/contact`,
-    //   lastModified: new Date(),
-    //   changeFrequency: "monthly",
-    //   priority: 0.8,
+    //   lastModified: now,
+    //   changeFrequency: "yearly",
+    //   priority: 0.6,
     // },
+    //
+    // {
+    //   url: `${SITE_URL}/privacy-policy`,
+    //   lastModified: now,
+    //   changeFrequency: "yearly",
+    //   priority: 0.3,
+    // },
+    //
+    // {
+    //   url: `${SITE_URL}/terms-and-conditions`,
+    //   lastModified: now,
+    //   changeFrequency: "yearly",
+    //   priority: 0.3,
+    // },
+  ];
 
-    // Blog Posts
+  routes.push(
     ...blogs.docs.map((blog) => ({
       url: `${SITE_URL}/blogs/${blog.slug}`,
-      lastModified: blog.updatedAt ? new Date(blog.updatedAt) : new Date(),
+      lastModified: blog.updatedAt ? new Date(blog.updatedAt) : now,
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
+  );
 
-    // Case Studies
+  routes.push(
     ...caseStudies.docs.map((project) => ({
       url: `${SITE_URL}/case-studies/${project.slug}`,
-      lastModified: project.updatedAt
-        ? new Date(project.updatedAt)
-        : new Date(),
+      lastModified: project.updatedAt ? new Date(project.updatedAt) : now,
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
-  ];
+  );
+
+  return routes;
 }

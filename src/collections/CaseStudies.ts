@@ -1,54 +1,53 @@
-import { revalidateTag } from "next/cache";
 import { CollectionConfig, FieldHook } from "payload";
+import { revalidateTag } from "next/cache";
+import { slugify } from "payload/shared";
 
-// 1. Hook: Auto-increment the project number
 const autoIncrementNumber: FieldHook = async ({ req, operation, value }) => {
-  if (operation === "create" && (value === undefined || value === null)) {
-    const lastCaseStudy = await req.payload.find({
-      collection: "case-studies",
-      sort: "-number",
-      limit: 1,
-      depth: 0,
-    });
+  if (operation !== "create") return value;
 
-    const highestNumber =
-      typeof lastCaseStudy.docs[0]?.number === "number"
-        ? lastCaseStudy.docs[0].number
-        : 0;
-
-    return highestNumber + 1;
+  if (typeof value === "number") {
+    return value;
   }
-  return value;
+
+  const last = await req.payload.find({
+    collection: "case-studies",
+    limit: 1,
+    sort: "-number",
+    depth: 0,
+    select: {
+      number: true,
+    },
+  });
+
+  return (last.docs[0]?.number ?? 0) + 1;
 };
 
-// 2. Hook: Auto-generate a URL-friendly slug from the title
-const formatSlug: FieldHook = ({ value, data }) => {
-  const fallbackData = (data?.title + ' ' + data?.titleHighlight ||
-    data?.id) as string;
-  const stringToFormat = value || fallbackData;
-
-  if (typeof stringToFormat === "string") {
-    return stringToFormat
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9\s-]/g, "")
-      .replace(/[\s-]+/g, "-");
+const formatSlug: FieldHook = ({ value, data, originalDoc }) => {
+  if (typeof value === "string" && value.length > 0) {
+    return slugify(value);
   }
-  return value;
+
+  const title = data?.title ?? originalDoc?.title ?? "";
+
+  const highlight = data?.titleHighlight ?? originalDoc?.titleHighlight ?? "";
+
+  return slugify(`${title} ${highlight}`);
 };
 
-// 3. The Main Collection Configuration
 export const CaseStudies: CollectionConfig = {
   slug: "case-studies",
+
   admin: {
     useAsTitle: "title",
   },
+
   access: {
     read: () => true,
-    create: ({ req: { user } }) => Boolean(user),
-    update: ({ req: { user } }) => Boolean(user),
-    delete: ({ req: { user } }) => Boolean(user),
+    create: ({ req }) => Boolean(req.user),
+    update: ({ req }) => Boolean(req.user),
+    delete: ({ req }) => Boolean(req.user),
   },
+
   hooks: {
     afterChange: [
       async () => {
@@ -62,104 +61,111 @@ export const CaseStudies: CollectionConfig = {
       },
     ],
   },
+
   fields: [
-    // --- SIDEBAR FIELDS (Always Visible) ---
     {
       name: "number",
       type: "number",
+
       hooks: {
         beforeChange: [autoIncrementNumber],
       },
+
       admin: {
         readOnly: true,
         position: "sidebar",
-        description: "Auto-generates the next sequential number.",
       },
     },
+
     {
       name: "slug",
       type: "text",
       unique: true,
+      required: true,
       index: true,
+
       hooks: {
         beforeValidate: [formatSlug],
       },
+
       admin: {
         position: "sidebar",
-        description:
-          "Auto-generated from the title for the URL. (e.g., my-project-name)",
       },
     },
 
-    // --- TABBED INTERFACE ---
     {
       type: "tabs",
+
       tabs: [
         {
-          label: "Content", // First Tab
+          label: "Content",
+
           fields: [
             {
               name: "title",
               type: "text",
               required: true,
             },
+
             {
               name: "titleHighlight",
               type: "text",
-              admin: {
-                description: "The colored/highlighted word in the main heading",
-              },
             },
+
             {
               name: "description",
               type: "textarea",
             },
+
             {
               name: "logo",
               type: "upload",
               relationTo: "media",
             },
+
             {
               name: "mainImage",
               type: "upload",
               relationTo: "media",
-              admin: {
-                description: "The main hero image showing all the screens",
-              },
             },
+
             {
               name: "main",
               type: "group",
+
               fields: [
                 {
                   name: "projectAtAGlance",
                   type: "textarea",
-                  admin: { description: "Brief summary of the project" },
                 },
+
                 {
                   name: "sections",
                   type: "array",
+
                   minRows: 1,
+
                   fields: [
                     {
                       name: "pill",
                       type: "text",
-                      admin: {
-                        description: "e.g., The Challenge, The Approach",
-                      },
                     },
+
                     {
                       name: "headingTitle",
                       type: "text",
                     },
+
                     {
                       name: "headingHighlight",
                       type: "text",
                     },
+
                     {
                       name: "content",
                       type: "richText",
                     },
+
                     {
                       name: "image",
                       type: "upload",
@@ -171,33 +177,25 @@ export const CaseStudies: CollectionConfig = {
             },
           ],
         },
+
         {
-          label: "SEO", // Second Tab
+          label: "SEO",
+
           fields: [
             {
               name: "metaTitle",
               type: "text",
-              admin: {
-                description:
-                  "Title used for search engines and browser tabs. Ideal length: 50-60 characters.",
-              },
             },
+
             {
               name: "metaDescription",
               type: "textarea",
-              admin: {
-                description:
-                  "Description used for search engine results. Ideal length: 150-160 characters.",
-              },
             },
+
             {
               name: "metaImage",
               type: "upload",
               relationTo: "media",
-              admin: {
-                description:
-                  "Image used when sharing this case study on social media platforms (Open Graph).",
-              },
             },
           ],
         },
