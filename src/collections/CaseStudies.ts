@@ -1,3 +1,4 @@
+import { revalidateTag } from "next/cache";
 import { CollectionConfig, FieldHook } from "payload";
 
 // 1. Hook: Auto-increment the project number
@@ -47,6 +48,19 @@ export const CaseStudies: CollectionConfig = {
     create: ({ req: { user } }) => Boolean(user),
     update: ({ req: { user } }) => Boolean(user),
     delete: ({ req: { user } }) => Boolean(user),
+  },
+  hooks: {
+    afterChange: [
+      async () => {
+        revalidateTag("case-studies", "max");
+      },
+    ],
+
+    afterDelete: [
+      async () => {
+        revalidateTag("case-studies", "max");
+      },
+    ],
   },
   fields: [
     // --- SIDEBAR FIELDS (Always Visible) ---

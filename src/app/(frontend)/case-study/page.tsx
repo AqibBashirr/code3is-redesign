@@ -23,7 +23,9 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     openGraph: {
       title: "Case Studies | CODE3IS",
       description: "Explore our latest projects and success stories.",
-      url: `https://yourdomain.com/case-studies${currentPage > 1 ? `?page=${currentPage}` : ""}`,
+      url: `https://code3is.com/case-studies${
+        currentPage > 1 ? `?page=${currentPage}` : ""
+      }`,
     },
   };
 }
@@ -36,9 +38,9 @@ const getCachedCaseStudies = unstable_cache(
 
     return payload.find({
       collection: "case-studies",
-      limit: 9, 
+      limit: 9,
       page,
-      sort:'number',
+      sort: "number",
       depth: 1,
       select: {
         id: true,
@@ -51,10 +53,9 @@ const getCachedCaseStudies = unstable_cache(
       },
     });
   },
-  ["case-studies-list"], // Base cache key
+  ["case-studies-list"],
   {
-    revalidate: 3600, // ISR: Revalidate every hour (in seconds)
-    tags: ["case-studies"], // Allows for on-demand revalidation later
+    tags: ["case-studies"],
   },
 );
 

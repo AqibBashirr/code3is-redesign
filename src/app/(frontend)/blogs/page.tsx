@@ -7,10 +7,11 @@ import { unstable_cache } from "next/cache";
 import { Metadata } from "next";
 
 type Props = {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: Promise<{
+    [key: string]: string | string[] | undefined;
+  }>;
 };
 
-// 1. Generate Static SEO Metadata
 export const metadata: Metadata = {
   title: "Our Blog | CODE3IS",
   description:
@@ -22,17 +23,18 @@ export const metadata: Metadata = {
   },
 };
 
-// 2. Create the ISR Cached Fetcher
 const getCachedBlogs = unstable_cache(
   async (page: number) => {
-    const payload = await getPayload({ config: configPromise });
+    const payload = await getPayload({
+      config: configPromise,
+    });
 
     return payload.find({
       collection: "blogs",
       page,
-      limit: 9, //  for a 3-column grid
+      limit: 9,
       depth: 1,
-      sort: "-createdAt", // Added a minus sign (-) to sort Newest to Oldest!
+      sort: "-createdAt",
       select: {
         id: true,
         slug: true,
@@ -45,29 +47,23 @@ const getCachedBlogs = unstable_cache(
   },
   ["blogs-list"],
   {
-    revalidate: 3600, // ISR: Revalidate every hour
     tags: ["blogs"],
   },
 );
 
-// 3. Render the Page Component (Capitalized!)
 export default async function Page({ searchParams }: Props) {
   const resolvedParams = await searchParams;
   const currentPage = Number(resolvedParams?.page) || 1;
 
-  // Call the cached function
   const data = await getCachedBlogs(currentPage);
 
   if (!data.docs || data.docs.length === 0) {
     notFound();
   }
 
-  // Cast the docs to your Blog type
-  const blogs = data.docs as unknown as Blog[];
+  const blogs = data.docs as Blog[];
 
   return (
-    // Note: I changed 'projects' to 'blogs' here for clarity.
-    // You will need to update your BlogsPage component props to match!
     <BlogsPage
       projects={blogs}
       paginationData={{

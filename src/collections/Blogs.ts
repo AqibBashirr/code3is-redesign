@@ -1,27 +1,19 @@
 import { CollectionConfig, FieldHook } from "payload";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { revalidateTag } from "next/cache";
+import { slugify } from "payload/shared";
 
-// 1. A utility function to format strings into URL-safe slugs
-const format = (val: string): string =>
-  val
-    .replace(/ /g, "-")
-    .replace(/[^\w-]+/g, "")
-    .toLowerCase();
-
-// 2. The Payload Hook that checks the field or falls back to the title
 const formatSlug =
   (fallback: string): FieldHook =>
   ({ value, originalDoc, data }) => {
-    // If the user manually typed a slug, just ensure it is formatted correctly
     if (typeof value === "string" && value !== "") {
-      return format(value);
+      return slugify(value);
     }
-    
-    // If the slug is blank, grab the data from the fallback field (e.g., 'title')
+
     const fallbackData = data?.[fallback] || originalDoc?.[fallback];
 
     if (fallbackData && typeof fallbackData === "string") {
-      return format(fallbackData);
+      return slugify(fallbackData);
     }
 
     return value;
@@ -29,12 +21,32 @@ const formatSlug =
 
 export const Blogs: CollectionConfig = {
   slug: "blogs",
-  admin: { useAsTitle: "title" },
+
+  admin: {
+    useAsTitle: "title",
+  },
+
   access: {
     read: () => true,
     create: ({ req: { user } }) => Boolean(user),
     update: ({ req: { user } }) => Boolean(user),
     delete: ({ req: { user } }) => Boolean(user),
+  },
+
+  hooks: {
+    afterChange: [
+      async ({ doc }) => {
+        revalidateTag("blogs", "max");
+        revalidateTag(`blog-${doc.slug}`,'max');
+      },
+    ],
+
+    afterDelete: [
+      async ({ doc }) => {
+        revalidateTag("blogs", "max");
+        revalidateTag(`blog-${doc.slug}`,'max');
+      },
+    ],
   },
   fields: [
     {

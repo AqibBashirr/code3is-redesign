@@ -1,92 +1,102 @@
-import { Blog } from "@/types/payload-types";
+import { Metadata } from "next";
+import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 import configPromise from "@payload-config";
-import { unstable_cache } from "next/cache";
-import { Metadata } from "next";
+
 import BlogPage from "@/features/blogs/components/BlogPage";
+import { Blog } from "@/types/payload-types";
 
 interface PageProps {
-  params: Promise<{ blogSlug: string }>;
+  params: Promise<{
+    blogSlug: string;
+  }>;
 }
 
-// 1. Create the ISR Cached Fetcher
-const getCachedBlog = unstable_cache(
-  async (slug: string) => {
-    const payload = await getPayload({ config: configPromise });
+const getBlog = unstable_cache(
+  async (slug: string): Promise<Blog | undefined> => {
+    const payload = await getPayload({
+      config: configPromise,
+    });
 
-    const data = await payload.find({
+    const { docs } = await payload.find({
       collection: "blogs",
       limit: 1,
       depth: 1,
       where: {
-        slug: { equals: slug },
+        slug: {
+          equals: slug,
+        },
       },
     });
 
-    return data.docs[0] as Blog | undefined;
+    return docs[0] as Blog | undefined;
   },
-  ["blog-details"], // Cache key prefix
+  ["blog-details"],
   {
-    revalidate: 3600, // ISR: Revalidate every 1 hour (in seconds)
-    tags: ["blogs"], // Allows for on-demand revalidation later
+    tags: ["blogs"],
   },
 );
 
-// 2. Generate Dynamic SEO Metadata
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const resolvedParams = await params;
+  const { blogSlug } = await params;
 
-  // Next.js uses the cache here, so it doesn't double-query the database!
-  const post = await getCachedBlog(resolvedParams.blogSlug);
+  const post = await getBlog(blogSlug);
 
   if (!post) {
     return {
       title: "Blog Not Found",
+      description: "The requested blog could not be found.",
     };
   }
 
-  // Safely extract the image URL if heroImage is populated
-  const ogImage =
-    typeof post.heroImage === "object" && post.heroImage?.url
-      ? post.heroImage.url
-      : "/default-blog-og.jpg";
+  const seoImage =
+    typeof post.meta?.image === "object" && post.meta.image?.url
+      ? post.meta.image.url
+      : typeof post.heroImage === "object" && post.heroImage?.url
+        ? post.heroImage.url
+        : "/default-blog-og.jpg";
+
+  const title = post.meta?.title || post.title;
+  const description = post.meta?.description || post.excerpt || "";
 
   return {
-    // Falls back to the standard title/excerpt if specific SEO fields are empty
-    title: post.meta?.title || post.title,
-    description: post.meta?.description || post.excerpt,
+    title,
+    description,
+
     openGraph: {
-      title: post.meta?.title || post.title,
-      description: post.meta?.description || post.excerpt||'',
+      title,
+      description,
+      type: "article",
       images: [
         {
-          url: ogImage,
+          url: seoImage,
           width: 1200,
           height: 630,
-          alt: post.title,
+          alt: title,
         },
       ],
-      type: "article",
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [seoImage],
     },
   };
 }
 
-// 3. Render the Page
 export default async function Page({ params }: PageProps) {
-  const resolvedParams = await params;
+  const { blogSlug } = await params;
 
-  // Call the cached function to get the data for rendering
-  const post = await getCachedBlog(resolvedParams.blogSlug);
+  const post = await getBlog(blogSlug);
 
   if (!post) {
     notFound();
   }
-  
 
-  return (
-    <BlogPage Blog={post}/>
-  );
+  return <BlogPage Blog={post} />;
 }
