@@ -54,7 +54,7 @@ function Steps({ dataProject }: StepsProps) {
                           if (!imgData.url) return null;
 
                           return (
-                            <div className="relative w-full aspect-video my-10 rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                            <div className="relative  w-full aspect-video my-10 rounded-2xl overflow-hidden shadow-lg border border-gray-100">
                               <Image
                                 src={imgData.url}
                                 alt={imgData.alt || "Inline case study image"}
@@ -83,7 +83,7 @@ function Steps({ dataProject }: StepsProps) {
                   y={0}
                   x={index % 2 == 1 ? "-40px" : "40px"}
                   threshold={0.4}
-                  className="right-side flex-1 align-top"
+                  className="right-side flex-1 align-top shadow-lg border border-gray-100"
                 >
                   <Image
                     src={data.image.url}

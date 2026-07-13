@@ -77,7 +77,7 @@ function BlogPage({ Blog }: BlogPageProps) {
         {/* Right Sidebar */}
         <aside
           id="right-sidebar"
-          className="w-full md:w-51 sticky top-[76svh] md:top-[70dvh] md:mt-0 mt-[-42%] flex justify-end"
+          className="w-full pointer-events-none md:w-51 sticky top-[76svh] md:top-[70dvh] md:mt-0 mt-[-42%] flex justify-end"
         >
           <BlogProgress />
         </aside>
