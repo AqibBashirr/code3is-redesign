@@ -37,10 +37,11 @@ export default buildConfig({
     CaseStudies,
     Blogs,
     BlogTags,
-    BlogCategories
+    BlogCategories,
   ],
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || "",
+   
   }),
   plugins: [
     cloudinaryStorage({

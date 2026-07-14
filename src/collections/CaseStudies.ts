@@ -50,14 +50,23 @@ export const CaseStudies: CollectionConfig = {
 
   hooks: {
     afterChange: [
-      async () => {
+      async ({ doc }) => {
+        // Add "max" as the second argument to fix the Next.js 16 TS error
         revalidateTag("case-studies", "max");
+
+        if (doc?.slug) {
+          revalidateTag(`case-study-${doc.slug}`, "max");
+        }
       },
     ],
 
     afterDelete: [
-      async () => {
+      async ({ doc }) => {
         revalidateTag("case-studies", "max");
+
+        if (doc?.slug) {
+          revalidateTag(`case-study-${doc.slug}`, "max");
+        }
       },
     ],
   },

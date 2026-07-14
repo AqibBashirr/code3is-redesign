@@ -2,7 +2,6 @@ import type { NextConfig } from "next";
 import { withPayload } from "@payloadcms/next/withPayload";
 
 const nextConfig: NextConfig = {
-
   reactCompiler: true,
 
   images: {
@@ -20,6 +19,7 @@ const nextConfig: NextConfig = {
 
   env: {
     NEXT_PUBLIC_BUILD_ID: Date.now().toString(),
+    // REVALIDATION_SECRET: Date.now().toString(),
   },
 };
 

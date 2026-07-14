@@ -35,16 +35,22 @@ export const Blogs: CollectionConfig = {
 
   hooks: {
     afterChange: [
-      async ({ operation }) => {
-        if (operation === "create" || operation === "update") {
-          revalidateTag("blogs", "max");
+      async ({ doc }) => {
+        // Clears all paginated lists (Page 1, Page 2, etc.)
+        revalidateTag("blogs", "max");
+
+        // Clears the specific blog article that was just updated
+        if (doc?.slug) {
+          revalidateTag(`blog-${doc.slug}`, "max");
         }
       },
     ],
-
     afterDelete: [
-      async () => {
+      async ({ doc }) => {
         revalidateTag("blogs", "max");
+        if (doc?.slug) {
+          revalidateTag(`blog-${doc.slug}`, "max");
+        }
       },
     ],
   },
