@@ -1,9 +1,9 @@
 import { Reveal } from "@/components/Reveal";
 import BodyText from "@/components/typography/BodyText";
-import Image from "next/image";
 import Link from "next/link";
 import { Blog } from "@/types/payload-types";
 import { formatDate } from "@/lib/formatDate";
+import AdvanceImage from "@/components/AdvancedImage";
 
 interface BlogCardProps {
   project: Omit<Blog, "content"| "updatedAt">;
@@ -12,10 +12,6 @@ interface BlogCardProps {
 
 
 function BlogCard({ project, index }: BlogCardProps) {
-  const logoSrc =
-    typeof project.heroImage === "string"
-      ? project.heroImage
-      : (project.heroImage?.thumbnailURL ?? "");
   const logoAlt =
     typeof project.heroImage === "string"
       ? (project.slug?.replace(/\s/g, " ").toUpperCase() ?? "")
@@ -31,12 +27,12 @@ function BlogCard({ project, index }: BlogCardProps) {
         className=" group flex h-full cursor-pointer flex-col gap-space-content rounded-[10px] bg-white p-[clamp(18px,1.6vw,30px)] shadow-[0px_4px_20px_4px_#00000021] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform hover:-translate-y-2 hover:shadow-[0px_14px_36px_6px_#00000030] active:scale-[0.985] active:translate-y-0 active:shadow-[0px_4px_14px_2px_#00000025] active:duration-150 relative"
       >
         <figure className="relative mb-2.5 flex max-h-45.75 aspect-video items-center justify-center overflow-hidden rounded-lg border border-[#bdbdbd] ">
-          <Image
-            src={logoSrc}
+          <AdvanceImage
+            src={project.heroImage}
             alt={logoAlt}
             height={183}
             width={319}
-            className=" w-full h-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
+            className=" w-full h-full object-cover object-center transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
           />
         </figure>
 

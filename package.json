@@ -11,15 +11,16 @@
     "generate:icons": "svgr --out-dir src/components/icons --typescript src/assets/svg"
   },
   "dependencies": {
-    "@payloadcms/db-mongodb": "^3.85.2",
-    "@payloadcms/next": "^3.85.2",
-    "@payloadcms/richtext-lexical": "^3.85.2",
+    "@payloadcms/db-mongodb": "^3.86.0",
+    "@payloadcms/next": "^3.86.0",
+    "@payloadcms/richtext-lexical": "^3.86.0",
     "@tailwindcss/typography": "^0.5.20",
     "clsx": "^2.1.1",
-    "lucide-react": "^1.20.0",
+    "lucide-react": "^1.24.0",
     "next": "16.2.9",
-    "nodemailer": "^9.0.1",
-    "payload": "^3.85.2",
+    "next-cloudinary": "^6.17.5",
+    "nodemailer": "^9.0.3",
+    "payload": "^3.86.0",
     "payload-cloudinary": "^2.3.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
@@ -30,15 +31,15 @@
   "devDependencies": {
     "@svgr/cli": "^8.1.0",
     "@svgr/core": "^8.1.0",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@tailwindcss/postcss": "^4.3.2",
+    "@types/node": "^20.19.43",
     "@types/nodemailer": "^8.0.1",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "babel-plugin-react-compiler": "1.0.0",
-    "eslint": "^9",
+    "eslint": "^9.39.5",
     "eslint-config-next": "16.2.9",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "tailwindcss": "^4.3.2",
+    "typescript": "^5.9.3"
   }
 }

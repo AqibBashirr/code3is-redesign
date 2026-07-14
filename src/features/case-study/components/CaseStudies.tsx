@@ -1,9 +1,10 @@
 import { Reveal } from "@/components/Reveal";
-import Image from "next/image";
+
 import Link from "next/link";
 import HeadingPill from "@/components/typography/headingPill";
 import BodyText from "@/components/typography/BodyText";
 import { casestudyPropsPick } from "@/types/case-study-props.types";
+import AdvancedImage from "@/components/AdvancedImage";
 
 interface CaseStudiesProps {
   data: casestudyPropsPick[];
@@ -13,7 +14,7 @@ function CaseStudies({ data }: CaseStudiesProps) {
   return (
     <div
       id="caseStudies"
-      className="mx-auto scroll-mt-(--scroll-mt-between-content) grid max-w-max grid-cols-1 gap-[clamp(16px,2vw,24px)] px-x  md:grid-cols-2 lg:grid-cols-3"
+      className="mx-auto scroll-mt-(--scroll-mt-between-content) grid max-w-max grid-cols-1 gap-[clamp(16px,2vw,24px)] px-x  sm:grid-cols-2 lg:grid-cols-3"
     >
       {data?.map((project, index) => {
         let padded;
@@ -21,17 +22,13 @@ function CaseStudies({ data }: CaseStudiesProps) {
           padded =
             project.number < 10 ? "0" + project.number : String(project.number);
         }
-
-        const logoSrc =
-          typeof project.logo === "string"
-            ? project.logo
-            : project.logo?.url ?? "";
         const logoAlt =
           typeof project.logo === "string"
-            ? project.slug?.replace(/\s/g, " ").toUpperCase() ?? ""
-            : project.logo?.alt ??
-              project.slug?.replace(/\s/g, " ").toUpperCase() ?? "";
-
+            ? (project.slug?.replace(/\s/g, " ").toUpperCase() ?? "")
+            : (project.logo?.alt ??
+              project.slug?.replace(/\s/g, " ").toUpperCase() ??
+              "");
+        console.log(project.logo);
         return (
           <Reveal
             key={project.title + project.titleHighlight}
@@ -41,13 +38,13 @@ function CaseStudies({ data }: CaseStudiesProps) {
             <article className="group flex h-full cursor-pointer flex-col gap-space-content rounded-[10px] bg-white p-[clamp(18px,1.6vw,30px)] shadow-[0px_4px_20px_4px_#00000021] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform hover:-translate-y-2 hover:shadow-[0px_14px_36px_6px_#00000030] active:scale-[0.985] active:translate-y-0 active:shadow-[0px_4px_14px_2px_#00000025] active:duration-150 relative">
               {/* The Image Section */}
               <figure className="relative mb-2.5 flex max-h-45.75 items-center justify-center overflow-hidden rounded-lg border border-[#bdbdbd] p-6 aspect-video">
-                <Image
-                  src={logoSrc}
+                <AdvancedImage
+                  sizes="card"
+                  src={project.logo || ""}
                   alt={logoAlt}
                   height={183}
                   width={319}
                   className=" w-full h-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
-                  unoptimized
                 />
               </figure>
 

@@ -1,3 +1,4 @@
+import AdvanceImage from "@/components/AdvancedImage";
 import ButtonLink from "@/components/Buttons/ButtonLink";
 import Hero from "@/components/common/hero";
 import ImageBgContainer from "@/components/common/ImageBgContainer";
@@ -6,7 +7,7 @@ import BodyText from "@/components/typography/BodyText";
 import HeadingPill from "@/components/typography/headingPill";
 import HeadingText from "@/components/typography/headingText";
 import WhatWeDoSections from "@/features/our-services/components/WhatWeDoSections";
-import Image from "next/image";
+
 
 // 1. The type for the individual items (what we used in the component)
 export type SectionDataProps =
@@ -75,12 +76,12 @@ function page() {
             threshold={0.6}
             className="lg:hidden bg-linear-to-b from-[#EAE9E5] to-[#FBFBFB] rounded-[10px] border border-overlay-card mt-between-content"
           >
-            <Image
+            <AdvanceImage
               src="/images/our-services/services.avif"
               alt="service Image feel Good Travels"
               width={678}
               height={475}
-            ></Image>
+            />
           </Reveal>
           <Reveal y={0} x={"-40px"} threshold={0.4} className="">
             <ButtonLink

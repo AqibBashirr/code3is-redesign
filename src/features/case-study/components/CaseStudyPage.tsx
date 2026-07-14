@@ -5,6 +5,7 @@ import CaseStudies from "./CaseStudies";
 import { PaginatedDocs } from "payload";
 import { CaseStudy } from "@/types/payload-types";
 import Link from "next/link";
+import BodyText from "@/components/typography/BodyText";
 
 export type CaseStudyPageProps = {
   data: PaginatedDocs<CaseStudy>;
@@ -51,7 +52,8 @@ function CaseStudyPage({ data, paginationData }: CaseStudyPageProps) {
           "Explore how we help businesses solve complex challenges through strategy, branding, web development, and digital marketing. \n Every project is built around measurable outcomes, not just attractive designs."
         }
       />
-      <CaseStudies data={data.docs} />
+
+      {!data.docs.length?(<BodyText className="text-center">No Case Studies Found</BodyText>):<CaseStudies data={data.docs} />}
 
       <div className="flex items-center justify-center gap-4 mt-content-gap pb-y">
         {totalPages > 1 && (

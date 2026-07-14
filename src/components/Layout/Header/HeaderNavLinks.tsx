@@ -137,7 +137,7 @@ function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
               )}
             >
               <div className="overflow-hidden">
-                <div className="flex flex-col rounded-xl bg-white shadow-[0px_14px_36px_6px_#00000015] py-2 border border-gray-100/50">
+                <div className="flex flex-col rounded-xl bg-offBlack-color shadow-[0px_14px_36px_6px_#00000015] py-2 border border-white-color/50">
                   {overflowItems.map((item) => {
                     const isActive = checkIsActive(item.href);
                     return (
@@ -147,10 +147,10 @@ function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
                         prefetch={false}
                         onClick={handleLinkClick}
                         className={cn(
-                          "block px-5 py-2.5 text-sm transition-colors duration-300 hover:bg-gray-50/80 hover:text-highlight-color",
+                          "block px-5 py-2.5 text-sm transition-colors duration-300 hover:bg-highlight-text-color/80 hover:text-off-white-color-color",
                           isActive
-                            ? "text-highlight-color font-medium bg-gray-50/50"
-                            : "text-secondary-color",
+                            ? " font-medium bg-highlight-text-color/50"
+                            : "text-white",
                         )}
                       >
                         {item.label}

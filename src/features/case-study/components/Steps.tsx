@@ -1,4 +1,3 @@
-import Image from "next/image";
 import HeadingTextH3 from "@/components/typography/HeadingTextH3";
 import HeadingPill from "@/components/typography/headingPill";
 import { Reveal } from "@/components/Reveal";
@@ -7,7 +6,7 @@ import { RichText } from "@payloadcms/richtext-lexical/react";
 import { SerializedUploadNode } from "@payloadcms/richtext-lexical";
 // 2. Import 'Media' from your generated types alongside CaseStudy
 import { CaseStudy, Media } from "@/types/payload-types";
-
+import AdvancedImage from "@/components/AdvancedImage"
 interface StepsProps {
   dataProject?: CaseStudy;
 }
@@ -20,7 +19,7 @@ function Steps({ dataProject }: StepsProps) {
           <section
             id={data.pill?.toLowerCase().split(" ")[1]}
             key={data.pill}
-            className={`flex flex-col md:flex-row gap-grid-content md:items-start max-w-max mx-auto px-x pb-y scroll-mt-24 ${
+            className={`flex gap-grid-content items-start max-w-max mx-auto px-x pb-y scroll-mt-24 ${
               index % 2 == 1
                 ? "flex-col md:flex-row-reverse"
                 : "flex-col md:flex-row"
@@ -55,13 +54,10 @@ function Steps({ dataProject }: StepsProps) {
 
                           return (
                             <div className="relative  w-full aspect-video my-10 rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                              <Image
+                              <AdvancedImage
                                 src={imgData.url}
                                 alt={imgData.alt || "Inline case study image"}
-                                fill
                                 className="object-cover"
-                                sizes="(max-width: 768px) 100vw, 800px"
-                                unoptimized
                               />
                             </div>
                           );
@@ -78,19 +74,20 @@ function Steps({ dataProject }: StepsProps) {
             {data?.image &&
               typeof data.image === "object" &&
               "url" in data.image &&
-              data.image.url && (
+              data.image && (
                 <Reveal
                   y={0}
                   x={index % 2 == 1 ? "-40px" : "40px"}
                   threshold={0.4}
-                  className="right-side flex-1 align-top shadow-lg border border-gray-100"
+                  className="right-side flex-1 align-top  border-[0.5px] border-card-color   rounded-[10px] overflow-hidden "
                 >
-                  <Image
-                    src={data.image.url}
-                    width={600}
-                    height={600}
-                    className="h-full align-top w-full object-contain rounded-[10px] overflow-hidden"
-                    alt={data.image.alt || "Case study image"}
+                  <AdvancedImage
+                    variant="card"
+                    src={data.image}
+                    width={data.image?.width || 550}
+                    height={data.image?.height || 800}
+                    className="w-full  h-auto max-h-200  object-cover lg:object-contain overflow-hidden object-top  inline-block"
+                    alt={data.image?.alt || "Case study image"}
                   />
                 </Reveal>
               )}

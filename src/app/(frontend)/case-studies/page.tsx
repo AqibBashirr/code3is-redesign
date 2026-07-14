@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
+
 
 import CaseStudyPage from "@/features/case-study/components/CaseStudyPage";
 import { getCaseStudies } from "@/lib/cache/caseStudies";
@@ -66,9 +66,7 @@ export default async function Page({ searchParams }: Props) {
 
   const data = await getCaseStudies(currentPage);
 
-  if (!data.docs.length) {
-    notFound();
-  }
+  
 
   return (
     <CaseStudyPage

@@ -23,7 +23,7 @@ function Contact() {
               Contact
             </HeadingPill>
             <HeadingText
-              highlightText="WORKS."
+              highlightText="Works."
               className="mt-between-content capitalize"
             >
               Let’s Build Something That

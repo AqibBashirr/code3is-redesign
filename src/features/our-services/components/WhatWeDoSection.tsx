@@ -43,7 +43,7 @@ function WhatWeDoSection({ data, index }: WhatWeDoSectionsProps) {
 
           <div className="mt-between-content flex flex-col gap-space-content">
             {data.description.map((des) => {
-              return <BodyText key={des} >{des}</BodyText>;
+              return <BodyText key={des}>{des}</BodyText>;
             })}
           </div>
 
@@ -60,7 +60,7 @@ function WhatWeDoSection({ data, index }: WhatWeDoSectionsProps) {
       {data.image && (
         <ImageBgContainer
           src={data.image.src}
-          alt={data.heading.text} // Fixed: Now accesses the text string
+          alt={data.heading.text}
           width={578}
           height={315}
           bgClass=""

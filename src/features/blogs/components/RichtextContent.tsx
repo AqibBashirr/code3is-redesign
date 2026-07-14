@@ -1,8 +1,8 @@
 import { slugify } from "@/lib/slugify";
 import { type JSXConvertersFunction } from "@payloadcms/richtext-lexical/react";
 import { SerializedUploadNode } from "@payloadcms/richtext-lexical";
-import Image from "next/image";
 import React from "react";
+import AdvanceImage from "@/components/AdvancedImage";
 
 // 1. Define the expected shape of your Cloudinary Media object for TypeScript
 type CloudinaryMedia = {
@@ -35,14 +35,13 @@ export const converters: JSXConvertersFunction = ({ defaultConverters }) => ({
     if (!image?.secure_url) return null;
 
     const imageElement = (
-      <Image
+      <AdvanceImage
         src={image.secure_url}
         alt={media.alt ?? ""}
         width={image.width}
         height={image.height}
         className="h-auto w-full rounded-[10px] border border-[#838484]"
         sizes="(max-width:768px) 100vw, (max-width:1200px) 70vw, 800px"
-        unoptimized
       />
     );
 
@@ -102,7 +101,7 @@ export const converters: JSXConvertersFunction = ({ defaultConverters }) => ({
         return (
           <h2
             id={id}
-            className="font-raleway text-(size:--text-h3-font) leading-(--leading-font-h3) font-semibold"
+            className="font-raleway text-(size:--text-h3-font) leading-font-h3 font-semibold"
           >
             {children}
           </h2>

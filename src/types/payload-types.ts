@@ -320,35 +320,17 @@ export interface TrustedLogo {
  */
 export interface CaseStudy {
   id: string;
-  /**
-   * Auto-generates the next sequential number.
-   */
   number?: number | null;
-  /**
-   * Auto-generated from the title for the URL. (e.g., my-project-name)
-   */
-  slug?: string | null;
+  slug: string;
   title: string;
-  /**
-   * The colored/highlighted word in the main heading
-   */
   titleHighlight?: string | null;
   description?: string | null;
   logo?: (string | null) | Media;
-  /**
-   * The main hero image showing all the screens
-   */
   mainImage?: (string | null) | Media;
   main?: {
-    /**
-     * Brief summary of the project
-     */
     projectAtAGlance?: string | null;
     sections?:
       | {
-          /**
-           * e.g., The Challenge, The Approach
-           */
           pill?: string | null;
           headingTitle?: string | null;
           headingHighlight?: string | null;
@@ -372,17 +354,8 @@ export interface CaseStudy {
         }[]
       | null;
   };
-  /**
-   * Title used for search engines and browser tabs. Ideal length: 50-60 characters.
-   */
   metaTitle?: string | null;
-  /**
-   * Description used for search engine results. Ideal length: 150-160 characters.
-   */
   metaDescription?: string | null;
-  /**
-   * Image used when sharing this case study on social media platforms (Open Graph).
-   */
   metaImage?: (string | null) | Media;
   updatedAt: string;
   createdAt: string;

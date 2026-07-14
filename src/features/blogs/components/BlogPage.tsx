@@ -1,6 +1,5 @@
 import { extractHeadings } from "@/lib/extractHeadings";
 import { Blog } from "@/types/payload-types";
-import Image from "next/image";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import BlogToc from "./BlogToc";
 import BlogProgress from "./BlogProgress";
@@ -9,6 +8,7 @@ import { formatDate } from "@/lib/formatDate";
 import RelatedBlogs from "./RelatedBlogs ";
 import { Suspense } from "react";
 import RelatedBlogsSkeleton from "./RelatedBlogsSkeleton";
+import AdvanceImage from "@/components/AdvancedImage";
 
 interface BlogPageProps {
   Blog: Blog;
@@ -17,10 +17,6 @@ interface BlogPageProps {
 function BlogPage({ Blog }: BlogPageProps) {
   const headings = extractHeadings(Blog.content);
 
-  const logoSrc =
-    typeof Blog.heroImage === "string"
-      ? Blog.heroImage
-      : (Blog.heroImage?.thumbnailURL ?? "");
 
   const logoAlt =
     typeof Blog.heroImage === "string"
@@ -31,11 +27,12 @@ function BlogPage({ Blog }: BlogPageProps) {
 
   return (
     <div>
-      <div className="px-x pt-4 md:px-5.5">
-        <Image
-          src={logoSrc}
+      <div className=" pt-4 px-5.5 max-w-max mx-auto">
+        <AdvanceImage
+          src={Blog.heroImage}
           width={1400}
           height={540}
+          sizes="hero"
           alt={logoAlt}
           className="
             w-full
@@ -77,19 +74,19 @@ function BlogPage({ Blog }: BlogPageProps) {
         {/* Right Sidebar */}
         <aside
           id="right-sidebar"
-          className="w-full pointer-events-none md:w-51 sticky top-[76svh] md:top-[70dvh] md:mt-0 mt-[-42%] flex justify-end"
+          className="w-full pointer-events-none md:w-51 sticky top-[76svh] md:top-[70dvh] md:mt-0 -mt-32 flex justify-end"
         >
           <BlogProgress />
         </aside>
       </div>
       <Suspense fallback={<RelatedBlogsSkeleton />}>
-      <RelatedBlogs
-        currentBlogId={Blog.id}
-        categoryId={
-          typeof Blog.category === "object" ? Blog.category.id : Blog.category
-        }
+        <RelatedBlogs
+          currentBlogId={Blog.id}
+          categoryId={
+            typeof Blog.category === "object" ? Blog.category.id : Blog.category
+          }
         />
-        </Suspense>
+      </Suspense>
     </div>
   );
 }
