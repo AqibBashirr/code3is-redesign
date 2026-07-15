@@ -67,7 +67,7 @@
   --max-width-max: 1440px;
 
   --animate-services-scroll: services-scroll 18s linear infinite;
-
+  --height-slider:var(--height-slider);
   @keyframes services-scroll {
     from {
       transform: translateY(0);

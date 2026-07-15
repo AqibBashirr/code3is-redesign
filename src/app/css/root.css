@@ -48,5 +48,8 @@
   --content-gap: clamp(1.25rem, 3.5vw, 3.125rem);
   --space-content: clamp(16px, 1.6vw, 20px);
 
+
+  /* height */
+  --height-slider:clamp(380px,47vw,676px);
   
 }

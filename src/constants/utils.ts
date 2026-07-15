@@ -1,6 +1,8 @@
 import { clsx, type ClassValue } from "clsx";
 import { extendTailwindMerge } from "tailwind-merge";
 
+const customHeights = ["slider"];
+
 const customColors = [
   "background",
   "foreground",
@@ -58,6 +60,7 @@ const customTwMerge = extendTailwindMerge({
       ml: [{ ml: customSpacing }],
       mr: [{ mr: customSpacing }],
       gap: [{ gap: customSpacing }],
+      h: [{ h: customHeights }],
       "gap-x": [{ "gap-x": customSpacing }],
       "gap-y": [{ "gap-y": customSpacing }],
       "max-w": [{ "max-w": ["max"] }],
