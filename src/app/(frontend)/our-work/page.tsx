@@ -2,16 +2,23 @@ import { getPayload } from "payload";
 import Hero from "@/components/common/hero";
 import configPromise  from "@payload-config";
 import Sections from "@/features/our-work/components/sections";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Work | Code3 Innovative Solutions",
+  description: "A collection of websites, brands, campaigns & creative assets crafted for businesses across industries",
+};
 
 async function Page() {
   // Initialize the Payload local API
   const payload = await getPayload({  config: configPromise });
 
-  // Fetch sections sorted by display order
+  // Fetch sections sorted by display order - revalidates on-demand when content changes
   const workSectionsData = await payload.find({
     collection: "work-sections",
     sort: "order",
     depth: 3, // Depth 3 ensures sections -> projects -> stacks/images are fully populated
+    overrideAccess: false,
   });
 
   return (
