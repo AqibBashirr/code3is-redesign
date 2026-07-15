@@ -6,3 +6,4 @@ export { default } from "./DocumentCarousel";
 // export { default as CarouselIndicators } from "./Indicators/CarouselIndicators";
 
 export * from "./types";
+export * from "./transformers";

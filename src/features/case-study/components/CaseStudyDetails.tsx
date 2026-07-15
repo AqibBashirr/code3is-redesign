@@ -32,7 +32,7 @@ function CaseStudyDetails({ data }: caseStudyDetailsProps) {
           firstButton: { text: "Start A Project", href: "#contact" },
           secondButton: {
             text: "View Our Work",
-            href: `/#our-work`,
+            href: `/our-work#website`,
             arrow: false,
             variant: "outline",
           },
@@ -44,7 +44,7 @@ function CaseStudyDetails({ data }: caseStudyDetailsProps) {
           text: "Project at a ",
           highlight: "Glance",
         }}
-        description={mainField?.projectAtAGlance || ''}
+        description={mainField?.projectAtAGlance || ""}
       />
       <Steps dataProject={data} />
     </>

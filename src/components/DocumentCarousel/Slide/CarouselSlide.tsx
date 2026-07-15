@@ -1,6 +1,5 @@
-"use client";
 
-import Image from "next/image";
+
 
 import { cn } from "@/constants/utils";
 
@@ -12,7 +11,8 @@ import type {
   CarouselOverlayOptions,
   CarouselSlots,
 } from "../types";
-import {  useState } from "react";
+
+import AdvanceImage from "@/components/AdvancedImage";
 
 interface CarouselSlideProps {
   item: CarouselDocument;
@@ -28,7 +28,7 @@ interface CarouselSlideProps {
   className?: string;
 }
 
-const fallbackSrc="/images/what-we-build/slides/harmain.png";
+// const fallbackSrc="/images/what-we-build/slides/harmain.png";
 
 export default function CarouselSlide({
   item,
@@ -44,7 +44,6 @@ export default function CarouselSlide({
   className,
 }: CarouselSlideProps) {
   const Overlay = slots?.Overlay;
- const [imgSrc, setImgSrc] = useState(item.image);
 
   return (
     <div className={cn("w-full shrink-0 snap-center", className)}>
@@ -58,12 +57,12 @@ export default function CarouselSlide({
             image.className,
           )}
         >
-          <Image
-            src={imgSrc}
-            onError={() => {
-              // Switch to the backup image when the primary source fails
-              setImgSrc(fallbackSrc);
-            }}
+          <AdvanceImage
+            src={item.image}
+            // onError={() => {
+            //   // Switch to the backup image when the primary source fails
+            //   setImgSrc(fallbackSrc);
+            // }}
             alt={item.alt ?? item.title ?? ""}
             width={item.width ?? 1400}
             height={item.height ?? 676}

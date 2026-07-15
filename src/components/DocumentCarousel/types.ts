@@ -1,5 +1,6 @@
 import type { RefObject } from "react";
 import type { STACKS } from "@/constants/stacks";
+import type { Media, Stack } from "@/types/payload-types";
 
 /* -------------------------------------------------------------------------- */
 /*                                   STACKS                                   */
@@ -13,7 +14,7 @@ export interface CustomStack {
   name?: string;
 }
 
-export type CarouselStack = StackKey | CustomStack;
+export type CarouselStack = StackKey | CustomStack | Stack | string;
 
 /* -------------------------------------------------------------------------- */
 /*                                     CTA                                    */
@@ -39,7 +40,7 @@ export interface CarouselDocument {
 
   description?: string;
 
-  image: string;
+  image: string | Media;
 
   alt?: string;
 
@@ -51,7 +52,7 @@ export interface CarouselDocument {
 
   category?: string;
 
-  stacks?: readonly CarouselStack[];
+  stacks?: CarouselStack[];
 
   /**
    * New API

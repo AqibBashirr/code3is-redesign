@@ -81,10 +81,7 @@ export const CREATIVES = {
 
       stacks: ["figma",'adobe'],
 
-      cta: {
-        label: "Visit Website",
-        href: "https://greymax.ae",
-      },
+      
     },
     {
       id: 3,

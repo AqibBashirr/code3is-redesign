@@ -74,6 +74,9 @@ export interface Config {
     blogs: Blog;
     'blog-tags': BlogTag;
     'blog-categories': BlogCategory;
+    stacks: Stack;
+    projects: Project;
+    'work-sections': WorkSection;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -88,6 +91,9 @@ export interface Config {
     blogs: BlogsSelect<false> | BlogsSelect<true>;
     'blog-tags': BlogTagsSelect<false> | BlogTagsSelect<true>;
     'blog-categories': BlogCategoriesSelect<false> | BlogCategoriesSelect<true>;
+    stacks: StacksSelect<false> | StacksSelect<true>;
+    projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    'work-sections': WorkSectionsSelect<false> | WorkSectionsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -419,6 +425,81 @@ export interface BlogTag {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "stacks".
+ */
+export interface Stack {
+  id: string;
+  /**
+   * E.g., "Next.js", "Figma", "React"
+   */
+  name: string;
+  /**
+   * Upload an SVG or PNG logo for this technology
+   */
+  icon?: (string | null) | Media;
+  /**
+   * Optional: Link to the official website of the tech
+   */
+  url?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: string;
+  title: string;
+  category: string;
+  description?: string | null;
+  image: string | Media;
+  /**
+   * Optional tag like "FEATURED"
+   */
+  badge?: string | null;
+  /**
+   * Select the technologies used in this project
+   */
+  stacks?: (string | Stack)[] | null;
+  cta?: {
+    label?: string | null;
+    href?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "work-sections".
+ */
+export interface WorkSection {
+  id: string;
+  /**
+   * Controls the display order on the frontend (1, 2, 3...)
+   */
+  order: number;
+  /**
+   * The small category label (e.g., "WEBSITE")
+   */
+  title: string;
+  heading: {
+    text: string;
+    highlight: string;
+  };
+  description: {
+    paragraph?: string | null;
+    id?: string | null;
+  }[];
+  /**
+   * Select the slides/projects to display in this section.
+   */
+  projects: (string | Project)[];
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -468,6 +549,18 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'blog-categories';
         value: string | BlogCategory;
+      } | null)
+    | ({
+        relationTo: 'stacks';
+        value: string | Stack;
+      } | null)
+    | ({
+        relationTo: 'projects';
+        value: string | Project;
+      } | null)
+    | ({
+        relationTo: 'work-sections';
+        value: string | WorkSection;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -679,6 +772,60 @@ export interface BlogTagsSelect<T extends boolean = true> {
 export interface BlogCategoriesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "stacks_select".
+ */
+export interface StacksSelect<T extends boolean = true> {
+  name?: T;
+  icon?: T;
+  url?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects_select".
+ */
+export interface ProjectsSelect<T extends boolean = true> {
+  title?: T;
+  category?: T;
+  description?: T;
+  image?: T;
+  badge?: T;
+  stacks?: T;
+  cta?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "work-sections_select".
+ */
+export interface WorkSectionsSelect<T extends boolean = true> {
+  order?: T;
+  title?: T;
+  heading?:
+    | T
+    | {
+        text?: T;
+        highlight?: T;
+      };
+  description?:
+    | T
+    | {
+        paragraph?: T;
+        id?: T;
+      };
+  projects?: T;
   updatedAt?: T;
   createdAt?: T;
 }

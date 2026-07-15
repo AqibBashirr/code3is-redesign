@@ -1,22 +1,15 @@
 "use client";
 
 import Image from "next/image";
-
-import { STACKS } from "@/constants/stacks";
 import { cn } from "@/constants/utils";
-
-import type { CarouselDocument, CarouselStack, CustomStack } from "../types";
+import type { CarouselStack } from "../types";
 
 interface DefaultStacksProps {
-  item: CarouselDocument;
-
+  item: {
+    stacks?: CarouselStack[] | null;
+  };
   className?: string;
-
   iconClassName?: string;
-}
-
-function isCustomStack(stack: CarouselStack): stack is CustomStack {
-  return typeof stack !== "string";
 }
 
 export default function DefaultStacks({
@@ -36,34 +29,36 @@ export default function DefaultStacks({
       )}
     >
       {item.stacks.map((stack, index) => {
-        const custom = isCustomStack(stack);
-
-        const icon = custom ? stack.icon : (STACKS[stack] ?? null);
-
-        if (!icon) {
-          console.warn(`Unknown stack: ${custom ? stack.id : stack}`);
-
+        // Defensive check: If depth wasn't deep enough, Payload returns just the ID string
+        if (typeof stack === "string") {
+          console.warn(
+            `Stack relationship not fully populated. Found ID: ${stack}`,
+          );
           return null;
         }
 
-        const alt = custom ? (stack.name ?? stack.id) : stack;
+        // Safely pull the URL from the populated media object or icon string
+        const iconUrl = typeof stack.icon === "object" 
+          ? stack.icon?.url 
+          : typeof stack.icon === "string"
+          ? stack.icon
+          : null;
+        const altText = stack.name || "technology stack";
 
-        const key = custom ? stack.id : `${stack}-${index}`;
+        if (!iconUrl) {
+          console.warn(`Missing icon image for stack: ${stack.name || stack.id}`);
+          return null;
+        }
 
         return (
           <Image
-            key={key}
-            src={icon}
-            alt={alt}
+            key={stack.id || `stack-${index}`}
+            src={iconUrl}
+            alt={altText}
             width={40}
             height={40}
             className={cn(
-              `
-              h-auto
-              w-[clamp(20px,3vw,39px)]
-              shrink-0
-              object-contain
-              `,
+              "h-auto w-[clamp(20px,3vw,39px)] shrink-0 object-contain",
               iconClassName,
             )}
           />

@@ -14,6 +14,9 @@ import { CaseStudies } from "@/collections/CaseStudies";
 import { Blogs } from "@/collections/Blogs";
 import { BlogTags } from "@/collections/BlogTags";
 import { BlogCategories } from "@/collections/BlogCategories";
+import { Projects } from "@/collections/projects";
+import { WorkSections } from "@/collections/work-sections";
+import { Stacks } from "@/collections/stacks";
 
 // Create safe ES Module paths
 const filename = fileURLToPath(import.meta.url);
@@ -38,10 +41,12 @@ export default buildConfig({
     Blogs,
     BlogTags,
     BlogCategories,
+    Stacks,
+    Projects,
+    WorkSections,
   ],
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || "",
-   
   }),
   plugins: [
     cloudinaryStorage({
