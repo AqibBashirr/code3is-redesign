@@ -53,7 +53,7 @@ export default function CarouselSlide({
         <div
           className={cn(
             "relative overflow-hidden",
-            image.height,
+            
             image.className,
           )}
         >
@@ -70,7 +70,7 @@ export default function CarouselSlide({
             loading={priority && image.priorityFirstImage ? "eager" : "lazy"}
             className={cn(
               "h-full w-full",
-              image.fit === "contain" ? "object-contain" : "object-cover",
+              image.fit === "contain" ? "object-contain" : "object-contain lg:object-cover",
             )}
           />
         </div>
