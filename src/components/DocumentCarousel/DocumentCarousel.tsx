@@ -30,6 +30,9 @@ export default function DocumentCarousel({
   slots,
   events,
 }: DocumentCarouselProps) {
+
+
+  console.log(items)
   /* -------------------------------------------------------------------------- */
   /*                              MERGED CONFIG                                 */
   /* -------------------------------------------------------------------------- */

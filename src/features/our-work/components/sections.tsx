@@ -17,6 +17,8 @@ function Sections({ sections }: SectionsProps) {
         const projects = projectsToCarouselDocuments(
           data.projects as Project[]
         );
+
+        console.log(projects)
         return (
           <section
             id={data.title.toLowerCase().replaceAll(" ", "-")}

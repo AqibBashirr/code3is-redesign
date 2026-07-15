@@ -1,4 +1,4 @@
-import type { Project, Stack, Media } from "@/types/payload-types";
+import type { Project, Media } from "@/types/payload-types";
 import type { CarouselDocument } from "./types";
 
 /**
@@ -23,7 +23,7 @@ export function projectToCarouselDocument(project: Project): CarouselDocument {
     id: project.id,
     title: project.title,
     description: project.description || undefined,
-    image: imageUrl,
+    image: project.image || imageUrl,
     alt: typeof project.image === "object" ? project.image?.alt : undefined,
     width: imageObj?.width || 1400,
     height: imageObj?.height || 676,
@@ -33,11 +33,7 @@ export function projectToCarouselDocument(project: Project): CarouselDocument {
       if (typeof stack === "string") {
         return stack;
       }
-      return {
-        id: stack.id,
-        name: stack.name,
-        icon: getMediaUrl(stack.icon),
-      };
+      return stack;
     }),
     cta: project.cta
       ? {
