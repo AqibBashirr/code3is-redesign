@@ -83,7 +83,7 @@ export default function CarouselSlide({
           <DefaultOverlay
             item={item}
             overlay={overlay}
-            className="md:top-[clamp(28px,2.6vw,36px)]  md:bottom-[clamp(28px,2.6vw,36px)]  bottom-[clamp(28px,2.6vw,36px)] md:right-[clamp(24px,6.2vw,88px)] right-[clamp(24px,6.2vw,88px)]  md:left-[clamp(24px,6.2vw,88px)] left-[clamp(24px,6.2vw,88px)]"
+            className="md:top-[clamp(28px,2.6vw,36px)]  md:bottom-[clamp(28px,2.6vw,36px)]  bottom-[clamp(28px,2.6vw,36px)] md:right-[clamp(24px,6.2vw,88px)] right-[clamp(24px,6.2vw,88px)]  md:left-[clamp(24px,6.2vw,88px)] left-[clamp(24px,6.2vw,88px)] hidden md:block"
           />
         )}
       </div>
