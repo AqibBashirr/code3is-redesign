@@ -18,7 +18,7 @@ export async function getWorkSections(): Promise<WorkSection[]> {
 
       return docs as WorkSection[];
     },
-    ["work-sections-list"],
+    ["work-sections"],
     {
       tags: ["work-sections"],
     },
