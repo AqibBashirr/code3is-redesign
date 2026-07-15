@@ -12,6 +12,7 @@ import Aside from "@/components/Layout/Aside/Aside";
 import Footer from "@/components/Layout/Footer/Footer";
 import VersionChecker from "@/components/VersionChecker";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 
 const bebas_neue = Bebas_Neue({
@@ -74,6 +75,7 @@ export default function RootLayout({
         </main>
         <WhatsAppButton />
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
