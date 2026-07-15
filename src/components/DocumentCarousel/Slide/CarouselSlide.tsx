@@ -53,7 +53,7 @@ export default function CarouselSlide({
         <div
           className={cn(
             "relative overflow-hidden",
-            
+            `h-auto md:${image.height}`,
             image.className,
           )}
         >
