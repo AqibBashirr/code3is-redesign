@@ -56,7 +56,7 @@ export default function DefaultOverlay({
       {overlay.gradient && (
         <div
           className="
-            absolute
+            hidden md:absolute
             inset-0
             bg-linear-to-t
             from-black/60
