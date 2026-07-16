@@ -18,7 +18,7 @@ function Sections({ sections }: SectionsProps) {
           data.projects as Project[]
         );
 
-        console.log(projects)
+ 
         return (
           <section
             id={data.title.toLowerCase().replaceAll(" ", "-")}

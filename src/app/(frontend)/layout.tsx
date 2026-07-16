@@ -49,7 +49,7 @@ const montserrat = Montserrat({
 
 
 export const metadata: Metadata = {
-  title: "Code3 Innovative Solutions | Code3is",
+  title: "Code3 Innovative Solutions",
   description:
     "CODE3IS is a software development company that specializes in creating innovative solutions for businesses. We are dedicated to helping our clients achieve their goals through the use of cutting-edge technology and creative problem-solving.",
 };

@@ -32,7 +32,7 @@ export default function DocumentCarousel({
 }: DocumentCarouselProps) {
 
 
-  console.log(items)
+
   /* -------------------------------------------------------------------------- */
   /*                              MERGED CONFIG                                 */
   /* -------------------------------------------------------------------------- */

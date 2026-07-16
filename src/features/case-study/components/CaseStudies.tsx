@@ -28,7 +28,7 @@ function CaseStudies({ data }: CaseStudiesProps) {
             : (project.logo?.alt ??
               project.slug?.replace(/\s/g, " ").toUpperCase() ??
               "");
-        console.log(project.logo);
+   
         return (
           <Reveal
             key={project.title + project.titleHighlight}
