@@ -32,7 +32,7 @@ function BlogCard({ project, index }: BlogCardProps) {
             alt={logoAlt}
             height={183}
             width={319}
-            className=" w-full h-full object-cover object-center transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
+            className=" w-full h-full object-cover   transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
           />
         </figure>
 

@@ -13,7 +13,6 @@ import Footer from "@/components/Layout/Footer/Footer";
 import VersionChecker from "@/components/VersionChecker";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
-
 const bebas_neue = Bebas_Neue({
   variable: "--font-bebas_neue",
   weight: ["400"],
@@ -69,7 +68,7 @@ export default function RootLayout({
         <Header />
         <Aside />
         <main className="flex-1 ">
-          {/* <ViewTransition/> */}
+       
           {children}
         </main>
         <WhatsAppButton />
