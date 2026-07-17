@@ -23,7 +23,7 @@ function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
   const overflowItems =
     MAIN_NAV.length > VISIBLE_LIMIT ? MAIN_NAV.slice(VISIBLE_LIMIT - 1) : [];
 
-  // 1. FIXED ROUTE MATCHING: Prevents "/" from highlighting on every page
+  // 1. FIXED ROUTE MATCHING
   const checkIsActive = (href: string) => {
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
@@ -33,7 +33,7 @@ function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
     checkIsActive(item.href),
   );
 
-  // 2. CLOSE DROPDOWN ON OUTSIDE CLICK (Desktop & Touch)
+  // 2. CLOSE DROPDOWN ON OUTSIDE CLICK
   useEffect(() => {
     if (!isMoreOpen) return;
 
@@ -59,10 +59,7 @@ function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
 
   return (
     <>
-      {/* 3. MAIN LINKS 
-        Mobile: Shows all links.
-        Desktop (md:): Hides links past the limit.
-      */}
+      {/* 3. MAIN LINKS */}
       {MAIN_NAV.map((item, index) => {
         const isActive = checkIsActive(item.href);
         const isOverflowItem = index >= VISIBLE_LIMIT - 1;
@@ -75,10 +72,11 @@ function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
             onClick={handleLinkClick}
             className={cn(
               "transition-colors duration-300 hover:text-highlight-color",
-              isActive ? "text-highlight-color font-medium" : "",
-              // Hydration-safe hiding: CSS handles the layout, not JS
               isOverflowItem ? "md:hidden" : "",
+              // We move the passed className BEFORE the active state
               className,
+              // We add '!' to force the color to override any conflicting mobile classes
+              isActive ? "!text-highlight-color font-medium" : "",
             )}
           >
             {item.label}
@@ -86,9 +84,7 @@ function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
         );
       })}
 
-      {/* 4. DESKTOP "MORE" DROPDOWN
-        Mobile: Completely hidden.
-      */}
+      {/* 4. DESKTOP "MORE" DROPDOWN */}
       {overflowItems.length > 0 && (
         <div
           ref={moreRef}
@@ -103,10 +99,10 @@ function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
             aria-haspopup="true"
             className={cn(
               "inline-flex items-center gap-1 w-fit transition-colors duration-300 hover:text-highlight-color",
-              isAnyOverflowActive || isMoreOpen
-                ? "text-highlight-color font-medium"
-                : "",
               className,
+              isAnyOverflowActive || isMoreOpen
+                ? "!text-highlight-color font-medium"
+                : "",
             )}
           >
             More
@@ -127,7 +123,6 @@ function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
               isMoreOpen ? "pointer-events-auto" : "pointer-events-none",
             )}
           >
-            {/* Animates from 0fr to 1fr */}
             <div
               className={cn(
                 "grid transition-[grid-template-rows,opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
@@ -149,7 +144,7 @@ function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
                         className={cn(
                           "block px-5 py-2.5 text-sm transition-colors duration-300 hover:bg-highlight-text-color/80 hover:text-off-white-color-color",
                           isActive
-                            ? " font-medium bg-highlight-text-color/50"
+                            ? "font-medium bg-highlight-text-color/50 !text-white"
                             : "text-white",
                         )}
                       >
