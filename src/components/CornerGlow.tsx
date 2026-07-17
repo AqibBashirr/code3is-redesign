@@ -78,7 +78,7 @@ export default function CornerGlow({
   return (
     <div
       // ADDED 'glow-orb' CLASS HERE to trigger the mobile math in CSS
-      className={`glow-orb absolute rounded-full blur-[90px] md:blur-[140px] lg:blur-[180px] pointer-events-none z-0 will-change-transform mix-blend-screen ${size} ${positionClasses} ${className ?? ""}`}
+      className={`glow-orb absolute rounded-full blur-[90px] md:blur-[140px] lg:blur-[160px] pointer-events-none z-0 will-change-transform mix-blend-screen ${size} ${positionClasses} ${className ?? ""}`}
       style={{
         backgroundColor: color,
         animation: `organic-drift ${duration} ease-in-out ${delay} infinite alternate`,

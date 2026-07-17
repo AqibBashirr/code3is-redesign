@@ -129,7 +129,7 @@ function Footer() {
               className="flex flex-col sm:flex-row gap-2.5 md:gap-6 items-center font-light "
             >
               <Link
-                href="/terms-conditions"
+                href="/terms-and-conditions"
                 className="underline hover:text-highlight-text-color active:text-highlight-color "
               >
                 Terms & Conditions

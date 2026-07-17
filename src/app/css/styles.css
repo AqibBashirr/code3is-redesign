@@ -198,7 +198,7 @@ header::after {
 /* On medium screens (md) and up, move the full 100% distance */
 @media (min-width: 768px) {
   .glow-orb {
-    --move-scale: 1; 
+    --move-scale: .68; 
   }
 }
 

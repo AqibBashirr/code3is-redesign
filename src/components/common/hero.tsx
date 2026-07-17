@@ -20,9 +20,10 @@ interface buttons {
 export interface HeroProps {
   glows?: GlowConfig[];
   title: ReactNode;
-  subtitle: string;
+  subtitle: string | ReactNode;
   buttons?: buttons;
-  className?:string;
+  className?: string;
+  subTitleClass?:string;
 }
 
 function Hero({
@@ -42,6 +43,7 @@ function Hero({
     },
   },
   className,
+  subTitleClass,
 }: HeroProps) {
   return (
     <GlowSection
@@ -56,6 +58,9 @@ function Hero({
         )
       }
       subtitle={subtitle}
+      subTitleClass={
+        !buttons.firstButton.disabled ? subTitleClass : `${subTitleClass} mb-0`
+      }
       buttons={
         <>
           {!buttons.firstButton.disabled && (
