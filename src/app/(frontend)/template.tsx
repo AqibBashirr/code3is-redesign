@@ -7,6 +7,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
   // const pathname = usePathname();
   return (
     // The class triggers the CSS keyframes instantly when the new page mounts
+    // key={pathname}
     <div  className="min-h-svh page-exit page-enter">
       {children}
     </div>

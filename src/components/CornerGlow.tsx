@@ -9,128 +9,100 @@ interface CornerGlowProps extends React.HTMLAttributes<HTMLDivElement> {
     | "custom";
   color?: string;
   duration?: string;
+  delay?: string;
+  size?: string;
 }
 
 export default function CornerGlow({
   position = "top-left",
-  color = "bg-foreground",
-  duration = "16s",
+  color = "rgba(139, 92, 246, 0.4)", // A nice default purple
+  duration = "18s",
+  delay = "0s",
+  size = "w-80 h-80", // Using standard Tailwind sizes
   className,
   style,
   ...props
 }: CornerGlowProps) {
-  const positionClasses =
-    position !== "custom"
-      ? {
-          "top-left": "top-0 left-0",
-          "top-right": "top-0 right-0",
-          "bottom-left": "bottom-0 left-0",
-          "bottom-right": "bottom-0 right-0",
-        }[position]
-      : "";
+  // Pull the elements slightly off-screen initially for a natural bleed
+  const positionClasses = {
+    "top-left": "-top-20 -left-20",
+    "top-right": "-top-20 -right-20",
+    "bottom-left": "-bottom-20 -left-20",
+    "bottom-right": "-bottom-20 -right-20",
+    custom: "",
+  }[position];
 
-  const animationName =
-    position === "custom" ? "float-custom" : `float-${position}`;
+  // Define sweeping paths using CSS variables.
+  // tx/ty = translate X/Y, r = rotation
+  const pathVars = {
+    "top-left": {
+      "--tx1": "25vw",
+      "--ty1": "15vh",
+      "--tx2": "10vw",
+      "--ty2": "35vh",
+      "--r1": "45deg",
+      "--r2": "90deg",
+    },
+    "top-right": {
+      "--tx1": "-25vw",
+      "--ty1": "15vh",
+      "--tx2": "-10vw",
+      "--ty2": "35vh",
+      "--r1": "-45deg",
+      "--r2": "-90deg",
+    },
+    "bottom-left": {
+      "--tx1": "30vw",
+      "--ty1": "-15vh",
+      "--tx2": "15vw",
+      "--ty2": "-40vh",
+      "--r1": "45deg",
+      "--r2": "90deg",
+    },
+    "bottom-right": {
+      "--tx1": "-30vw",
+      "--ty1": "-20vh",
+      "--tx2": "-15vw",
+      "--ty2": "-45vh",
+      "--r1": "-45deg",
+      "--r2": "-90deg",
+    },
+    custom: {
+      "--tx1": "40px",
+      "--ty1": "-40px",
+      "--tx2": "-40px",
+      "--ty2": "40px",
+      "--r1": "15deg",
+      "--r2": "-15deg",
+    },
+  }[position];
 
   return (
     <>
       <style>{`
-        @keyframes float-top-left {
+        @keyframes organic-drift {
           0% {
-            transform: translate(-50%, -50%) scale(1) rotate(0deg);
+            transform: translate(0px, 0px) scale(1) rotate(0deg);
           }
-          25% {
-            transform: translate(-35%, -60%) scale(1.08) rotate(8deg);
+          33% {
+            transform: translate(var(--tx1), var(--ty1)) scale(1.25) rotate(var(--r1));
           }
-          50% {
-            transform: translate(-20%, -35%) scale(0.96) rotate(16deg);
-          }
-          75% {
-            transform: translate(-45%, -15%) scale(1.05) rotate(8deg);
+          66% {
+            transform: translate(var(--tx2), var(--ty2)) scale(0.8) rotate(var(--r2));
           }
           100% {
-            transform: translate(-50%, -50%) scale(1) rotate(0deg);
-          }
-        }
-
-        @keyframes float-top-right {
-          0% {
-            transform: translate(50%, -50%) scale(1) rotate(0deg);
-          }
-          25% {
-            transform: translate(35%, -60%) scale(1.08) rotate(-8deg);
-          }
-          50% {
-            transform: translate(20%, -35%) scale(0.96) rotate(-16deg);
-          }
-          75% {
-            transform: translate(45%, -15%) scale(1.05) rotate(-8deg);
-          }
-          100% {
-            transform: translate(50%, -50%) scale(1) rotate(0deg);
-          }
-        }
-
-        @keyframes float-bottom-left {
-          0% {
-            transform: translate(-50%, 50%) scale(1) rotate(0deg);
-          }
-          25% {
-            transform: translate(-35%, 65%) scale(1.08) rotate(-8deg);
-          }
-          50% {
-            transform: translate(-20%, 35%) scale(0.95) rotate(-16deg);
-          }
-          75% {
-            transform: translate(-45%, 15%) scale(1.05) rotate(-8deg);
-          }
-          100% {
-            transform: translate(-50%, 50%) scale(1) rotate(0deg);
-          }
-        }
-
-        @keyframes float-bottom-right {
-          0% {
-            transform: translate(50%, 50%) scale(1) rotate(0deg);
-          }
-          25% {
-            transform: translate(35%, 65%) scale(1.08) rotate(8deg);
-          }
-          50% {
-            transform: translate(20%, 35%) scale(0.95) rotate(16deg);
-          }
-          75% {
-            transform: translate(45%, 15%) scale(1.05) rotate(8deg);
-          }
-          100% {
-            transform: translate(50%, 50%) scale(1) rotate(0deg);
-          }
-        }
-
-        @keyframes float-custom {
-          0% {
-            transform: translate(0, 0) scale(1);
-          }
-          25% {
-            transform: translate(30px, -20px) scale(1.08);
-          }
-          50% {
-            transform: translate(60px, 10px) scale(0.95);
-          }
-          75% {
-            transform: translate(20px, 40px) scale(1.05);
-          }
-          100% {
-            transform: translate(0, 0) scale(1);
+            transform: translate(0px, 0px) scale(1) rotate(0deg);
           }
         }
       `}</style>
 
       <div
-        className={`absolute w-58 h-59 rounded-full blur-[160px] pointer-events-none z-0 will-change-transform ${positionClasses} ${className ?? ""}`}
+        className={`absolute rounded-full blur-[180px] pointer-events-none z-0 will-change-transform mix-blend-screen ${size} ${positionClasses} ${className ?? ""}`}
         style={{
           backgroundColor: color,
-          animation: `${animationName} ${duration} cubic-bezier(0.42,0,0.58,1) infinite`,
+          // Using alternate keeps the path looping smoothly back and forth
+          animation: `organic-drift ${duration} ease-in-out ${delay} infinite alternate`,
+          ...(pathVars as React.CSSProperties),
           ...style,
         }}
         {...props}

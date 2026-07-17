@@ -152,7 +152,7 @@ header::after {
   animation: fade-out 0.4s ease-in-out forwards;
 }
 
-.page-enter {
+.page-enter,.animate-page-enter {
   animation: fade-in 0.4s ease-in-out forwards;
 }
 
@@ -188,3 +188,5 @@ header::after {
   position-anchor: auto;
   position-area: bottom span-right;
 }
+
+

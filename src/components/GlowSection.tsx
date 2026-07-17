@@ -1,6 +1,6 @@
 import CornerGlow from "@/components/CornerGlow";
 import { cn } from "@/constants/utils";
-import React, { ReactNode } from "react";
+import  { ReactNode } from "react";
 
 // Define the shape of a single glow object
 export interface GlowConfig {
@@ -29,9 +29,10 @@ export default function GlowSection({
     <section
       className={cn(
         "relative flex flex-col items-center justify-center text-center overflow-hidden bg-[#1e1e1e] mx-5 md:mx-6.25 mt-5.5 rounded-[10px] px-4 py-28 md:py-29.75",
-        className
+        className,
       )}
     >
+   
       {/* --- DYNAMIC GLOWS --- */}
       {glows.map((glow, index) => (
         <CornerGlow
@@ -41,7 +42,6 @@ export default function GlowSection({
           duration={glow.duration || "12s"}
         />
       ))}
-
       {/* --- FOREGROUND CONTENT --- */}
       <div className="relative z-10 flex flex-col items-center w-full  mx-auto text-white">
         <h1 className=" text-[clamp(2.25rem,4.3vw,3.75rem)] leading-[calc(clamp(2.25rem,5vw,3.75rem)+12px)] font-semibold mb-5 md:mb-6   font-raleway capitalize">
