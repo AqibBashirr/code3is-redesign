@@ -190,3 +190,36 @@ header::after {
 }
 
 
+/* By default (mobile), only move 35% of the full distance */
+.glow-orb {
+  --move-scale: 0.35; 
+}
+
+/* On medium screens (md) and up, move the full 100% distance */
+@media (min-width: 768px) {
+  .glow-orb {
+    --move-scale: 1; 
+  }
+}
+
+@keyframes organic-drift {
+  0% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  33% {
+    /* Multiply the distance by the scale */
+    transform: translate(
+      calc(var(--tx1) * var(--move-scale)), 
+      calc(var(--ty1) * var(--move-scale))
+    ) scale(1.25) rotate(var(--r1));
+  }
+  66% {
+    transform: translate(
+      calc(var(--tx2) * var(--move-scale)), 
+      calc(var(--ty2) * var(--move-scale))
+    ) scale(0.8) rotate(var(--r2));
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+}

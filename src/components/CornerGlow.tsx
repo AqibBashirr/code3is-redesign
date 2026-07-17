@@ -1,4 +1,5 @@
 import React from "react";
+// import "./corner-glow.css";
 
 interface CornerGlowProps extends React.HTMLAttributes<HTMLDivElement> {
   position?:
@@ -15,25 +16,22 @@ interface CornerGlowProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export default function CornerGlow({
   position = "top-left",
-  color = "rgba(139, 92, 246, 0.4)", // A nice default purple
+  color = "rgba(139, 92, 246, 0.4)",
   duration = "18s",
   delay = "0s",
-  size = "w-80 h-80", // Using standard Tailwind sizes
+  size = "w-48 h-48 md:w-72 md:h-72 lg:w-96 lg:h-96",
   className,
   style,
   ...props
 }: CornerGlowProps) {
-  // Pull the elements slightly off-screen initially for a natural bleed
   const positionClasses = {
-    "top-left": "-top-20 -left-20",
-    "top-right": "-top-20 -right-20",
-    "bottom-left": "-bottom-20 -left-20",
-    "bottom-right": "-bottom-20 -right-20",
+    "top-left": "-top-10 -left-10 md:-top-20 md:-left-20",
+    "top-right": "-top-10 -right-10 md:-top-20 md:-right-20",
+    "bottom-left": "-bottom-10 -left-10 md:-bottom-20 md:-left-20",
+    "bottom-right": "-bottom-10 -right-10 md:-bottom-20 md:-right-20",
     custom: "",
   }[position];
 
-  // Define sweeping paths using CSS variables.
-  // tx/ty = translate X/Y, r = rotation
   const pathVars = {
     "top-left": {
       "--tx1": "25vw",
@@ -78,35 +76,16 @@ export default function CornerGlow({
   }[position];
 
   return (
-    <>
-      <style>{`
-        @keyframes organic-drift {
-          0% {
-            transform: translate(0px, 0px) scale(1) rotate(0deg);
-          }
-          33% {
-            transform: translate(var(--tx1), var(--ty1)) scale(1.25) rotate(var(--r1));
-          }
-          66% {
-            transform: translate(var(--tx2), var(--ty2)) scale(0.8) rotate(var(--r2));
-          }
-          100% {
-            transform: translate(0px, 0px) scale(1) rotate(0deg);
-          }
-        }
-      `}</style>
-
-      <div
-        className={`absolute rounded-full blur-[180px] pointer-events-none z-0 will-change-transform mix-blend-screen ${size} ${positionClasses} ${className ?? ""}`}
-        style={{
-          backgroundColor: color,
-          // Using alternate keeps the path looping smoothly back and forth
-          animation: `organic-drift ${duration} ease-in-out ${delay} infinite alternate`,
-          ...(pathVars as React.CSSProperties),
-          ...style,
-        }}
-        {...props}
-      />
-    </>
+    <div
+      // ADDED 'glow-orb' CLASS HERE to trigger the mobile math in CSS
+      className={`glow-orb absolute rounded-full blur-[90px] md:blur-[140px] lg:blur-[180px] pointer-events-none z-0 will-change-transform mix-blend-screen ${size} ${positionClasses} ${className ?? ""}`}
+      style={{
+        backgroundColor: color,
+        animation: `organic-drift ${duration} ease-in-out ${delay} infinite alternate`,
+        ...(pathVars as React.CSSProperties),
+        ...style,
+      }}
+      {...props}
+    />
   );
 }
