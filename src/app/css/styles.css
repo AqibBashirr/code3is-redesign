@@ -192,7 +192,7 @@ header::after {
 
 /* By default (mobile), only move 35% of the full distance */
 .glow-orb {
-  --move-scale: 0.35; 
+  --move-scale: 0.55; 
 }
 
 /* On medium screens (md) and up, move the full 100% distance */

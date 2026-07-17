@@ -7,7 +7,7 @@ export default function HeroSection() {
       // 1. Pass the glows as an array of objects
       glows={[
         { position: "top-left", color: "#1096C7", duration: "15s" },
-        { position: "bottom-right", color: "#1096C7", duration: "25s" },
+        { position: "bottom-right", color: "#1096C7", duration: "20s" },
       ]}
       // 2. Pass the title (Using a React Fragment <> to allow HTML like <br /> and <span>)
       title={
