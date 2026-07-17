@@ -15,9 +15,7 @@ body {
    Header Scroll Progress
 ========================= */
 
-header {
-  position: relative;
-}
+
 
 header::after {
   content: "";
