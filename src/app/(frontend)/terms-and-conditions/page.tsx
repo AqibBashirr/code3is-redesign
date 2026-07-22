@@ -2,7 +2,36 @@ import Hero from "@/components/common/hero";
 import BodyText from "@/components/typography/BodyText";
 import HeadingText from "@/components/typography/headingText";
 import BlogToc from "@/features/blogs/components/BlogToc";
+import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
 
+export const metadata: Metadata = {
+  title: "Terms and Conditions | CODE3IS",
+  description:
+    "The terms that govern use of Code3IS services and this website.",
+  alternates: {
+    canonical: `${SITE_URL}/terms-and-conditions`,
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Terms and Conditions",
+      item: `${SITE_URL}/terms-and-conditions`,
+    },
+  ],
+};
 
 export default function TermsAndConditionsPage() {
   const headings = [
@@ -35,6 +64,7 @@ export default function TermsAndConditionsPage() {
 
   return (
     <>
+      <JsonLd data={breadcrumbSchema} />
       <Hero
         title={
           <>

@@ -47,7 +47,7 @@ function BlogsPage({ projects, paginationData }: BlogsPageProps) {
           },
         }}
       />
-      <div className="mb-y">
+      <div id="blog" className="mb-y">
         <ContentBlockIntro
           pill="blogs"
           heading={{
