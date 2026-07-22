@@ -69,6 +69,7 @@ function BlogPage({ Blog }: BlogPageProps) {
           <BlogShare
             title={Blog.title}
             description={Blog.meta?.description ?? ""}
+            url={`${process.env.NEXT_PUBLIC_SITE_URL}/blogs/${Blog.slug}`}
           />
           <div className="blog-content mt-between-content">
             <RichText data={Blog.content} converters={converters} />
