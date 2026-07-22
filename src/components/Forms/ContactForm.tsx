@@ -3,7 +3,7 @@
 import { SERVICES_OFFERED } from "@/constants/services";
 import { cn } from "@/constants/utils";
 import React, { useState } from "react";
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 import { Arrow2 } from "../icons";
 
 export default function ContactForm() {
@@ -56,7 +56,7 @@ export default function ContactForm() {
 
   return (
     <>
-      <Toaster richColors theme="dark" position="bottom-center" />
+      
 
       {/* Applied Tailwind canonical class suggestions (e.g. max-w-139.5) */}
       <div className="relative max-w-139.5 lg:w-[84%] w-full font-sans">
