@@ -22,8 +22,8 @@ export async function generateMetadata({
 
   const title =
     currentPage > 1
-      ? `Our Blog - Page ${currentPage} | CODE3IS`
-      : "Our Blog | CODE3IS";
+      ? `Our Blog - Page ${currentPage} `
+      : "Our Blog ";
 
   const description =
     "Read our latest insights on web development, UI/UX, SEO, AI, cloud technologies, and digital transformation.";

@@ -20,8 +20,8 @@ export async function generateMetadata({
 
   const title =
     currentPage > 1
-      ? `Case Studies - Page ${currentPage} | CODE3IS`
-      : "Case Studies | CODE3IS";
+      ? `Case Studies - Page ${currentPage}`
+      : "Case Studies ";
 
   const description =
     "Explore our latest case studies, client success stories, and digital transformation projects.";

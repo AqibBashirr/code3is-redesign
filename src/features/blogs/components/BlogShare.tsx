@@ -4,14 +4,14 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Check,
   Copy,
-  MessageCircle,
   Share2,
 } from "lucide-react";
 
 import {
   Linkedin,
   Facebook,
-  X as XIcon, // Replace with your X icon
+  X as XIcon,
+  Whatsapp as MessageCircle,
 } from "@/components/icons";
 
 interface BlogShareProps {

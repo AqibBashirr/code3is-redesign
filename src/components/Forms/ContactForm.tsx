@@ -146,6 +146,7 @@ export default function ContactForm() {
                       {service.toLocaleUpperCase()}
                     </option>
                   ))}
+                  <option value="Other">OTHER</option>
                 </select>
                 {/* Decorative Arrow for Select */}
                 <div
