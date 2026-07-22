@@ -13,6 +13,8 @@ import Footer from "@/components/Layout/Footer/Footer";
 import VersionChecker from "@/components/VersionChecker";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
+
+
 const bebas_neue = Bebas_Neue({
   variable: "--font-bebas_neue",
   weight: ["400"],
@@ -48,9 +50,102 @@ const montserrat = Montserrat({
 
 
 export const metadata: Metadata = {
-  title: "Code3 Innovative Solutions",
+  metadataBase: new URL("https://www.code3is.com"),
+  title: {
+    default: "Code3IS | Web Development & Branding — Kashmir to Global",
+    template: "%s | Code3IS",
+  },
   description:
-    "CODE3IS is a software development company that specializes in creating innovative solutions for businesses. We are dedicated to helping our clients achieve their goals through the use of cutting-edge technology and creative problem-solving.",
+    "Web development, branding & digital marketing agency based in Kashmir, serving clients across India, the UAE, and beyond.",
+  keywords: [
+    "web development company Kashmir",
+    "web development company India",
+    "branding agency India",
+    "digital marketing agency",
+    "SEO agency Kashmir",
+    "remote web development team",
+  ],
+  authors: [{ name: "Code3 Innovative Solutions" }],
+  creator: "Code3 Innovative Solutions",
+  publisher: "Code3 Innovative Solutions",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/manifest.webmanifest",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.code3is.com",
+    siteName: "Code3IS",
+    title: "Code3IS — Web Development & Branding, Kashmir to Global",
+    description:
+      "Websites, brand systems, and ad campaigns for businesses based in Kashmir, serving clients across India, the UAE, and beyond.",
+    images: [
+      {
+        url: "/og/og-default.jpg", // 1200x630, add this file to /public/og/
+        width: 1200,
+        height: 630,
+        alt: "Code3IS — Web Development, Branding & Marketing Agency",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Code3IS | Web Dev, Branding & Marketing Agency",
+    description:
+      "We build websites, brands, and ad campaigns that turn traffic into leads.",
+    images: ["/og/og-default.jpg"],
+  },
+  alternates: {
+    canonical: "https://www.code3is.com",
+  },
+  // verification: {
+  //   google: "PASTE_YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE_HERE",
+  // },
+};
+
+// Organization schema — appears on every page via the root layout
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://www.code3is.com/#organization",
+  name: "Code3 Innovative Solutions",
+  alternateName: "Code3IS",
+  url: "https://www.code3is.com/",
+  logo: "https://www.code3is.com/logos/company-logos/code3is-logo.svg",
+  telephone: "+91-9419225147",
+  email: "contactc3@c3is.in",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Batamaloo",
+    addressLocality: "Srinagar",
+    addressRegion: "Jammu and Kashmir",
+    postalCode: "190009",
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 34.0818386,
+    longitude: 74.7926128,
+  },
+  sameAs: [
+    "https://www.facebook.com/code3is",
+    "https://x.com/code3is",
+    "https://www.linkedin.com/company/code3is",
+    "https://www.instagram.com/code3is",
+  ],
+  areaServed: ["India", "Jammu and Kashmir", "United Arab Emirates"],
 };
 
 export default function RootLayout({
@@ -64,13 +159,16 @@ export default function RootLayout({
       className={`${inter.variable} ${poppins.variable} ${raleway.variable} ${montserrat.variable} ${bebas_neue.variable} h-full antialiased  scrollbar-none`}
     >
       <body className="min-h-full flex flex-col scrollbar-none pt-3 md:pt-5 ">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
         <VersionChecker />
         <Header />
         <Aside />
-        <main className="flex-1 ">
-       
-          {children}
-        </main>
+        <main className="flex-1 ">{children}</main>
         <WhatsAppButton />
         <Footer />
       </body>

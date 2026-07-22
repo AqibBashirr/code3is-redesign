@@ -38,8 +38,8 @@ function CaseStudy() {
                 From Complex Backend to Seamless
               </HeadingText>
               <BodyText className="mt-between-content">
-                We redesign fragmented digital experiences into scalable systems
-                focused on usability, performance, and clarity.
+                We turn fragmented, hard-to-use platforms into fast, scalable
+                systems people actually enjoy using.
               </BodyText>
             </div>
             <div className="mt-content-gap">
@@ -58,10 +58,7 @@ function CaseStudy() {
                 </div>
                 {CASE_STUDY.processes.map((process) => {
                   return (
-                    <Reveal
-                      
-                      key={process.title}>
-                         
+                    <Reveal key={process.title}>
                       <ProcessCard
                         process={{
                           ...process,

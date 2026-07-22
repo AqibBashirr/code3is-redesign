@@ -18,7 +18,7 @@ export default function HeroSection() {
         </>
       }
       // 3. Pass the subtitle
-      subtitle="Web Development, Branding & Performance Marketing"
+      subtitle="Web Development, Branding & Performance Marketing  Kashmir to the UAE"
       // 4. Pass the buttons you want to use
       buttons={
         <>
@@ -26,7 +26,7 @@ export default function HeroSection() {
             href="/#contact"
             className="w-full flex items-center justify-center"
           >
-            START A PROJECT
+            GET FREE ESTIMATE
           </ButtonLink>
 
           <ButtonLink

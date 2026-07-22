@@ -171,7 +171,7 @@ export default function ContactForm() {
 
             {/* Brief Project Details Field */}
             <div className="flex flex-col gap-1.5">
-              <GetLabel id="details">Brief Project Details</GetLabel>
+              <GetLabel id="details">What are you hoping to achieve?</GetLabel>
               <textarea
                 id="details"
                 name="details"

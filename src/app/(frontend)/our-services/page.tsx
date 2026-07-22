@@ -9,6 +9,79 @@ import HeadingText from "@/components/typography/headingText";
 import WhatWeDoSections from "@/features/our-services/components/WhatWeDoSections";
 
 
+
+
+import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+
+export const metadata: Metadata = {
+  title: "Web Development, Branding & SEO Services | Code3IS",
+  description:
+    "Web development, branding, SEO & marketing services — based in Kashmir, serving clients across India, the UAE, and internationally.",
+  alternates: {
+    canonical: "https://www.code3is.com/our-services",
+  },
+  openGraph: {
+    url: "https://www.code3is.com/our-services",
+    title: "Services | Code3IS",
+    description:
+      "Web development, branding, SEO, and marketing services, explained.",
+  },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Web Development, Branding, SEO & Digital Marketing",
+  provider: { "@id": "https://www.code3is.com/#organization" },
+  areaServed: ["India", "Jammu and Kashmir", "United Arab Emirates"],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Code3IS Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Web Development" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "UI/UX Design" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Branding" },
+      },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO" } },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Meta & Google Ads" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Automation & Hosting" },
+      },
+    ],
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.code3is.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Our Services",
+      item: "https://www.code3is.com/our-services",
+    },
+  ],
+};
 // 1. The type for the individual items (what we used in the component)
 export type SectionDataProps =
   | {
@@ -42,31 +115,33 @@ export type WhatWeDoDataArray = WhatWeDoCategory[];
 function page() {
   return (
     <>
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <Hero
         title={
           <>
-            What We{" "}
-            <span className="text-highlight-text-color font-bold">Build</span>
+            Services That Build Your{" "}
+            <span className="text-highlight-text-color font-bold">Brand</span>
           </>
         }
-        subtitle="From design and development to marketing and automation, explore the services that support every stage of digital growth"
+        subtitle="From web development and branding to SEO and marketing, explore every service that grows your business online"
       />
       <section className="pt-y max-w-max mx-auto px-x flex flex-col items-center lg:flex-row gap-space-content">
         <div className="flex-1 max-w-full lg:max-w-143.75">
           <Reveal y={0} x={"-40px"} threshold={0.4}>
             <HeadingPill>Services</HeadingPill>
             <HeadingText highlightText="Growth" className="mt-between-content">
-              Built Around Clarity, Performance, And
+              Built Around Strategy, Speed, And
             </HeadingText>
             <div className="mt-between-content">
               <BodyText>
-                We work across design, development, marketing, and digital
-                infrastructure to help businesses create better experiences
-                online.
+                We work across design, development, marketing, and technical
+                infrastructure.
               </BodyText>
-              <BodyText>
-                Every service is approached with the same focus: solving real
-                problems through thoughtful execution and attention to detail.
+              <BodyText className="mt-between-content">
+                The goal is always the same, whether it&apos;s a five-page site
+                or a full booking platform: solve the actual problem, not just
+                deliver a nice-looking file.
               </BodyText>
             </div>
           </Reveal>

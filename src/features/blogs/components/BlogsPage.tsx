@@ -33,12 +33,12 @@ function BlogsPage({ projects, paginationData }: BlogsPageProps) {
       <Hero
         title={
           <>
-            Popular <HighlightTextHero HighlightText="Reads" />
+            From the <HighlightTextHero HighlightText="Blog" />
           </>
         }
-        subtitle="Fresh insights, practical tips, and proven strategies to help your business stay ahead."
+        subtitle="Practical guides on websites, branding, and marketing, written from real client work, not recycled from somewhere else."
         buttons={{
-          firstButton: { text: "Start A Project", href: "#contact" },
+          firstButton: { text: "Get Free Estimate", href: "#contact" },
           secondButton: {
             text: "View Our Work",
             href: `/our-work#website`,
@@ -55,7 +55,7 @@ function BlogsPage({ projects, paginationData }: BlogsPageProps) {
             highlight: "Trends",
           }}
           description={
-            "Get practical insights, marketing tips, website optimization strategies, and industry updates delivered to your inbox."
+            "Real answers to the questions clients actually ask us, on websites, SEO, and branding, published as we run into them."
           }
         />
 

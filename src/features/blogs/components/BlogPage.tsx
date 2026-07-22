@@ -9,6 +9,7 @@ import RelatedBlogs from "./RelatedBlogs ";
 import { Suspense } from "react";
 import RelatedBlogsSkeleton from "./RelatedBlogsSkeleton";
 import AdvanceImage from "@/components/AdvancedImage";
+import BlogShare from "./BlogShare";
 
 interface BlogPageProps {
   Blog: Blog;
@@ -65,7 +66,10 @@ function BlogPage({ Blog }: BlogPageProps) {
           <h1 className="font-raleway text-[clamp(28px,3vw,40px)] font-semibold capitalize leading-[calc(clamp(28px,3vw,40px)+12px)] ">
             {Blog.title}
           </h1>
-
+          <BlogShare
+            title={Blog.title}
+            description={Blog.meta?.description ?? ""}
+          />
           <div className="blog-content mt-between-content">
             <RichText data={Blog.content} converters={converters} />
           </div>

@@ -25,7 +25,7 @@ function SelectedWork() {
         </HeadingText>
 
         <BodyText className="text-center capitalize mt-between-content">
-          Real projects. Real results.
+          Real projects. Measurable results.
         </BodyText>
       </Reveal>
       <div
@@ -59,7 +59,6 @@ function SelectedWork() {
                 href={`/case-studies/${services.title.toLowerCase().replaceAll(" ", "-")}`}
                 className="relative z-10 flex flex-col h-full p-[clamp(7px,2vw,11px)] pb-[clamp(18px,2vw,31px)]"
               >
-             
                 <Image
                   src={services.image.src}
                   alt={services.image.alt}

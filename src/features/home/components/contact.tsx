@@ -30,9 +30,8 @@ function Contact() {
             </HeadingText>
 
             <BodyText className="capitalize mt-between-content">
-              Whether it’s branding, web development, or performance marketing,
-              we help businesses build digital systems that actually move
-              results.
+              Whether it’s branding, a website, or performance marketing, we
+              help businesses build systems that actually move the numbers.
             </BodyText>
           </Reveal>
           <Reveal

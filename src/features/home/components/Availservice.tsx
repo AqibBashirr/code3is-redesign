@@ -23,7 +23,7 @@ export default function AvailService() {
       <div className="mx-auto max-w-max px-x ">
         <div className="grid items-center gap-12 md:grid-cols-[1fr_auto] text-center md:text-start">
           {/* Left Content */}
-          <Reveal y={0} x={'-32px'} threshold={0.5}>
+          <Reveal y={0} x={"-32px"} threshold={0.5}>
             <div className="max-w-119 py-y md:py-0 ">
               <HeadingText className="font-bold text-[clamp(36px,4vw,50px)] leading-none text-highlight-text-color">
                 Avail a
@@ -32,8 +32,8 @@ export default function AvailService() {
               </HeadingText>
 
               <BodyText className="text-white mt-between-content">
-                Share your idea with us and we&apos;ll turn it into a custom
-                solution that drives results.
+                Tell us your idea, and we’ll turn it into a plan, a price, and a
+                launch date.
               </BodyText>
 
               <ButtonLink href="#contact" className="mt-content-gap">

@@ -29,7 +29,7 @@ async function Page() {
             variant: "outline",
           },
         }}
-        subtitle="A collection of websites, brands, campaigns & creative assets crafted for businesses across industries"
+        subtitle="Real websites, brand systems, and campaigns, built for real businesses across hospitality, education, and agriculture"
       />
       {/* Pass the retrieved documents array to your Sections component */}
       <Sections sections={workSections} />

@@ -53,7 +53,7 @@ export default function GlowSection({
         {subtitle && (
           <p
             className={cn(
-              `max-w-147.5 text-[clamp(18px,1.5vw,22px)] mb-[clamp(20px,4.4vw,57px)] font-light font-inter`,
+              `max-w-147.5 text-[clamp(18px,1.5vw,22px)]  mb-[clamp(20px,4.4vw,57px)] font-light font-inter`,
               subTitleClass,
             )}
           >
