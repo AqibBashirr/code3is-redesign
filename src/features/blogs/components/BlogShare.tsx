@@ -1,11 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import {
-  Check,
-  Copy,
-  Share2,
-} from "lucide-react";
+import { Check, Copy, Share2 } from "lucide-react";
 
 import {
   Linkedin,
@@ -19,10 +15,7 @@ interface BlogShareProps {
   description?: string;
 }
 
-export default function BlogShare({
-  title,
-  description = "",
-}: BlogShareProps) {
+export default function BlogShare({ title, description = "" }: BlogShareProps) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -138,68 +131,16 @@ export default function BlogShare({
         onClick={handleShare}
         aria-expanded={open}
         aria-haspopup="menu"
-        className="
-          group
-          hover:text-offBlack-color
-          inline-flex
-          items-center
-          gap-2
-          rounded-full
-          border
-          border-[#3A3B3A]
-          bg-card-color
-          px-5
-          py-2.5
-          text-sm
-          font-medium
-          text-highlight-text-color
-          transition-all
-          duration-300
-          hover:-translate-y-0.5
-          hover:border-primary-color
-          hover:bg-primary-color/10
-        "
+        className=" group hover:text-offBlack-color inline-flex items-center gap-2 rounded-full border border-[#3A3B3A] bg-card-color px-5 py-2.5 text-sm font-medium text-highlight-text-color transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-color hover:bg-primary-color/10"
       >
-        <Share2
-          className="
-            h-4
-            w-4
-            text-highlight-color
-            transition-all
-            duration-300
-            group-hover:rotate-12
-            group-hover:scale-110
-            group-hover:text-primary-color
-          "
-        />
+        <Share2 className=" h-4 w-4 text-highlight-color transition-all duration-300 group-hover:rotate-12 group-hover:scale-110 group-hover:text-primary-color" />
         Share
       </button>
       {/* Share Dropdown */}
       <div
         role="menu"
         aria-hidden={!open}
-        className={`
-          absolute
-          left-0
-          top-full
-          z-50
-          mt-4
-          w-72
-          origin-top-left
-          overflow-hidden
-          rounded-2xl
-          border
-          border-white/10
-          bg-card-color/95
-          shadow-[0_20px_60px_rgba(0,0,0,0.45)]
-          backdrop-blur-xl
-          transition-all
-          duration-300
-          ${
-            open
-              ? "translate-y-0 scale-100 opacity-100"
-              : "-translate-y-2 scale-95 opacity-0 pointer-events-none"
-          }
+        className={`absolute left-0 top-full z-50 mt-4 w-72 origin-top-left overflow-hidden rounded-2xl border border-white/10 bg-card-color/95 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-all duration-300 ${open ? "translate-y-0 scale-100 opacity-100" : "-translate-y-2 scale-95 opacity-0 pointer-events-none"}
         `}
       >
         {/* Arrow */}
@@ -228,49 +169,10 @@ export default function BlogShare({
                 target="_blank"
                 rel="noopener noreferrer"
                 role="menuitem"
-                className="
-                  group
-                  flex
-                  flex-col
-                  items-center
-                  justify-center
-                  gap-2
-                  rounded-xl
-                  border
-                  border-white/10
-                  bg-white/3
-                  p-4
-                  transition-all
-                  duration-300
-                  hover:-translate-y-1
-                  hover:border-primary-color/40
-                  hover:bg-primary-color/10
-                "
+                className=" group flex flex-col items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/3 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary-color/40 hover:bg-primary-color/10"
               >
-                <div
-                  className="
-                    flex
-                    h-11
-                    w-11
-                    items-center
-                    justify-center
-                    rounded-xl
-                    bg-white/5
-                    transition-all
-                    duration-300
-                    group-hover:bg-primary-color
-                  "
-                >
-                  <Icon
-                    className="
-                      h-5
-                      w-5
-                      text-highlight-text-color
-                      transition-all
-                      duration-300
-                      group-hover:text-offBlack-color
-                    "
-                  />
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 transition-all duration-300 group-hover:bg-primary-color">
+                  <Icon className=" h-5 w-5 text-highlight-text-color transition-all duration-300 group-hover:text-offBlack-color" />
                 </div>
 
                 <span className="text-xs font-medium text-highlight-text-color">
@@ -288,22 +190,7 @@ export default function BlogShare({
         <div className="p-4">
           <button
             onClick={handleCopy}
-            className="
-              flex
-              w-full
-              items-center
-              justify-between
-              rounded-xl
-              bg-primary-color
-              px-4
-              py-3
-              font-medium
-              text-offBlack-color
-              transition-all
-              duration-300
-              hover:scale-[1.02]
-              active:scale-[0.98]
-            "
+            className=" flex w-full items-center justify-between rounded-xl bg-primary-color px-4 py-3 font-medium text-offBlack-color transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
           >
             <div className="flex items-center gap-3  text-off-white-text-color">
               {copied ? (

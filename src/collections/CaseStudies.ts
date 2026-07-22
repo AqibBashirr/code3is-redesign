@@ -1,5 +1,5 @@
 import { CollectionConfig, FieldHook } from "payload";
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { slugify } from "payload/shared";
 
 const autoIncrementNumber: FieldHook = async ({ req, operation, value }) => {
@@ -57,6 +57,7 @@ export const CaseStudies: CollectionConfig = {
         if (doc?.slug) {
           revalidateTag(`case-study-${doc.slug}`, "max");
         }
+        revalidatePath("/sitemap.xml");
       },
     ],
 
@@ -67,6 +68,7 @@ export const CaseStudies: CollectionConfig = {
         if (doc?.slug) {
           revalidateTag(`case-study-${doc.slug}`, "max");
         }
+          revalidatePath("/sitemap.xml");
       },
     ],
   },
