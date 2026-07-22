@@ -7,7 +7,7 @@ import { SITE_URL } from "@/lib/site";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | CODE3IS",
+  title: "Privacy Policy ",
   description:
     "How Code3IS collects, uses, and protects your personal information.",
   alternates: {

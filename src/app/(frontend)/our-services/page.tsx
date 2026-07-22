@@ -15,7 +15,7 @@ import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Web Development, Branding & SEO Services | Code3IS",
+  title: "Web Development, Branding & SEO Services ",
   description:
     "Web development, branding, SEO & marketing services — based in Kashmir, serving clients across India, the UAE, and internationally.",
   alternates: {
