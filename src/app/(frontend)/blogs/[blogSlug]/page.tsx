@@ -5,6 +5,18 @@ import BlogPage from "@/features/blogs/components/BlogPage";
 import { getBlog } from "@/lib/cache/blogs";
 import { SITE_URL } from "@/lib/site";
 
+// Helper function to guarantee absolute URLs for Open Graph (WhatsApp/Facebook)
+function getAbsoluteUrl(url?: string | null): string {
+  const baseUrl = SITE_URL.endsWith("/") ? SITE_URL.slice(0, -1) : SITE_URL;
+
+  if (!url) return `${baseUrl}/default-blog-og.jpg`;
+  if (url.startsWith("http://") || url.startsWith("https://")) return url;
+  if (url.startsWith("//")) return `https:${url}`;
+
+  const cleanPath = url.startsWith("/") ? url : `/${url}`;
+  return `${baseUrl}${cleanPath}`;
+}
+
 interface PageProps {
   params: Promise<{
     blogSlug: string;
@@ -26,15 +38,18 @@ export async function generateMetadata({
   }
 
   const title = post.meta?.title || post.title;
-
   const description = post.meta?.description || post.excerpt || "";
 
-  const image =
+  // 1. Extract the raw image URL from your CMS
+  const rawImageUrl =
     typeof post.meta?.image === "object" && post.meta.image?.url
       ? post.meta.image.url
       : typeof post.heroImage === "object" && post.heroImage?.url
         ? post.heroImage.url
-        : `${SITE_URL}/default-blog-og.jpg`;
+        : null;
+
+  // 2. Pass it through the helper to ensure it's absolute
+  const image = getAbsoluteUrl(rawImageUrl);
 
   return {
     title,
@@ -52,7 +67,7 @@ export async function generateMetadata({
 
       images: [
         {
-          url: image,
+          url: image, // Guaranteed to be absolute now
           width: 1200,
           height: 630,
           alt: title,
@@ -64,7 +79,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [image],
+      images: [image], // Guaranteed to be absolute now
     },
 
     robots: {

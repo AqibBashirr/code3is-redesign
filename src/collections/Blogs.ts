@@ -1,7 +1,7 @@
 import { CollectionConfig, FieldHook } from "payload";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { slugify } from "payload/shared";
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 
 const formatSlug =
   (fallback: string): FieldHook =>
@@ -37,20 +37,26 @@ export const Blogs: CollectionConfig = {
     afterChange: [
       async ({ doc }) => {
         // Clears all paginated lists (Page 1, Page 2, etc.)
-        revalidateTag("blogs", "max");
+        revalidateTag("blogs",'max');
 
         // Clears the specific blog article that was just updated
         if (doc?.slug) {
-          revalidateTag(`blog-${doc.slug}`, "max");
+          revalidateTag(`blog-${doc.slug}`,'max');
         }
+
+        // FIXES YOUR SITEMAP: Clears the cached sitemap.xml
+        revalidatePath("/sitemap.xml");
       },
     ],
     afterDelete: [
       async ({ doc }) => {
-        revalidateTag("blogs", "max");
+        revalidateTag("blogs",'max');
+
         if (doc?.slug) {
-          revalidateTag(`blog-${doc.slug}`, "max");
+          revalidateTag(`blog-${doc.slug}`,'max');
         }
+
+        revalidatePath("/sitemap.xml");
       },
     ],
   },
