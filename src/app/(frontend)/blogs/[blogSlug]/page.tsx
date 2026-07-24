@@ -54,6 +54,7 @@ export async function generateMetadata({
       url: `${SITE_URL}/blogs/${blogSlug}`,
       type: "article",
       // Note: If your CMS provides publish dates, you can add `publishedTime: post.createdAt` here
+      publishedTime: post.createdAt,
       images: [
         {
           url: image,
@@ -126,8 +127,8 @@ export default async function Page({ params }: PageProps) {
       "@id": `${SITE_URL}/blogs/${blogSlug}`,
     },
     // If your CMS returns a date, uncomment and map it like this:
-    // datePublished: post.createdAt,
-    // dateModified: post.updatedAt,
+    datePublished: post.createdAt,
+    dateModified: post.updatedAt,
   };
 
   return (
