@@ -40,7 +40,7 @@ export async function generateMetadata({
 
   // 2. Pass it through the helper with a safe fallback
   // This ensures social cards don't break if a project lacks a cover image
-  const image = getAbsoluteUrl(rawImageUrl) || `${SITE_URL}/og/og-default.jpg`;
+  const image = getAbsoluteUrl(rawImageUrl) || `${SITE_URL}/og/og-default.png`;
 
   const canonical = `${SITE_URL}/case-studies/${project.slug}`;
 
@@ -100,7 +100,7 @@ export default async function Page({ params }: PageProps) {
         ? project.mainImage.url
         : null;
 
-  const image = getAbsoluteUrl(rawImageUrl) || `${SITE_URL}/og/og-default.jpg`;
+  const image = getAbsoluteUrl(rawImageUrl) || `${SITE_URL}/og/og-default.png`;
   const canonical = `${SITE_URL}/case-studies/${project.slug}`;
 
   // 4. Generate Schema for Google

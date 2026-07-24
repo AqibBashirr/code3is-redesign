@@ -36,8 +36,8 @@ export async function generateMetadata({
       ? `${SITE_URL}/blogs?page=${currentPage}`
       : `${SITE_URL}/blogs`;
 
-  // Optimized: Changed to match the /og/og-default.jpg used in your layout.tsx to prevent missing file 404s
-  const fallbackImage = getAbsoluteUrl("/og/og-default.jpg");
+  // Optimized: Changed to match the /og/og-default.png used in your layout.tsx to prevent missing file 404s
+  const fallbackImage = getAbsoluteUrl("/og/og-default.png");
 
   return {
     title,

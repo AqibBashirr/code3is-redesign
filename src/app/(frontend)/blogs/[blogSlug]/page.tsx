@@ -5,7 +5,7 @@ import BlogPage from "@/features/blogs/components/BlogPage";
 import { getBlog } from "@/lib/cache/blogs";
 import { SITE_URL } from "@/lib/site";
 import { getAbsoluteUrl } from "@/lib/url";
-import JsonLd from "@/components/JsonLd"; 
+import JsonLd from "@/components/JsonLd";
 
 interface PageProps {
   params: Promise<{
@@ -40,7 +40,7 @@ export async function generateMetadata({
 
   // 2. Pass it through the helper, with a safe fallback to your default OG image
   // This prevents Twitter/LinkedIn cards from breaking if a blog has no cover image
-  const image = getAbsoluteUrl(rawImageUrl) || `${SITE_URL}/og/og-default.jpg`;
+  const image = getAbsoluteUrl(rawImageUrl) || `${SITE_URL}/og/og-default.png`;
 
   return {
     title,
@@ -100,7 +100,7 @@ export default async function Page({ params }: PageProps) {
         ? post.heroImage.url
         : null;
 
-  const image = getAbsoluteUrl(rawImageUrl) || `${SITE_URL}/og/og-default.jpg`;
+  const image = getAbsoluteUrl(rawImageUrl) || `${SITE_URL}/og/og-default.png`;
 
   // 4. Generate BlogPosting Schema for Google
   const articleSchema = {

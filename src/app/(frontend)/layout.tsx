@@ -12,6 +12,7 @@ import Aside from "@/components/Layout/Aside/Aside";
 import Footer from "@/components/Layout/Footer/Footer";
 import VersionChecker from "@/components/VersionChecker";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { SITE_URL } from "@/lib/site";
 
 const bebas_neue = Bebas_Neue({
   variable: "--font-bebas_neue",
@@ -94,7 +95,7 @@ export const metadata: Metadata = {
       "We build scalable systems, design corporate identities, and run ad campaigns for businesses in Kashmir, India, the UAE, and beyond.",
     images: [
       {
-        url: "/og/og-default.jpg", // 1200x630, add this file to /public/og/
+        url: `${SITE_URL}/og/og-default.png`,
         width: 1200,
         height: 630,
         alt: "Code3IS — Web Apps, Branding & Performance Marketing Agency",
@@ -106,7 +107,7 @@ export const metadata: Metadata = {
     title: "Code3IS | Web Apps, Branding, Ads & Automation",
     description:
       "We build, design, and scale businesses with custom web apps, brand identity, SEO, and automation.",
-    images: ["/og/og-default.jpg"],
+    images: [`${SITE_URL}/og/og-default.png`],
   },
   alternates: {
     canonical: "https://www.code3is.com",

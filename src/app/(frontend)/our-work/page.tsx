@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       "A collection of websites, brands, campaigns & creative assets crafted for businesses in Kashmir, India, the UAE, and globally.",
     images: [
       {
-        url: "https://www.code3is.com/og/og-default.jpg",
+        url: "https://www.code3is.com/og/og-default.png",
         width: 1200,
         height: 630,
         alt: "Code3IS Work & Portfolio",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Code3IS Portfolio | Websites, Branding & Ads",
     description:
       "A collection of websites, brands, campaigns & creative assets crafted for businesses globally.",
-    images: ["https://www.code3is.com/og/og-default.jpg"],
+    images: ["https://www.code3is.com/og/og-default.png"],
   },
 };
 

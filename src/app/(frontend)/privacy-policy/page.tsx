@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: getAbsoluteUrl("/og/og-default.jpg"),
+        url: getAbsoluteUrl("/og/og-default.png"),
         width: 1200,
         height: 630,
         alt: "Code3IS Privacy Policy",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Privacy Policy",
     description:
       "How Code3IS collects, uses, and protects your personal information.",
-    images: [getAbsoluteUrl("/og/og-default.jpg")],
+    images: [getAbsoluteUrl("/og/og-default.png")],
   },
   robots: {
     // Fixed: Changed to true. Indexing legal pages builds domain trust with Google.

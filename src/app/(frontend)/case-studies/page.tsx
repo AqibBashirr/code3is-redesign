@@ -33,8 +33,8 @@ export async function generateMetadata({
       ? `${SITE_URL}/case-studies?page=${currentPage}`
       : `${SITE_URL}/case-studies`;
 
-  // Optimized: Changed to match your global /og/og-default.jpg path
-  const defaultOgImage = getAbsoluteUrl("/og/og-default.jpg");
+  // Optimized: Changed to match your global /og/og-default.png path
+  const defaultOgImage = getAbsoluteUrl("/og/og-default.png");
 
   return {
     title,

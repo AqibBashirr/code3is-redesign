@@ -29,7 +29,7 @@ export const metadata: Metadata = {
       "Explore our complete suite of digital services. We build custom web apps, design brand identities, and scale businesses with performance marketing.",
     images: [
       {
-        url: "https://www.code3is.com/og/og-default.jpg",
+        url: "https://www.code3is.com/og/og-default.png",
         width: 1200,
         height: 630,
         alt: "Code3IS Services - Web Apps, Branding, SEO & Automation",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "Code3IS Services | Web Apps, Branding, SEO & Ads",
     description:
       "Explore our complete suite of digital services. We build custom web apps, design brand identities, and scale businesses with performance marketing.",
-    images: ["https://www.code3is.com/og/og-default.jpg"],
+    images: ["https://www.code3is.com/og/og-default.png"],
   },
 };
 
