@@ -15,7 +15,7 @@ export function getAbsoluteUrl(
   const baseUrl = SITE_URL.endsWith("/") ? SITE_URL.slice(0, -1) : SITE_URL;
 
   // 2. Define the fallback logic
-  const defaultFallback = `${baseUrl}/default-blog-og.jpg`;
+  const defaultFallback = `${baseUrl}/og/og-default.png`;
   const fallback = customFallback
     ? customFallback.startsWith("http")
       ? customFallback

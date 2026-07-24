@@ -10,11 +10,12 @@ import WhatWeBuild from "@/features/home/components/whatwebuild";
 
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
-import { SITE_URL } from "@/lib/site";
+import { getAbsoluteUrl } from "@/lib/AbsoluteUrl";
 
 export const metadata: Metadata = {
   // Next.js will automatically append " | Code3IS" from your layout.tsx template
-  title: "Web Apps, Branding & Performance Marketing Agency | Code3 Innovative Solutions",
+  title:
+    "Web Apps, Branding & Performance Marketing Agency | Code3 Innovative Solutions",
   description:
     "Code3IS build, design, and scale businesses. Expert custom web apps, UI/UX, brand identity systems, SEO, and ad campaigns based in Kashmir, serving clients globally.",
   alternates: {
@@ -25,13 +26,14 @@ export const metadata: Metadata = {
     title: "Code3IS | Web Apps, Branding & Performance Marketing",
     description:
       "Transforming complex challenges into seamless digital systems. We offer custom web development, UI/UX design, SEO, and automation from Kashmir to the UAE.",
-      images: [
-            {
-              url: `${SITE_URL}/og/og-default.png`,
-              width: 1200,
-              height: 630,
-              alt: "Code3IS — Web Apps, Branding & Performance Marketing Agency",
-            },]
+    images: [
+      {
+        url: getAbsoluteUrl("/og/og-default.png"),
+        width: 1200,
+        height: 630,
+        alt: "Code3IS Privacy Policy",
+      },
+    ],
   },
 };
 

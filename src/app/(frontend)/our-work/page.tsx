@@ -3,6 +3,7 @@ import Sections from "@/features/our-work/components/sections";
 import { getWorkSections } from "@/lib/cache/work-sections";
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
+import { getAbsoluteUrl } from "@/lib/AbsoluteUrl";
 
 export const metadata: Metadata = {
   // Next.js will automatically append " | Code3IS" from your layout template
@@ -20,10 +21,10 @@ export const metadata: Metadata = {
       "A collection of websites, brands, campaigns & creative assets crafted for businesses in Kashmir, India, the UAE, and globally.",
     images: [
       {
-        url: "https://www.code3is.com/og/og-default.png",
+        url: getAbsoluteUrl("/og/og-default.png"),
         width: 1200,
         height: 630,
-        alt: "Code3IS Work & Portfolio",
+        alt: "Code3IS Privacy Policy",
       },
     ],
   },
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     title: "Code3IS Portfolio | Websites, Branding & Ads",
     description:
       "A collection of websites, brands, campaigns & creative assets crafted for businesses globally.",
-    images: ["https://www.code3is.com/og/og-default.png"],
+    images: [getAbsoluteUrl("/og/og-default.png")],
   },
 };
 
