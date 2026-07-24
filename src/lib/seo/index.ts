@@ -16,7 +16,7 @@ export function createMetadata({
   description,
   canonical,
   image,
-  fallbackImage = "/default-og.jpg",
+  fallbackImage = "/og-default.png",
   type = "website",
 }: SeoOptions): Metadata {
   let imageUrl = `${SITE_URL}${fallbackImage}`;
