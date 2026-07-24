@@ -8,12 +8,13 @@ import type { CarouselControlProps } from "../types";
 
 interface CarouselNextProps extends CarouselControlProps {
   canGoNext: boolean;
+  totalSlides:number;
 }
 
 export default function CarouselNext({
   onClick,
   disabled,
-
+  totalSlides,
   variant = "desktop",
   canGoNext,
   className,
@@ -21,6 +22,9 @@ export default function CarouselNext({
   label = "Next",
 }: CarouselNextProps) {
   
+  if (totalSlides <= 1) {
+    return null;
+  }
   const isDisabled = disabled ?? !canGoNext;
 
   if (variant === "mobile") {

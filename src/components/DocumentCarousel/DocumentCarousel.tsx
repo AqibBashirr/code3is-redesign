@@ -134,6 +134,7 @@ export default function DocumentCarousel({
 
             <div className="lg:hidden">
               <CarouselNext
+                totalSlides={items.length}
                 variant="mobile"
                 onClick={next}
                 canGoNext={canGoNext}
@@ -212,7 +213,11 @@ export default function DocumentCarousel({
             {/* Next */}
             {mergedNavigation.desktop && (
               <div className="hidden lg:block">
-                <CarouselNext onClick={next} canGoNext={canGoNext} />
+                <CarouselNext
+                  totalSlides={items.length}
+                  onClick={next}
+                  canGoNext={canGoNext}
+                />
               </div>
             )}
           </div>
