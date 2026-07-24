@@ -195,6 +195,7 @@ export default function DocumentCarousel({
             {mergedNavigation.desktop && (
               <div className="hidden lg:block">
                 <CarouselPrevious
+                  totalSlides={items.length}
                   onClick={prev}
                   canGoPrevious={canGoPrevious}
                 />
