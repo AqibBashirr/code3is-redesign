@@ -14,7 +14,7 @@ function Service() {
           Our
         </HeadingText>
 
-        <BodyText className="text-center mt-between-content">
+        <BodyText className="text-center mt-between-content px-x">
           One team. Four disciplines.
         </BodyText>
       </Reveal>

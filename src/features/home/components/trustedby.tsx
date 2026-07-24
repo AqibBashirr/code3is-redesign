@@ -7,7 +7,7 @@ function TrustedBy() {
   const time = logos_length*4;
   return (
     <section>
-      <BodyText className="text-center mb-content-gap">
+      <BodyText className="text-center mb-content-gap px-x">
         Trusted by growing businesses across Kashmir, India, and the UAE.
       </BodyText>
       <div className=" bg-secondary-background  py-4 lg:py-12 box">

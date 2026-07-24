@@ -13,9 +13,9 @@ import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   // Next.js will automatically append " | Code3IS" from your layout.tsx template
-  title: "Web Apps, Branding & Performance Marketing Agency",
+  title: "Web Apps, Branding & Performance Marketing Agency | Code3 Innovative Solutions",
   description:
-    "We build, design, and scale businesses. Expert custom web apps, UI/UX, brand identity systems, SEO, and ad campaigns based in Kashmir, serving clients globally.",
+    "Code3IS build, design, and scale businesses. Expert custom web apps, UI/UX, brand identity systems, SEO, and ad campaigns based in Kashmir, serving clients globally.",
   alternates: {
     canonical: "https://www.code3is.com/",
   },
