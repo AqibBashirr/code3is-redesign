@@ -3,7 +3,7 @@ import { getPayload } from "payload";
 import configPromise from "@payload-config";
 import { Blog } from "@/types/payload-types";
 
-
+// 1. Get Single Blog Article (Cached by Slug)
 export async function getBlog(slug: string): Promise<Blog | undefined> {
   const fetchCached = unstable_cache(
     async () => {
@@ -24,10 +24,8 @@ export async function getBlog(slug: string): Promise<Blog | undefined> {
 
       return docs[0] as Blog | undefined;
     },
-    // FIX: Unique key for each blog
     [`blog-detail-${slug}`],
     {
-      // FIX: Dynamic tags for Next.js On-Demand Revalidation
       tags: ["blogs", `blog-${slug}`],
     },
   );
@@ -35,9 +33,7 @@ export async function getBlog(slug: string): Promise<Blog | undefined> {
   return fetchCached();
 }
 
-// ----------------------------------------------------
 // 2. Get Blog Grid (Cached by Page Number)
-// ----------------------------------------------------
 export async function getBlogs(page: number) {
   const fetchCached = unstable_cache(
     async () => {
@@ -61,11 +57,8 @@ export async function getBlogs(page: number) {
         },
       });
     },
-    // FIX: Unique key for each page number! (e.g., "blogs-list-page-1")
     [`blogs-list-page-${page}`],
     {
-      // We only need the general "blogs" tag here.
-      // If a new blog is published, it clears all paginated lists so the new post appears.
       tags: ["blogs"],
     },
   );
