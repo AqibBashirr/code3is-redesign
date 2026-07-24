@@ -8,6 +8,7 @@ import type { CarouselControlProps } from "../types";
 
 interface CarouselPreviousProps extends CarouselControlProps {
   canGoPrevious: boolean;
+  totalSlides:number;
 }
 
 export default function CarouselPrevious({
@@ -15,11 +16,17 @@ export default function CarouselPrevious({
   disabled,
   canGoPrevious,
   variant = "desktop",
-
+  totalSlides,
   className,
 
   label = "Prev",
 }: CarouselPreviousProps) {
+  
+ if (totalSlides <= 1) {
+   return null;
+ }
+
+
   const isDisabled = disabled ?? !canGoPrevious;
 
   if (variant === "mobile") {

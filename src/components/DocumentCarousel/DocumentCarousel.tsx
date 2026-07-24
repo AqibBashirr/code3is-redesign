@@ -126,6 +126,7 @@ export default function DocumentCarousel({
           <>
             <div className="lg:hidden">
               <CarouselPrevious
+                totalSlides={items.length}
                 variant="mobile"
                 onClick={prev}
                 canGoPrevious={canGoPrevious}
