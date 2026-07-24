@@ -1,5 +1,5 @@
 import { CollectionConfig, FieldHook } from "payload";
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidateTag } from "next/cache";
 import { slugify } from "payload/shared";
 
 const autoIncrementNumber: FieldHook = async ({ req, operation, value }) => {
