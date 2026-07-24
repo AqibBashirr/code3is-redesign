@@ -4,18 +4,9 @@ import { notFound } from "next/navigation";
 import CaseStudyDetails from "@/features/case-study/components/CaseStudyDetails";
 import { getCaseStudy } from "@/lib/cache/caseStudies";
 import { SITE_URL } from "@/lib/site";
+import { getAbsoluteUrl } from "@/lib/url";
 
-// FIX: Added the absolute URL helper to ensure social sharing works perfectly
-function getAbsoluteUrl(url?: string | null): string {
-  const baseUrl = SITE_URL.endsWith("/") ? SITE_URL.slice(0, -1) : SITE_URL;
 
-  if (!url) return `${baseUrl}/default-og.jpg`;
-  if (url.startsWith("http://") || url.startsWith("https://")) return url;
-  if (url.startsWith("//")) return `https:${url}`;
-
-  const cleanPath = url.startsWith("/") ? url : `/${url}`;
-  return `${baseUrl}${cleanPath}`;
-}
 
 interface PageProps {
   params: Promise<{

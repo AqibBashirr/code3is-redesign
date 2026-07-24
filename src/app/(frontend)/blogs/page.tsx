@@ -6,18 +6,7 @@ import { Blog } from "@/types/payload-types";
 import { getBlogs } from "@/lib/cache/blogs";
 import { SITE_URL } from "@/lib/site";
 import JsonLd from "@/components/JsonLd";
-
-// Helper function to guarantee absolute URLs for Open Graph (WhatsApp/Facebook)
-function getAbsoluteUrl(url?: string | null): string {
-  const baseUrl = SITE_URL.endsWith("/") ? SITE_URL.slice(0, -1) : SITE_URL;
-
-  if (!url) return `${baseUrl}/default-og.png`; 
-  if (url.startsWith("http://") || url.startsWith("https://")) return url;
-  if (url.startsWith("//")) return `https:${url}`;
-
-  const cleanPath = url.startsWith("/") ? url : `/${url}`;
-  return `${baseUrl}${cleanPath}`;
-}
+import { getAbsoluteUrl } from "@/lib/url";
 
 type Props = {
   searchParams: Promise<{
@@ -32,8 +21,8 @@ export async function generateMetadata({
 
   const currentPage = Number(params?.page) || 1;
 
-  const title =
-    currentPage > 1 ? `Our Blog - Page ${currentPage} ` : "Our Blog ";
+  // Optimized: Removed trailing spaces
+  const title = currentPage > 1 ? `Our Blog - Page ${currentPage}` : "Our Blog";
 
   const description =
     "Read our latest insights on web development, UI/UX, SEO, AI, cloud technologies, and digital transformation.";
@@ -83,34 +72,6 @@ export async function generateMetadata({
   };
 }
 
-const blogSchema = {
-  "@context": "https://schema.org",
-  "@type": "Blog",
-  "@id": "https://www.code3is.com/blogs#blog",
-  name: "Code3IS Blog",
-  url: "https://www.code3is.com/blogs",
-  publisher: { "@id": "https://www.code3is.com/#organization" },
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://www.code3is.com/",
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Blog",
-      item: "https://www.code3is.com/blogs",
-    },
-  ],
-};
-
 export default async function Page({ searchParams }: Props) {
   const params = await searchParams;
 
@@ -121,6 +82,35 @@ export default async function Page({ searchParams }: Props) {
   if (!data.docs.length) {
     notFound();
   }
+
+  // Optimized: Use dynamic SITE_URL to prevent staging/production mismatches
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${SITE_URL}/blogs#blog`,
+    name: "Code3IS Blog",
+    url: `${SITE_URL}/blogs`,
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${SITE_URL}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: `${SITE_URL}/blogs`,
+      },
+    ],
+  };
 
   return (
     <>
