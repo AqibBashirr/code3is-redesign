@@ -12,31 +12,18 @@ import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Web Development & Branding Agency | Code3IS, Kashmir",
+  // Next.js will automatically append " | Code3IS" from your layout.tsx template
+  title: "Web Apps, Branding & Performance Marketing Agency",
   description:
-    "Websites, brand identity & ad campaigns — based in Kashmir, serving clients across India, the UAE, and internationally. Free estimate.",
+    "We build, design, and scale businesses. Expert custom web apps, UI/UX, brand identity systems, SEO, and ad campaigns based in Kashmir, serving clients globally.",
   alternates: {
     canonical: "https://www.code3is.com/",
   },
-  keywords: [
-    "web development company Kashmir",
-    "web development company India",
-    "branding agency India",
-    "digital marketing agency",
-    "SEO agency Kashmir",
-    "custom software development",
-    "UI/UX design agency",
-    "SEO services",
-    "brand identity system",
-    "performance marketing agency",
-    "remote software development team",
-    "scalable web systems",
-  ],
   openGraph: {
     url: "https://www.code3is.com/",
-    title: "Code3IS — Web Development & Branding, Kashmir to Global",
+    title: "Code3IS | Web Apps, Branding & Performance Marketing",
     description:
-      "Websites, brand systems, and ad campaigns for businesses based in Kashmir, serving clients across India, the UAE, and beyond.",
+      "Transforming complex challenges into seamless digital systems. We offer custom web development, UI/UX design, SEO, and automation from Kashmir to the UAE.",
   },
 };
 
@@ -78,6 +65,7 @@ const faqSchema = {
     },
   ],
 };
+
 export default function Main() {
   return (
     <>

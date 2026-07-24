@@ -5,16 +5,41 @@ import BlogToc from "@/features/blogs/components/BlogToc";
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
 import JsonLd from "@/components/JsonLd";
+import { getAbsoluteUrl } from "@/lib/url"; // Imported to handle OG images
 
 export const metadata: Metadata = {
-  title: "Privacy Policy ",
+  // Fixed: Removed the trailing space
+  title: "Privacy Policy",
   description:
-    "How Code3IS collects, uses, and protects your personal information.",
+    "How Code3IS collects, uses, and protects your personal data and information when you use our web development, branding, and marketing services.",
   alternates: {
     canonical: `${SITE_URL}/privacy-policy`,
   },
+  openGraph: {
+    title: "Privacy Policy",
+    description:
+      "How Code3IS collects, uses, and protects your personal information.",
+    url: `${SITE_URL}/privacy-policy`,
+    type: "website",
+    images: [
+      {
+        url: getAbsoluteUrl("/og/og-default.jpg"),
+        width: 1200,
+        height: 630,
+        alt: "Code3IS Privacy Policy",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy",
+    description:
+      "How Code3IS collects, uses, and protects your personal information.",
+    images: [getAbsoluteUrl("/og/og-default.jpg")],
+  },
   robots: {
-    index: false,
+    // Fixed: Changed to true. Indexing legal pages builds domain trust with Google.
+    index: true,
     follow: true,
   },
 };

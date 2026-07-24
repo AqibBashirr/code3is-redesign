@@ -5,16 +5,40 @@ import BlogToc from "@/features/blogs/components/BlogToc";
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
 import JsonLd from "@/components/JsonLd";
+import { getAbsoluteUrl } from "@/lib/url"; // Imported to handle OG images
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions | CODE3IS",
+  title: "Terms and Conditions",
   description:
-    "The terms that govern use of Code3IS services and this website.",
+    "The terms and conditions that govern the use of Code3IS services, web development, branding, and this website.",
   alternates: {
     canonical: `${SITE_URL}/terms-and-conditions`,
   },
+  openGraph: {
+    title: "Terms and Conditions",
+    description:
+      "The terms and conditions that govern the use of Code3IS services and this website.",
+    url: `${SITE_URL}/terms-and-conditions`,
+    type: "website",
+    images: [
+      {
+        url: getAbsoluteUrl("/og/og-default.jpg"),
+        width: 1200,
+        height: 630,
+        alt: "Code3IS Terms and Conditions",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms and Conditions",
+    description:
+      "The terms and conditions that govern the use of Code3IS services and this website.",
+    images: [getAbsoluteUrl("/og/og-default.jpg")],
+  },
   robots: {
-    index: false,
+    // Fixed: Changed to true. Indexing legal pages builds domain trust with Google.
+    index: true,
     follow: true,
   },
 };

@@ -6,14 +6,12 @@ import {
   Poppins,
   Raleway,
 } from "next/font/google";
-import "@/app/globals.css"
+import "@/app/globals.css";
 import Header from "@/components/Layout/Header/Header";
 import Aside from "@/components/Layout/Aside/Aside";
 import Footer from "@/components/Layout/Footer/Footer";
 import VersionChecker from "@/components/VersionChecker";
 import WhatsAppButton from "@/components/WhatsAppButton";
-
-
 
 const bebas_neue = Bebas_Neue({
   variable: "--font-bebas_neue",
@@ -47,23 +45,26 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.code3is.com"),
   title: {
-    default: "Code3IS | Web Development & Branding — Kashmir to Global",
+    // Broadened to capture your full tech and marketing stack
+    default: "Code3IS | Web Apps, Branding, Ads & Automation",
     template: "%s | Code3IS",
   },
   description:
-    "Web development, branding & digital marketing agency based in Kashmir, serving clients across India, the UAE, and beyond.",
+    "Code3IS builds, designs, and scales businesses. We deliver custom web apps, brand identity, SEO, Meta/Google Ads, and automation from Kashmir to the world.",
   keywords: [
     "web development company Kashmir",
-    "web development company India",
+    "custom web apps",
     "branding agency India",
+    "performance marketing agency",
+    "SEO services Kashmir",
+    "UI/UX design agency",
+    "Google and Meta ads management",
+    "business automation and integration",
     "digital marketing agency",
-    "SEO agency Kashmir",
-    "remote web development team",
+    "remote software development team",
   ],
   authors: [{ name: "Code3 Innovative Solutions" }],
   creator: "Code3 Innovative Solutions",
@@ -88,23 +89,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.code3is.com",
     siteName: "Code3IS",
-    title: "Code3IS — Web Development & Branding, Kashmir to Global",
+    title: "Code3IS | Web Apps, Branding, Ads & Automation",
     description:
-      "Websites, brand systems, and ad campaigns for businesses based in Kashmir, serving clients across India, the UAE, and beyond.",
+      "We build scalable systems, design corporate identities, and run ad campaigns for businesses in Kashmir, India, the UAE, and beyond.",
     images: [
       {
         url: "/og/og-default.jpg", // 1200x630, add this file to /public/og/
         width: 1200,
         height: 630,
-        alt: "Code3IS — Web Development, Branding & Marketing Agency",
+        alt: "Code3IS — Web Apps, Branding & Performance Marketing Agency",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Code3IS | Web Dev, Branding & Marketing Agency",
+    title: "Code3IS | Web Apps, Branding, Ads & Automation",
     description:
-      "We build websites, brands, and ad campaigns that turn traffic into leads.",
+      "We build, design, and scale businesses with custom web apps, brand identity, SEO, and automation.",
     images: ["/og/og-default.jpg"],
   },
   alternates: {
@@ -156,7 +157,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${poppins.variable} ${raleway.variable} ${montserrat.variable} ${bebas_neue.variable} h-full antialiased  scrollbar-none`}
+      className={`${inter.variable} ${poppins.variable} ${raleway.variable} ${montserrat.variable} ${bebas_neue.variable} h-full antialiased scrollbar-none`}
     >
       <body className="min-h-full flex flex-col scrollbar-none pt-3 md:pt-5 ">
         <script

@@ -21,28 +21,30 @@ export async function generateMetadata({
 
   const currentPage = Number(params?.page) || 1;
 
-  // Optimized: Removed trailing spaces
-  const title = currentPage > 1 ? `Our Blog - Page ${currentPage}` : "Our Blog";
+  // Optimized: Moved away from generic "Our Blog" to capture search intent for your services
+  const title =
+    currentPage > 1
+      ? `Blog & Insights - Page ${currentPage}`
+      : "Agency Blog: Web Apps, Branding & SEO Insights";
 
+  // Optimized: Aligned with your 4 pillars (Build, Design, Grow, Scale)
   const description =
-    "Read our latest insights on web development, UI/UX, SEO, AI, cloud technologies, and digital transformation.";
+    "Read the latest from Code3IS on custom web apps, UI/UX design, performance marketing, automation, and scaling your digital presence.";
 
   const canonical =
     currentPage > 1
       ? `${SITE_URL}/blogs?page=${currentPage}`
       : `${SITE_URL}/blogs`;
 
-  // Explicitly generate the absolute fallback image URL for the main blog listing page
-  const fallbackImage = getAbsoluteUrl("/default-blog-og.jpg");
+  // Optimized: Changed to match the /og/og-default.jpg used in your layout.tsx to prevent missing file 404s
+  const fallbackImage = getAbsoluteUrl("/og/og-default.jpg");
 
   return {
     title,
     description,
-
     alternates: {
       canonical,
     },
-
     openGraph: {
       title,
       description,
@@ -53,21 +55,25 @@ export async function generateMetadata({
           url: fallbackImage,
           width: 1200,
           height: 630,
-          alt: "Code3 Innovative Solutions Blog",
+          alt: "Code3IS Blog & Insights",
         },
       ],
     },
-
     twitter: {
       card: "summary_large_image",
       title,
       description,
       images: [fallbackImage],
     },
-
     robots: {
       index: true,
       follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }
@@ -83,12 +89,13 @@ export default async function Page({ searchParams }: Props) {
     notFound();
   }
 
-  // Optimized: Use dynamic SITE_URL to prevent staging/production mismatches
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "Blog",
     "@id": `${SITE_URL}/blogs#blog`,
     name: "Code3IS Blog",
+    description:
+      "Expert insights on custom web apps, UI/UX, SEO, and automation.",
     url: `${SITE_URL}/blogs`,
     publisher: { "@id": `${SITE_URL}/#organization` },
   };

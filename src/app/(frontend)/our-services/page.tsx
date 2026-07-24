@@ -8,57 +8,92 @@ import HeadingPill from "@/components/typography/headingPill";
 import HeadingText from "@/components/typography/headingText";
 import WhatWeDoSections from "@/features/our-services/components/WhatWeDoSections";
 
-
-
-
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
+// Import getAbsoluteUrl if you have it available, otherwise we use the hardcoded domain for OG images
+// import { getAbsoluteUrl } from "@/lib/url";
 
 export const metadata: Metadata = {
-  title: "Web Development, Branding & SEO Services ",
+  // Optimized to highlight high-value services beyond basic development
+  title: "Services: Web Apps, Branding, SEO & Automation",
   description:
-    "Web development, branding, SEO & marketing services — based in Kashmir, serving clients across India, the UAE, and internationally.",
+    "Code3IS offers full-stack digital services: custom web applications, UI/UX design, corporate branding, SEO, Meta/Google Ads, and business automation.",
   alternates: {
     canonical: "https://www.code3is.com/our-services",
   },
   openGraph: {
+    type: "website",
     url: "https://www.code3is.com/our-services",
-    title: "Services | Code3IS",
+    title: "Code3IS Services | Web Apps, Branding, SEO & Ads",
     description:
-      "Web development, branding, SEO, and marketing services, explained.",
+      "Explore our complete suite of digital services. We build custom web apps, design brand identities, and scale businesses with performance marketing.",
+    images: [
+      {
+        url: "https://www.code3is.com/og/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Code3IS Services - Web Apps, Branding, SEO & Automation",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Code3IS Services | Web Apps, Branding, SEO & Ads",
+    description:
+      "Explore our complete suite of digital services. We build custom web apps, design brand identities, and scale businesses with performance marketing.",
+    images: ["https://www.code3is.com/og/og-default.jpg"],
   },
 };
 
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  serviceType: "Web Development, Branding, SEO & Digital Marketing",
+  serviceType: "Full-Stack Digital Agency Services",
   provider: { "@id": "https://www.code3is.com/#organization" },
   areaServed: ["India", "Jammu and Kashmir", "United Arab Emirates"],
+  // Optimized catalog to perfectly match your Build, Design, Grow, Scale pillars
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Code3IS Services",
+    name: "Code3IS Digital Services",
     itemListElement: [
       {
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Web Development" },
+        itemOffered: {
+          "@type": "Service",
+          name: "Custom Web Application Development",
+        },
       },
       {
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "UI/UX Design" },
+        itemOffered: { "@type": "Service", name: "UI/UX & Website Design" },
       },
       {
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Branding" },
-      },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO" } },
-      {
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Meta & Google Ads" },
+        itemOffered: {
+          "@type": "Service",
+          name: "Brand Identity & Corporate Branding",
+        },
       },
       {
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Automation & Hosting" },
+        itemOffered: {
+          "@type": "Service",
+          name: "Search Engine Optimization (SEO)",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Performance Marketing (Meta & Google Ads)",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Business Automation & API Integration",
+        },
       },
     ],
   },
@@ -82,6 +117,7 @@ const breadcrumbSchema = {
     },
   ],
 };
+
 // 1. The type for the individual items (what we used in the component)
 export type SectionDataProps =
   | {

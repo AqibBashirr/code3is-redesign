@@ -3,6 +3,8 @@ import { Metadata } from "next";
 import CaseStudyPage from "@/features/case-study/components/CaseStudyPage";
 import { getCaseStudies } from "@/lib/cache/caseStudies";
 import { SITE_URL } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
+import { getAbsoluteUrl } from "@/lib/url";
 
 type Props = {
   searchParams: Promise<{
@@ -17,28 +19,29 @@ export async function generateMetadata({
 
   const currentPage = Number(params?.page) || 1;
 
+  // Optimized: Stronger SEO title highlighting your actual deliverables
   const title =
-    currentPage > 1 ? `Case Studies - Page ${currentPage}` : "Case Studies"; // Removed the trailing space
+    currentPage > 1
+      ? `Our Work & Case Studies - Page ${currentPage}`
+      : "Portfolio & Case Studies: Web Apps, Branding & SEO";
 
   const description =
-    "Explore our latest case studies, client success stories, and digital transformation projects.";
+    "Explore Code3IS's portfolio of custom web applications, brand identity systems, and digital marketing campaigns for clients across India, the UAE, and globally.";
 
   const canonical =
     currentPage > 1
       ? `${SITE_URL}/case-studies?page=${currentPage}`
       : `${SITE_URL}/case-studies`;
 
-  // Provide a default image for social sharing (WhatsApp, LinkedIn, Twitter)
-  const defaultOgImage = `${SITE_URL}/default-og.jpg`;
+  // Optimized: Changed to match your global /og/og-default.jpg path
+  const defaultOgImage = getAbsoluteUrl("/og/og-default.jpg");
 
   return {
     title,
     description,
-
     alternates: {
       canonical,
     },
-
     openGraph: {
       title,
       description,
@@ -49,21 +52,26 @@ export async function generateMetadata({
           url: defaultOgImage,
           width: 1200,
           height: 630,
-          alt: "Harmain Services Case Studies",
+          // Fixed: Removed the hardcoded client name (Harmain Services)
+          alt: "Code3IS Portfolio & Case Studies",
         },
       ],
     },
-
     twitter: {
       card: "summary_large_image",
       title,
       description,
       images: [defaultOgImage],
     },
-
     robots: {
       index: true,
       follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }
@@ -75,17 +83,51 @@ export default async function Page({ searchParams }: Props) {
 
   const data = await getCaseStudies(currentPage);
 
+  // Generate Collection schema for the portfolio
+  const portfolioSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${SITE_URL}/case-studies#webpage`,
+    name: "Code3IS Portfolio & Case Studies",
+    description:
+      "Explore our latest case studies, client success stories, and digital transformation projects.",
+    url: `${SITE_URL}/case-studies`,
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${SITE_URL}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Case Studies",
+        item: `${SITE_URL}/case-studies`,
+      },
+    ],
+  };
+
   return (
-    <CaseStudyPage
-      data={data}
-      paginationData={{
-        page: data.page,
-        totalPages: data.totalPages,
-        hasNextPage: data.hasNextPage,
-        hasPrevPage: data.hasPrevPage,
-        nextPage: data.nextPage,
-        prevPage: data.prevPage,
-      }}
-    />
+    <>
+      <JsonLd data={portfolioSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <CaseStudyPage
+        data={data}
+        paginationData={{
+          page: data.page,
+          totalPages: data.totalPages,
+          hasNextPage: data.hasNextPage,
+          hasPrevPage: data.hasPrevPage,
+          nextPage: data.nextPage,
+          prevPage: data.prevPage,
+        }}
+      />
+    </>
   );
 }
