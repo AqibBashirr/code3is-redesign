@@ -13,6 +13,7 @@ import Footer from "@/components/Layout/Footer/Footer";
 import VersionChecker from "@/components/VersionChecker";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { SITE_URL } from "@/lib/site";
+import { Analytics } from "@vercel/analytics/next";
 
 const bebas_neue = Bebas_Neue({
   variable: "--font-bebas_neue",
@@ -173,6 +174,7 @@ export default function RootLayout({
         <main className="flex-1 ">{children}</main>
         <WhatsAppButton />
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
