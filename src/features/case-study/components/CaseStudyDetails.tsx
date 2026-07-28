@@ -12,9 +12,11 @@ interface caseStudyDetailsProps{
 function CaseStudyDetails({ data }: caseStudyDetailsProps) {
   const mainField = data.main;
   const padded =
-    data.number !== undefined && data.number !== null && data.number < 10
-      ? "0" + data.number
-      : String(data.number);
+    typeof data.number === "number"
+      ? data.number < 10
+        ? "0" + data.number
+        : String(data.number)
+      : "—"; // or whatever sensible fallback
   return (
     <>
       <Hero

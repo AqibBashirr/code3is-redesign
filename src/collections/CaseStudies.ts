@@ -1,6 +1,6 @@
 import { CollectionConfig, FieldHook } from "payload";
-import { revalidateTag } from "next/cache";
 import { slugify } from "payload/shared";
+import { makeRevalidateHooks } from "@/lib/hooks/revalidateCollection";
 
 const autoIncrementNumber: FieldHook = async ({ req, operation, value }) => {
   if (operation !== "create") return value;
@@ -48,31 +48,31 @@ export const CaseStudies: CollectionConfig = {
     delete: ({ req }) => Boolean(req.user),
   },
 
-  hooks: {
-    afterChange: [
-      async ({ doc }) => {
-        revalidateTag("case-studies", "max");
+  // hooks: {
+  //   afterChange: [
+  //     async ({ doc }) => {
+  //       revalidateTag("case-studies", "max");
 
-        if (doc?.slug) {
-          revalidateTag(`case-study-${doc.slug}`, "max");
-        }
+  //       if (doc?.slug) {
+  //         revalidateTag(`case-study-${doc.slug}`, "max");
+  //       }
 
-        revalidateTag("sitemap", "max");
-      },
-    ],
-    afterDelete: [
-      async ({ doc }) => {
-        revalidateTag("case-studies", "max");
+  //       revalidateTag("sitemap", "max");
+  //     },
+  //   ],
+  //   afterDelete: [
+  //     async ({ doc }) => {
+  //       revalidateTag("case-studies", "max");
 
-        if (doc?.slug) {
-          revalidateTag(`case-study-${doc.slug}`, "max");
-        }
+  //       if (doc?.slug) {
+  //         revalidateTag(`case-study-${doc.slug}`, "max");
+  //       }
 
-        revalidateTag("sitemap", "max");
-      },
-    ],
-  },
-
+  //       revalidateTag("sitemap", "max");
+  //     },
+  //   ],
+  // },
+  hooks: makeRevalidateHooks("case-studies", "case-study"),
   fields: [
     {
       name: "number",

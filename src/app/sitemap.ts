@@ -4,8 +4,7 @@ import configPromise from "@payload-config";
 import { unstable_cache } from "next/cache";
 
 import { SITE_URL } from "@/lib/site";
-export const dynamic = "force-dynamic";
-// Fetch and cache sitemap database records under the "sitemap" tag
+
 const getCachedSitemapData = unstable_cache(
   async () => {
     const payload = await getPayload({

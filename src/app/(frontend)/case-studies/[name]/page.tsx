@@ -4,12 +4,12 @@ import { notFound } from "next/navigation";
 import CaseStudyDetails from "@/features/case-study/components/CaseStudyDetails";
 import { getCaseStudy } from "@/lib/cache/caseStudies";
 import { SITE_URL } from "@/lib/site";
-import { getAbsoluteUrl } from "@/lib/url";
-import JsonLd from "@/components/JsonLd"; // Added JSON-LD import
+import { getCaseStudyImageSource, getOgImageUrl } from "@/lib/helpers/media";
+import JsonLd from "@/components/JsonLd";
 
 interface PageProps {
   params: Promise<{
-    name: string;
+    name: string; // confirm this matches your actual folder segment name
   }>;
 }
 
@@ -30,17 +30,8 @@ export async function generateMetadata({
   const title = project.metaTitle || project.title;
   const description = project.metaDescription || project.description || "";
 
-  // 1. Extract the raw image URL from your CMS
-  const rawImageUrl =
-    typeof project.metaImage === "object" && project.metaImage?.url
-      ? project.metaImage.url
-      : typeof project.mainImage === "object" && project.mainImage?.url
-        ? project.mainImage.url
-        : null;
-
-  // 2. Pass it through the helper with a safe fallback
-  // This ensures social cards don't break if a project lacks a cover image
-  const image = getAbsoluteUrl(rawImageUrl) || `${SITE_URL}/og/og-default.png`;
+  const imageSource = getCaseStudyImageSource(project);
+  const image = getOgImageUrl(imageSource) || `${SITE_URL}/og/og-default.png`;
 
   const canonical = `${SITE_URL}/case-studies/${project.slug}`;
 
@@ -55,9 +46,11 @@ export async function generateMetadata({
       description,
       url: canonical,
       type: "article",
+      publishedTime: project.createdAt,
+      modifiedTime: project.updatedAt,
       images: [
         {
-          url: image, // Guaranteed to be absolute and valid now
+          url: image,
           width: 1200,
           height: 630,
           alt: title,
@@ -68,7 +61,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [image], // Guaranteed to be absolute and valid now
+      images: [image],
     },
     robots: {
       index: true,
@@ -92,24 +85,18 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
 
-  // 3. Extract image again for the Schema
-  const rawImageUrl =
-    typeof project.metaImage === "object" && project.metaImage?.url
-      ? project.metaImage.url
-      : typeof project.mainImage === "object" && project.mainImage?.url
-        ? project.mainImage.url
-        : null;
-
-  const image = getAbsoluteUrl(rawImageUrl) || `${SITE_URL}/og/og-default.png`;
+  const imageSource = getCaseStudyImageSource(project);
+  const image = getOgImageUrl(imageSource) || `${SITE_URL}/og/og-default.png`;
   const canonical = `${SITE_URL}/case-studies/${project.slug}`;
 
-  // 4. Generate Schema for Google
   const caseStudySchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: project.metaTitle || project.title,
     description: project.metaDescription || project.description || "",
     image: image,
+    datePublished: project.createdAt,
+    dateModified: project.updatedAt,
     author: {
       "@type": "Organization",
       name: "Code3 Innovative Solutions",

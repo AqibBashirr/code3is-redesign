@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import BlogPage from "@/features/blogs/components/BlogPage";
 import { getBlog } from "@/lib/cache/blogs";
 import { SITE_URL } from "@/lib/site";
-import { getAbsoluteUrl } from "@/lib/url";
+import { getBlogImageSource, getOgImageUrl } from "@/lib/helpers/media";
 import JsonLd from "@/components/JsonLd";
 
 interface PageProps {
@@ -30,17 +30,8 @@ export async function generateMetadata({
   const title = post.meta?.title || post.title;
   const description = post.meta?.description || post.excerpt || "";
 
-  // 1. Extract the raw image URL from your CMS
-  const rawImageUrl =
-    typeof post.meta?.image === "object" && post.meta.image?.url
-      ? post.meta.image.url
-      : typeof post.heroImage === "object" && post.heroImage?.url
-        ? post.heroImage.url
-        : null;
-
-  // 2. Pass it through the helper, with a safe fallback to your default OG image
-  // This prevents Twitter/LinkedIn cards from breaking if a blog has no cover image
-  const image = getAbsoluteUrl(rawImageUrl) || `${SITE_URL}/og/og-default.png`;
+  const imageSource = getBlogImageSource(post);
+  const image = getOgImageUrl(imageSource) || `${SITE_URL}/og/og-default.png`;
 
   return {
     title,
@@ -53,8 +44,8 @@ export async function generateMetadata({
       description,
       url: `${SITE_URL}/blogs/${blogSlug}`,
       type: "article",
-      // Note: If your CMS provides publish dates, you can add `publishedTime: post.createdAt` here
       publishedTime: post.createdAt,
+      modifiedTime: post.updatedAt,
       images: [
         {
           url: image,
@@ -92,22 +83,14 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
 
-  // 3. Extract image again for the Schema (or handle it in a shared helper function)
-  const rawImageUrl =
-    typeof post.meta?.image === "object" && post.meta.image?.url
-      ? post.meta.image.url
-      : typeof post.heroImage === "object" && post.heroImage?.url
-        ? post.heroImage.url
-        : null;
+  const imageSource = getBlogImageSource(post);
+  const image = getOgImageUrl(imageSource) || `${SITE_URL}/og/og-default.png`;
 
-  const image = getAbsoluteUrl(rawImageUrl) || `${SITE_URL}/og/og-default.png`;
-
-  // 4. Generate BlogPosting Schema for Google
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: post.meta?.title || post.title,
-    description: post.meta?.description || post.excerpt || "",
+    headline: post?.meta?.title || post?.title,
+    description: post?.meta?.description || post?.excerpt || "",
     image: image,
     author: {
       "@type": "Organization",
@@ -126,9 +109,8 @@ export default async function Page({ params }: PageProps) {
       "@type": "WebPage",
       "@id": `${SITE_URL}/blogs/${blogSlug}`,
     },
-    // If your CMS returns a date, uncomment and map it like this:
-    datePublished: post.createdAt,
-    dateModified: post.updatedAt,
+    datePublished: post?.createdAt,
+    dateModified: post?.updatedAt,
   };
 
   return (

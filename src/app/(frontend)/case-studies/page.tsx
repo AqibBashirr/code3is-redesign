@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import CaseStudyPage from "@/features/case-study/components/CaseStudyPage";
 import { getCaseStudies } from "@/lib/cache/caseStudies";
@@ -12,14 +13,18 @@ type Props = {
   }>;
 };
 
+function getCanonical(page: number) {
+  return page > 1
+    ? `${SITE_URL}/case-studies?page=${page}`
+    : `${SITE_URL}/case-studies`;
+}
+
 export async function generateMetadata({
   searchParams,
 }: Props): Promise<Metadata> {
   const params = await searchParams;
-
   const currentPage = Number(params?.page) || 1;
 
-  // Optimized: Stronger SEO title highlighting your actual deliverables
   const title =
     currentPage > 1
       ? `Our Work & Case Studies - Page ${currentPage}`
@@ -28,13 +33,10 @@ export async function generateMetadata({
   const description =
     "Explore Code3IS's portfolio of custom web applications, brand identity systems, and digital marketing campaigns for clients across India, the UAE, and globally.";
 
-  const canonical =
-    currentPage > 1
-      ? `${SITE_URL}/case-studies?page=${currentPage}`
-      : `${SITE_URL}/case-studies`;
+  const canonical = getCanonical(currentPage);
 
-  // Optimized: Changed to match your global /og/og-default.png path
-  const defaultOgImage = getAbsoluteUrl("/og/og-default.png");
+  const defaultOgImage =
+    getAbsoluteUrl("/og/og-default.png") || `${SITE_URL}/og/og-default.png`;
 
   return {
     title,
@@ -52,7 +54,6 @@ export async function generateMetadata({
           url: defaultOgImage,
           width: 1200,
           height: 630,
-          // Fixed: Removed the hardcoded client name (Harmain Services)
           alt: "Code3IS Portfolio & Case Studies",
         },
       ],
@@ -64,10 +65,12 @@ export async function generateMetadata({
       images: [defaultOgImage],
     },
     robots: {
-      index: true,
+      // page 1 indexed; deeper pages noindex,follow to avoid thin-content dilution
+      // change to `true` unconditionally if you'd rather index every page
+      index: currentPage === 1,
       follow: true,
       googleBot: {
-        index: true,
+        index: currentPage === 1,
         follow: true,
         "max-image-preview": "large",
         "max-snippet": -1,
@@ -78,20 +81,27 @@ export async function generateMetadata({
 
 export default async function Page({ searchParams }: Props) {
   const params = await searchParams;
-
   const currentPage = Number(params?.page) || 1;
 
   const data = await getCaseStudies(currentPage);
 
-  // Generate Collection schema for the portfolio
+  // guard against out-of-range pages (e.g. ?page=999) returning an empty
+  // but 200-status page — only applies to page > 1 so an empty first
+  // page still renders normally
+  if (currentPage > 1 && data.docs.length === 0) {
+    notFound();
+  }
+
+  const canonical = getCanonical(currentPage);
+
   const portfolioSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "@id": `${SITE_URL}/case-studies#webpage`,
+    "@id": `${canonical}#webpage`,
     name: "Code3IS Portfolio & Case Studies",
     description:
       "Explore our latest case studies, client success stories, and digital transformation projects.",
-    url: `${SITE_URL}/case-studies`,
+    url: canonical,
   };
 
   const breadcrumbSchema = {

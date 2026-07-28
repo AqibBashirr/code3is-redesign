@@ -14,30 +14,28 @@ type Props = {
   }>;
 };
 
+function getCanonical(page: number) {
+  return page > 1 ? `${SITE_URL}/blogs?page=${page}` : `${SITE_URL}/blogs`;
+}
+
 export async function generateMetadata({
   searchParams,
 }: Props): Promise<Metadata> {
   const params = await searchParams;
-
   const currentPage = Number(params?.page) || 1;
 
-  // Optimized: Moved away from generic "Our Blog" to capture search intent for your services
   const title =
     currentPage > 1
       ? `Blog & Insights - Page ${currentPage}`
       : "Agency Blog: Web Apps, Branding & SEO Insights";
 
-  // Optimized: Aligned with your 4 pillars (Build, Design, Grow, Scale)
   const description =
     "Read the latest from Code3IS on custom web apps, UI/UX design, performance marketing, automation, and scaling your digital presence.";
 
-  const canonical =
-    currentPage > 1
-      ? `${SITE_URL}/blogs?page=${currentPage}`
-      : `${SITE_URL}/blogs`;
+  const canonical = getCanonical(currentPage);
 
-  // Optimized: Changed to match the /og/og-default.png used in your layout.tsx to prevent missing file 404s
-  const fallbackImage = getAbsoluteUrl("/og/og-default.png");
+  const fallbackImage =
+    getAbsoluteUrl("/og/og-default.png") || `${SITE_URL}/og/og-default.png`;
 
   return {
     title,
@@ -66,10 +64,10 @@ export async function generateMetadata({
       images: [fallbackImage],
     },
     robots: {
-      index: true,
+      index: currentPage === 1,
       follow: true,
       googleBot: {
-        index: true,
+        index: currentPage === 1,
         follow: true,
         "max-image-preview": "large",
         "max-snippet": -1,
@@ -80,24 +78,35 @@ export async function generateMetadata({
 
 export default async function Page({ searchParams }: Props) {
   const params = await searchParams;
-
   const currentPage = Number(params?.page) || 1;
 
   const data = await getBlogs(currentPage);
 
-  if (!data.docs.length) {
+  // only 404 empty *deeper* pages — page 1 with zero posts still renders
+  // (an empty-state UI), rather than 404ing a brand-new/emptied blog section
+  if (currentPage > 1 && !data.docs.length) {
     notFound();
   }
+
+  const canonical = getCanonical(currentPage);
 
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "@id": `${SITE_URL}/blogs#blog`,
+    "@id": `${canonical}#blog`,
     name: "Code3IS Blog",
     description:
       "Expert insights on custom web apps, UI/UX, SEO, and automation.",
-    url: `${SITE_URL}/blogs`,
-    publisher: { "@id": `${SITE_URL}/#organization` },
+    url: canonical,
+    publisher: {
+      "@type": "Organization",
+      name: "Code3 Innovative Solutions",
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/logos/company-logos/code3is-logo.svg`,
+      },
+    },
   };
 
   const breadcrumbSchema = {
