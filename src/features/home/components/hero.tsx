@@ -18,7 +18,7 @@ export default function HeroSection() {
         </>
       }
       // 3. Pass the subtitle
-      subtitle="Web Development, Branding & Performance Marketing  Kashmir to the UAE"
+      subtitle="Web Development, Branding & Performance Marketing"
       // 4. Pass the buttons you want to use
       buttons={
         <>
