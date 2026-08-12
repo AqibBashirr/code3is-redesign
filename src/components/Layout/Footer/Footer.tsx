@@ -120,7 +120,7 @@ function Footer() {
           <div className="mx-auto max-w-max px-x flex justify-center lg:justify-between gap-2.5 md:gap-6 items-center font-thin leading-7.5 flex-wrap">
             <p className="flex flex-col sm:flex-row gap-0 sm:gap-1 items-center">
               <span>Copyright © {CURRENT_YEAR} </span>{" "}
-              <span>Code3 Innovative Solutions pvt. Ltd</span>
+              <span>Code3 Innovative Solutions pvt. ltd</span>
             </p>
 
             {/* SEMANTIC FIX: Added aria-label to distinguish from Quick Links nav */}

@@ -8,7 +8,7 @@ function TrustedBy() {
   return (
     <section>
       <BodyText className="text-center mb-content-gap px-x">
-        Trusted by growing businesses across Kashmir, India, and the UAE.
+        Trusted by growing businesses worldwide.
       </BodyText>
       <div className=" bg-secondary-background  py-4 lg:py-12 box">
         <div

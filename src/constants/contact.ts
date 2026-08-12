@@ -9,8 +9,8 @@ export const CONTACT_DETAILS = [
   {
     type: "email",
     icon:Mail,
-    label: "contactc3@c3is.in",
-    href: "mailto:contactc3@c3is.in",
+    label: "contact@c3is.in",
+    href: "mailto:contact@c3is.in",
   },
   {
     type: "address",
