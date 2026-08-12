@@ -43,9 +43,11 @@ const getCachedSitemapData = unstable_cache(
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { blogs, caseStudies } = await getCachedSitemapData();
+
   const now = new Date();
 
   const routes: MetadataRoute.Sitemap = [
+    // Main pages
     {
       url: SITE_URL,
       lastModified: now,
@@ -65,17 +67,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
-      url: `${SITE_URL}/blogs`,
-      lastModified: now,
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    {
       url: `${SITE_URL}/case-studies`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    {
+      url: `${SITE_URL}/blogs`,
+      lastModified: now,
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+
+    // HTML sitemap
+    {
+      url: `${SITE_URL}/sitemap`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+
+    // Legal
     {
       url: `${SITE_URL}/privacy-policy`,
       lastModified: now,
@@ -90,22 +102,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
+  // Blog posts
   routes.push(
-    ...blogs.docs.map((blog) => ({
-      url: `${SITE_URL}/blogs/${blog.slug}`,
-      lastModified: blog.updatedAt ? new Date(blog.updatedAt) : now,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    })),
+    ...blogs.docs
+      .filter((blog) => blog.slug)
+      .map((blog) => ({
+        url: `${SITE_URL}/blogs/${blog.slug}`,
+        lastModified: blog.updatedAt ? new Date(blog.updatedAt) : now,
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
+      })),
   );
 
+  // Case studies
   routes.push(
-    ...caseStudies.docs.map((project) => ({
-      url: `${SITE_URL}/case-studies/${project.slug}`,
-      lastModified: project.updatedAt ? new Date(project.updatedAt) : now,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    })),
+    ...caseStudies.docs
+      .filter((caseStudy) => caseStudy.slug)
+      .map((caseStudy) => ({
+        url: `${SITE_URL}/case-studies/${caseStudy.slug}`,
+        lastModified: caseStudy.updatedAt ? new Date(caseStudy.updatedAt) : now,
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
+      })),
   );
 
   return routes;
