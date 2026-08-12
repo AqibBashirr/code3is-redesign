@@ -31,7 +31,7 @@ export const DEFAULT_OVERLAY: CarouselOverlayOptions = {
   stacks: true,
 
   visitButton: true,
-
+  showTextWhenNoIcon: false,
   gradient: false,
 
   position: "bottom-left",

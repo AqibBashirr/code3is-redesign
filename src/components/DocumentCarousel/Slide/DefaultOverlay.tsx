@@ -40,7 +40,6 @@ export default function DefaultOverlay({
   if (!overlay.enabled) {
     return null;
   }
-
   return (
     <>
       {/* ---------------- Badge ---------------- */}
@@ -94,6 +93,7 @@ export default function DefaultOverlay({
           {overlay.stacks && (
             <DefaultStacks
               item={item}
+              showTextWhenNoIcon={overlay.showTextWhenNoIcon}
               className=" gap-[clamp(13px,1.8vw,18px)] shrink-0"
             />
           )}

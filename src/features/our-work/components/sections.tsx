@@ -62,6 +62,7 @@ function Sections({ sections }: SectionsProps) {
                 stacks: index === 0 ? true : false,
                 visitButton: index === 0 ? true : false,
               }}
+              
               behavior={{ autoPlay: false, loop: true }}
               items={projects}
             />

@@ -10,12 +10,14 @@ interface DefaultStacksProps {
   };
   className?: string;
   iconClassName?: string;
+  showTextWhenNoIcon?: boolean;
 }
 
 export default function DefaultStacks({
   item,
   className,
   iconClassName,
+  showTextWhenNoIcon = false,
 }: DefaultStacksProps) {
   if (!item.stacks?.length) {
     return null;
@@ -29,7 +31,6 @@ export default function DefaultStacks({
       )}
     >
       {item.stacks.map((stack, index) => {
-        // Defensive check: If depth wasn't deep enough, Payload returns just the ID string
         if (typeof stack === "string") {
           console.warn(
             `Stack relationship not fully populated. Found ID: ${stack}`,
@@ -37,35 +38,33 @@ export default function DefaultStacks({
           return null;
         }
 
-        // Use the full Media object or icon string
         const icon = stack.icon;
         const altText = stack.name || "technology stack";
+        const key = stack.id || `stack-${index}`;
 
-        // If icon is missing, show stack name as text fallback
+        // No image available
         if (!icon) {
-          console.warn(
-            `Missing icon image for stack: ${stack.name || stack.id}`,
-          );
+          if (!showTextWhenNoIcon) {
+            return null;
+          }
+
           return (
             <div
-              key={stack.id || `stack-${index}`}
+              key={key}
               className={cn(
                 "flex items-center justify-center px-2 py-1 rounded-md bg-offblack text-white text-xs font-medium",
                 iconClassName,
               )}
               title={altText}
             >
-              {stack.name || stack.id}
+              {altText}
             </div>
           );
         }
 
+        // Image available
         return (
-          <div
-            key={stack.id || `stack-${index}`}
-            title={altText}
-            className="group relative"
-          >
+          <div key={key} title={altText} className="group relative">
             <AdvanceImage
               src={icon}
               alt={altText}
@@ -77,7 +76,8 @@ export default function DefaultStacks({
                 iconClassName,
               )}
             />
-            {/* Tooltip on hover */}
+
+            {/* Tooltip */}
             <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block bg-offBlack-color/60 text-white text-xs px-2 py-1 rounded whitespace-nowrap pointer-events-none z-10">
               {altText}
             </div>

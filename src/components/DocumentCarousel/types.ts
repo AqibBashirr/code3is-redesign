@@ -24,7 +24,14 @@ export interface CarouselCTA {
   href: string;
   label?: string;
   target?: React.HTMLAttributeAnchorTarget;
-  rel?: 'nofollow' | 'noopener' | 'noreferrer' | 'nofollow noopener' | 'nofollow noreferrer' | 'noopener noreferrer' | 'nofollow noopener noreferrer';
+  rel?:
+    | "nofollow"
+    | "noopener"
+    | "noreferrer"
+    | "nofollow noopener"
+    | "nofollow noreferrer"
+    | "noopener noreferrer"
+    | "nofollow noopener noreferrer";
 }
 
 /* -------------------------------------------------------------------------- */
@@ -53,7 +60,7 @@ export interface CarouselDocument {
   category?: string;
 
   stacks?: CarouselStack[];
-
+  showTextWhenNoIcon?: boolean;
   /**
    * New API
    */
@@ -114,7 +121,7 @@ export interface CarouselOverlayOptions {
   gradient?: boolean;
 
   position?: OverlayPosition;
-  
+  showTextWhenNoIcon?: boolean;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -218,6 +225,7 @@ export interface DocumentCarouselProps {
   slots?: CarouselSlots;
 
   events?: CarouselEvents;
+  
 }
 
 /* -------------------------------------------------------------------------- */
@@ -271,8 +279,6 @@ export interface UseCarouselProps {
 
   onSlideChange?: (index: number) => void;
 }
-
-
 
 export interface UseCarouselReturn {
   scrollRef: RefObject<HTMLDivElement | null>;
