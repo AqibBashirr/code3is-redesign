@@ -58,23 +58,28 @@ function Footer() {
             </nav>
             {/* Quick LInks end */}
 
-            {/* Contact DEtails */}
+            {/* Contact Details */}
             <address className="max-w-75 order-2 md:order-3 not-italic">
-              <ul className="grid grid-cols-[24px_1fr] gap-2.5 md:gap-5 ">
+              <ul className="grid grid-cols-[24px_1fr] gap-2.5 md:gap-5">
                 {CONTACT_DETAILS.map((detail) => {
                   const Icon =
                     Icons[detail.type.toLowerCase() as keyof typeof Icons];
+
                   return (
                     <li
                       key={detail.type}
                       className="col-span-2 grid grid-cols-subgrid gap-2 items-center group"
                     >
-                      <Icon className="w-[clamp(16px,2vw,22px)] transition-colors duration-300 group-hover:text-highlight-text-color group-active:text-highlight-text-color group-focus:text-highlight-color" />
+                      <Icon
+                        aria-hidden="true"
+                        className="w-[clamp(16px,2vw,22px)] transition-colors duration-300 group-hover:text-highlight-text-color group-active:text-highlight-text-color group-focus:text-highlight-color"
+                      />
 
                       <a
                         href={detail.href}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`${detail.label} (opens in a new window)`}
                         className="group-hover:text-highlight-text-color group-active:text-highlight-text-color active:text-highlight-text-color"
                       >
                         {detail.label}
@@ -86,14 +91,12 @@ function Footer() {
             </address>
             {/* Contact Details End */}
 
-            {/* social media links */}
-            {/* SEMANTIC FIX: Changed <div> to <nav> and added aria-label */}
+            {/* Social Media Links */}
             <nav
               aria-label="Social Media"
               className="flex flex-row lg:flex-col gap-5 order-4 items-end"
             >
               {SOCIALS.map((social) => {
-                // 'as keyof typeof Social' tells TypeScript this string is a valid key in your Social object
                 const Icon =
                   Icons[social.label.toLowerCase() as keyof typeof Icons];
 
@@ -103,15 +106,18 @@ function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Code3is ${social.label} page`}
+                    aria-label={`Code3is ${social.label} page (opens in a new window)`}
                     className="inline-block group active:text-highlight-text-color focus:text-highlight-color"
                   >
-                    <Icon className="w-5 sm:w-7.5 transition-colors duration-300 group-hover:text-highlight-text-color group-active:text-highlight-text-color active:text-highlight-text-color" />
+                    <Icon
+                      aria-hidden="true"
+                      className="w-5 sm:w-7.5 transition-colors duration-300 group-hover:text-highlight-text-color group-active:text-highlight-text-color active:text-highlight-text-color"
+                    />
                   </a>
                 );
               })}
             </nav>
-            {/* social media links end */}
+            {/* Social Media Links End */}
           </div>
         </div>
 

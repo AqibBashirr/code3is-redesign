@@ -6,7 +6,7 @@ function TrustedBy() {
   const logos_length = CLIENT_LOGOS.length;
   const time = logos_length*4;
   return (
-    <section>
+    <div>
       <BodyText className="text-center mb-content-gap px-x">
         Trusted by growing businesses worldwide.
       </BodyText>
@@ -41,7 +41,7 @@ function TrustedBy() {
           </ul>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 

@@ -1,21 +1,20 @@
 "use client";
 
 interface WhatsAppButtonProps {
-  MobileNumber?:string;
-  initialMessage?: string; 
+  MobileNumber?: string;
+  initialMessage?: string;
 }
 
 export default function WhatsAppButton({
   MobileNumber,
   initialMessage = "Hello! I am looking for details regarding your services.",
 }: WhatsAppButtonProps) {
-  
-  const phoneNumber = MobileNumber??process.env.NEXT_PUBLIC_WHATSAPP_PHONE;
+  const phoneNumber = MobileNumber ?? process.env.NEXT_PUBLIC_WHATSAPP_PHONE;
 
   // If the environment variable is missing, don't render the button
   if (!phoneNumber) {
     console.warn(
-      "WhatsAppButton: NEXT_PUBLIC_WHATSAPP_PHONE is not defined in your environment variables."
+      "WhatsAppButton: NEXT_PUBLIC_WHATSAPP_PHONE is not defined in your environment variables.",
     );
     return null;
   }
@@ -30,19 +29,23 @@ export default function WhatsAppButton({
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
+        aria-label="Chat on WhatsApp (opens in a new window)"
         className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_4px_14px_rgba(37,211,102,0.4)] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-110 hover:shadow-[0_6px_20px_rgba(37,211,102,0.6)] active:scale-95"
       >
         {/* Subtle background pulse aura on hover */}
         <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-[#25D366] opacity-0 transition-opacity duration-300 group-hover:opacity-20 group-hover:duration-1000" />
 
         {/* Premium Tooltip */}
-        <span className="absolute right-full mr-3 scale-95 rounded-lg bg-secondary-background px-3 py-1.5 text-xs font-inter text-off-white-color opacity-0 shadow-lg border border-white/5 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] pointer-events-none group-hover:scale-100 group-hover:opacity-100 whitespace-nowrap">
+        <span
+          aria-hidden="true"
+          className="absolute right-full mr-3 scale-95 rounded-lg bg-secondary-background px-3 py-1.5 text-xs font-inter text-off-white-color opacity-0 shadow-lg border border-white/5 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] pointer-events-none group-hover:scale-100 group-hover:opacity-100 whitespace-nowrap"
+        >
           Chat with us
         </span>
 
         {/* SVG WhatsApp Clean Icon */}
         <svg
+          aria-hidden="true"
           className="h-7 w-7 transition-transform duration-300 group-hover:rotate-[8deg]"
           fill="currentColor"
           viewBox="0 0 24 24"

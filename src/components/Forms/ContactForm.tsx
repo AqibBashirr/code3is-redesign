@@ -56,8 +56,6 @@ export default function ContactForm() {
 
   return (
     <>
-      
-
       {/* Applied Tailwind canonical class suggestions (e.g. max-w-139.5) */}
       <div className="relative max-w-139.5 lg:w-[84%] w-full font-sans">
         <div className="relative bg-[radial-gradient(circle,#3D3D3D,#1F1F1F)] p-7 md:p-9 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/5 overflow-hidden">
@@ -93,7 +91,6 @@ export default function ContactForm() {
                 id="name"
                 name="name"
                 required
-                aria-required="true"
                 disabled={isSubmitting}
                 className="w-full bg-[#1e1e1e] border border-[#5C5C5C] rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               />
@@ -107,7 +104,6 @@ export default function ContactForm() {
                 id="email"
                 name="email"
                 required
-                aria-required="true"
                 disabled={isSubmitting}
                 className="w-full bg-[#1e1e1e] border border-[#5C5C5C] rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               />
@@ -134,7 +130,6 @@ export default function ContactForm() {
                   name="projectType"
                   defaultValue=""
                   required
-                  aria-required="true"
                   disabled={isSubmitting}
                   className="w-full bg-[#1e1e1e] border border-[#5C5C5C] rounded-md px-3.5 py-3 pr-10 text-white/40 text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/30 transition-all appearance-none cursor-pointer capitalize disabled:opacity-30 disabled:cursor-not-allowed"
                 >
@@ -178,7 +173,6 @@ export default function ContactForm() {
                 name="details"
                 rows={4}
                 required
-                aria-required="true"
                 disabled={isSubmitting}
                 className="w-full bg-[#1e1e1e] border border-[#5C5C5C] rounded-md px-3.5 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/30 transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed scrollbar-thumb-secondary-background"
               ></textarea>

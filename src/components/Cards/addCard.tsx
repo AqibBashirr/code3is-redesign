@@ -61,8 +61,8 @@ export default function PortfolioCard({ card }: cardProps ) {
 
       {/* --- 4. THE BUTTON --- */}
       {/* Mobile: 32px button (8px radius). Desktop: 64px button (14px radius). */}
-      <button
-        className="absolute bottom-0 left-0 w-[32px] h-[32px] md:w-[64px] md:h-[64px] bg-overlay-card rounded-[8px] md:rounded-[14px] flex items-center justify-center shadow-md z-20 group-hover:bg-[#404144] transition-all duration-300"
+      <div
+        className="absolute bottom-0 left-0 w-[32px] h-[32px] md:w-[64px] md:h-[64px] bg-overlay-card rounded-[8px] md:rounded-[14px] flex items-center justify-center shadow-md z-20 group-hover:bg-[#404144] transition-all duration-300 cursor-pointer"
         aria-label={`View ${card.title} Projects`}
       >
         <svg
@@ -76,7 +76,7 @@ export default function PortfolioCard({ card }: cardProps ) {
         >
           <path d="M7 17L17 7M17 7H7M17 7V17" />
         </svg>
-      </button>
+      </div>
     </Link>
   );
 }
