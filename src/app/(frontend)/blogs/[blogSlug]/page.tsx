@@ -20,32 +20,53 @@ export async function generateMetadata({
 
   const post = await getBlog(blogSlug);
 
+  // Blog doesn't exist
   if (!post) {
     return {
       title: "Blog Not Found",
       description: "The requested blog could not be found.",
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
   const title = post.meta?.title || post.title;
+
   const description = post.meta?.description || post.excerpt || "";
 
   const imageSource = getBlogImageSource(post);
+
   const image = getOgImageUrl(imageSource) || `${SITE_URL}/og/og-default.png`;
+
+  const canonicalUrl = `${SITE_URL}/blogs/${post.slug}`;
 
   return {
     title,
     description,
+
+    authors: [
+      {
+        name: "Code3 Innovative Solutions",
+        url: SITE_URL,
+      },
+    ],
+
     alternates: {
-      canonical: `${SITE_URL}/blogs/${blogSlug}`,
+      canonical: canonicalUrl,
     },
+
     openGraph: {
       title,
       description,
-      url: `${SITE_URL}/blogs/${blogSlug}`,
+      url: canonicalUrl,
+      siteName: "Code3 Innovative Solutions",
       type: "article",
+
       publishedTime: post.createdAt,
       modifiedTime: post.updatedAt,
+
       images: [
         {
           url: image,
@@ -55,15 +76,18 @@ export async function generateMetadata({
         },
       ],
     },
+
     twitter: {
       card: "summary_large_image",
       title,
       description,
       images: [image],
     },
+
     robots: {
       index: true,
       follow: true,
+
       googleBot: {
         index: true,
         follow: true,
@@ -84,38 +108,51 @@ export default async function Page({ params }: PageProps) {
   }
 
   const imageSource = getBlogImageSource(post);
+
   const image = getOgImageUrl(imageSource) || `${SITE_URL}/og/og-default.png`;
+
+  const canonicalUrl = `${SITE_URL}/blogs/${post.slug}`;
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: post?.meta?.title || post?.title,
-    description: post?.meta?.description || post?.excerpt || "",
-    image: image,
+
+    headline: post.meta?.title || post.title,
+
+    description: post.meta?.description || post.excerpt || "",
+
+    image,
+
     author: {
       "@type": "Organization",
       name: "Code3 Innovative Solutions",
       url: SITE_URL,
     },
+
     publisher: {
       "@type": "Organization",
       name: "Code3 Innovative Solutions",
+      url: SITE_URL,
+
       logo: {
         "@type": "ImageObject",
         url: `${SITE_URL}/logos/company-logos/code3is-logo.svg`,
       },
     },
+
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${SITE_URL}/blogs/${blogSlug}`,
+      "@id": canonicalUrl,
     },
-    datePublished: post?.createdAt,
-    dateModified: post?.updatedAt,
+
+    datePublished: post.createdAt,
+    dateModified: post.updatedAt,
   };
 
   return (
     <>
       <JsonLd data={articleSchema} />
+
       <BlogPage Blog={post} />
     </>
   );

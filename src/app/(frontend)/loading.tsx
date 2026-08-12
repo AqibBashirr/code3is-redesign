@@ -13,21 +13,42 @@ export default function Loading() {
   }, []);
 
   return (
-    <section role="status" aria-label="Loading content" aria-busy="true">
-      {/* Accessible loading announcement */}
-      <span className="sr-only">Loading content, please wait.</span>
-
-      <div aria-hidden="true">
+    <section
+      role="status"
+      aria-label="Loading content"
+      aria-busy="true"
+      className="relative min-h-[80vh] flex flex-col items-center justify-center text-center overflow-hidden bg-[#1e1e1e] mx-5 md:mx-6.25 mt-5.5 rounded-[10px] px-4 py-28 md:py-29.75 animate-pulse"
+    >
+      <span className="sr-only invisible">Loading content, please wait.</span>
+      <div
+        aria-hidden="true"
+        className="relative z-10 flex flex-col items-center w-full mx-auto"
+      >
         {/* Skeleton for Title */}
-        <div className="h-10 w-full max-w-175 bg-gray-800/50 rounded-md mb-5" />
+        <div
+          aria-hidden="true"
+          className="h-15 md:h-20 w-full max-w-150 bg-gray-700/50 rounded-md mb-5 md:mb-6"
+        ></div>
 
         {/* Skeleton for Subtitle */}
-        <div className="h-5.5 w-full max-w-125 bg-gray-800/50 rounded-md mb-10 md:mb-14.25" />
+        <div
+          aria-hidden="true"
+          className="h-5.5 w-full max-w-125 bg-gray-800/50 rounded-md mb-10 md:mb-14.25"
+        ></div>
 
         {/* Skeleton for Buttons */}
-        <div className="grid gap-4 w-full max-w-55 mx-auto md:max-w-none md:w-fit md:grid-flow-col items-center">
-          <div className="h-12 w-55 md:w-45 bg-gray-700/50 rounded" />
-          <div className="h-12 w-55 md:w-45 bg-gray-700/50 rounded" />
+        <div
+          aria-hidden="true"
+          className="grid gap-4 w-full max-w-55 mx-auto md:max-w-none md:w-fit md:grid-flow-col items-center"
+        >
+          <div
+           
+            className="h-12 w-55 md:w-45 bg-gray-700/50 rounded"
+          ></div>
+          <div
+            
+            className="h-12 w-55 md:w-45 bg-gray-700/50 rounded"
+          ></div>
         </div>
       </div>
     </section>
