@@ -1,9 +1,21 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.5.15,
+* Autoprefixer: v10.5.0
+* Browsers: last 4 version
+*/
+
 body {
   background: var(--background);
   color: var(--font-primary-color);
   font-family: var(--font-poppins), sans-serif;
   font-size: clamp(14px, 2vw, 16px);
   line-height: 1.6;
+}
+
+::-moz-selection {
+  background: var(--highlight-color);
+  color: #fff;
 }
 
 ::selection {
@@ -26,18 +38,37 @@ header::after {
   background: var(--highlight-color);
   z-index: 9;
 
-  transform-origin: left;
-  animation: grow-progress linear;
+  -webkit-transform-origin: left;
+
+      -ms-transform-origin: left;
+
+          transform-origin: left;
+  -webkit-animation: grow-progress linear;
+          animation: grow-progress linear;
   animation-timeline: scroll();
+}
+
+@-webkit-keyframes grow-progress {
+  from {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+
+  to {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
 }
 
 @keyframes grow-progress {
   from {
-    transform: scaleX(0);
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
   }
 
   to {
-    transform: scaleX(1);
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
   }
 }
 
@@ -50,19 +81,40 @@ header::after {
     will-change: opacity, transform;
 
     opacity: var(--opacity, 0);
-    transform: translate(var(--x, 0), var(--y, 30px))
+    -webkit-transform: translate(var(--x, 0), var(--y, 30px))
       scale(var(--scale, 1));
+        -ms-transform: translate(var(--x, 0), var(--y, 30px))
+      scale(var(--scale, 1));
+            transform: translate(var(--x, 0), var(--y, 30px))
+      scale(var(--scale, 1));
+
+    -webkit-transition:
+      opacity var(--duration, 1s) ease-out,
+      -webkit-transform var(--duration, 1s) ease-out;
+
+    transition:
+      opacity var(--duration, 1s) ease-out,
+      -webkit-transform var(--duration, 1s) ease-out;
 
     transition:
       opacity var(--duration, 1s) ease-out,
       transform var(--duration, 1s) ease-out;
 
-    transition-delay: var(--delay, 0s);
+    transition:
+      opacity var(--duration, 1s) ease-out,
+      transform var(--duration, 1s) ease-out,
+      -webkit-transform var(--duration, 1s) ease-out;
+
+    -webkit-transition-delay: var(--delay, 0s);
+
+            transition-delay: var(--delay, 0s);
   }
 
   .reveal-wrapper.is-visible {
     opacity: 1;
-    transform: translate(0, 0) scale(1);
+    -webkit-transform: translate(0, 0) scale(1);
+        -ms-transform: translate(0, 0) scale(1);
+            transform: translate(0, 0) scale(1);
   }
 
   /* =========================
@@ -72,12 +124,30 @@ header::after {
   .scroller[data-animated="true"] {
     overflow: hidden;
 
+    -webkit-mask: -webkit-gradient(
+      linear,
+      left top, right top,
+      from(transparent),
+      color-stop(20%, white),
+      color-stop(80%, white),
+      to(transparent)
+    );
+
     -webkit-mask: linear-gradient(
       90deg,
       transparent,
       white 20%,
       white 80%,
       transparent
+    );
+
+    mask: -webkit-gradient(
+      linear,
+      left top, right top,
+      from(transparent),
+      color-stop(10%, white),
+      color-stop(90%, white),
+      to(transparent)
     );
 
     mask: linear-gradient(
@@ -90,12 +160,22 @@ header::after {
   }
 
   .scroller[data-animated="true"] .scroller__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
     gap: clamp(45px, 10vw, 140px);
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
 
-    animation: infinite-scroll
+    -webkit-animation: infinite-scroll
+      var(--_animation-duration, 40s)
+      linear
+      infinite;
+
+            animation: infinite-scroll
       var(--_animation-duration, 40s)
       linear
       infinite;
@@ -103,14 +183,31 @@ header::after {
 }
 
 .scroller__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 36px;
+}
+
+@-webkit-keyframes infinite-scroll {
+  to {
+    -webkit-transform: translateX(
+      calc(-50% - (clamp(45px, 10vw, 140px) / 2))
+    );
+            transform: translateX(
+      calc(-50% - (clamp(45px, 10vw, 140px) / 2))
+    );
+  }
 }
 
 @keyframes infinite-scroll {
   to {
-    transform: translateX(
+    -webkit-transform: translateX(
+      calc(-50% - (clamp(45px, 10vw, 140px) / 2))
+    );
+            transform: translateX(
       calc(-50% - (clamp(45px, 10vw, 140px) / 2))
     );
   }
@@ -121,6 +218,15 @@ header::after {
 ========================= */
 
 .services-mask {
+  mask-image: -webkit-gradient(
+    linear,
+    left top, left bottom,
+    from(transparent),
+    color-stop(15%, rgba(0, 0, 0, 0.25)),
+    color-stop(50%, #000),
+    color-stop(85%, rgba(0, 0, 0, 0.25)),
+    to(transparent)
+  );
   mask-image: linear-gradient(
     to bottom,
     transparent,
@@ -128,6 +234,16 @@ header::after {
     #000 50%,
     rgba(0, 0, 0, 0.25) 85%,
     transparent
+  );
+
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left top, left bottom,
+    from(transparent),
+    color-stop(15%, rgba(0, 0, 0, 0.25)),
+    color-stop(50%, #000),
+    color-stop(85%, rgba(0, 0, 0, 0.25)),
+    to(transparent)
   );
 
   -webkit-mask-image: linear-gradient(
@@ -149,34 +265,68 @@ header::after {
 } */
 
 .page-exit {
-  animation: fade-out 0.4s ease-in-out forwards;
+  -webkit-animation: fade-out 0.4s ease-in-out forwards;
+          animation: fade-out 0.4s ease-in-out forwards;
 }
 
 .page-enter,.animate-page-enter {
-  animation: fade-in 0.4s ease-in-out forwards;
+  -webkit-animation: fade-in 0.4s ease-in-out forwards;
+          animation: fade-in 0.4s ease-in-out forwards;
+}
+
+@-webkit-keyframes fade-out {
+  from {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
 }
 
 @keyframes fade-out {
   from {
     opacity: 1;
-    transform: translateY(0);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 
   to {
     opacity: 0;
-    transform: translateY(20px);
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 
@@ -202,27 +352,68 @@ header::after {
   }
 }
 
-@keyframes organic-drift {
+@-webkit-keyframes organic-drift {
   0% {
-    transform: translate(0px, 0px) scale(1) rotate(0deg);
+    -webkit-transform: translate(0px, 0px) scale(1) rotate(0deg);
+            transform: translate(0px, 0px) scale(1) rotate(0deg);
   }
   33% {
     /* Multiply the distance by the scale */
-    transform: translate(
+    -webkit-transform: translate(
+      calc(var(--tx1) * var(--move-scale)), 
+      calc(var(--ty1) * var(--move-scale))
+    ) scale(1.25) rotate(var(--r1));
+            transform: translate(
       calc(var(--tx1) * var(--move-scale)), 
       calc(var(--ty1) * var(--move-scale))
     ) scale(1.25) rotate(var(--r1));
   }
   66% {
-    transform: translate(
+    -webkit-transform: translate(
+      calc(var(--tx2) * var(--move-scale)), 
+      calc(var(--ty2) * var(--move-scale))
+    ) scale(0.8) rotate(var(--r2));
+            transform: translate(
       calc(var(--tx2) * var(--move-scale)), 
       calc(var(--ty2) * var(--move-scale))
     ) scale(0.8) rotate(var(--r2));
   }
   100% {
-    transform: translate(0px, 0px) scale(1) rotate(0deg);
+    -webkit-transform: translate(0px, 0px) scale(1) rotate(0deg);
+            transform: translate(0px, 0px) scale(1) rotate(0deg);
   }
 }
 
+@keyframes organic-drift {
+  0% {
+    -webkit-transform: translate(0px, 0px) scale(1) rotate(0deg);
+            transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  33% {
+    /* Multiply the distance by the scale */
+    -webkit-transform: translate(
+      calc(var(--tx1) * var(--move-scale)), 
+      calc(var(--ty1) * var(--move-scale))
+    ) scale(1.25) rotate(var(--r1));
+            transform: translate(
+      calc(var(--tx1) * var(--move-scale)), 
+      calc(var(--ty1) * var(--move-scale))
+    ) scale(1.25) rotate(var(--r1));
+  }
+  66% {
+    -webkit-transform: translate(
+      calc(var(--tx2) * var(--move-scale)), 
+      calc(var(--ty2) * var(--move-scale))
+    ) scale(0.8) rotate(var(--r2));
+            transform: translate(
+      calc(var(--tx2) * var(--move-scale)), 
+      calc(var(--ty2) * var(--move-scale))
+    ) scale(0.8) rotate(var(--r2));
+  }
+  100% {
+    -webkit-transform: translate(0px, 0px) scale(1) rotate(0deg);
+            transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+}
 
 
