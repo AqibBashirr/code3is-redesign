@@ -44,12 +44,12 @@ function BlogCard({ project, index }: BlogCardProps) {
             {Data}
           </time>
 
-          <h3
+          <h2
             id={`card-title-${logoAlt}`}
             className="font-raleway text-[clamp(16px,2vw,22px)] font-semibold leading-[calc(clamp(16px,2vw,22px)+12px)] transition-colors duration-500 group-hover:text-black/90 capitalize"
           >
             {project.title}
-          </h3>
+          </h2>
           <BodyText className="mb-2.5 line-clamp-3 text-form-text-size leading-[calc(var(--form-label-size)+12px)]">
             {project.excerpt}
           </BodyText>

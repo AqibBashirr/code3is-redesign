@@ -53,9 +53,9 @@ function CaseStudies({ data }: CaseStudiesProps) {
                 <HeadingPill className="font-poppins">
                   Case Study {padded}
                 </HeadingPill>
-                <h3 className="font-raleway text-[clamp(16px,2vw,22px)] font-semibold leading-[calc(clamp(16px,2vw,22px)+12px)] transition-colors duration-500 group-hover:text-black/90 capitalize">
+                <h2 className="font-raleway text-[clamp(16px,2vw,22px)] font-semibold leading-[calc(clamp(16px,2vw,22px)+12px)] transition-colors duration-500 group-hover:text-black/90 capitalize">
                   {project.title} {project.titleHighlight}
-                </h3>
+                </h2>
                 <BodyText className="mb-0.5 line-clamp-3 text-form-text-size leading-[calc(var(--form-label-size)+12px)]">
                   {project.description}
                 </BodyText>

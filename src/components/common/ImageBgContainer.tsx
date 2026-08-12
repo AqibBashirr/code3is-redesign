@@ -10,7 +10,7 @@ interface ImageBgContainerProps extends AdvanceImageProps {
 
 function ImageBgContainer({className,bgClass,src,alt,...props}:ImageBgContainerProps) {
   return (
-    <div className={cn(" overflow-clip rounded-[10px] bg-linear-to-b from-[#EAE9E5] to-[#FBFBFB]  border border-overlay-card/5", bgClass)}>
+    <div className={cn(" overflow-hidden rounded-[10px] bg-linear-to-b from-[#EAE9E5] to-[#FBFBFB]  border border-overlay-card/5", bgClass)}>
     
       <AdvanceImage
         src={src}

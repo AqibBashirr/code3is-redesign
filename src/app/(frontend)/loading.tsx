@@ -16,7 +16,7 @@ export default function Loading() {
     <section className="relative min-h-[80vh] flex flex-col items-center justify-center text-center overflow-hidden bg-[#1e1e1e] mx-5 md:mx-6.25 mt-5.5 rounded-[10px] px-4 py-28 md:py-29.75 animate-pulse">
       <div className="relative z-10 flex flex-col items-center w-full mx-auto">
         {/* Skeleton for Title */}
-        <div className="h-15 md:h-20 w-full max-w-150 bg-gray-700/50 rounded-md mb-5 md:mb-6"></div>
+        <h2 className="h-15 md:h-20 w-full max-w-150 bg-gray-700/50 rounded-md mb-5 md:mb-6"></h2>
 
         {/* Skeleton for Subtitle */}
         <div className="h-5.5 w-full max-w-125 bg-gray-800/50 rounded-md mb-10 md:mb-14.25"></div>
