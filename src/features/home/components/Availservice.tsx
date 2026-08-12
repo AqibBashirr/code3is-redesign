@@ -44,7 +44,7 @@ export default function AvailService() {
 
           {/* Right Animated Services */}
           <div className="services-mask hidden h-116 overflow-hidden md:block">
-            <div className="flex flex-col animate-services-scroll">
+            <div className="flex flex-col  animate-services-scroll motion-reduce:animate-none">
               {[...SERVICES, ...SERVICES].map((service, index) => (
                 <span
                   key={`${service}-${index}`}
