@@ -236,7 +236,7 @@ export default function AdvanceImage({
         height={fill ? undefined : height}
         fill={fill}
         className={className}
-        priority={priority}
+        preload={priority}
         loading={loading}
         fetchPriority={fetchPriority}
         sizes={finalSizes}

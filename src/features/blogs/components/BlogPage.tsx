@@ -30,6 +30,8 @@ function BlogPage({ Blog }: BlogPageProps) {
     <div>
       <div className=" pt-4 px-5.5 max-w-max mx-auto">
         <AdvanceImage
+          variant="card"
+          
           src={Blog.heroImage}
           width={1400}
           height={540}
