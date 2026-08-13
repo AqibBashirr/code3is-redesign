@@ -1,2 +1,2 @@
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://code3is.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.code3is.com";
