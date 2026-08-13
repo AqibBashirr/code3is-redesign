@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     url: "https://www.code3is.com/",
     title: "Code3IS | Web Apps, Branding & Performance Marketing",
     description:
-      "Transforming complex challenges into seamless digital systems. We offer custom web development, UI/UX design, SEO, and automation from Kashmir to the UAE.",
+      "Transforming complex challenges into seamless digital systems. We offer custom web development, UI/UX design, SEO, and automation from all Around the World",
     images: [
       {
         url: getAbsoluteUrl("/og/og-default.png"),
