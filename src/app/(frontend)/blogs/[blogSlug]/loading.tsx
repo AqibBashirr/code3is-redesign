@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect } from "react";
 
 export default function Loading() {
@@ -13,44 +12,75 @@ export default function Loading() {
   }, []);
 
   return (
-    <section
-      role="status"
-      aria-label="Loading content"
-      aria-busy="true"
-      className="relative min-h-[80vh] flex flex-col items-center justify-center text-center overflow-hidden bg-[#1e1e1e] mx-5 md:mx-6.25 mt-5.5 rounded-[10px] px-4 py-28 md:py-29.75 animate-pulse"
-    >
-      <span className="sr-only invisible">Loading content, please wait.</span>
-      <div
-        aria-hidden="true"
-        className="relative z-10 flex flex-col items-center w-full mx-auto"
-      >
-        {/* Skeleton for Title */}
+    <div>
+      {/* Hero image skeleton */}
+      <div className="pt-4 px-5.5 max-w-max mx-auto">
         <div
-          aria-hidden="true"
-          className="h-15 md:h-20 w-full max-w-150 bg-gray-700/50 rounded-md mb-5 md:mb-6"
-        ></div>
-
-        {/* Skeleton for Subtitle */}
-        <div
-          aria-hidden="true"
-          className="h-5.5 w-full max-w-125 bg-gray-800/50 rounded-md mb-10 md:mb-14.25"
-        ></div>
-
-        {/* Skeleton for Buttons */}
-        <div
-          aria-hidden="true"
-          className="grid gap-4 w-full max-w-55 mx-auto md:max-w-none md:w-fit md:grid-flow-col items-center"
-        >
-          <div
-           
-            className="h-12 w-55 md:w-45 bg-gray-700/50 rounded"
-          ></div>
-          <div
-            
-            className="h-12 w-55 md:w-45 bg-gray-700/50 rounded"
-          ></div>
-        </div>
+          className="
+            w-full
+            h-55
+            sm:h-80
+            md:h-105
+            lg:h-135
+            rounded-[10px]
+            border border-[#3A3B3A]
+            bg-gray-200
+            animate-pulse
+          "
+        />
       </div>
-    </section>
+
+      <div className="mx-auto flex flex-col-reverse md:flex-row max-w-max items-start gap-[clamp(38px,5vw,78px)] px-x py-y relative">
+        {/* Left Sidebar (TOC) skeleton */}
+        <div className="hidden md:flex flex-col gap-4 w-51">
+          <div className="h-4 w-24 rounded bg-gray-200 animate-pulse" />
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div
+              key={i}
+              className="h-3 rounded bg-gray-200 animate-pulse"
+              style={{ width: `${70 - i * 6}%` }}
+            />
+          ))}
+        </div>
+
+        {/* Main Content skeleton */}
+        <article className="flex-1 w-full">
+          {/* Date */}
+          <div className="h-4 w-28 rounded bg-gray-200 animate-pulse" />
+
+          {/* Title */}
+          <div className="mt-3 flex flex-col gap-3">
+            <div className="h-[clamp(28px,3vw,40px)] w-4/5 rounded bg-gray-200 animate-pulse" />
+            <div className="h-[clamp(28px,3vw,40px)] w-2/5 rounded bg-gray-200 animate-pulse" />
+          </div>
+
+          {/* Share buttons */}
+          <div className="relative mt-6 inline-flex">
+            <div
+              className="h-10.5 w-26 animate-pulse rounded-full border border-[#3A3B3A] bg-gray-200"
+              aria-hidden="true"
+            />
+          </div>
+
+          {/* Body content */}
+          <div className="mt-between-content flex flex-col gap-4">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <div
+                key={i}
+                className="h-4 rounded bg-gray-200 animate-pulse"
+                style={{ width: `${95 - (i % 4) * 15}%` }}
+              />
+            ))}
+          </div>
+        </article>
+
+        {/* Right Sidebar skeleton */}
+        <aside className="w-full pointer-events-none md:w-51 sticky top-[76svh] md:top-[70dvh] md:mt-0 -mt-32 flex justify-end">
+          <div className="h-32 w-1.5 rounded-full bg-gray-200 animate-pulse" />
+        </aside>
+      </div>
+
+
+    </div>
   );
 }
