@@ -38,7 +38,7 @@ const getCachedSitemapPageData = unstable_cache(
     return { blogs, caseStudies };
   },
   ["sitemap-page"],
-  { tags: ["sitemap", "sitemap-page"] },
+  { tags: ["sitemap", "sitemap"] },
 );
 
 interface SitemapLink {
