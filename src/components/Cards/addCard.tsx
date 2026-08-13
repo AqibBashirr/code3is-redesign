@@ -29,20 +29,20 @@ export default function PortfolioCard({ card }: cardProps) {
 
       {/* --- TITLE --- */}
       {/* Mobile left-[52px] to safely clear the tighter 40px wrapper */}
-      <h3 className="absolute left-[52px] md:left-[94px] bottom-1 md:bottom-5 text-white text-[clamp(14px,1.8vw,22px)] font-semibold z-20 pointer-events-none font-raleway tracking-wide max-w-[60%] text-nowrap overflow-hidden  text-ellipsis">
+      <h3 className="absolute left-13 md:left-23.5 bottom-1 md:bottom-5 text-white text-[clamp(14px,1.8vw,22px)] font-semibold z-20 pointer-events-none font-raleway tracking-wide max-w-[60%] text-nowrap overflow-hidden  text-ellipsis">
         {card.title}
       </h3>
 
       {/* --- 2. THE CUTOUT GAP WRAPPER --- */}
       {/* Mobile: 40px Wrapper. Desktop: 74px Wrapper. */}
       <div
-        className={`absolute bottom-0 left-0 w-[40px] h-[40px] md:w-[74px] md:h-[74px] ${pageBackgroundColor} rounded-tr-[16px] md:rounded-tr-[24px] z-10`}
+        className={`absolute bottom-0 left-0 w-10 h-10 md:w-18.5 md:h-18.5 ${pageBackgroundColor} rounded-tr-2xl md:rounded-tr-3xl z-10`}
       ></div>
 
       {/* --- 3. SMOOTHING CORNERS --- */}
       {/* Mobile: 16px curve. Desktop: 24px curve. */}
       <svg
-        className={`absolute left-0 bottom-[40px] md:bottom-[74px] w-[16px] h-[16px] md:w-[24px] md:h-[24px] ${textColor} z-10`}
+        className={`absolute left-0 bottom-10 md:bottom-18.5 w-4 h-4 md:w-6 md:h-6 ${textColor} z-10`}
         viewBox="0 0 100 100"
         fill="currentColor"
       >
@@ -50,7 +50,7 @@ export default function PortfolioCard({ card }: cardProps) {
       </svg>
 
       <svg
-        className={`absolute bottom-0 left-[40px] md:left-[74px] w-[16px] h-[16px] md:w-[24px] md:h-[24px] ${textColor} z-10`}
+        className={`absolute bottom-0 left-10 md:left-18.5 w-4 h-4 md:w-6 md:h-6 ${textColor} z-10`}
         viewBox="0 0 100 100"
         fill="currentColor"
       >
@@ -59,7 +59,7 @@ export default function PortfolioCard({ card }: cardProps) {
 
       {/* --- 4. THE BUTTON --- */}
       {/* Mobile: 32px button (8px radius). Desktop: 64px button (14px radius). */}
-      <div className="absolute bottom-0 left-0 w-[32px] h-[32px] md:w-[64px] md:h-[64px] bg-overlay-card rounded-[8px] md:rounded-[14px] flex items-center justify-center shadow-md z-20 group-hover:bg-[#404144] transition-all duration-300 cursor-pointer">
+      <div className="absolute bottom-0 left-0 w-8] h-8 md:w-16 md:h-16 bg-overlay-card rounded-lg md:rounded-[14px] flex items-center justify-center shadow-md z-20 group-hover:bg-[#404144] transition-all duration-300 cursor-pointer">
         <svg
           aria-hidden="true"
           className="w-4 h-4 md:w-8 md:h-8 text-[#bfff00] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300 ease-out"
