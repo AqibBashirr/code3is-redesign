@@ -7,7 +7,7 @@ export default function RelatedBlogsSkeleton() {
           className="overflow-hidden rounded-[14px] border border-[#2A2A2A]"
         >
           {/* Image */}
-          <div className="aspect-[16/10] animate-pulse bg-[#2A2A2A]" />
+          <div className="aspect-16/10 animate-pulse bg-[#2A2A2A]" />
 
           <div className="space-y-4 p-5">
             {/* Category */}

@@ -76,7 +76,7 @@ function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
               // We move the passed className BEFORE the active state
               className,
               // We add '!' to force the color to override any conflicting mobile classes
-              isActive ? "!text-highlight-color font-medium" : "",
+              isActive ? "text-highlight-color font-medium" : "",
             )}
           >
             {item.label}
@@ -101,7 +101,7 @@ function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
               "inline-flex items-center gap-1 w-fit transition-colors duration-300 hover:text-highlight-color",
               className,
               isAnyOverflowActive || isMoreOpen
-                ? "!text-highlight-color font-medium"
+                ? "text-highlight-color font-medium"
                 : "",
             )}
           >
@@ -144,7 +144,7 @@ function HeaderNavLinks({ className = "", onClick }: HeaderNavLinksProps) {
                         className={cn(
                           "block px-5 py-2.5 text-sm transition-colors duration-300 hover:bg-highlight-text-color/80 hover:text-off-white-color-color",
                           isActive
-                            ? "font-medium bg-highlight-text-color/50 !text-white"
+                            ? "font-medium bg-highlight-text-color/50 text-white!"
                             : "text-white",
                         )}
                       >

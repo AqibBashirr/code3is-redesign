@@ -41,7 +41,7 @@ function BlogCard({ project, index }: BlogCardProps) {
         <div className="flex flex-1 flex-col gap-space-content">
           <time
             dateTime={project.createdAt}
-            className="uppercase text-[clamp(12px,1.5vw,16px)] leading-[calc(clamp(12px,1.5vw,16px)+12px)] tracking-[0.1em]"
+            className="uppercase text-[clamp(12px,1.5vw,16px)] leading-[calc(clamp(12px,1.5vw,16px)+12px)] tracking-widest"
           >
             {formattedDate}
           </time>

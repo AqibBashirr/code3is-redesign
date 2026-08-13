@@ -38,7 +38,7 @@ function Footer() {
             {/* Quick Links */}
             {/* SEMANTIC FIX: Changed <div> to <nav> and added aria-label */}
             <nav aria-label="Quick Links" className="order-3 md:order-2">
-              <h2 className="underline mb-2.5 text-[clamp(14px,2vw,18px)] leading-[calc(clamp(14px,2vw,18px)*2)] font-semibold">
+              <h2 className="border-b mb-[calc(clamp(14px,2vw,18px)*2)] w-fit  text-[clamp(14px,2vw,18px)] leading-none font-semibold">
                 Quick Links
               </h2>
               <ul className="">

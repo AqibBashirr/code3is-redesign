@@ -1,4 +1,3 @@
-import { CaseStudy } from "@/types/payload-types";
 import BodyText from "./BodyText";
 import HeadingPill from "./headingPill";
 import HeadingText from "./headingText";
