@@ -11,20 +11,24 @@ export default function CldImageWrapper({
   crop,
   gravity,
   quality,
+  fill,
   ...rest
 }: CldImageProps) {
-  // Bake format + dpr into the URL itself so they never become
-  // live props on CldImage (which forwards unrecognized props to <img>)
-  const resolvedSrc = getCldImageUrl({
-    src: src as string,
-    width: width as number | undefined,
-    height: height as number | undefined,
-    crop,
-    gravity,
-    quality,
-    format,
-    dpr,
-  });
+  // In fill mode, width/height are intentionally undefined —
+  // only build a transformed URL when we actually have dimensions.
+  const resolvedSrc =
+    !fill && width && height
+      ? getCldImageUrl({
+          src: src as string,
+          width: width as number,
+          height: height as number,
+          crop,
+          gravity,
+          quality,
+          format,
+          dpr,
+        })
+      : src;
 
   return (
     <CldImage
@@ -34,6 +38,7 @@ export default function CldImageWrapper({
       crop={crop}
       gravity={gravity}
       quality={quality}
+      fill={fill}
       {...rest}
     />
   );
