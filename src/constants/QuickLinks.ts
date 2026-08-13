@@ -6,4 +6,8 @@ export const QUICK_LINKS = [
     href: "/",
   },
   ...MAIN_NAV,
+  {
+    label: "Site Map",
+    href: "sitemap",
+  },
 ];

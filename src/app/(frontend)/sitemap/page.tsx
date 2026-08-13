@@ -8,11 +8,11 @@ import { unstable_cache } from "next/cache";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Sitemap | Code3IS",
+  title: "Sitemap",
   description:
     "Browse every page on Code3IS — services, case studies, blog articles, and company information.",
   alternates: {
-    canonical: `${SITE_URL}/sitemap-page`,
+    canonical: `${SITE_URL}/sitemap`,
   },
 };
 
