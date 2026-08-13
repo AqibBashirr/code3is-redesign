@@ -81,7 +81,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // HTML sitemap
     {
-      url: `${SITE_URL}/sitemap.xml`,
+      url: `${SITE_URL}/sitemap`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.5,
