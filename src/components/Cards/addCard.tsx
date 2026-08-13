@@ -59,7 +59,7 @@ export default function PortfolioCard({ card }: cardProps) {
 
       {/* --- 4. THE BUTTON --- */}
       {/* Mobile: 32px button (8px radius). Desktop: 64px button (14px radius). */}
-      <div className="absolute bottom-0 left-0 w-8] h-8 md:w-16 md:h-16 bg-overlay-card rounded-lg md:rounded-[14px] flex items-center justify-center shadow-md z-20 group-hover:bg-[#404144] transition-all duration-300 cursor-pointer">
+      <div className="absolute bottom-0 left-0 w-8 h-8 md:w-16 md:h-16 bg-overlay-card rounded-lg md:rounded-[14px] flex items-center justify-center shadow-md z-20 group-hover:bg-[#404144] transition-all duration-300 cursor-pointer">
         <svg
           aria-hidden="true"
           className="w-4 h-4 md:w-8 md:h-8 text-[#bfff00] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300 ease-out"
