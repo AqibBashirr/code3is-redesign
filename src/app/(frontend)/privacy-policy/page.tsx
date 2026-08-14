@@ -402,7 +402,7 @@ export default function PrivacyPolicyPage() {
                 <strong>Company:</strong> Code3 Innovative Solutions Pvt. Ltd
               </li>
               <li>
-                <strong>Email:</strong> contactc3@c3is.in
+                <strong>Email:</strong> contact@c3is.in
               </li>
               <li>
                 <strong>Phone:</strong> +91 9419225147

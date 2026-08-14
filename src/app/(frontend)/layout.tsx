@@ -127,7 +127,7 @@ const organizationSchema = {
   url: "https://www.code3is.com/",
   logo: "https://www.code3is.com/logos/company-logos/code3is-logo.svg",
   telephone: "+91-9419225147",
-  email: "contactc3@c3is.in",
+  email: "contact@c3is.in",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Batamaloo",
