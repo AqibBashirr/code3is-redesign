@@ -77,6 +77,7 @@ export interface Config {
     stacks: Stack;
     projects: Project;
     'work-sections': WorkSection;
+    'selected-works': SelectedWork;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -94,6 +95,7 @@ export interface Config {
     stacks: StacksSelect<false> | StacksSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
     'work-sections': WorkSectionsSelect<false> | WorkSectionsSelect<true>;
+    'selected-works': SelectedWorksSelect<false> | SelectedWorksSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -500,6 +502,34 @@ export interface WorkSection {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "selected-works".
+ */
+export interface SelectedWork {
+  id: string;
+  title: string;
+  description: string;
+  /**
+   * Example: Web Development, Branding, UI/UX Design
+   */
+  service: string;
+  image: string | Media;
+  /**
+   * Show this project in the Selected Work section.
+   */
+  featured?: boolean | null;
+  /**
+   * Link to the project or case study.
+   */
+  url?: string | null;
+  /**
+   * Lower numbers appear first.
+   */
+  sortOrder?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -561,6 +591,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'work-sections';
         value: string | WorkSection;
+      } | null)
+    | ({
+        relationTo: 'selected-works';
+        value: string | SelectedWork;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -826,6 +860,21 @@ export interface WorkSectionsSelect<T extends boolean = true> {
         id?: T;
       };
   projects?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "selected-works_select".
+ */
+export interface SelectedWorksSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  service?: T;
+  image?: T;
+  featured?: T;
+  url?: T;
+  sortOrder?: T;
   updatedAt?: T;
   createdAt?: T;
 }

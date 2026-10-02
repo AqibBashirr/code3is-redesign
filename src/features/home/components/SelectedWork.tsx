@@ -6,8 +6,11 @@ import HeadingText from "@/components/typography/headingText";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import Image from "next/image";
+import { getSelectedWorks } from "@/lib/helpers/getSeletedWork";
+import AdvancedImage from "@/components/AdvancedImage";
 
-function SelectedWork() {
+async function SelectedWork() {
+  const selectedWorks = await getSelectedWorks();
   return (
     <section className="py-y max-w-max mx-auto px-x">
       <Reveal
@@ -33,9 +36,9 @@ function SelectedWork() {
         role="list"
         aria-label="Selected Services"
       >
-        {SELECTED_SERVICES.map((services, i) => (
+        {selectedWorks.map((work, i) => (
           <Reveal
-            key={services.title}
+            key={work.title}
             scale={0.9}
             delay={i * 0.4}
             threshold={0.2}
@@ -51,32 +54,32 @@ function SelectedWork() {
 
               {/* THE BADGE */}
               <span className="z-20 bg-secondary-background px-5.5 py-2 text-center absolute right-0 top-0 text-highlight-text-color uppercase font-raleway text-xs sm:text-sm tracking-widest">
-                {services.service}
+                {work.service}
               </span>
 
               {/* THE MAIN CONTENT LINK */}
               <Link
-                href={`/case-studies/${services.title.toLowerCase().replaceAll(" ", "-")}`}
+                href={`/case-studies/${work.title.toLowerCase().replaceAll(" ", "-")}`}
                 className="relative z-10 flex flex-col h-full p-[clamp(7px,2vw,11px)] pb-[clamp(18px,2vw,31px)]"
               >
-                <Image
-                  src={services.image.src}
-                  alt={services.image.alt}
+                <AdvancedImage
+                  src={work.image}
+                  alt={work.title}
                   width={524}
                   height={389}
                   quality={100}
                   aria-hidden="true"
                   className="w-auto rounded-md mb-4 h-[clamp(242px,27vw,389px)] object-cover bg-[#E3E3E3]"
-                ></Image>
+                ></AdvancedImage>
 
                 <div className="flex flex-1 justify-between items-end gap-[clamp(10px,2vw,40px)] px-2 sm:px-3.5">
                   <div>
                     <h3 className="transition-colors text-h3-font font-semibold duration-300 text-offBlack-color group-hover:text-white font-raleway">
-                      {services.title}
+                      {work.title}
                     </h3>
 
                     <BodyText className="mt-between-content group-hover:text-white transition-colors duration-300">
-                      {services.description}
+                      {work.description}
                     </BodyText>
                   </div>
 
@@ -91,8 +94,12 @@ function SelectedWork() {
         ))}
       </div>
       <div className="text-center">
-        <ButtonLink href="#contact" variant="dark" className="mt-13.75">
-          Start a Project
+        <ButtonLink
+          href="/our-work#websites"
+          variant="dark"
+          className="mt-13.75"
+        >
+          View All Projects
         </ButtonLink>
       </div>
     </section>

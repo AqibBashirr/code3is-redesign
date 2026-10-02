@@ -17,6 +17,7 @@ import { BlogCategories } from "@/collections/BlogCategories";
 import { Projects } from "@/collections/projects";
 import { WorkSections } from "@/collections/work-sections";
 import { Stacks } from "@/collections/stacks";
+import { SelectedWorks } from "@/collections/SelectedWorks";
 
 // Create safe ES Module paths
 const filename = fileURLToPath(import.meta.url);
@@ -44,6 +45,7 @@ export default buildConfig({
     Stacks,
     Projects,
     WorkSections,
+    SelectedWorks,
   ],
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || "",
