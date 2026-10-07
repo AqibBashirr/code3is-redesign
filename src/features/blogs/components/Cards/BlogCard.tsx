@@ -23,7 +23,7 @@ function BlogCard({ project, index }: BlogCardProps) {
   const formattedDate = formatDate(project.createdAt);
 
   return (
-    <Reveal delay={index * 0.25}>
+    <Reveal delay={index * 0.12}>
       <article
         aria-labelledby={titleId}
         className="group flex h-full cursor-pointer flex-col gap-space-content rounded-[10px] bg-white p-[clamp(18px,1.6vw,30px)] shadow-[0px_4px_20px_4px_#00000021] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform hover:-translate-y-2 hover:shadow-[0px_14px_36px_6px_#00000030] active:scale-[0.985] active:translate-y-0 active:shadow-[0px_4px_14px_2px_#00000025] active:duration-150 relative"
