@@ -2,6 +2,8 @@ import { unstable_cache } from "next/cache";
 import { getPayload } from "payload";
 import configPromise from "@payload-config";
 
+
+// this is for the selected works section on the home page, which only shows 4 featured works.
 export async function getSelectedWorks() {
   const fetchCached = unstable_cache(
     async () => {
