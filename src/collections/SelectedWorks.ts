@@ -1,3 +1,4 @@
+import { revalidateTag } from "next/cache";
 import type { CollectionConfig } from "payload";
 
 export const SelectedWorks: CollectionConfig = {
@@ -6,6 +7,20 @@ export const SelectedWorks: CollectionConfig = {
   admin: {
     useAsTitle: "title",
     defaultColumns: ["title", "service", "featured", "sortOrder", "updatedAt"],
+  },
+
+  hooks: {
+    afterChange: [
+      async () => {
+        revalidateTag("selected-works", "max");
+      },
+    ],
+
+    afterDelete: [
+      async () => {
+        revalidateTag("selected-works", "max");
+      },
+    ],
   },
 
   fields: [

@@ -8,7 +8,7 @@ export default function CaseStudyNotFound() {
         className="mb-between-content"
         title={
           <>
-            <HighlightTextHero HighlightText="Project Not Found" />
+            <HighlightTextHero HighlightText="Case Study Not Found" />
           </>
         }
         subtitle=" We couldn't find the case study you were looking for. It may have

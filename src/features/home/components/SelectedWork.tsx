@@ -1,12 +1,10 @@
 import BodyText from "@/components/typography/BodyText";
 import ButtonLink from "@/components/Buttons/ButtonLink";
 import { Arrow2 } from "@/components/icons";
-import { SELECTED_SERVICES } from "@/constants/selectedWork";
 import HeadingText from "@/components/typography/headingText";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
-import Image from "next/image";
-import { getSelectedWorks } from "@/lib/helpers/getSeletedWork";
+import { getSelectedWorks } from "@/lib/cache/getSeletedWork";
 import AdvancedImage from "@/components/AdvancedImage";
 
 async function SelectedWork() {
@@ -40,7 +38,7 @@ async function SelectedWork() {
           <Reveal
             key={work.title}
             scale={0.9}
-            delay={i * 0.4}
+            delay={(i % 2) * 0.2}
             threshold={0.2}
             className="w-full"
             role="listitem" /* Tells the screen reader this is a list item */
@@ -59,7 +57,10 @@ async function SelectedWork() {
 
               {/* THE MAIN CONTENT LINK */}
               <Link
-                href={`/case-studies/${work.title.toLowerCase().replaceAll(" ", "-")}`}
+                href={
+                  work.url ??
+                  `/case-studies/${work.title.toLowerCase().replaceAll(" ", "-")}`
+                }
                 className="relative z-10 flex flex-col h-full p-[clamp(7px,2vw,11px)] pb-[clamp(18px,2vw,31px)]"
               >
                 <AdvancedImage
@@ -95,7 +96,7 @@ async function SelectedWork() {
       </div>
       <div className="text-center">
         <ButtonLink
-          href="/our-work#websites"
+          href="/our-work#website"
           variant="dark"
           className="mt-13.75"
         >
