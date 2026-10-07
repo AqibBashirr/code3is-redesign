@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "generate:icons": "svgr --out-dir src/components/icons --typescript src/assets/svg"
+    "generate:icons": "svgr --out-dir src/components/icons --typescript src/assets/svg",
+    "generate:types": "npx payload generate:types"
   },
   "dependencies": {
     "@payloadcms/db-mongodb": "^3.86.0",

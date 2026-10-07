@@ -62,6 +62,7 @@ export const SelectedWorks: CollectionConfig = {
     },
     {
       name: "url",
+      required: true,
       type: "text",
       admin: {
         description: "Link to the project or case study.",

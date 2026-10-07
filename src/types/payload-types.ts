@@ -520,7 +520,7 @@ export interface SelectedWork {
   /**
    * Link to the project or case study.
    */
-  url?: string | null;
+  url: string;
   /**
    * Lower numbers appear first.
    */
